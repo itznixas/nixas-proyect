@@ -2,9 +2,9 @@ package Interfaces;
 
 import javax.swing.JOptionPane;
 
-public class Menu extends javax.swing.JFrame {
+public class Mesas extends javax.swing.JFrame {
 
-    public Menu() {
+    public Mesas() {
         initComponents();
     }
 
@@ -51,7 +51,6 @@ public class Menu extends javax.swing.JFrame {
         Inventario_Titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         Menu_PanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -64,18 +63,23 @@ public class Menu extends javax.swing.JFrame {
         Menu_Foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Menu_Inicio.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Inicio.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Inicio.setText("Mesa");
 
         Menu_Clientes.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Clientes.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Clientes.setText("Clientes");
 
         Menu_Proveedor.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Proveedor.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Proveedor.setText("Pedidos");
 
         Menu_Facturas.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Facturas.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Facturas.setText("Crear Factura");
 
         Menu_Salir.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Salir.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/salirIcon.png"))); // NOI18N
         Menu_Salir.setText("Salir");
         Menu_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,6 +89,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         Menu_Roles.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Menu_Roles.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Roles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Menu_Roles.setText("ROLES");
 
@@ -94,35 +99,23 @@ public class Menu extends javax.swing.JFrame {
             Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Menu_Roles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Menu_Separador2))
-                    .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Menu_Facturas, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
-                    .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Menu_Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Menu_Proveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Menu_Inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Menu_Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Menu_Separador3)))
+                    .addComponent(Menu_Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Separador2)
+                    .addComponent(Menu_Facturas, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                    .addComponent(Menu_Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Proveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Separador3))
                 .addContainerGap())
-            .addComponent(Menu_Foto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Menu_PanelMenuLayout.setVerticalGroup(
             Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                .addComponent(Menu_Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(Menu_Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(Menu_Roles)
                 .addGap(27, 27, 27)
@@ -341,7 +334,7 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(Menu_PanelPresentacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         Menu_PanelPresentacionLayout.setVerticalGroup(
             Menu_PanelPresentacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -384,12 +377,12 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(Menu_ConPanelesLayout.createSequentialGroup()
                 .addGroup(Menu_ConPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Menu_ConPanelesLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(Menu_PanelPresentacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Menu_ConPanelesLayout.createSequentialGroup()
                         .addGap(127, 127, 127)
-                        .addComponent(Inventario_Titulo)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addComponent(Inventario_Titulo))
+                    .addGroup(Menu_ConPanelesLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(Menu_PanelPresentacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         Menu_ConPanelesLayout.setVerticalGroup(
             Menu_ConPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -421,7 +414,7 @@ public class Menu extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Mesas().setVisible(true);
             }
         });
     }

@@ -27,18 +27,6 @@ public class Clientes extends javax.swing.JFrame {
     private void initComponents() {
 
         Clientes_PanelFondo = new javax.swing.JPanel();
-        Clientes_PanelMenu = new javax.swing.JPanel();
-        Clientes_Foto = new javax.swing.JLabel();
-        Clientes_Inicio = new javax.swing.JLabel();
-        Clientes_Clientes = new javax.swing.JLabel();
-        Clientes_Proveedor = new javax.swing.JLabel();
-        Clientes_Inventario = new javax.swing.JLabel();
-        Clientes_Separador = new javax.swing.JSeparator();
-        Clientes_Factura = new javax.swing.JLabel();
-        Clientes_Separador2 = new javax.swing.JSeparator();
-        Clientes_Ayuda = new javax.swing.JLabel();
-        Clientes_Salir = new javax.swing.JLabel();
-        Clientes_NombreRoles = new javax.swing.JLabel();
         Clientes_PanelRegistro = new javax.swing.JPanel();
         Clientes_PanelTabla = new javax.swing.JPanel();
         Clientes_PanelCampos = new javax.swing.JPanel();
@@ -50,137 +38,26 @@ public class Clientes extends javax.swing.JFrame {
         Clientes_TituloNombre = new javax.swing.JLabel();
         Clientes_TituloTelefono = new javax.swing.JLabel();
         Clientes_TituloEmail = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         Clientes_ScrollTabla = new javax.swing.JScrollPane();
         Clientes_Tabla = new javax.swing.JTable();
-        Clientes_BotonActualizar = new javax.swing.JButton();
-        Clientes_BotonEliminar = new javax.swing.JButton();
-        Clientes_BotonGuadar = new javax.swing.JButton();
         Clientes_Titulo = new javax.swing.JLabel();
         Clientes_Buscador = new javax.swing.JTextField();
         Clientes_IconoBuscador = new javax.swing.JLabel();
+        Menu_PanelMenu = new javax.swing.JPanel();
+        Menu_Foto = new javax.swing.JLabel();
+        Menu_Inicio = new javax.swing.JLabel();
+        Menu_Clientes = new javax.swing.JLabel();
+        Menu_Proveedor = new javax.swing.JLabel();
+        Menu_Facturas = new javax.swing.JLabel();
+        Menu_Separador2 = new javax.swing.JSeparator();
+        Menu_Salir = new javax.swing.JLabel();
+        Menu_Roles = new javax.swing.JLabel();
+        Menu_Separador3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         Clientes_PanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Clientes_PanelMenu.setBackground(new java.awt.Color(255, 255, 255));
-        Clientes_PanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        Clientes_Foto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Clientes_Foto.setText("Foto");
-        Clientes_Foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        Clientes_Inicio.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_Inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/InicioIcon.png"))); // NOI18N
-        Clientes_Inicio.setText("Inicio");
-
-        Clientes_Clientes.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/ClientesIcon.png"))); // NOI18N
-        Clientes_Clientes.setText("Clientes");
-
-        Clientes_Proveedor.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_Proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/proveedorIcon.png"))); // NOI18N
-        Clientes_Proveedor.setText("Proveedor");
-
-        Clientes_Inventario.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/inventarioIcon.png"))); // NOI18N
-        Clientes_Inventario.setText("Inventario");
-
-        Clientes_Separador.setForeground(new java.awt.Color(0, 0, 0));
-
-        Clientes_Factura.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/facturaIcon.png"))); // NOI18N
-        Clientes_Factura.setText("Crear Factura");
-
-        Clientes_Separador2.setForeground(new java.awt.Color(0, 0, 0));
-
-        Clientes_Ayuda.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_Ayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/ayudaIcon.png"))); // NOI18N
-        Clientes_Ayuda.setText("Ayuda");
-
-        Clientes_Salir.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/regresarIcon.png"))); // NOI18N
-        Clientes_Salir.setText("Salir");
-        Clientes_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Clientes_SalirMouseClicked(evt);
-            }
-        });
-
-        Clientes_NombreRoles.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_NombreRoles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Clientes_NombreRoles.setText("ROLES");
-
-        javax.swing.GroupLayout Clientes_PanelMenuLayout = new javax.swing.GroupLayout(Clientes_PanelMenu);
-        Clientes_PanelMenu.setLayout(Clientes_PanelMenuLayout);
-        Clientes_PanelMenuLayout.setHorizontalGroup(
-            Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Clientes_PanelMenuLayout.createSequentialGroup()
-                .addGroup(Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Clientes_PanelMenuLayout.createSequentialGroup()
-                        .addGroup(Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Clientes_PanelMenuLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(Clientes_Factura))
-                            .addGroup(Clientes_PanelMenuLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Clientes_Ayuda)
-                                    .addComponent(Clientes_Salir))))
-                        .addGap(0, 82, Short.MAX_VALUE))
-                    .addGroup(Clientes_PanelMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Clientes_Separador2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Clientes_Separador, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(Clientes_PanelMenuLayout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addGroup(Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(Clientes_Inventario)
-                                    .addGroup(Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Clientes_Clientes)
-                                        .addComponent(Clientes_Inicio)
-                                        .addComponent(Clientes_Proveedor)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(Clientes_PanelMenuLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Clientes_Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Clientes_NombreRoles, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Clientes_PanelMenuLayout.setVerticalGroup(
-            Clientes_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Clientes_PanelMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Clientes_Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Clientes_NombreRoles)
-                .addGap(20, 20, 20)
-                .addComponent(Clientes_Inicio)
-                .addGap(44, 44, 44)
-                .addComponent(Clientes_Clientes)
-                .addGap(39, 39, 39)
-                .addComponent(Clientes_Proveedor)
-                .addGap(46, 46, 46)
-                .addComponent(Clientes_Inventario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Clientes_Separador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(Clientes_Factura)
-                .addGap(29, 29, 29)
-                .addComponent(Clientes_Separador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(Clientes_Ayuda)
-                .addGap(18, 18, 18)
-                .addComponent(Clientes_Salir)
-                .addGap(19, 19, 19))
-        );
-
-        Clientes_PanelFondo.add(Clientes_PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 500));
 
         Clientes_PanelRegistro.setBackground(new java.awt.Color(255, 255, 255));
         Clientes_PanelRegistro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -193,6 +70,14 @@ public class Clientes extends javax.swing.JFrame {
         Clientes_PanelCampos.setBackground(new java.awt.Color(255, 255, 255));
         Clientes_PanelCampos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        Clientes_DocumentoCampo.setBackground(new java.awt.Color(255, 255, 255));
+
+        Clientes_NombreCampo.setBackground(new java.awt.Color(255, 255, 255));
+
+        Clientes_TelefonoCampo.setBackground(new java.awt.Color(255, 255, 255));
+
+        Clientes_EmailCampo.setBackground(new java.awt.Color(255, 255, 255));
+
         Clientes_TituloDocumento.setText("Documento");
 
         Clientes_TituloNombre.setText("Nombre");
@@ -201,52 +86,62 @@ public class Clientes extends javax.swing.JFrame {
 
         Clientes_TituloEmail.setText("E-mail");
 
+        jButton2.setText("Registrar");
+
         javax.swing.GroupLayout Clientes_PanelCamposLayout = new javax.swing.GroupLayout(Clientes_PanelCampos);
         Clientes_PanelCampos.setLayout(Clientes_PanelCamposLayout);
         Clientes_PanelCamposLayout.setHorizontalGroup(
             Clientes_PanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Clientes_PanelCamposLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Clientes_TituloNombre)
-                .addGap(77, 77, 77))
             .addGroup(Clientes_PanelCamposLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Clientes_PanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Clientes_TituloDocumento)
-                    .addComponent(Clientes_TituloTelefono)
-                    .addComponent(Clientes_TituloEmail)
-                    .addComponent(Clientes_DocumentoCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(Clientes_NombreCampo)
-                    .addComponent(Clientes_TelefonoCampo)
-                    .addComponent(Clientes_EmailCampo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(Clientes_PanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Clientes_PanelCamposLayout.createSequentialGroup()
+                        .addComponent(Clientes_TituloNombre)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(Clientes_PanelCamposLayout.createSequentialGroup()
+                        .addGroup(Clientes_PanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Clientes_TelefonoCampo)
+                            .addComponent(Clientes_NombreCampo)
+                            .addComponent(Clientes_DocumentoCampo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Clientes_EmailCampo)
+                            .addGroup(Clientes_PanelCamposLayout.createSequentialGroup()
+                                .addGroup(Clientes_PanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Clientes_TituloDocumento)
+                                    .addComponent(Clientes_TituloTelefono)
+                                    .addComponent(Clientes_TituloEmail))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         Clientes_PanelCamposLayout.setVerticalGroup(
             Clientes_PanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Clientes_PanelCamposLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(121, 121, 121)
                 .addComponent(Clientes_TituloDocumento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Clientes_DocumentoCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(81, 81, 81)
                 .addComponent(Clientes_TituloNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Clientes_NombreCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(95, 95, 95)
                 .addComponent(Clientes_TituloTelefono)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Clientes_TelefonoCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(Clientes_TituloEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Clientes_EmailCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133))
+                .addGap(121, 121, 121)
+                .addComponent(jButton2)
+                .addGap(40, 40, 40))
         );
 
-        Clientes_PanelTabla.add(Clientes_PanelCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 380));
+        Clientes_PanelTabla.add(Clientes_PanelCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 770));
 
         Clientes_ScrollTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        Clientes_Tabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Clientes_Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -260,19 +155,7 @@ public class Clientes extends javax.swing.JFrame {
         ));
         Clientes_ScrollTabla.setViewportView(Clientes_Tabla);
 
-        Clientes_PanelTabla.add(Clientes_ScrollTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 540, 380));
-
-        Clientes_BotonActualizar.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_BotonActualizar.setText("Actualizar");
-        Clientes_PanelTabla.add(Clientes_BotonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 130, -1));
-
-        Clientes_BotonEliminar.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_BotonEliminar.setText("Eliminar");
-        Clientes_PanelTabla.add(Clientes_BotonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 130, -1));
-
-        Clientes_BotonGuadar.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Clientes_BotonGuadar.setText("Guardar");
-        Clientes_PanelTabla.add(Clientes_BotonGuadar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 107, -1));
+        Clientes_PanelTabla.add(Clientes_ScrollTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 1150, 770));
 
         Clientes_Titulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         Clientes_Titulo.setText("Registro Clientes");
@@ -290,11 +173,11 @@ public class Clientes extends javax.swing.JFrame {
                 .addGroup(Clientes_PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Clientes_PanelRegistroLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Clientes_PanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Clientes_PanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 1346, Short.MAX_VALUE))
                     .addGroup(Clientes_PanelRegistroLayout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(Clientes_Titulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 909, Short.MAX_VALUE)
                         .addComponent(Clientes_IconoBuscador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Clientes_Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -310,11 +193,94 @@ public class Clientes extends javax.swing.JFrame {
                         .addComponent(Clientes_Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Clientes_IconoBuscador)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Clientes_PanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                .addComponent(Clientes_PanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        Clientes_PanelFondo.add(Clientes_PanelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 690, 500));
+        Clientes_PanelFondo.add(Clientes_PanelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1360, 850));
+
+        Menu_PanelMenu.setBackground(new java.awt.Color(255, 255, 255));
+        Menu_PanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Menu_Foto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Menu_Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Menu_Foto.setText("Foto");
+        Menu_Foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Menu_Inicio.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Inicio.setForeground(new java.awt.Color(0, 0, 0));
+        Menu_Inicio.setText("Mesa");
+
+        Menu_Clientes.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Clientes.setForeground(new java.awt.Color(0, 0, 0));
+        Menu_Clientes.setText("Clientes");
+
+        Menu_Proveedor.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Proveedor.setForeground(new java.awt.Color(0, 0, 0));
+        Menu_Proveedor.setText("Pedidos");
+
+        Menu_Facturas.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Facturas.setForeground(new java.awt.Color(0, 0, 0));
+        Menu_Facturas.setText("Crear Factura");
+
+        Menu_Salir.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Salir.setForeground(new java.awt.Color(0, 0, 0));
+        Menu_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/salirIcon.png"))); // NOI18N
+        Menu_Salir.setText("Salir");
+        Menu_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Menu_SalirMouseClicked(evt);
+            }
+        });
+
+        Menu_Roles.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Menu_Roles.setForeground(new java.awt.Color(0, 0, 0));
+        Menu_Roles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Menu_Roles.setText("ROLES");
+
+        javax.swing.GroupLayout Menu_PanelMenuLayout = new javax.swing.GroupLayout(Menu_PanelMenu);
+        Menu_PanelMenu.setLayout(Menu_PanelMenuLayout);
+        Menu_PanelMenuLayout.setHorizontalGroup(
+            Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Menu_Roles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_PanelMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Menu_Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Separador2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Menu_Facturas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                    .addComponent(Menu_Clientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Proveedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Inicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Salir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Menu_Separador3, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap())
+        );
+        Menu_PanelMenuLayout.setVerticalGroup(
+            Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Menu_Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(Menu_Roles)
+                .addGap(27, 27, 27)
+                .addComponent(Menu_Separador3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(Menu_Inicio)
+                .addGap(91, 91, 91)
+                .addComponent(Menu_Proveedor)
+                .addGap(96, 96, 96)
+                .addComponent(Menu_Clientes)
+                .addGap(97, 97, 97)
+                .addComponent(Menu_Facturas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addComponent(Menu_Separador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(Menu_Salir)
+                .addGap(24, 24, 24))
+        );
+
+        Clientes_PanelFondo.add(Menu_PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 850));
 
         getContentPane().add(Clientes_PanelFondo, java.awt.BorderLayout.CENTER);
 
@@ -322,10 +288,10 @@ public class Clientes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Clientes_SalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Clientes_SalirMouseClicked
+    private void Menu_SalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_SalirMouseClicked
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_Clientes_SalirMouseClicked
+    }//GEN-LAST:event_Menu_SalirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -340,31 +306,16 @@ public class Clientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Clientes_Ayuda;
-    private javax.swing.JButton Clientes_BotonActualizar;
-    private javax.swing.JButton Clientes_BotonEliminar;
-    private javax.swing.JButton Clientes_BotonGuadar;
     private javax.swing.JTextField Clientes_Buscador;
-    private javax.swing.JLabel Clientes_Clientes;
     private javax.swing.JTextField Clientes_DocumentoCampo;
     private javax.swing.JTextField Clientes_EmailCampo;
-    private javax.swing.JLabel Clientes_Factura;
-    private javax.swing.JLabel Clientes_Foto;
     private javax.swing.JLabel Clientes_IconoBuscador;
-    private javax.swing.JLabel Clientes_Inicio;
-    private javax.swing.JLabel Clientes_Inventario;
     private javax.swing.JTextField Clientes_NombreCampo;
-    private javax.swing.JLabel Clientes_NombreRoles;
     private javax.swing.JPanel Clientes_PanelCampos;
     private javax.swing.JPanel Clientes_PanelFondo;
-    private javax.swing.JPanel Clientes_PanelMenu;
     private javax.swing.JPanel Clientes_PanelRegistro;
     private javax.swing.JPanel Clientes_PanelTabla;
-    private javax.swing.JLabel Clientes_Proveedor;
-    private javax.swing.JLabel Clientes_Salir;
     private javax.swing.JScrollPane Clientes_ScrollTabla;
-    private javax.swing.JSeparator Clientes_Separador;
-    private javax.swing.JSeparator Clientes_Separador2;
     private javax.swing.JTable Clientes_Tabla;
     private javax.swing.JTextField Clientes_TelefonoCampo;
     private javax.swing.JLabel Clientes_Titulo;
@@ -372,5 +323,16 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JLabel Clientes_TituloEmail;
     private javax.swing.JLabel Clientes_TituloNombre;
     private javax.swing.JLabel Clientes_TituloTelefono;
+    private javax.swing.JLabel Menu_Clientes;
+    private javax.swing.JLabel Menu_Facturas;
+    private javax.swing.JLabel Menu_Foto;
+    private javax.swing.JLabel Menu_Inicio;
+    private javax.swing.JPanel Menu_PanelMenu;
+    private javax.swing.JLabel Menu_Proveedor;
+    private javax.swing.JLabel Menu_Roles;
+    private javax.swing.JLabel Menu_Salir;
+    private javax.swing.JSeparator Menu_Separador2;
+    private javax.swing.JSeparator Menu_Separador3;
+    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }
