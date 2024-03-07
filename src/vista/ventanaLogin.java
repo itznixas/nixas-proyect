@@ -43,6 +43,7 @@ public class ventanaLogin extends javax.swing.JFrame {
         PanelContenedorLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PanelContenedorLogin.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
+        CampoUsuario.setBackground(new java.awt.Color(255, 255, 255));
         CampoUsuario.setBorder(null);
         CampoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,6 +51,7 @@ public class ventanaLogin extends javax.swing.JFrame {
             }
         });
 
+        CampoContraseña.setBackground(new java.awt.Color(255, 255, 255));
         CampoContraseña.setBorder(null);
 
         TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
@@ -80,6 +82,7 @@ public class ventanaLogin extends javax.swing.JFrame {
             }
         });
 
+        OlvidasteContraseña.setForeground(new java.awt.Color(0, 0, 0));
         OlvidasteContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OlvidasteContraseña.setText("¿ Olvidaste tu contraseña ?");
 
@@ -114,8 +117,8 @@ public class ventanaLogin extends javax.swing.JFrame {
         PanelContenedorLoginLayout.setVerticalGroup(
             PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                .addComponent(TituloInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addComponent(TituloInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
                 .addComponent(TituloCampoUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,10 +140,10 @@ public class ventanaLogin extends javax.swing.JFrame {
                 .addComponent(OlvidasteContraseña)
                 .addGap(29, 29, 29)
                 .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        getContentPane().add(PanelContenedorLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 410, 530));
+        getContentPane().add(PanelContenedorLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 410, 540));
 
         ImgFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ImgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/fondo_4.jpg"))); // NOI18N

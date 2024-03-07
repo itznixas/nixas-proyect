@@ -54,7 +54,7 @@ public class Mesas extends javax.swing.JFrame {
 
         Menu_PanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Menu_PanelMenu.setBackground(new java.awt.Color(255, 255, 255));
+        Menu_PanelMenu.setBackground(new java.awt.Color(55, 60, 133));
         Menu_PanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Menu_Foto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -75,7 +75,6 @@ public class Mesas extends javax.swing.JFrame {
         Menu_Facturas.setText("Crear Factura");
 
         Menu_Salir.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/salirIcon.png"))); // NOI18N
         Menu_Salir.setText("Salir");
         Menu_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,7 +121,7 @@ public class Mesas extends javax.swing.JFrame {
                 .addComponent(Menu_Clientes)
                 .addGap(97, 97, 97)
                 .addComponent(Menu_Facturas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addComponent(Menu_Separador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(Menu_Salir)
