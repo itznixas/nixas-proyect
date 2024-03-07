@@ -3,147 +3,131 @@ package modelo;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import vista.ventanaLogin;
 
 public class regEmpleadoDAO extends dataBase {
-          Connection cn;
-          dataBase con = new dataBase();
-          ResultSet rs;
-          Statement st;
-  
-      
-     public ArrayList<regEmpleado> ObtenerEmpleado() throws SQLException{
-         ArrayList<regEmpleado> lista_empleado = new ArrayList<>();
-         try{
-             String consulta = "SELECT * FROM reg_empleados ";
-             
-             st = cn.createStatement();
-             rs = st.executeQuery(consulta);
-             while (rs.next()){
-                 regEmpleado regE = new regEmpleado();
-                 regE.setIdEmpl(rs.getInt("id_emple"));
-                 regE.setNombreEmpl(rs.getString("nom_emple"));
-                 regE.setApellidoEmpl(rs.getString("ape_emple"));
-                 regE.setCedulaEmpl(rs.getInt("ced_emple"));
-                 regE.setCelEmpl(rs.getInt("tele_emple"));
-                 regE.setUserEmpl(rs.getString("usuario"));
-                 regE.setClaveEmpl(rs.getString("clave"));
-                 regE.setIdRol(rs.getInt("rol"));  
-         }
-             System.out.println("Empleado obtenido");
-     }catch (SQLException e){
-             System.out.println("Error al buscar categorias"+e);
-     }finally{
+         dataBase con = new dataBase();
+         Connection cn;
+         PreparedStatement ps;
+         ResultSet rs;
+         
+         public List listarEmpleado() throws SQLException{
+             String sql ="SELECT * FROM reg_empledos";
+             List<regEmpleado> lista_empleado = new ArrayList<>();
              try{
-                 cn.close();
-             }catch(SQLException e){
-                 System.err.println(e);
-             }
+                 cn = con.getConnection();
+                 ps = cn.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 while(rs.next()){
+                     regEmpleado emp = new regEmpleado();
+                     emp.setIdEmpl(rs.getInt(1));
+                     emp.setNombreEmpl(rs.getString(2));
+                     emp.setApellidoEmpl(rs.getString(3));
+                     emp.setCedulaEmpl(rs.getInt(4));
+                     emp.setCelEmpl(rs.getInt(5));
+                     emp.setUserEmpl(rs.getString(6));
+                     emp.setClaveEmpl(rs.getString(7));
+                     emp.setIdRol(rs.getInt(8));
+                     lista_empleado.add(emp);
+                 }
+                }catch (SQLException e){
+                         System.out.println("e");
+                 }
+             return lista_empleado;
          }
-         return lista_empleado;
-    }
-     
-     
-     public void registraEmpleado (regEmpleado emp) throws SQLException{
-         try{
-             PreparedStatement ps= cn.prepareStatement
-        ("INSERT INTO reg_empleados (id_emple, nom_emple, ape_emple, ced_emple, tele_emple, usuario, clave) VALUES (?,?,?,?,?,?,?,?)");
-             ps.setInt(1, emp.getIdEmpl());
-             ps.setString(2, emp.getNombreEmpl());
-             ps.setString(3, emp.getApellidoEmpl());
-             ps.setInt(4, emp.getCedulaEmpl());
-             ps.setInt(5, emp.getCelEmpl());
-             ps.setString(6, emp.getUserEmpl());
-             ps.setString(7, emp.getClaveEmpl());
-             ps.setInt(8, emp.getIdRol());
-             ps.execute();
-         System.out.println("Registro exitoso del empleado");
-       
-         }catch(SQLException e){
-            System.out.println("Error con el registo del empleado"+e);
-     }finally{
+         
+         public boolean autenticacion(regEmpleado emp){
+            String sql ="SELECT * FROM usuario=? AND clave=?";
              try{
-                 cn.close();
-             }catch(SQLException e){
-                 System.err.println(e);
+                 cn = con.getConnection();
+                 ps = cn.prepareStatement(sql);
+                 rs = ps.executeQuery();
+                 while (rs.next()){
+                     emp.setUserEmpl(rs.getString(1));
+                     emp.setClaveEmpl(rs.getString(2));
+                 return true;
+                 }
+                 }catch(SQLException e){
+                         System.out.println(e);
+                         
+                         }
+           return false;
+         }
+         
+         //Metodo para agregar
+         public int agregarEmpleado(regEmpleado emp){
+             int r = 1;
+             String sql = "INSERT INTO reg_empleados (id_emple, nom_emple, ape_emple, ced_emple,tele_emple, usuario, clavee, rol)"
+                     + "VALUES (?,?,?,?,?,?,?,?)";
+             try{
+                 cn = con.getConnection();
+                 ps = cn.prepareStatement(sql);
+                 ps.setString(1, Integer.toString(emp.getIdEmpl()));
+                 ps.setString(2, emp.getNombreEmpl());
+                 ps.setString(3, emp.getApellidoEmpl());
+                 ps.setString(4, Integer.toString(emp.getCedulaEmpl()));
+                 ps.setString(5, Integer.toString(emp.getCelEmpl()));
+                 ps.setString(6, emp.getUserEmpl());
+                 ps.setString(7, emp.getClaveEmpl());
+                 ps.setString(8,Integer.toString(emp.getIdRol()));
+                 ps.executeUpdate();
+                 if (r == 1){
+                 return 1;
+             }else{
+                     return 0;
+                 }
+             }catch (SQLException e){
+                 System.out.println(e);
              }
-         }   
-}
-  
-     
-       public void modificarEmpleado (regEmpleado emp) throws SQLException{
-        
-        PreparedStatement ps = null;
-       
-        String sql = "UPDATE  reg_empleados SET id_emple=?, nom_emple=?, ape_emple=?,"
-                + " ced_emple=?, tele_empleado=?, dave=?, rol=?, usuario=? VALUES id_emple=?";
-        
-        try{
-            ps = cn.prepareStatement(sql);
-            ps.setString(2, emp.getNombreEmpl());
-            ps.setString(3, emp.getApellidoEmpl());
-            ps.setInt(4, emp.getCedulaEmpl());
-            ps.setInt(5, emp.getCelEmpl());
-            ps.setString(6, emp.getClaveEmpl());
-            ps.setInt(7, emp.getIdRol());
-            ps.setString(8, emp.getNombreRol());
-            ps.setString(9, emp.getUserEmpl());
-            ps.setInt(10, emp.getIdEmpl());
-            ps.execute();
-        }catch(SQLException e)
-        {
-             System.err.println(e);
-        }finally{
-            try{
-            cn.close();
-        }catch (SQLException e){
-                System.err.println(e);
+             return r;
+         }
+         
+         //Metodo para actualizar registros
+                public int actualizarEmpleado(regEmpleado emp){
+                    int r = 1;
+                    String sql = "UPDATE reg_empleados SET id_emple=?, nom_emple=?,"
+                            + " ape_emple=? ,tele_emple=?, usuario=?, calve=?, rol=? WHERE ced_emple=?";
+                try{
+                    cn = con.getConnection();
+                    ps = cn.prepareStatement(sql);
+                    ps.setString(1, Integer.toString(emp.getIdEmpl()));
+                    ps.setString(2, emp.getNombreEmpl());
+                    ps.setString(3, emp.getApellidoEmpl());
+                    ps.setString(4, Integer.toString(emp.getCedulaEmpl()));
+                   ps.setString(5, Integer.toString(emp.getCelEmpl()));
+                    ps.setString(6, emp.getUserEmpl());
+                    ps.setString(7, emp.getClaveEmpl());
+                    ps.setString(8,Integer.toString(emp.getIdRol()));
+                    ps.executeUpdate();
+                    if(r == 1){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+                }catch (SQLException e){
+                    System.out.println(e);
                 }
-        }
-    }
-       
-        public void eliminar (regEmpleado emp) throws SQLException{
-        
-        PreparedStatement ps = null;
-        String sql = "DELETE FROM  reg_empleados WHERE id_emple=? ";
-        
-        try{
-            ps = cn.prepareStatement(sql);
-            ps.setInt(1, emp.getIdEmpl());
-        }catch(SQLException e)
-        {
-            System.err.println(e);  
-        }finally{
-            try{
-            cn.close();
-        }catch (SQLException e){
-                 System.err.println(e);
+                return r;
                 }
-        }
-    } 
-        
-        public boolean autenticacion(regEmpleado emp){
-            Connection cn;
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            cn = con.getConnection();
-            String sql = "select usuario,clave from reg_empleados where usuario=? and calve=?";
-            try{
-                ps=cn.prepareStatement(sql);
-                ps.setString(1, emp.getUserEmpl() );
-                ps.setString(2, emp.getUserEmpl());
-                rs=ps.executeQuery();
                 
-                while(rs.next()){
-                    cn.close();
-                    return true;
+                
+                //Metodo para eliminar por documento del empleado
+                public void eliminarEmpleado(int doc){
+                    String sql = "DELETE FROM reg_empleados WHERE ced_emple ="+doc;
+                    try{
+                        cn = con.getConnection();
+                        ps = cn.prepareStatement(sql);
+                        ps.executeUpdate();
+                    } catch (SQLException e){
+                        System.out.println(e);
+                    }
                 }
-            }catch (SQLException e){
-            System.out.println(e);
-        }
-            return false;
-        }
-    }
+                
+}
+
+
+    
     
      
 

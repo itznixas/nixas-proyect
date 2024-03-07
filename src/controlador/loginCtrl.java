@@ -4,7 +4,7 @@
  */
 package controlador;
 import vista.ventanaLogin;
-import modelo.regEmpleado;
+import modelo.*;
 import java.awt.event.ActionEvent;
 import modelo.regEmpleadoDAO;
 import javax.swing.JOptionPane;
@@ -39,7 +39,7 @@ public class loginCtrl implements ActionListener{
         if(emD.autenticacion(reG)){
         JOptionPane.showMessageDialog(null, "Correcto");
         }else{
-            JOptionPane.showMessageDialog(null, "Cor");
+            JOptionPane.showMessageDialog(null, "Contraseña o usuario mal");
         }
     }
 
