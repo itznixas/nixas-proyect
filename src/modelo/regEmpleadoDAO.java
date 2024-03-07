@@ -37,23 +37,34 @@ public class regEmpleadoDAO extends dataBase {
              return lista_empleado;
          }
          
-         public boolean autenticacion(regEmpleado emp){
-            String sql ="SELECT * FROM reg_empleados WHERE usuario=? AND clave=?";
-             try{
-                 cn = con.getConnection();
-                 ps = cn.prepareStatement(sql);
-                 rs = ps.executeQuery();
-                 while (rs.next()){
-                     emp.setUserEmpl(rs.getString(1));
-                     emp.setClaveEmpl(rs.getString(2));
-                 return true;
-                 }
-                 }catch(SQLException e){
-                         System.out.println(e);
-                         
-                         }
-           return false;
-         }
+         public boolean autenticacion(regEmpleado emp) {
+    String sql = "SELECT * FROM reg_empleados WHERE usuario = ? AND clave = ?";
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        // Establecer los parámetros de la consulta
+        ps.setString(1, emp.getUserEmpl());
+        ps.setString(2, emp.getClaveEmpl());
+        rs = ps.executeQuery();
+        if (rs.next()) { // Si se encuentra una coincidencia
+            return true;
+        }
+    } catch (SQLException e) {
+        System.out.println(e);
+    } finally {
+        // Cerrar la conexión y los recursos relacionados
+        try {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (cn != null) cn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    return false; // Si no se encuentra ninguna coincidencia
+}
+
+
          
          //Metodo para agregar
          public int agregarEmpleado(regEmpleado emp){

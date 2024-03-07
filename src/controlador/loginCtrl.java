@@ -30,18 +30,23 @@ public class loginCtrl implements ActionListener{
     
     
 
-    public  void btnIngresar(){
-        
-       String user = ventana.getCampoUsuario().getText();
-       String clave = ventana.getCampoContraseña().getText();
-        
-        
-        if(emD.autenticacion(reG)){
+   public void btnIngresar(){
+    String user = ventana.getCampoUsuario().getText();
+    String clave = ventana.getCampoContraseña().getText();
+    
+    // Establecer los valores de usuario y contraseña en la instancia reG
+    reG.setUserEmpl(user);
+    reG.setClaveEmpl(clave);
+    
+    // Llamar al método autenticacion
+    if(emD.autenticacion(reG)){
         JOptionPane.showMessageDialog(null, "Correcto");
-        }else{
-            JOptionPane.showMessageDialog(null, "Contraseña o usuario mal");
-        }
+    }else{
+        System.out.println("Error");
+        JOptionPane.showMessageDialog(null, "Contraseña o usuario mal");
     }
+}
+
 
     @Override
     public void actionPerformed(ActionEvent e) {

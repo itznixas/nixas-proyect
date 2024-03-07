@@ -144,7 +144,7 @@ public class ventanaLogin extends javax.swing.JFrame {
 
         ImgFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ImgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/fondo_4.jpg"))); // NOI18N
-        getContentPane().add(ImgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 820, 620));
+        getContentPane().add(ImgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 650));
 
         pack();
         setLocationRelativeTo(null);
