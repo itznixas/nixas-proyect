@@ -54,7 +54,7 @@ public class Mesas extends javax.swing.JFrame {
 
         Menu_PanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Menu_PanelMenu.setBackground(new java.awt.Color(55, 60, 133));
+        Menu_PanelMenu.setBackground(new java.awt.Color(22, 18, 38));
         Menu_PanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Menu_Foto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -63,18 +63,23 @@ public class Mesas extends javax.swing.JFrame {
         Menu_Foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Menu_Inicio.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Inicio.setForeground(new java.awt.Color(255, 255, 255));
         Menu_Inicio.setText("Mesa");
 
         Menu_Clientes.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Clientes.setForeground(new java.awt.Color(255, 255, 255));
         Menu_Clientes.setText("Clientes");
 
         Menu_Proveedor.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Proveedor.setForeground(new java.awt.Color(255, 255, 255));
         Menu_Proveedor.setText("Pedidos");
 
         Menu_Facturas.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Facturas.setForeground(new java.awt.Color(255, 255, 255));
         Menu_Facturas.setText("Crear Factura");
 
         Menu_Salir.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        Menu_Salir.setForeground(new java.awt.Color(255, 255, 255));
         Menu_Salir.setText("Salir");
         Menu_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,6 +88,7 @@ public class Mesas extends javax.swing.JFrame {
         });
 
         Menu_Roles.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Menu_Roles.setForeground(new java.awt.Color(255, 255, 255));
         Menu_Roles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Menu_Roles.setText("ROLES");
 
