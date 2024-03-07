@@ -1,4 +1,4 @@
-package Interfaces;
+package vista;
 
 public class Login extends javax.swing.JFrame {
 

@@ -1,4 +1,4 @@
-package Interfaces;
+package vista;
 
 import javax.swing.JOptionPane;
 
@@ -63,23 +63,18 @@ public class Mesas extends javax.swing.JFrame {
         Menu_Foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Menu_Inicio.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Inicio.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Inicio.setText("Mesa");
 
         Menu_Clientes.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Clientes.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Clientes.setText("Clientes");
 
         Menu_Proveedor.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Proveedor.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Proveedor.setText("Pedidos");
 
         Menu_Facturas.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Facturas.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Facturas.setText("Crear Factura");
 
         Menu_Salir.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Salir.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/salirIcon.png"))); // NOI18N
         Menu_Salir.setText("Salir");
         Menu_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,7 +84,6 @@ public class Mesas extends javax.swing.JFrame {
         });
 
         Menu_Roles.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Menu_Roles.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Roles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Menu_Roles.setText("ROLES");
 
@@ -143,30 +137,24 @@ public class Mesas extends javax.swing.JFrame {
         Menu_PanelPresentacion.setBackground(new java.awt.Color(255, 255, 255));
         Menu_PanelPresentacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Mesa 1");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Mesa 2");
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Mesa 3");
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Mesa 4");
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Mesa 5");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -189,7 +177,6 @@ public class Mesas extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -212,7 +199,6 @@ public class Mesas extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -235,7 +221,6 @@ public class Mesas extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -258,7 +243,6 @@ public class Mesas extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -281,7 +265,6 @@ public class Mesas extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -301,7 +284,6 @@ public class Mesas extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Mesa 6");
 

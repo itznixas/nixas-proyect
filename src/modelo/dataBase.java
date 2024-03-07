@@ -1,34 +1,47 @@
-
 package modelo;
 
 import java.sql.Connection;
-import java.sql.*;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class dataBase {
-   private String url;
-   private String driver;
-   private Connection conexion;
-    
-    public dataBase(){
+
+    protected String url;
+    protected String driver;
+    protected Connection conexion;
+
+    public dataBase() {
         this.driver = "jdbc:sqlite";
-        this.url = "data.db";
-      
+        this.url = "sena.db";
     }
-    
-    protected void conectar() throws SQLException{
-         this.conexion =  DriverManager.getConnection(this.url);
-        if (this.conexion.isClosed()){
-            System.out.println("Conectado");
+
+    public void conectar() {
+        try {
+            conexion = DriverManager.getConnection("jdbc:sqlite:" + url);
+            if (conexion != null) {
+                System.out.println("Conectado");
+            }
+        } catch (SQLException ex) {
+            System.err.println("No se ha podido conectar a la base de datos\n" + ex.getMessage());
+            Logger.getLogger(dataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    protected void cerrar() throws SQLException{
-        if(!this.conexion.isClosed()){
-            this.conexion.close();
+    public dataBase(Connection conexion) {
+        this.conexion = conexion;
+    }
+
+    public void cerrar() {
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(dataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    protected Connection getConexion() {
-        return conexion;
+
+    Connection getConexion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

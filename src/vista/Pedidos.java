@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Interfaces;
+package vista;
 
 /**
  *
@@ -71,16 +71,7 @@ public class Pedidos extends javax.swing.JFrame {
         Inventario_Campos.setBackground(new java.awt.Color(255, 255, 255));
         Inventario_Campos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        Inventario_TituloProveedor.setBackground(new java.awt.Color(255, 255, 255));
         Inventario_TituloProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        Inventario_CampoCodigo.setBackground(new java.awt.Color(255, 255, 255));
-
-        Inventario_CampoDescripcion.setBackground(new java.awt.Color(255, 255, 255));
-
-        Inventario_CampoCantidad.setBackground(new java.awt.Color(255, 255, 255));
-
-        Inventario_CampoPrecio.setBackground(new java.awt.Color(255, 255, 255));
 
         Inventario_TituloCodigo.setText("Codigo");
 
@@ -216,23 +207,18 @@ public class Pedidos extends javax.swing.JFrame {
         Menu_Foto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Menu_Inicio.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Inicio.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Inicio.setText("Mesa");
 
         Menu_Clientes.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Clientes.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Clientes.setText("Clientes");
 
         Menu_Proveedor.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Proveedor.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Proveedor.setText("Pedidos");
 
         Menu_Facturas.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Facturas.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Facturas.setText("Crear Factura");
 
         Menu_Salir.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Salir.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/salirIcon.png"))); // NOI18N
         Menu_Salir.setText("Salir");
         Menu_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -242,7 +228,6 @@ public class Pedidos extends javax.swing.JFrame {
         });
 
         Menu_Roles.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Menu_Roles.setForeground(new java.awt.Color(0, 0, 0));
         Menu_Roles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Menu_Roles.setText("ROLES");
 
