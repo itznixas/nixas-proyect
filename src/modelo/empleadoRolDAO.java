@@ -7,8 +7,8 @@ import modelo.regEmpleado;
 
 
 public class empleadoRolDAO extends dataBase{
-            Connection cn = getConexion();
           dataBase con = new dataBase();
+          Connection cn;
           ResultSet rs;
           Statement st;
           

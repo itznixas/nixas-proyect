@@ -3,11 +3,57 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controlador;
+import vista.ventanaLogin;
+import modelo.regEmpleado;
+import java.awt.event.ActionEvent;
+import modelo.regEmpleadoDAO;
+import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 /**
  *
  * @author Royer
  */
-public class loginCtrl {
+public class loginCtrl implements ActionListener{
+    regEmpleado reG = new regEmpleado();
+    regEmpleadoDAO emD = new regEmpleadoDAO();
+    ventanaLogin ventana = new ventanaLogin();
+    private MouseListener l;
+ 
+
+   public loginCtrl(ventanaLogin ventana){
+       this.ventana = ventana;
+       this.ventana.BtnLogin.addActionListener(this);
+       
+   }
     
+    
+
+    public  void btnIngresar(){
+        
+       String user = ventana.getCampoUsuario().getText();
+       String clave = ventana.getCampoContraseña().getText();
+        
+        
+        if(emD.autenticacion(reG)){
+        JOptionPane.showMessageDialog(null, "Correcto");
+        }else{
+            JOptionPane.showMessageDialog(null, "Cor");
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+       if(e.getSource()==ventana.BtnLogin){
+           btnIngresar();
+       }
+        
+        
+        
+        
+        
+        
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

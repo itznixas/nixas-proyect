@@ -3,32 +3,27 @@ package modelo;
 
 import java.sql.*;
 import java.util.ArrayList;
-import vista.ventanaLogin;
+import java.util.List;
 
-public class regEmpleadoDAO extends dataBase {
-          Connection cn;
+public class loginDAO extends dataBase {
+      
           dataBase con = new dataBase();
+          Connection cn;
           ResultSet rs;
           Statement st;
   
       
-     public ArrayList<regEmpleado> ObtenerEmpleado() throws SQLException{
-         ArrayList<regEmpleado> lista_empleado = new ArrayList<>();
+     public List<regEmpleado> ingresoLogin() throws SQLException{
+         List<regEmpleado> login_usuario = new ArrayList<>();
          try{
-             String consulta = "SELECT * FROM reg_empleados ";
+             String sql = "SELECT usuario, clave FROM reg_empleados WHERE usuario=? AND clave=? ";
              
              st = cn.createStatement();
-             rs = st.executeQuery(consulta);
+             rs = st.executeQuery(sql);
              while (rs.next()){
                  regEmpleado regE = new regEmpleado();
-                 regE.setIdEmpl(rs.getInt("id_emple"));
-                 regE.setNombreEmpl(rs.getString("nom_emple"));
-                 regE.setApellidoEmpl(rs.getString("ape_emple"));
-                 regE.setCedulaEmpl(rs.getInt("ced_emple"));
-                 regE.setCelEmpl(rs.getInt("tele_emple"));
                  regE.setUserEmpl(rs.getString("usuario"));
                  regE.setClaveEmpl(rs.getString("clave"));
-                 regE.setIdRol(rs.getInt("rol"));  
          }
              System.out.println("Empleado obtenido");
      }catch (SQLException e){
@@ -40,7 +35,7 @@ public class regEmpleadoDAO extends dataBase {
                  System.err.println(e);
              }
          }
-         return lista_empleado;
+         return login_usuario;
     }
      
      
@@ -121,28 +116,6 @@ public class regEmpleadoDAO extends dataBase {
                 }
         }
     } 
-        
-        public boolean autenticacion(regEmpleado emp){
-            Connection cn;
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            cn = con.getConnection();
-            String sql = "select usuario,clave from reg_empleados where usuario=? and calve=?";
-            try{
-                ps=cn.prepareStatement(sql);
-                ps.setString(1, emp.getUserEmpl() );
-                ps.setString(2, emp.getUserEmpl());
-                rs=ps.executeQuery();
-                
-                while(rs.next()){
-                    cn.close();
-                    return true;
-                }
-            }catch (SQLException e){
-            System.out.println(e);
-        }
-            return false;
-        }
     }
     
      

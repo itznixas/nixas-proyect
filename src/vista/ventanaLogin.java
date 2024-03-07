@@ -1,9 +1,17 @@
 package vista;
 
-public class Login extends javax.swing.JFrame {
+import controlador.loginCtrl;
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import modelo.regEmpleado;
+import modelo.regEmpleadoDAO;
 
-    public Login() {
+public class ventanaLogin extends javax.swing.JFrame {
+
+    public ventanaLogin() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,6 +72,11 @@ public class Login extends javax.swing.JFrame {
         BtnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnLoginMouseClicked(evt);
+            }
+        });
+        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLoginActionPerformed(evt);
             }
         });
 
@@ -143,8 +156,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_CampoUsuarioActionPerformed
 
     private void BtnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnLoginMouseClicked
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_BtnLoginMouseClicked
+
+    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,28 +180,33 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        //</editor-fold>
+        ventanaLogin login = new ventanaLogin();
+        loginCtrl lox = new loginCtrl(login);
+        login.setVisible(true);
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new ventanaLogin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnLogin;
-    private javax.swing.JPasswordField CampoContraseña;
-    private javax.swing.JTextField CampoUsuario;
+    public javax.swing.JButton BtnLogin;
+    public javax.swing.JPasswordField CampoContraseña;
+    public javax.swing.JTextField CampoUsuario;
     private javax.swing.JLabel IconContraseña;
     private javax.swing.JLabel IconUsuario;
     private javax.swing.JLabel ImgFondo;
@@ -196,4 +218,16 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel TituloCampoUsuario;
     private javax.swing.JLabel TituloInicioSesion;
     // End of variables declaration//GEN-END:variables
+
+    public  JButton getBtnLogin() {
+        return BtnLogin;
+    }
+
+    public  JPasswordField getCampoContraseña() {
+        return CampoContraseña;
+    }
+
+    public  JTextField getCampoUsuario() {
+        return CampoUsuario;
+    }
 }

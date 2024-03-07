@@ -3,23 +3,23 @@ package modelo;
 
 
 public  class regEmpleado extends empleadoRol {
-    private int idEmpl, cedulaEmpl, celEmpl, claveEmpl;
-    private String nombreEmpl, apellidoEmpl, userEmpl;
+    private int idEmpl, cedulaEmpl, celEmpl;
+    private String nombreEmpl, apellidoEmpl;
 
     public regEmpleado() {
     }
 
     
     public regEmpleado(int idEmpl, String nombreEmpl, String apellidoEmpl, 
-            int cedulaEmpl, int celEmpl, int idRol, String nombreRol,String userEmpl, int claveEmpl ) {
-        super(idRol, nombreRol);
+            int cedulaEmpl, int celEmpl, int idRol, String nombreRol,String userEmpl, String claveEmpl ) {
+        super(idRol, nombreRol, userEmpl, claveEmpl);
         this.idEmpl = idEmpl; //
         this.cedulaEmpl = cedulaEmpl;//
         this.celEmpl = celEmpl;//
-        this.claveEmpl = claveEmpl; //
+       
         this.nombreEmpl = nombreEmpl; //
         this.apellidoEmpl = apellidoEmpl;
-        this.userEmpl = userEmpl;
+      
        
     }
 
@@ -47,11 +47,13 @@ public  class regEmpleado extends empleadoRol {
         this.celEmpl = celEmpl;
     }
     //4
-    public int getClaveEmpl() {
+    @Override
+    public String getClaveEmpl() {
         return claveEmpl;
     }
 
-    public void setClaveEmpl(int claveEmpl) {
+    @Override
+    public void setClaveEmpl(String claveEmpl) {
         this.claveEmpl = claveEmpl;
     }
         //5
@@ -73,10 +75,12 @@ public  class regEmpleado extends empleadoRol {
         this.apellidoEmpl = apellidoEmpl;
     }
         //8
+    @Override
     public String getUserEmpl() {
         return userEmpl;
     }
 
+    @Override
     public void setUserEmpl(String userEmpl) {
         this.userEmpl = userEmpl;
     }

@@ -8,12 +8,12 @@ package vista;
  *
  * @author Aprendiz
  */
-public class Facturas extends javax.swing.JFrame {
+public class ventanaFacturas extends javax.swing.JFrame {
 
     /**
      * Creates new form Inicio
      */
-    public Facturas() {
+    public ventanaFacturas() {
         initComponents();
     }
 
@@ -440,7 +440,7 @@ public class Facturas extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Facturas().setVisible(true);
+                new ventanaFacturas().setVisible(true);
             }
         });
     }
