@@ -4,16 +4,15 @@ package modelo;
 
 public abstract class empleadoRol {
     protected int idRol;
-    protected String nombreRol,userEmpl,claveEmpl;
+    protected String nombreRol;
 
     public empleadoRol() {
     }
 
-    public empleadoRol(int idRol, String nombreRol,String userEmpl,String claveEmpl) {
+    public empleadoRol(int idRol, String nombreRol) {
         this.idRol = idRol;
         this.nombreRol = nombreRol;
-        this.userEmpl = userEmpl;
-        this.claveEmpl = claveEmpl;
+       
     }
 
     public int getIdRol() {
@@ -24,22 +23,7 @@ public abstract class empleadoRol {
         this.idRol = idRol;
     }
 
-    public String getUserEmpl() {
-        return userEmpl;
-    }
-
-    public void setUserEmpl(String userEmpl) {
-        this.userEmpl = userEmpl;
-    }
-
-    public String getClaveEmpl() {
-        return claveEmpl;
-    }
-
-    public void setClaveEmpl(String claveEmpl) {
-        this.claveEmpl = claveEmpl;
-    }
-
+   
     public String getNombreRol() {
         return nombreRol;
     }

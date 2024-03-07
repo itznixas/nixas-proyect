@@ -13,7 +13,7 @@ public class regEmpleadoDAO extends dataBase {
          ResultSet rs;
          
          public List listarEmpleado() throws SQLException{
-             String sql ="SELECT * FROM reg_empledos";
+             String sql ="SELECT * FROM reg_empleados";
              List<regEmpleado> lista_empleado = new ArrayList<>();
              try{
                  cn = con.getConnection();
@@ -38,7 +38,7 @@ public class regEmpleadoDAO extends dataBase {
          }
          
          public boolean autenticacion(regEmpleado emp){
-            String sql ="SELECT * FROM usuario=? AND clave=?";
+            String sql ="SELECT * FROM reg_empleados WHERE usuario=? AND clave=?";
              try{
                  cn = con.getConnection();
                  ps = cn.prepareStatement(sql);
@@ -114,7 +114,7 @@ public class regEmpleadoDAO extends dataBase {
                 
                 //Metodo para eliminar por documento del empleado
                 public void eliminarEmpleado(int doc){
-                    String sql = "DELETE FROM reg_empleados WHERE ced_emple ="+doc;
+                    String sql = "DELETE FROM reg_empleados WHERE ced_emple =?"+doc;
                     try{
                         cn = con.getConnection();
                         ps = cn.prepareStatement(sql);

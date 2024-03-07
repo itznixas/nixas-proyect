@@ -190,15 +190,17 @@ public class ventanaLogin extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        ventanaLogin login = new ventanaLogin();
-        loginCtrl lox = new loginCtrl(login);
-        login.setVisible(true);
+        
         
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ventanaLogin().setVisible(true);
+                
+        ventanaLogin login = new ventanaLogin();
+        loginCtrl lox = new loginCtrl(login);
+        login.setVisible(true);
+                //new ventanaLogin().setVisible(true);
             }
         });
     }

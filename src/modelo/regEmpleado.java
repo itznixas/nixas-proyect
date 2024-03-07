@@ -4,7 +4,7 @@ package modelo;
 
 public  class regEmpleado extends empleadoRol {
     private int idEmpl, cedulaEmpl, celEmpl;
-    private String nombreEmpl, apellidoEmpl;
+    private String nombreEmpl, apellidoEmpl, userEmpl, claveEmpl;
 
     public regEmpleado() {
     }
@@ -12,11 +12,12 @@ public  class regEmpleado extends empleadoRol {
     
     public regEmpleado(int idEmpl, String nombreEmpl, String apellidoEmpl, 
             int cedulaEmpl, int celEmpl, int idRol, String nombreRol,String userEmpl, String claveEmpl ) {
-        super(idRol, nombreRol, userEmpl, claveEmpl);
+        super(idRol, nombreRol  );
         this.idEmpl = idEmpl; //
         this.cedulaEmpl = cedulaEmpl;//
         this.celEmpl = celEmpl;//
-       
+        this.userEmpl = userEmpl;
+        this.claveEmpl = claveEmpl;
         this.nombreEmpl = nombreEmpl; //
         this.apellidoEmpl = apellidoEmpl;
       
@@ -47,12 +48,10 @@ public  class regEmpleado extends empleadoRol {
         this.celEmpl = celEmpl;
     }
     //4
-    @Override
     public String getClaveEmpl() {
         return claveEmpl;
     }
 
-    @Override
     public void setClaveEmpl(String claveEmpl) {
         this.claveEmpl = claveEmpl;
     }
@@ -75,12 +74,12 @@ public  class regEmpleado extends empleadoRol {
         this.apellidoEmpl = apellidoEmpl;
     }
         //8
-    @Override
+   
     public String getUserEmpl() {
         return userEmpl;
     }
 
-    @Override
+    
     public void setUserEmpl(String userEmpl) {
         this.userEmpl = userEmpl;
     }

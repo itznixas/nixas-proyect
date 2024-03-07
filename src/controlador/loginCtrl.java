@@ -45,7 +45,7 @@ public class loginCtrl implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       if(e.getSource()==ventana.BtnLogin){
+       if(e.getSource()== ventana.BtnLogin){
            btnIngresar();
        }
         
@@ -54,6 +54,6 @@ public class loginCtrl implements ActionListener{
         
         
         
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      
     }
 }

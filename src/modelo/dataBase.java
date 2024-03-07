@@ -15,9 +15,8 @@ public class dataBase {
     
     public Connection getConnection(){
         try {
-            String url = "jdbc:sqlite:C:\\SQLite\\nixas.db";
+            String url = "jdbc:sqlite:C:\\SQLite\\sena.db";
             con = DriverManager.getConnection(url);
-            System.out.println("Holaa");
             return con;
         } catch (SQLException e) {
             System.out.println("No se pudo conectar a la base de datos");
