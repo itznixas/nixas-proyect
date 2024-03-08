@@ -1,8 +1,12 @@
 package vista;
 
+import com.formdev.flatlaf.*;
+import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import java.awt.Color;
+import java.awt.EventQueue;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 public class MenuAdmin extends javax.swing.JFrame {
 
@@ -19,283 +23,73 @@ public class MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Menu_PanelFondo = new javax.swing.JPanel();
-        Menu_PanelMenu = new javax.swing.JPanel();
-        Menu_Foto = new javax.swing.JLabel();
-        Menu_Separador2 = new javax.swing.JSeparator();
-        Menu_Salir = new javax.swing.JLabel();
-        Menu_Roles = new javax.swing.JLabel();
-        Menu_Separador1 = new javax.swing.JSeparator();
-        Menu_ProductoColor = new javax.swing.JPanel();
-        Menu_Producto = new javax.swing.JLabel();
-        Menu_InventarioColor = new javax.swing.JPanel();
-        Menu_Inventario = new javax.swing.JLabel();
-        Menu_InformeColor = new javax.swing.JPanel();
-        Menu_informe = new javax.swing.JLabel();
-        Menu_PanelMenu2 = new javax.swing.JPanel();
-        Menu_Titulo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        ModoOscuro = new javax.swing.JMenu();
+        MoodDark = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Menu_PanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(271, 40));
 
-        Menu_PanelMenu.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_PanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/InicioIcon.png"))); // NOI18N
+        jMenuBar1.add(jMenu1);
 
-        Menu_Foto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Menu_Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Menu_Foto.setText("Foto");
+        jMenu2.setText("Agregar");
+        jMenuBar1.add(jMenu2);
 
-        Menu_Separador2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu3.setText("Inventario");
+        jMenuBar1.add(jMenu3);
 
-        Menu_Salir.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Salir.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Salir.setText("Salir");
-        Menu_Salir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Menu_SalirMouseClicked(evt);
+        jMenu4.setText("Facturas");
+        jMenuBar1.add(jMenu4);
+
+        ModoOscuro.setText("Modo");
+
+        MoodDark.setText("Modo Oscuro");
+        MoodDark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MoodDarkActionPerformed(evt);
             }
         });
+        ModoOscuro.add(MoodDark);
 
-        Menu_Roles.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Menu_Roles.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Roles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Menu_Roles.setText("ROLES");
+        jMenuBar1.add(ModoOscuro);
 
-        Menu_Separador1.setForeground(new java.awt.Color(255, 255, 255));
-
-        Menu_ProductoColor.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_ProductoColor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Menu_ProductoColorMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Menu_ProductoColorMouseExited(evt);
-            }
-        });
-
-        Menu_Producto.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Producto.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Producto.setText("Agregar Productos");
-
-        javax.swing.GroupLayout Menu_ProductoColorLayout = new javax.swing.GroupLayout(Menu_ProductoColor);
-        Menu_ProductoColor.setLayout(Menu_ProductoColorLayout);
-        Menu_ProductoColorLayout.setHorizontalGroup(
-            Menu_ProductoColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_ProductoColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Producto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Menu_ProductoColorLayout.setVerticalGroup(
-            Menu_ProductoColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_ProductoColorLayout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(Menu_Producto)
-                .addContainerGap())
-        );
-
-        Menu_InventarioColor.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_InventarioColor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Menu_InventarioColorMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Menu_InventarioColorMouseExited(evt);
-            }
-        });
-
-        Menu_Inventario.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Inventario.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Inventario.setText("Consultar Inventario");
-
-        javax.swing.GroupLayout Menu_InventarioColorLayout = new javax.swing.GroupLayout(Menu_InventarioColor);
-        Menu_InventarioColor.setLayout(Menu_InventarioColorLayout);
-        Menu_InventarioColorLayout.setHorizontalGroup(
-            Menu_InventarioColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_InventarioColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Inventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(4, 4, 4))
-        );
-        Menu_InventarioColorLayout.setVerticalGroup(
-            Menu_InventarioColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_InventarioColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Inventario)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        Menu_InformeColor.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_InformeColor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Menu_InformeColorMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Menu_InformeColorMouseExited(evt);
-            }
-        });
-
-        Menu_informe.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_informe.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_informe.setText("Informe de Inventario");
-
-        javax.swing.GroupLayout Menu_InformeColorLayout = new javax.swing.GroupLayout(Menu_InformeColor);
-        Menu_InformeColor.setLayout(Menu_InformeColorLayout);
-        Menu_InformeColorLayout.setHorizontalGroup(
-            Menu_InformeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_InformeColorLayout.createSequentialGroup()
-                .addComponent(Menu_informe, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Menu_InformeColorLayout.setVerticalGroup(
-            Menu_InformeColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_InformeColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_informe)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout Menu_PanelMenuLayout = new javax.swing.GroupLayout(Menu_PanelMenu);
-        Menu_PanelMenu.setLayout(Menu_PanelMenuLayout);
-        Menu_PanelMenuLayout.setHorizontalGroup(
-            Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu_Roles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Menu_InventarioColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Menu_ProductoColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_PanelMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Menu_Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Menu_Separador2)
-                    .addComponent(Menu_Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Menu_Separador1)
-                    .addComponent(Menu_InformeColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        Menu_PanelMenuLayout.setVerticalGroup(
-            Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(Menu_Roles)
-                .addGap(27, 27, 27)
-                .addComponent(Menu_Separador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(Menu_ProductoColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Menu_InventarioColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Menu_InformeColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
-                .addComponent(Menu_Separador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(Menu_Salir)
-                .addGap(24, 24, 24))
-        );
-
-        Menu_PanelFondo.add(Menu_PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 850));
-
-        Menu_PanelMenu2.setBackground(new java.awt.Color(255, 255, 255));
-        Menu_PanelMenu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        Menu_Titulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        Menu_Titulo.setText("Menu ");
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1346, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 703, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout Menu_PanelMenu2Layout = new javax.swing.GroupLayout(Menu_PanelMenu2);
-        Menu_PanelMenu2.setLayout(Menu_PanelMenu2Layout);
-        Menu_PanelMenu2Layout.setHorizontalGroup(
-            Menu_PanelMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PanelMenu2Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(Menu_Titulo)
-                .addContainerGap(1178, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_PanelMenu2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Menu_PanelMenu2Layout.setVerticalGroup(
-            Menu_PanelMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PanelMenu2Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(Menu_Titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Menu_PanelFondo.add(Menu_PanelMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1360, 850));
-
-        getContentPane().add(Menu_PanelFondo, java.awt.BorderLayout.CENTER);
+        setJMenuBar(jMenuBar1);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Menu_SalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_SalirMouseClicked
+    private void MoodDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoodDarkActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_Menu_SalirMouseClicked
+        if (MoodDark.isSelected()) {
+            EventQueue.invokeLater(() -> {
+                FlatAnimatedLafChange.showSnapshot();
+                FlatDarculaLaf.setup();
+                FlatLaf.updateUI();
+                FlatAnimatedLafChange.hideSnapshotWithAnimation();
+            });
+        } else {
+            EventQueue.invokeLater(() -> {
+                FlatAnimatedLafChange.showSnapshot();
+                FlatIntelliJLaf.setup();
+                FlatLaf.updateUI();
+                FlatAnimatedLafChange.hideSnapshotWithAnimation();
+            });
+        }
+    }//GEN-LAST:event_MoodDarkActionPerformed
 
-    private void Menu_ProductoColorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_ProductoColorMouseEntered
-        // TODO add your handling code here:
-        setColor(Menu_ProductoColor);
-    }//GEN-LAST:event_Menu_ProductoColorMouseEntered
-
-    private void Menu_ProductoColorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_ProductoColorMouseExited
-        // TODO add your handling code here:
-        resetColor(Menu_ProductoColor);
-    }//GEN-LAST:event_Menu_ProductoColorMouseExited
-
-    private void Menu_InventarioColorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_InventarioColorMouseEntered
-        // TODO add your handling code here:
-        setColor(Menu_InventarioColor);
-    }//GEN-LAST:event_Menu_InventarioColorMouseEntered
-
-    private void Menu_InventarioColorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_InventarioColorMouseExited
-        // TODO add your handling code here:
-        resetColor(Menu_InventarioColor);
-    }//GEN-LAST:event_Menu_InventarioColorMouseExited
-
-    private void Menu_InformeColorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_InformeColorMouseEntered
-        // TODO add your handling code here:
-        setColor(Menu_InformeColor);
-    }//GEN-LAST:event_Menu_InformeColorMouseEntered
-
-    private void Menu_InformeColorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_InformeColorMouseExited
-        // TODO add your handling code here:
-        resetColor(Menu_InformeColor);
-    }//GEN-LAST:event_Menu_InformeColorMouseExited
-
-    
-    void setColor(JPanel panel){
-        panel.setBackground(new Color(42, 38, 58));
-    }
-    
-    void resetColor(JPanel panel){
-        panel.setBackground(new Color(22, 18, 38));
-    }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
+        FlatIntelliJLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuAdmin().setVisible(true);
@@ -304,21 +98,12 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Menu_Foto;
-    private javax.swing.JPanel Menu_InformeColor;
-    private javax.swing.JLabel Menu_Inventario;
-    private javax.swing.JPanel Menu_InventarioColor;
-    private javax.swing.JPanel Menu_PanelFondo;
-    private javax.swing.JPanel Menu_PanelMenu;
-    private javax.swing.JPanel Menu_PanelMenu2;
-    private javax.swing.JLabel Menu_Producto;
-    private javax.swing.JPanel Menu_ProductoColor;
-    private javax.swing.JLabel Menu_Roles;
-    private javax.swing.JLabel Menu_Salir;
-    private javax.swing.JSeparator Menu_Separador1;
-    private javax.swing.JSeparator Menu_Separador2;
-    private javax.swing.JLabel Menu_Titulo;
-    private javax.swing.JLabel Menu_informe;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu ModoOscuro;
+    private javax.swing.JCheckBoxMenuItem MoodDark;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
