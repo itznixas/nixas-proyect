@@ -1,11 +1,12 @@
 package vista;
 
+import com.formdev.flatlaf.*;
+import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import java.awt.Color;
-import java.awt.Panel;
-import javax.swing.JApplet;
-import javax.swing.JFrame;
+import java.awt.EventQueue;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 public class MenuCajero extends javax.swing.JFrame {
 
@@ -22,325 +23,392 @@ public class MenuCajero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Menu_PanelFondo = new javax.swing.JPanel();
-        Menu_PanelMenu = new javax.swing.JPanel();
-        Menu_Foto = new javax.swing.JLabel();
-        Menu_Separador2 = new javax.swing.JSeparator();
-        Menu_Salir = new javax.swing.JLabel();
-        Menu_Roles = new javax.swing.JLabel();
-        Menu_Separador1 = new javax.swing.JSeparator();
-        Menu_MesaColor = new javax.swing.JPanel();
-        Menu_Mesas = new javax.swing.JLabel();
-        Menu_PedidoColor = new javax.swing.JPanel();
-        Menu_Pedidos = new javax.swing.JLabel();
-        Menu_ClientesColor = new javax.swing.JPanel();
-        Menu_Clientes = new javax.swing.JLabel();
-        Menu_FacturaColor = new javax.swing.JPanel();
-        Menu_Facturas = new javax.swing.JLabel();
-        Menu_PanelMenu2 = new javax.swing.JPanel();
-        Menu_Titulo = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        Menu_PanelPresentacion2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        ModoOscuro = new javax.swing.JMenu();
+        MoodDark = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Menu_PanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Menu_PanelPresentacion2.setBackground(new java.awt.Color(255, 255, 255));
+        Menu_PanelPresentacion2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        Menu_PanelMenu.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_PanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Mesa 1");
 
-        Menu_Foto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Menu_Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Menu_Foto.setText("Foto");
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Mesa 2");
 
-        Menu_Separador2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Mesa 3");
 
-        Menu_Salir.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Salir.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Salir.setText("Salir");
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Mesa 4");
 
-        Menu_Roles.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Menu_Roles.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Roles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Menu_Roles.setText("ROLES");
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Mesa 5");
 
-        Menu_Separador1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        Menu_MesaColor.setBackground(new java.awt.Color(22, 18, 38));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
 
-        Menu_Mesas.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_Mesas.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Mesas.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Mesas.setText("Mesas");
-        Menu_Mesas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Menu_MesasMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Menu_MesasMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Menu_MesaColorLayout = new javax.swing.GroupLayout(Menu_MesaColor);
-        Menu_MesaColor.setLayout(Menu_MesaColorLayout);
-        Menu_MesaColorLayout.setHorizontalGroup(
-            Menu_MesaColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_MesaColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Mesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Menu_MesaColorLayout.setVerticalGroup(
-            Menu_MesaColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_MesaColorLayout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(Menu_Mesas)
-                .addGap(14, 14, 14))
-        );
-
-        Menu_PedidoColor.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_PedidoColor.setPreferredSize(new java.awt.Dimension(0, 40));
-        Menu_PedidoColor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Menu_PedidoColorMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Menu_PedidoColorMouseExited(evt);
-            }
-        });
-
-        Menu_Pedidos.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Pedidos.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Pedidos.setText("Registro Pedidos");
-
-        javax.swing.GroupLayout Menu_PedidoColorLayout = new javax.swing.GroupLayout(Menu_PedidoColor);
-        Menu_PedidoColor.setLayout(Menu_PedidoColorLayout);
-        Menu_PedidoColorLayout.setHorizontalGroup(
-            Menu_PedidoColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PedidoColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Pedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Menu_PedidoColorLayout.setVerticalGroup(
-            Menu_PedidoColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PedidoColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Pedidos)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        Menu_ClientesColor.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_ClientesColor.setPreferredSize(new java.awt.Dimension(100, 40));
-        Menu_ClientesColor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Menu_ClientesColorMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Menu_ClientesColorMouseExited(evt);
-            }
-        });
-
-        Menu_Clientes.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Clientes.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Clientes.setText("Registro Clientes");
-
-        javax.swing.GroupLayout Menu_ClientesColorLayout = new javax.swing.GroupLayout(Menu_ClientesColor);
-        Menu_ClientesColor.setLayout(Menu_ClientesColorLayout);
-        Menu_ClientesColorLayout.setHorizontalGroup(
-            Menu_ClientesColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_ClientesColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Menu_ClientesColorLayout.setVerticalGroup(
-            Menu_ClientesColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_ClientesColorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Menu_Clientes)
-                .addGap(14, 14, 14))
-        );
-
-        Menu_FacturaColor.setBackground(new java.awt.Color(22, 18, 38));
-        Menu_FacturaColor.setMinimumSize(new java.awt.Dimension(100, 40));
-        Menu_FacturaColor.setPreferredSize(new java.awt.Dimension(100, 40));
-        Menu_FacturaColor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Menu_FacturaColorMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Menu_FacturaColorMouseExited(evt);
-            }
-        });
-
-        Menu_Facturas.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        Menu_Facturas.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Facturas.setText("Generar Factura");
-
-        javax.swing.GroupLayout Menu_FacturaColorLayout = new javax.swing.GroupLayout(Menu_FacturaColor);
-        Menu_FacturaColor.setLayout(Menu_FacturaColorLayout);
-        Menu_FacturaColorLayout.setHorizontalGroup(
-            Menu_FacturaColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_FacturaColorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Facturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Menu_FacturaColorLayout.setVerticalGroup(
-            Menu_FacturaColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_FacturaColorLayout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(Menu_Facturas)
-                .addGap(14, 14, 14))
-        );
-
-        javax.swing.GroupLayout Menu_PanelMenuLayout = new javax.swing.GroupLayout(Menu_PanelMenu);
-        Menu_PanelMenu.setLayout(Menu_PanelMenuLayout);
-        Menu_PanelMenuLayout.setHorizontalGroup(
-            Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu_Roles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Menu_MesaColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Menu_PedidoColor, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-            .addComponent(Menu_ClientesColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-            .addComponent(Menu_FacturaColor, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-            .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Menu_Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Menu_Separador2)
-                    .addComponent(Menu_Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Menu_Separador1))
-                .addContainerGap())
-        );
-        Menu_PanelMenuLayout.setVerticalGroup(
-            Menu_PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PanelMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(Menu_Roles)
-                .addGap(27, 27, 27)
-                .addComponent(Menu_Separador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(Menu_MesaColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Menu_PedidoColor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Menu_ClientesColor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Menu_FacturaColor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
-                .addComponent(Menu_Separador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(Menu_Salir)
-                .addGap(24, 24, 24))
+                .addComponent(jLabel13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18))
         );
 
-        Menu_PanelFondo.add(Menu_PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 850));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        Menu_PanelMenu2.setBackground(new java.awt.Color(255, 255, 255));
-        Menu_PanelMenu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
 
-        Menu_Titulo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        Menu_Titulo.setText("Menu ");
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(jLabel20)
+                .addGap(28, 28, 28))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel20)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel21)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addGap(16, 16, 16))
+        );
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addGap(28, 28, 28))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel22)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel23)
+                .addGap(23, 23, 23))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel23)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel24)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel24)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Mesa 6");
+
+        jPanel10.add(jPanel11);
+
+        javax.swing.GroupLayout Menu_PanelPresentacion2Layout = new javax.swing.GroupLayout(Menu_PanelPresentacion2);
+        Menu_PanelPresentacion2.setLayout(Menu_PanelPresentacion2Layout);
+        Menu_PanelPresentacion2Layout.setHorizontalGroup(
+            Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_PanelPresentacion2Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(183, 183, 183)
+                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Menu_PanelPresentacion2Layout.createSequentialGroup()
+                        .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(160, 160, 160)
+                        .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(222, 222, 222)
+                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        Menu_PanelPresentacion2Layout.setVerticalGroup(
+            Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Menu_PanelPresentacion2Layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(101, Short.MAX_VALUE))
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1346, Short.MAX_VALUE)
+            .addComponent(Menu_PanelPresentacion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 703, Short.MAX_VALUE)
+            .addComponent(Menu_PanelPresentacion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout Menu_PanelMenu2Layout = new javax.swing.GroupLayout(Menu_PanelMenu2);
-        Menu_PanelMenu2.setLayout(Menu_PanelMenu2Layout);
-        Menu_PanelMenu2Layout.setHorizontalGroup(
-            Menu_PanelMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PanelMenu2Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(Menu_Titulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_PanelMenu2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Menu_PanelMenu2Layout.setVerticalGroup(
-            Menu_PanelMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PanelMenu2Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(Menu_Titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jTabbedPane1.addTab("tab1", jPanel1);
 
-        Menu_PanelFondo.add(Menu_PanelMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1360, 850));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(1600, 50));
 
-        getContentPane().add(Menu_PanelFondo, java.awt.BorderLayout.CENTER);
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/InicioIcon.png"))); // NOI18N
+        jMenu1.setEnabled(false);
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Agregar");
+
+        jMenuItem2.setText("Pedidos");
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem3.setText("Clientes");
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/PasswordIcon.png"))); // NOI18N
+        jMenuItem1.setText("Producto");
+        jMenuItem1.setEnabled(false);
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Inventario");
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/PasswordIcon.png"))); // NOI18N
+        jMenuItem4.setText("Consultar");
+        jMenuItem4.setEnabled(false);
+        jMenu3.add(jMenuItem4);
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/PasswordIcon.png"))); // NOI18N
+        jMenuItem5.setText("Informe");
+        jMenuItem5.setEnabled(false);
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Facturas");
+
+        jMenuItem6.setText("Generar");
+        jMenu4.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Elegir Mesa");
+        jMenuBar1.add(jMenu5);
+
+        ModoOscuro.setText("Modo");
+
+        MoodDark.setText("Modo Oscuro");
+        MoodDark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MoodDarkActionPerformed(evt);
+            }
+        });
+        ModoOscuro.add(MoodDark);
+
+        jMenuBar1.add(ModoOscuro);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1600, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Menu_MesasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_MesasMouseEntered
+    private void MoodDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoodDarkActionPerformed
         // TODO add your handling code here:
-        setColor(Menu_MesaColor);
-    }//GEN-LAST:event_Menu_MesasMouseEntered
+        if (MoodDark.isSelected()) {
+            EventQueue.invokeLater(() -> {
+                FlatAnimatedLafChange.showSnapshot();
+                FlatDarculaLaf.setup();
+                FlatLaf.updateUI();
+                FlatAnimatedLafChange.hideSnapshotWithAnimation();
+            });
+        } else {
+            EventQueue.invokeLater(() -> {
+                FlatAnimatedLafChange.showSnapshot();
+                FlatIntelliJLaf.setup();
+                FlatLaf.updateUI();
+                FlatAnimatedLafChange.hideSnapshotWithAnimation();
+            });
+        }
+    }//GEN-LAST:event_MoodDarkActionPerformed
 
-    private void Menu_MesasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_MesasMouseExited
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        resetColor(Menu_MesaColor);
-    }//GEN-LAST:event_Menu_MesasMouseExited
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void Menu_PedidoColorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_PedidoColorMouseEntered
-        // TODO add your handling code here:
-        setColor(Menu_PedidoColor);
-    }//GEN-LAST:event_Menu_PedidoColorMouseEntered
-
-    private void Menu_PedidoColorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_PedidoColorMouseExited
-        // TODO add your handling code here:
-        resetColor(Menu_PedidoColor);
-    }//GEN-LAST:event_Menu_PedidoColorMouseExited
-
-    private void Menu_FacturaColorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_FacturaColorMouseEntered
-        // TODO add your handling code here:
-        setColor(Menu_FacturaColor);
-    }//GEN-LAST:event_Menu_FacturaColorMouseEntered
-
-    private void Menu_FacturaColorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_FacturaColorMouseExited
-        // TODO add your handling code here:
-        resetColor(Menu_FacturaColor);
-    }//GEN-LAST:event_Menu_FacturaColorMouseExited
-
-    private void Menu_ClientesColorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_ClientesColorMouseEntered
-        // TODO add your handling code here:
-        setColor(Menu_ClientesColor);
-    }//GEN-LAST:event_Menu_ClientesColorMouseEntered
-
-    private void Menu_ClientesColorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Menu_ClientesColorMouseExited
-        // TODO add your handling code here:
-        resetColor(Menu_ClientesColor);
-    }//GEN-LAST:event_Menu_ClientesColorMouseExited
-
-    
-    void setColor(JPanel panel){
-        panel.setBackground(new Color(42, 38, 58));
-    }
-    
-    void resetColor(JPanel panel){
-        panel.setBackground(new Color(22, 18, 38));
-    }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
+        FlatIntelliJLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuCajero().setVisible(true);
@@ -349,23 +417,59 @@ public class MenuCajero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Menu_Clientes;
-    private javax.swing.JPanel Menu_ClientesColor;
-    private javax.swing.JPanel Menu_FacturaColor;
-    private javax.swing.JLabel Menu_Facturas;
-    private javax.swing.JLabel Menu_Foto;
-    private javax.swing.JPanel Menu_MesaColor;
-    private javax.swing.JLabel Menu_Mesas;
-    private javax.swing.JPanel Menu_PanelFondo;
-    private javax.swing.JPanel Menu_PanelMenu;
-    private javax.swing.JPanel Menu_PanelMenu2;
-    private javax.swing.JPanel Menu_PedidoColor;
-    private javax.swing.JLabel Menu_Pedidos;
-    private javax.swing.JLabel Menu_Roles;
-    private javax.swing.JLabel Menu_Salir;
-    private javax.swing.JSeparator Menu_Separador1;
-    private javax.swing.JSeparator Menu_Separador2;
-    private javax.swing.JLabel Menu_Titulo;
+    private javax.swing.JPanel Menu_PanelPresentacion;
+    private javax.swing.JPanel Menu_PanelPresentacion1;
+    private javax.swing.JPanel Menu_PanelPresentacion2;
+    private javax.swing.JMenu ModoOscuro;
+    private javax.swing.JCheckBoxMenuItem MoodDark;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
