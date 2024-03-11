@@ -37,6 +37,38 @@ public class regEmpleadoDAO extends dataBase {
              return lista_empleado;
          }
          
+         public int autenticacionRol(regEmpleado emp){
+            String sql = "SELECT reg_empleados.rol \n" +
+                        "FROM reg_empleados\n" +
+                        "INNER JOIN emple_rol ON reg_empleados.rol = emple_rol.id_rol WHERE usuario = ? AND clave = ? "; 
+            try {
+                    cn = con.getConnection();
+                    ps = cn.prepareStatement(sql);
+                    // Establecer los parámetros de la consulta
+                    ps.setString(1, emp.getUserEmpl());
+                    ps.setString(2, emp.getClaveEmpl());
+                    
+                    rs = ps.executeQuery();
+                    if (rs.next()) {
+                        return rs.getInt("rol");
+                    }
+                } catch (SQLException e) {
+                    System.out.println(e);
+                } finally {
+                    // Cerrar la conexión y los recursos relacionados
+                    try {
+                        if (rs != null) rs.close();
+                        if (ps != null) ps.close();
+                        if (cn != null) cn.close();
+                    } catch (SQLException ex) {
+                        System.out.println(ex);
+                    }
+                }
+                return 0; // Si no se encuentra ninguna coincidencia
+            }
+         
+         
+         
          public boolean autenticacion(regEmpleado emp) {
     String sql = "SELECT * FROM reg_empleados WHERE usuario = ? AND clave = ?";
     try {
