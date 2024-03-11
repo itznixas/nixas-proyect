@@ -21,17 +21,13 @@ public class ventanaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelContenedorLogin = new javax.swing.JPanel();
-        CampoUsuario = new javax.swing.JTextField();
-        CampoContraseña = new javax.swing.JPasswordField();
         TituloInicioSesion = new javax.swing.JLabel();
-        TituloCampoUsuario = new javax.swing.JLabel();
-        TituloCampoContraseña = new javax.swing.JLabel();
         BtnLogin = new javax.swing.JButton();
         OlvidasteContraseña = new javax.swing.JLabel();
         IconUsuario = new javax.swing.JLabel();
         IconContraseña = new javax.swing.JLabel();
-        SeparadorCampo = new javax.swing.JSeparator();
-        SeparadorCampo2 = new javax.swing.JSeparator();
+        CampoUsuario = new componentes.TextField();
+        CampoContraseña = new componentes.PasswordField();
         ImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,22 +37,10 @@ public class ventanaLogin extends javax.swing.JFrame {
         PanelContenedorLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PanelContenedorLogin.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
-        CampoUsuario.setBorder(null);
-
-        CampoContraseña.setBorder(null);
-
         TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         TituloInicioSesion.setForeground(new java.awt.Color(22, 18, 38));
         TituloInicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TituloInicioSesion.setText("Iniciar Sesión");
-
-        TituloCampoUsuario.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        TituloCampoUsuario.setForeground(new java.awt.Color(22, 18, 38));
-        TituloCampoUsuario.setText("Usuario");
-
-        TituloCampoContraseña.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        TituloCampoContraseña.setForeground(new java.awt.Color(22, 18, 38));
-        TituloCampoContraseña.setText("Contraseña");
 
         BtnLogin.setBackground(new java.awt.Color(22, 18, 38));
         BtnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -70,6 +54,15 @@ public class ventanaLogin extends javax.swing.JFrame {
 
         IconContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/PasswordIcon.png"))); // NOI18N
 
+        CampoUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        CampoUsuario.setToolTipText("");
+        CampoUsuario.setLabelText("Usuario");
+        CampoUsuario.setLineColor(new java.awt.Color(22, 7, 38));
+
+        CampoContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        CampoContraseña.setLabelText("Contraseña");
+        CampoContraseña.setLineColor(new java.awt.Color(22, 7, 38));
+
         javax.swing.GroupLayout PanelContenedorLoginLayout = new javax.swing.GroupLayout(PanelContenedorLogin);
         PanelContenedorLogin.setLayout(PanelContenedorLoginLayout);
         PanelContenedorLoginLayout.setHorizontalGroup(
@@ -80,43 +73,36 @@ public class ventanaLogin extends javax.swing.JFrame {
                     .addComponent(IconUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(IconContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SeparadorCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TituloCampoUsuario)
-                    .addComponent(TituloCampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SeparadorCampo2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OlvidasteContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(OlvidasteContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(BtnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(CampoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CampoContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
                 .addComponent(TituloInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         PanelContenedorLoginLayout.setVerticalGroup(
             PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
                 .addComponent(TituloInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(TituloCampoUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                        .addComponent(CampoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SeparadorCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(IconUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addComponent(TituloCampoContraseña)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(64, 64, 64)
+                        .addComponent(IconUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(CampoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                        .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addComponent(IconContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenedorLoginLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SeparadorCampo2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(IconContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(OlvidasteContraseña)
                 .addGap(29, 29, 29)
                 .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,7 +113,7 @@ public class ventanaLogin extends javax.swing.JFrame {
 
         ImgFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ImgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/fondo_4.jpg"))); // NOI18N
-        getContentPane().add(ImgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 650));
+        getContentPane().add(ImgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 620));
 
         pack();
         setLocationRelativeTo(null);
@@ -177,17 +163,13 @@ public class ventanaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BtnLogin;
-    public javax.swing.JPasswordField CampoContraseña;
-    public javax.swing.JTextField CampoUsuario;
+    private componentes.PasswordField CampoContraseña;
+    private componentes.TextField CampoUsuario;
     private javax.swing.JLabel IconContraseña;
     private javax.swing.JLabel IconUsuario;
     private javax.swing.JLabel ImgFondo;
     private javax.swing.JLabel OlvidasteContraseña;
     private javax.swing.JPanel PanelContenedorLogin;
-    private javax.swing.JSeparator SeparadorCampo;
-    private javax.swing.JSeparator SeparadorCampo2;
-    private javax.swing.JLabel TituloCampoContraseña;
-    private javax.swing.JLabel TituloCampoUsuario;
     private javax.swing.JLabel TituloInicioSesion;
     // End of variables declaration//GEN-END:variables
 

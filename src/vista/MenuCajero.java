@@ -24,7 +24,6 @@ public class MenuCajero extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
         Inventario_Campos = new javax.swing.JPanel();
         Inventario_TituloProveedor = new javax.swing.JComboBox<>();
         Inventario_CampoCodigo = new javax.swing.JTextField();
@@ -136,6 +135,7 @@ public class MenuCajero extends javax.swing.JFrame {
         Inventario_Tabla6 = new javax.swing.JTable();
         Inventario_Buscador6 = new javax.swing.JTextField();
         Inventario_IconoBuscador6 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -152,19 +152,6 @@ public class MenuCajero extends javax.swing.JFrame {
         MoodDark = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 840, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Inicio", jPanel3);
 
         Inventario_Campos.setBackground(new java.awt.Color(22, 18, 38));
 
@@ -1170,6 +1157,9 @@ public class MenuCajero extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("El. Mesa", jPanel7);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("Inicio", jPanel3);
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(1600, 50));
