@@ -10,6 +10,9 @@ import modelo.regEmpleadoDAO;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import vista.MenuAdmin;
+import java.sql.*;
+import vista.MenuCajero;
 
 /**
  *
@@ -31,6 +34,7 @@ public class loginCtrl implements ActionListener{
     
 
    public void btnIngresar(){
+ 
     String user = ventana.getCampoUsuario().getText();
     String clave = ventana.getCampoContraseña().getText();
     
@@ -40,7 +44,16 @@ public class loginCtrl implements ActionListener{
     
     // Llamar al método autenticacion
     if(emD.autenticacion(reG)){
-        JOptionPane.showMessageDialog(null, "Correcto");
+        if(emD.autenticacionRol(reG) == 111){
+            MenuAdmin objadmin = new MenuAdmin();
+            objadmin.setVisible(true);
+            ventana.setVisible(false); 
+        }else if (emD.autenticacionRol(reG)== 222){
+            MenuCajero ventCajero = new MenuCajero();
+            ventCajero.setVisible(true);
+            ventana.setVisible(false);
+            
+        }
     }else{
         System.out.println("Error");
         JOptionPane.showMessageDialog(null, "Contraseña o usuario mal");
@@ -61,4 +74,6 @@ public class loginCtrl implements ActionListener{
         
       
     }
+
+    
 }
