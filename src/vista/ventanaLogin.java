@@ -4,8 +4,6 @@ import controlador.loginCtrl;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import modelo.regEmpleado;
-import modelo.regEmpleadoDAO;
 
 public class ventanaLogin extends javax.swing.JFrame {
 
@@ -43,15 +41,8 @@ public class ventanaLogin extends javax.swing.JFrame {
         PanelContenedorLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PanelContenedorLogin.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
-        CampoUsuario.setBackground(new java.awt.Color(255, 255, 255));
         CampoUsuario.setBorder(null);
-        CampoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoUsuarioActionPerformed(evt);
-            }
-        });
 
-        CampoContraseña.setBackground(new java.awt.Color(255, 255, 255));
         CampoContraseña.setBorder(null);
 
         TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
@@ -71,18 +62,7 @@ public class ventanaLogin extends javax.swing.JFrame {
         BtnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnLogin.setText("INGRESAR");
-        BtnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BtnLoginMouseClicked(evt);
-            }
-        });
-        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnLoginActionPerformed(evt);
-            }
-        });
 
-        OlvidasteContraseña.setForeground(new java.awt.Color(0, 0, 0));
         OlvidasteContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OlvidasteContraseña.setText("¿ Olvidaste tu contraseña ?");
 
@@ -152,19 +132,6 @@ public class ventanaLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void CampoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoUsuarioActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_CampoUsuarioActionPerformed
-
-    private void BtnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnLoginMouseClicked
-       
-    }//GEN-LAST:event_BtnLoginMouseClicked
-
-    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnLoginActionPerformed
 
     /**
      * @param args the command line arguments

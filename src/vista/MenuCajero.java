@@ -24,29 +24,118 @@ public class MenuCajero extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        Menu_PanelPresentacion2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        Inventario_Campos = new javax.swing.JPanel();
+        Inventario_TituloProveedor = new javax.swing.JComboBox<>();
+        Inventario_CampoCodigo = new javax.swing.JTextField();
+        Inventario_CampoDescripcion = new javax.swing.JTextField();
+        Inventario_CampoCantidad = new javax.swing.JTextField();
+        Inventario_CampoPrecio = new javax.swing.JTextField();
+        Inventario_TituloCodigo = new javax.swing.JLabel();
+        Inventario_TituloDescripcion = new javax.swing.JLabel();
+        Inventario_TituloCantidad = new javax.swing.JLabel();
+        Inventario_TituloPrecio = new javax.swing.JLabel();
+        Inventario_BotonGuardar = new javax.swing.JButton();
+        Inventario_ScrollTabla = new javax.swing.JScrollPane();
+        Inventario_Tabla = new javax.swing.JTable();
+        Inventario_Buscador = new javax.swing.JTextField();
+        Inventario_IconoBuscador = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        Inventario_Campos1 = new javax.swing.JPanel();
+        Inventario_TituloProveedor1 = new javax.swing.JComboBox<>();
+        Inventario_CampoCodigo1 = new javax.swing.JTextField();
+        Inventario_CampoDescripcion1 = new javax.swing.JTextField();
+        Inventario_CampoCantidad1 = new javax.swing.JTextField();
+        Inventario_CampoPrecio1 = new javax.swing.JTextField();
+        Inventario_TituloCodigo1 = new javax.swing.JLabel();
+        Inventario_TituloDescripcion1 = new javax.swing.JLabel();
+        Inventario_TituloCantidad1 = new javax.swing.JLabel();
+        Inventario_TituloPrecio1 = new javax.swing.JLabel();
+        Inventario_BotonGuardar1 = new javax.swing.JButton();
+        Inventario_ScrollTabla1 = new javax.swing.JScrollPane();
+        Inventario_Tabla1 = new javax.swing.JTable();
+        Inventario_Buscador1 = new javax.swing.JTextField();
+        Inventario_IconoBuscador1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        Inventario_Campos2 = new javax.swing.JPanel();
+        Inventario_TituloProveedor2 = new javax.swing.JComboBox<>();
+        Inventario_CampoCodigo2 = new javax.swing.JTextField();
+        Inventario_CampoDescripcion2 = new javax.swing.JTextField();
+        Inventario_CampoCantidad2 = new javax.swing.JTextField();
+        Inventario_CampoPrecio2 = new javax.swing.JTextField();
+        Inventario_TituloCodigo2 = new javax.swing.JLabel();
+        Inventario_TituloDescripcion2 = new javax.swing.JLabel();
+        Inventario_TituloCantidad2 = new javax.swing.JLabel();
+        Inventario_TituloPrecio2 = new javax.swing.JLabel();
+        Inventario_BotonGuardar2 = new javax.swing.JButton();
+        Inventario_ScrollTabla2 = new javax.swing.JScrollPane();
+        Inventario_Tabla2 = new javax.swing.JTable();
+        Inventario_Buscador2 = new javax.swing.JTextField();
+        Inventario_IconoBuscador2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
+        Inventario_Campos3 = new javax.swing.JPanel();
+        Inventario_TituloProveedor3 = new javax.swing.JComboBox<>();
+        Inventario_CampoCodigo3 = new javax.swing.JTextField();
+        Inventario_CampoDescripcion3 = new javax.swing.JTextField();
+        Inventario_CampoCantidad3 = new javax.swing.JTextField();
+        Inventario_CampoPrecio3 = new javax.swing.JTextField();
+        Inventario_TituloCodigo3 = new javax.swing.JLabel();
+        Inventario_TituloDescripcion3 = new javax.swing.JLabel();
+        Inventario_TituloCantidad3 = new javax.swing.JLabel();
+        Inventario_TituloPrecio3 = new javax.swing.JLabel();
+        Inventario_BotonGuardar3 = new javax.swing.JButton();
+        Inventario_ScrollTabla3 = new javax.swing.JScrollPane();
+        Inventario_Tabla3 = new javax.swing.JTable();
+        Inventario_Buscador3 = new javax.swing.JTextField();
+        Inventario_IconoBuscador3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
+        Inventario_Campos4 = new javax.swing.JPanel();
+        Inventario_TituloProveedor4 = new javax.swing.JComboBox<>();
+        Inventario_CampoCodigo4 = new javax.swing.JTextField();
+        Inventario_CampoDescripcion4 = new javax.swing.JTextField();
+        Inventario_CampoCantidad4 = new javax.swing.JTextField();
+        Inventario_CampoPrecio4 = new javax.swing.JTextField();
+        Inventario_TituloCodigo4 = new javax.swing.JLabel();
+        Inventario_TituloDescripcion4 = new javax.swing.JLabel();
+        Inventario_TituloCantidad4 = new javax.swing.JLabel();
+        Inventario_TituloPrecio4 = new javax.swing.JLabel();
+        Inventario_BotonGuardar4 = new javax.swing.JButton();
+        Inventario_ScrollTabla4 = new javax.swing.JScrollPane();
+        Inventario_Tabla4 = new javax.swing.JTable();
+        Inventario_Buscador4 = new javax.swing.JTextField();
+        Inventario_IconoBuscador4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
+        Inventario_Campos5 = new javax.swing.JPanel();
+        Inventario_TituloProveedor5 = new javax.swing.JComboBox<>();
+        Inventario_CampoCodigo5 = new javax.swing.JTextField();
+        Inventario_CampoDescripcion5 = new javax.swing.JTextField();
+        Inventario_CampoCantidad5 = new javax.swing.JTextField();
+        Inventario_CampoPrecio5 = new javax.swing.JTextField();
+        Inventario_TituloCodigo5 = new javax.swing.JLabel();
+        Inventario_TituloDescripcion5 = new javax.swing.JLabel();
+        Inventario_TituloCantidad5 = new javax.swing.JLabel();
+        Inventario_TituloPrecio5 = new javax.swing.JLabel();
+        Inventario_BotonGuardar5 = new javax.swing.JButton();
+        Inventario_ScrollTabla5 = new javax.swing.JScrollPane();
+        Inventario_Tabla5 = new javax.swing.JTable();
+        Inventario_Buscador5 = new javax.swing.JTextField();
+        Inventario_IconoBuscador5 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
+        Inventario_Campos6 = new javax.swing.JPanel();
+        Inventario_TituloProveedor6 = new javax.swing.JComboBox<>();
+        Inventario_CampoCodigo6 = new javax.swing.JTextField();
+        Inventario_CampoDescripcion6 = new javax.swing.JTextField();
+        Inventario_CampoCantidad6 = new javax.swing.JTextField();
+        Inventario_CampoPrecio6 = new javax.swing.JTextField();
+        Inventario_TituloCodigo6 = new javax.swing.JLabel();
+        Inventario_TituloDescripcion6 = new javax.swing.JLabel();
+        Inventario_TituloCantidad6 = new javax.swing.JLabel();
+        Inventario_TituloPrecio6 = new javax.swing.JLabel();
+        Inventario_BotonGuardar6 = new javax.swing.JButton();
+        Inventario_ScrollTabla6 = new javax.swing.JScrollPane();
+        Inventario_Tabla6 = new javax.swing.JTable();
+        Inventario_Buscador6 = new javax.swing.JTextField();
+        Inventario_IconoBuscador6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -64,242 +153,1023 @@ public class MenuCajero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Menu_PanelPresentacion2.setBackground(new java.awt.Color(255, 255, 255));
-        Menu_PanelPresentacion2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Mesa 1");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Mesa 2");
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Mesa 3");
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Mesa 4");
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Mesa 5");
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 840, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18))
+            .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTabbedPane1.addTab("Inicio", jPanel3);
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
+        Inventario_Campos.setBackground(new java.awt.Color(22, 18, 38));
+
+        Inventario_TituloProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Inventario_TituloProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_TituloProveedorActionPerformed(evt);
+            }
+        });
+
+        Inventario_TituloCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCodigo.setText("Codigo");
+
+        Inventario_TituloDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloDescripcion.setText("Descripcion");
+
+        Inventario_TituloCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCantidad.setText("Cantidad");
+
+        Inventario_TituloPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloPrecio.setText("Precio");
+
+        Inventario_BotonGuardar.setBackground(new java.awt.Color(0, 255, 102));
+        Inventario_BotonGuardar.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_BotonGuardar.setText("Ingresar");
+        Inventario_BotonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_BotonGuardarActionPerformed(evt);
+            }
+        });
+
+        Inventario_ScrollTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Cantidad", "Precio", "Proveedor"
+            }
+        ));
+        Inventario_ScrollTabla.setViewportView(Inventario_Tabla);
+
+        Inventario_Buscador.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_Buscador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_IconoBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/buscadorIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout Inventario_CamposLayout = new javax.swing.GroupLayout(Inventario_Campos);
+        Inventario_Campos.setLayout(Inventario_CamposLayout);
+        Inventario_CamposLayout.setHorizontalGroup(
+            Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCantidad)
+                                    .addComponent(Inventario_TituloCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_CampoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(53, 53, 53)
+                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_BotonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                                .addComponent(Inventario_TituloProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                .addComponent(Inventario_IconoBuscador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Inventario_Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))))
+                    .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Inventario_ScrollTabla)))
+                .addContainerGap())
+        );
+        Inventario_CamposLayout.setVerticalGroup(
+            Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_CamposLayout.createSequentialGroup()
+                        .addComponent(Inventario_TituloCodigo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Inventario_CampoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Inventario_TituloCantidad)
+                        .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Inventario_CampoCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_IconoBuscador))))))
+                .addGap(18, 18, 18)
+                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_CamposLayout.createSequentialGroup()
+                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_TituloDescripcion)
+                            .addComponent(Inventario_TituloPrecio))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Inventario_CampoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Inventario_CampoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Inventario_BotonGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Inventario_ScrollTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Ag. Pedidos", Inventario_Campos);
+
+        Inventario_Campos1.setBackground(new java.awt.Color(22, 18, 38));
+
+        Inventario_TituloProveedor1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Inventario_TituloProveedor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_TituloProveedor1ActionPerformed(evt);
+            }
+        });
+
+        Inventario_TituloCodigo1.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCodigo1.setText("Codigo");
+
+        Inventario_TituloDescripcion1.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloDescripcion1.setText("Descripcion");
+
+        Inventario_TituloCantidad1.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCantidad1.setText("Cantidad");
+
+        Inventario_TituloPrecio1.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloPrecio1.setText("Precio");
+
+        Inventario_BotonGuardar1.setBackground(new java.awt.Color(0, 255, 102));
+        Inventario_BotonGuardar1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_BotonGuardar1.setText("Ingresar");
+        Inventario_BotonGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_BotonGuardar1ActionPerformed(evt);
+            }
+        });
+
+        Inventario_ScrollTabla1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_Tabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Cantidad", "Precio", "Proveedor"
+            }
+        ));
+        Inventario_ScrollTabla1.setViewportView(Inventario_Tabla1);
+
+        Inventario_Buscador1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_Buscador1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_IconoBuscador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/buscadorIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout Inventario_Campos1Layout = new javax.swing.GroupLayout(Inventario_Campos1);
+        Inventario_Campos1.setLayout(Inventario_Campos1Layout);
+        Inventario_Campos1Layout.setHorizontalGroup(
+            Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCodigo1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloCodigo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCantidad1)
+                                    .addComponent(Inventario_TituloCantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoDescripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloDescripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_CampoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(53, 53, 53)
+                        .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_BotonGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                                .addComponent(Inventario_TituloProveedor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                .addComponent(Inventario_IconoBuscador1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Inventario_Buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))))
+                    .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Inventario_ScrollTabla1)))
+                .addContainerGap())
+        );
+        Inventario_Campos1Layout.setVerticalGroup(
+            Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos1Layout.createSequentialGroup()
+                        .addComponent(Inventario_TituloCodigo1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Inventario_CampoCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Inventario_TituloCantidad1)
+                        .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Inventario_CampoCantidad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloProveedor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_Buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_IconoBuscador1))))))
+                .addGap(18, 18, 18)
+                .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos1Layout.createSequentialGroup()
+                        .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_TituloDescripcion1)
+                            .addComponent(Inventario_TituloPrecio1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Inventario_CampoDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Inventario_CampoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Inventario_BotonGuardar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Inventario_ScrollTabla1, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Ag. Clientes", jPanel2);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Inventario_Campos2.setBackground(new java.awt.Color(22, 18, 38));
+
+        Inventario_TituloProveedor2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Inventario_TituloProveedor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_TituloProveedor2ActionPerformed(evt);
+            }
+        });
+
+        Inventario_TituloCodigo2.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCodigo2.setText("Codigo");
+
+        Inventario_TituloDescripcion2.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloDescripcion2.setText("Descripcion");
+
+        Inventario_TituloCantidad2.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCantidad2.setText("Cantidad");
+
+        Inventario_TituloPrecio2.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloPrecio2.setText("Precio");
+
+        Inventario_BotonGuardar2.setBackground(new java.awt.Color(0, 255, 102));
+        Inventario_BotonGuardar2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_BotonGuardar2.setText("Ingresar");
+        Inventario_BotonGuardar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_BotonGuardar2ActionPerformed(evt);
+            }
+        });
+
+        Inventario_ScrollTabla2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_Tabla2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Cantidad", "Precio", "Proveedor"
+            }
+        ));
+        Inventario_ScrollTabla2.setViewportView(Inventario_Tabla2);
+
+        Inventario_Buscador2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_Buscador2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_IconoBuscador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/buscadorIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout Inventario_Campos2Layout = new javax.swing.GroupLayout(Inventario_Campos2);
+        Inventario_Campos2.setLayout(Inventario_Campos2Layout);
+        Inventario_Campos2Layout.setHorizontalGroup(
+            Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCodigo2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloCodigo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCantidad2)
+                                    .addComponent(Inventario_TituloCantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoDescripcion2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloDescripcion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_CampoPrecio2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloPrecio2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(53, 53, 53)
+                        .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_BotonGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                                .addComponent(Inventario_TituloProveedor2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                .addComponent(Inventario_IconoBuscador2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Inventario_Buscador2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))))
+                    .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Inventario_ScrollTabla2)))
+                .addContainerGap())
+        );
+        Inventario_Campos2Layout.setVerticalGroup(
+            Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos2Layout.createSequentialGroup()
+                        .addComponent(Inventario_TituloCodigo2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Inventario_CampoCodigo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Inventario_TituloCantidad2)
+                        .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Inventario_CampoCantidad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloProveedor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_Buscador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_IconoBuscador2))))))
+                .addGap(18, 18, 18)
+                .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos2Layout.createSequentialGroup()
+                        .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_TituloDescripcion2)
+                            .addComponent(Inventario_TituloPrecio2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Inventario_Campos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Inventario_CampoDescripcion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Inventario_CampoPrecio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Inventario_BotonGuardar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Inventario_ScrollTabla2, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(Inventario_Campos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jTabbedPane1.addTab("Ag. Productos", jPanel1);
+
+        Inventario_Campos3.setBackground(new java.awt.Color(22, 18, 38));
+
+        Inventario_TituloProveedor3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Inventario_TituloProveedor3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_TituloProveedor3ActionPerformed(evt);
+            }
+        });
+
+        Inventario_TituloCodigo3.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCodigo3.setText("Codigo");
+
+        Inventario_TituloDescripcion3.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloDescripcion3.setText("Descripcion");
+
+        Inventario_TituloCantidad3.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCantidad3.setText("Cantidad");
+
+        Inventario_TituloPrecio3.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloPrecio3.setText("Precio");
+
+        Inventario_BotonGuardar3.setBackground(new java.awt.Color(0, 255, 102));
+        Inventario_BotonGuardar3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_BotonGuardar3.setText("Ingresar");
+        Inventario_BotonGuardar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_BotonGuardar3ActionPerformed(evt);
+            }
+        });
+
+        Inventario_ScrollTabla3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_Tabla3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Cantidad", "Precio", "Proveedor"
+            }
+        ));
+        Inventario_ScrollTabla3.setViewportView(Inventario_Tabla3);
+
+        Inventario_Buscador3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_Buscador3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_IconoBuscador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/buscadorIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout Inventario_Campos3Layout = new javax.swing.GroupLayout(Inventario_Campos3);
+        Inventario_Campos3.setLayout(Inventario_Campos3Layout);
+        Inventario_Campos3Layout.setHorizontalGroup(
+            Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCodigo3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloCodigo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCantidad3)
+                                    .addComponent(Inventario_TituloCantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoDescripcion3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloDescripcion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_CampoPrecio3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloPrecio3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(53, 53, 53)
+                        .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_BotonGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                                .addComponent(Inventario_TituloProveedor3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                .addComponent(Inventario_IconoBuscador3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Inventario_Buscador3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))))
+                    .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Inventario_ScrollTabla3)))
+                .addContainerGap())
+        );
+        Inventario_Campos3Layout.setVerticalGroup(
+            Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos3Layout.createSequentialGroup()
+                        .addComponent(Inventario_TituloCodigo3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Inventario_CampoCodigo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Inventario_TituloCantidad3)
+                        .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Inventario_CampoCantidad3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloProveedor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_Buscador3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_IconoBuscador3))))))
+                .addGap(18, 18, 18)
+                .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos3Layout.createSequentialGroup()
+                        .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_TituloDescripcion3)
+                            .addComponent(Inventario_TituloPrecio3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Inventario_Campos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Inventario_CampoDescripcion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Inventario_CampoPrecio3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Inventario_BotonGuardar3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Inventario_ScrollTabla3, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(jLabel20)
-                .addGap(28, 28, 28))
+            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel20)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTabbedPane1.addTab("In. Consultar", jPanel4);
 
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
+        Inventario_Campos4.setBackground(new java.awt.Color(22, 18, 38));
+
+        Inventario_TituloProveedor4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Inventario_TituloProveedor4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_TituloProveedor4ActionPerformed(evt);
+            }
+        });
+
+        Inventario_TituloCodigo4.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCodigo4.setText("Codigo");
+
+        Inventario_TituloDescripcion4.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloDescripcion4.setText("Descripcion");
+
+        Inventario_TituloCantidad4.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCantidad4.setText("Cantidad");
+
+        Inventario_TituloPrecio4.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloPrecio4.setText("Precio");
+
+        Inventario_BotonGuardar4.setBackground(new java.awt.Color(0, 255, 102));
+        Inventario_BotonGuardar4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_BotonGuardar4.setText("Ingresar");
+        Inventario_BotonGuardar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_BotonGuardar4ActionPerformed(evt);
+            }
+        });
+
+        Inventario_ScrollTabla4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_Tabla4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Cantidad", "Precio", "Proveedor"
+            }
+        ));
+        Inventario_ScrollTabla4.setViewportView(Inventario_Tabla4);
+
+        Inventario_Buscador4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_Buscador4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_IconoBuscador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/buscadorIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout Inventario_Campos4Layout = new javax.swing.GroupLayout(Inventario_Campos4);
+        Inventario_Campos4.setLayout(Inventario_Campos4Layout);
+        Inventario_Campos4Layout.setHorizontalGroup(
+            Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCodigo4, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloCodigo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCantidad4)
+                                    .addComponent(Inventario_TituloCantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoDescripcion4, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloDescripcion4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_CampoPrecio4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloPrecio4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(53, 53, 53)
+                        .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_BotonGuardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                                .addComponent(Inventario_TituloProveedor4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                .addComponent(Inventario_IconoBuscador4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Inventario_Buscador4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))))
+                    .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Inventario_ScrollTabla4)))
+                .addContainerGap())
+        );
+        Inventario_Campos4Layout.setVerticalGroup(
+            Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos4Layout.createSequentialGroup()
+                        .addComponent(Inventario_TituloCodigo4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Inventario_CampoCodigo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Inventario_TituloCantidad4)
+                        .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Inventario_CampoCantidad4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloProveedor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_Buscador4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_IconoBuscador4))))))
+                .addGap(18, 18, 18)
+                .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos4Layout.createSequentialGroup()
+                        .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_TituloDescripcion4)
+                            .addComponent(Inventario_TituloPrecio4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Inventario_Campos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Inventario_CampoDescripcion4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Inventario_CampoPrecio4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Inventario_BotonGuardar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Inventario_ScrollTabla4, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel21)
-                .addContainerGap(29, Short.MAX_VALUE))
+            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(jLabel21)
-                .addGap(16, 16, 16))
+            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTabbedPane1.addTab("In. Informe", jPanel5);
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
+        Inventario_Campos5.setBackground(new java.awt.Color(22, 18, 38));
+
+        Inventario_TituloProveedor5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Inventario_TituloProveedor5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_TituloProveedor5ActionPerformed(evt);
+            }
+        });
+
+        Inventario_TituloCodigo5.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCodigo5.setText("Codigo");
+
+        Inventario_TituloDescripcion5.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloDescripcion5.setText("Descripcion");
+
+        Inventario_TituloCantidad5.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCantidad5.setText("Cantidad");
+
+        Inventario_TituloPrecio5.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloPrecio5.setText("Precio");
+
+        Inventario_BotonGuardar5.setBackground(new java.awt.Color(0, 255, 102));
+        Inventario_BotonGuardar5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_BotonGuardar5.setText("Ingresar");
+        Inventario_BotonGuardar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_BotonGuardar5ActionPerformed(evt);
+            }
+        });
+
+        Inventario_ScrollTabla5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_Tabla5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Cantidad", "Precio", "Proveedor"
+            }
+        ));
+        Inventario_ScrollTabla5.setViewportView(Inventario_Tabla5);
+
+        Inventario_Buscador5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_Buscador5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_IconoBuscador5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/buscadorIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout Inventario_Campos5Layout = new javax.swing.GroupLayout(Inventario_Campos5);
+        Inventario_Campos5.setLayout(Inventario_Campos5Layout);
+        Inventario_Campos5Layout.setHorizontalGroup(
+            Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCodigo5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloCodigo5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCantidad5)
+                                    .addComponent(Inventario_TituloCantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoDescripcion5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloDescripcion5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_CampoPrecio5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloPrecio5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(53, 53, 53)
+                        .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_BotonGuardar5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                                .addComponent(Inventario_TituloProveedor5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                .addComponent(Inventario_IconoBuscador5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Inventario_Buscador5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))))
+                    .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Inventario_ScrollTabla5)))
+                .addContainerGap())
+        );
+        Inventario_Campos5Layout.setVerticalGroup(
+            Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos5Layout.createSequentialGroup()
+                        .addComponent(Inventario_TituloCodigo5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Inventario_CampoCodigo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Inventario_TituloCantidad5)
+                        .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Inventario_CampoCantidad5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloProveedor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_Buscador5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_IconoBuscador5))))))
+                .addGap(18, 18, 18)
+                .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos5Layout.createSequentialGroup()
+                        .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_TituloDescripcion5)
+                            .addComponent(Inventario_TituloPrecio5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Inventario_Campos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Inventario_CampoDescripcion5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Inventario_CampoPrecio5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Inventario_BotonGuardar5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Inventario_ScrollTabla5, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addGap(28, 28, 28))
+            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel22)
-                .addContainerGap(23, Short.MAX_VALUE))
+            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTabbedPane1.addTab("Fa. Generar", jPanel6);
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
+        Inventario_Campos6.setBackground(new java.awt.Color(22, 18, 38));
+
+        Inventario_TituloProveedor6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Inventario_TituloProveedor6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_TituloProveedor6ActionPerformed(evt);
+            }
+        });
+
+        Inventario_TituloCodigo6.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCodigo6.setText("Codigo");
+
+        Inventario_TituloDescripcion6.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloDescripcion6.setText("Descripcion");
+
+        Inventario_TituloCantidad6.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloCantidad6.setText("Cantidad");
+
+        Inventario_TituloPrecio6.setForeground(new java.awt.Color(255, 255, 255));
+        Inventario_TituloPrecio6.setText("Precio");
+
+        Inventario_BotonGuardar6.setBackground(new java.awt.Color(0, 255, 102));
+        Inventario_BotonGuardar6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_BotonGuardar6.setText("Ingresar");
+        Inventario_BotonGuardar6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inventario_BotonGuardar6ActionPerformed(evt);
+            }
+        });
+
+        Inventario_ScrollTabla6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_Tabla6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Cantidad", "Precio", "Proveedor"
+            }
+        ));
+        Inventario_ScrollTabla6.setViewportView(Inventario_Tabla6);
+
+        Inventario_Buscador6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Inventario_Buscador6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Inventario_IconoBuscador6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/buscadorIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout Inventario_Campos6Layout = new javax.swing.GroupLayout(Inventario_Campos6);
+        Inventario_Campos6.setLayout(Inventario_Campos6Layout);
+        Inventario_Campos6Layout.setHorizontalGroup(
+            Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCodigo6, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloCodigo6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoCantidad6)
+                                    .addComponent(Inventario_TituloCantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Inventario_CampoDescripcion6, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(Inventario_TituloDescripcion6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(45, 45, 45)
+                                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_CampoPrecio6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloPrecio6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(53, 53, 53)
+                        .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_BotonGuardar6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                                .addComponent(Inventario_TituloProveedor6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                .addComponent(Inventario_IconoBuscador6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Inventario_Buscador6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))))
+                    .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Inventario_ScrollTabla6)))
+                .addContainerGap())
+        );
+        Inventario_Campos6Layout.setVerticalGroup(
+            Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos6Layout.createSequentialGroup()
+                        .addComponent(Inventario_TituloCodigo6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Inventario_CampoCodigo6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Inventario_TituloCantidad6)
+                        .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Inventario_CampoCantidad6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_TituloProveedor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Inventario_Buscador6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Inventario_IconoBuscador6))))))
+                .addGap(18, 18, 18)
+                .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Inventario_Campos6Layout.createSequentialGroup()
+                        .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Inventario_TituloDescripcion6)
+                            .addComponent(Inventario_TituloPrecio6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Inventario_Campos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Inventario_CampoDescripcion6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Inventario_CampoPrecio6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Inventario_BotonGuardar6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Inventario_ScrollTabla6, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jLabel23)
-                .addGap(23, 23, 23))
+            .addGap(0, 840, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel23)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Inventario_Campos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MesasIcon.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel24)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel24)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Mesa 6");
-
-        jPanel10.add(jPanel11);
-
-        javax.swing.GroupLayout Menu_PanelPresentacion2Layout = new javax.swing.GroupLayout(Menu_PanelPresentacion2);
-        Menu_PanelPresentacion2.setLayout(Menu_PanelPresentacion2Layout);
-        Menu_PanelPresentacion2Layout.setHorizontalGroup(
-            Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Menu_PanelPresentacion2Layout.createSequentialGroup()
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(183, 183, 183)
-                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(Menu_PanelPresentacion2Layout.createSequentialGroup()
-                        .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(160, 160, 160)
-                        .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(222, 222, 222)
-                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        Menu_PanelPresentacion2Layout.setVerticalGroup(
-            Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Menu_PanelPresentacion2Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Menu_PanelPresentacion2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(101, Short.MAX_VALUE))
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu_PanelPresentacion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu_PanelPresentacion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("El. Mesa", jPanel7);
 
         jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(1600, 50));
@@ -370,11 +1240,11 @@ public class MenuCajero extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1600, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -404,6 +1274,62 @@ public class MenuCajero extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void Inventario_TituloProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_TituloProveedorActionPerformed
+
+    private void Inventario_BotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_BotonGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_BotonGuardarActionPerformed
+
+    private void Inventario_TituloProveedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_TituloProveedor1ActionPerformed
+
+    private void Inventario_BotonGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_BotonGuardar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_BotonGuardar1ActionPerformed
+
+    private void Inventario_TituloProveedor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedor2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_TituloProveedor2ActionPerformed
+
+    private void Inventario_BotonGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_BotonGuardar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_BotonGuardar2ActionPerformed
+
+    private void Inventario_TituloProveedor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedor3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_TituloProveedor3ActionPerformed
+
+    private void Inventario_BotonGuardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_BotonGuardar3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_BotonGuardar3ActionPerformed
+
+    private void Inventario_TituloProveedor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedor4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_TituloProveedor4ActionPerformed
+
+    private void Inventario_BotonGuardar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_BotonGuardar4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_BotonGuardar4ActionPerformed
+
+    private void Inventario_TituloProveedor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedor5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_TituloProveedor5ActionPerformed
+
+    private void Inventario_BotonGuardar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_BotonGuardar5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_BotonGuardar5ActionPerformed
+
+    private void Inventario_TituloProveedor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedor6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_TituloProveedor6ActionPerformed
+
+    private void Inventario_BotonGuardar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_BotonGuardar6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Inventario_BotonGuardar6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -417,35 +1343,113 @@ public class MenuCajero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Menu_PanelPresentacion;
-    private javax.swing.JPanel Menu_PanelPresentacion1;
-    private javax.swing.JPanel Menu_PanelPresentacion2;
+    private javax.swing.JButton Inventario_BotonGuardar;
+    private javax.swing.JButton Inventario_BotonGuardar1;
+    private javax.swing.JButton Inventario_BotonGuardar2;
+    private javax.swing.JButton Inventario_BotonGuardar3;
+    private javax.swing.JButton Inventario_BotonGuardar4;
+    private javax.swing.JButton Inventario_BotonGuardar5;
+    private javax.swing.JButton Inventario_BotonGuardar6;
+    private javax.swing.JTextField Inventario_Buscador;
+    private javax.swing.JTextField Inventario_Buscador1;
+    private javax.swing.JTextField Inventario_Buscador2;
+    private javax.swing.JTextField Inventario_Buscador3;
+    private javax.swing.JTextField Inventario_Buscador4;
+    private javax.swing.JTextField Inventario_Buscador5;
+    private javax.swing.JTextField Inventario_Buscador6;
+    private javax.swing.JTextField Inventario_CampoCantidad;
+    private javax.swing.JTextField Inventario_CampoCantidad1;
+    private javax.swing.JTextField Inventario_CampoCantidad2;
+    private javax.swing.JTextField Inventario_CampoCantidad3;
+    private javax.swing.JTextField Inventario_CampoCantidad4;
+    private javax.swing.JTextField Inventario_CampoCantidad5;
+    private javax.swing.JTextField Inventario_CampoCantidad6;
+    private javax.swing.JTextField Inventario_CampoCodigo;
+    private javax.swing.JTextField Inventario_CampoCodigo1;
+    private javax.swing.JTextField Inventario_CampoCodigo2;
+    private javax.swing.JTextField Inventario_CampoCodigo3;
+    private javax.swing.JTextField Inventario_CampoCodigo4;
+    private javax.swing.JTextField Inventario_CampoCodigo5;
+    private javax.swing.JTextField Inventario_CampoCodigo6;
+    private javax.swing.JTextField Inventario_CampoDescripcion;
+    private javax.swing.JTextField Inventario_CampoDescripcion1;
+    private javax.swing.JTextField Inventario_CampoDescripcion2;
+    private javax.swing.JTextField Inventario_CampoDescripcion3;
+    private javax.swing.JTextField Inventario_CampoDescripcion4;
+    private javax.swing.JTextField Inventario_CampoDescripcion5;
+    private javax.swing.JTextField Inventario_CampoDescripcion6;
+    private javax.swing.JTextField Inventario_CampoPrecio;
+    private javax.swing.JTextField Inventario_CampoPrecio1;
+    private javax.swing.JTextField Inventario_CampoPrecio2;
+    private javax.swing.JTextField Inventario_CampoPrecio3;
+    private javax.swing.JTextField Inventario_CampoPrecio4;
+    private javax.swing.JTextField Inventario_CampoPrecio5;
+    private javax.swing.JTextField Inventario_CampoPrecio6;
+    private javax.swing.JPanel Inventario_Campos;
+    private javax.swing.JPanel Inventario_Campos1;
+    private javax.swing.JPanel Inventario_Campos2;
+    private javax.swing.JPanel Inventario_Campos3;
+    private javax.swing.JPanel Inventario_Campos4;
+    private javax.swing.JPanel Inventario_Campos5;
+    private javax.swing.JPanel Inventario_Campos6;
+    private javax.swing.JLabel Inventario_IconoBuscador;
+    private javax.swing.JLabel Inventario_IconoBuscador1;
+    private javax.swing.JLabel Inventario_IconoBuscador2;
+    private javax.swing.JLabel Inventario_IconoBuscador3;
+    private javax.swing.JLabel Inventario_IconoBuscador4;
+    private javax.swing.JLabel Inventario_IconoBuscador5;
+    private javax.swing.JLabel Inventario_IconoBuscador6;
+    private javax.swing.JScrollPane Inventario_ScrollTabla;
+    private javax.swing.JScrollPane Inventario_ScrollTabla1;
+    private javax.swing.JScrollPane Inventario_ScrollTabla2;
+    private javax.swing.JScrollPane Inventario_ScrollTabla3;
+    private javax.swing.JScrollPane Inventario_ScrollTabla4;
+    private javax.swing.JScrollPane Inventario_ScrollTabla5;
+    private javax.swing.JScrollPane Inventario_ScrollTabla6;
+    private javax.swing.JTable Inventario_Tabla;
+    private javax.swing.JTable Inventario_Tabla1;
+    private javax.swing.JTable Inventario_Tabla2;
+    private javax.swing.JTable Inventario_Tabla3;
+    private javax.swing.JTable Inventario_Tabla4;
+    private javax.swing.JTable Inventario_Tabla5;
+    private javax.swing.JTable Inventario_Tabla6;
+    private javax.swing.JLabel Inventario_TituloCantidad;
+    private javax.swing.JLabel Inventario_TituloCantidad1;
+    private javax.swing.JLabel Inventario_TituloCantidad2;
+    private javax.swing.JLabel Inventario_TituloCantidad3;
+    private javax.swing.JLabel Inventario_TituloCantidad4;
+    private javax.swing.JLabel Inventario_TituloCantidad5;
+    private javax.swing.JLabel Inventario_TituloCantidad6;
+    private javax.swing.JLabel Inventario_TituloCodigo;
+    private javax.swing.JLabel Inventario_TituloCodigo1;
+    private javax.swing.JLabel Inventario_TituloCodigo2;
+    private javax.swing.JLabel Inventario_TituloCodigo3;
+    private javax.swing.JLabel Inventario_TituloCodigo4;
+    private javax.swing.JLabel Inventario_TituloCodigo5;
+    private javax.swing.JLabel Inventario_TituloCodigo6;
+    private javax.swing.JLabel Inventario_TituloDescripcion;
+    private javax.swing.JLabel Inventario_TituloDescripcion1;
+    private javax.swing.JLabel Inventario_TituloDescripcion2;
+    private javax.swing.JLabel Inventario_TituloDescripcion3;
+    private javax.swing.JLabel Inventario_TituloDescripcion4;
+    private javax.swing.JLabel Inventario_TituloDescripcion5;
+    private javax.swing.JLabel Inventario_TituloDescripcion6;
+    private javax.swing.JLabel Inventario_TituloPrecio;
+    private javax.swing.JLabel Inventario_TituloPrecio1;
+    private javax.swing.JLabel Inventario_TituloPrecio2;
+    private javax.swing.JLabel Inventario_TituloPrecio3;
+    private javax.swing.JLabel Inventario_TituloPrecio4;
+    private javax.swing.JLabel Inventario_TituloPrecio5;
+    private javax.swing.JLabel Inventario_TituloPrecio6;
+    private javax.swing.JComboBox<String> Inventario_TituloProveedor;
+    private javax.swing.JComboBox<String> Inventario_TituloProveedor1;
+    private javax.swing.JComboBox<String> Inventario_TituloProveedor2;
+    private javax.swing.JComboBox<String> Inventario_TituloProveedor3;
+    private javax.swing.JComboBox<String> Inventario_TituloProveedor4;
+    private javax.swing.JComboBox<String> Inventario_TituloProveedor5;
+    private javax.swing.JComboBox<String> Inventario_TituloProveedor6;
     private javax.swing.JMenu ModoOscuro;
     private javax.swing.JCheckBoxMenuItem MoodDark;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -459,17 +1463,12 @@ public class MenuCajero extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
