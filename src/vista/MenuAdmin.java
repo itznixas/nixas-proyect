@@ -3,12 +3,9 @@ package vista;
 import com.formdev.flatlaf.*;
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import java.awt.EventQueue;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
 
 public class MenuAdmin extends javax.swing.JFrame {
-    
+
     public MenuAdmin() {
         initComponents();
     }
@@ -25,20 +22,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         Inventario_Campos = new javax.swing.JPanel();
-        Inventario_TituloProveedor = new javax.swing.JComboBox<>();
-        Inventario_CampoCodigo = new javax.swing.JTextField();
-        Inventario_CampoDescripcion = new javax.swing.JTextField();
-        Inventario_CampoCantidad = new javax.swing.JTextField();
-        Inventario_CampoPrecio = new javax.swing.JTextField();
-        Inventario_TituloCodigo = new javax.swing.JLabel();
-        Inventario_TituloDescripcion = new javax.swing.JLabel();
-        Inventario_TituloCantidad = new javax.swing.JLabel();
-        Inventario_TituloPrecio = new javax.swing.JLabel();
-        Inventario_BotonGuardar = new javax.swing.JButton();
-        Inventario_ScrollTabla = new javax.swing.JScrollPane();
-        Inventario_Tabla = new javax.swing.JTable();
-        Inventario_Buscador = new javax.swing.JTextField();
-        Inventario_IconoBuscador = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Inventario_Campos1 = new javax.swing.JPanel();
         Inventario_TituloProveedor1 = new javax.swing.JComboBox<>();
@@ -151,128 +135,24 @@ public class MenuAdmin extends javax.swing.JFrame {
         MoodDark = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1600, 850));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Inicio", jPanel3);
 
-        Inventario_Campos.setBackground(new java.awt.Color(22, 18, 38));
-
-        Inventario_TituloProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Inventario_TituloProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Inventario_TituloProveedorActionPerformed(evt);
-            }
-        });
-
-        Inventario_TituloCodigo.setForeground(new java.awt.Color(255, 255, 255));
-        Inventario_TituloCodigo.setText("Codigo");
-
-        Inventario_TituloDescripcion.setForeground(new java.awt.Color(255, 255, 255));
-        Inventario_TituloDescripcion.setText("Descripcion");
-
-        Inventario_TituloCantidad.setForeground(new java.awt.Color(255, 255, 255));
-        Inventario_TituloCantidad.setText("Cantidad");
-
-        Inventario_TituloPrecio.setForeground(new java.awt.Color(255, 255, 255));
-        Inventario_TituloPrecio.setText("Precio");
-
-        Inventario_BotonGuardar.setBackground(new java.awt.Color(0, 255, 102));
-        Inventario_BotonGuardar.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Inventario_BotonGuardar.setText("Ingresar");
-
-        Inventario_ScrollTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        Inventario_Tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Codigo", "Descripcion", "Cantidad", "Precio", "Proveedor"
-            }
-        ));
-        Inventario_ScrollTabla.setViewportView(Inventario_Tabla);
-
-        Inventario_Buscador.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Inventario_Buscador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        Inventario_IconoBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/buscadorIcon.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/fondo_formulario.gif"))); // NOI18N
 
         javax.swing.GroupLayout Inventario_CamposLayout = new javax.swing.GroupLayout(Inventario_Campos);
         Inventario_Campos.setLayout(Inventario_CamposLayout);
         Inventario_CamposLayout.setHorizontalGroup(
             Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Inventario_CamposLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Inventario_CamposLayout.createSequentialGroup()
-                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Inventario_CampoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(Inventario_TituloCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(45, 45, 45)
-                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Inventario_CampoCantidad)
-                            .addComponent(Inventario_TituloCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(Inventario_CamposLayout.createSequentialGroup()
-                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Inventario_CampoDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(Inventario_TituloDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(45, 45, 45)
-                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Inventario_CampoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Inventario_TituloPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(53, 53, 53)
-                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Inventario_BotonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(Inventario_CamposLayout.createSequentialGroup()
-                        .addComponent(Inventario_TituloProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 950, Short.MAX_VALUE)
-                        .addComponent(Inventario_IconoBuscador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Inventario_Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))))
-            .addGroup(Inventario_CamposLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Inventario_ScrollTabla)
-                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1932, Short.MAX_VALUE)
         );
         Inventario_CamposLayout.setVerticalGroup(
             Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Inventario_CamposLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_CamposLayout.createSequentialGroup()
-                        .addComponent(Inventario_TituloCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Inventario_CampoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Inventario_TituloCantidad)
-                        .addGroup(Inventario_CamposLayout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Inventario_CampoCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Inventario_TituloProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Inventario_Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Inventario_IconoBuscador))))))
-                .addGap(18, 18, 18)
-                .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Inventario_CamposLayout.createSequentialGroup()
-                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Inventario_TituloDescripcion)
-                            .addComponent(Inventario_TituloPrecio))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Inventario_CamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Inventario_CampoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Inventario_CampoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(Inventario_BotonGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Inventario_ScrollTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addGap(0, 9, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ag. Pedidos", Inventario_Campos);
@@ -354,10 +234,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(Inventario_Campos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Inventario_Campos1Layout.createSequentialGroup()
                         .addComponent(Inventario_BotonGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(1130, Short.MAX_VALUE))
+                        .addContainerGap(1462, Short.MAX_VALUE))
                     .addGroup(Inventario_Campos1Layout.createSequentialGroup()
                         .addComponent(Inventario_TituloProveedor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 949, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1281, Short.MAX_VALUE)
                         .addComponent(Inventario_IconoBuscador1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Inventario_Buscador1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -399,7 +279,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_CampoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(Inventario_BotonGuardar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Inventario_ScrollTabla1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addComponent(Inventario_ScrollTabla1, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -407,13 +287,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1600, Short.MAX_VALUE)
+            .addGap(0, 1932, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Inventario_Campos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addGap(0, 1089, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Inventario_Campos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -498,7 +378,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(Inventario_BotonGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(Inventario_Campos2Layout.createSequentialGroup()
                         .addComponent(Inventario_TituloProveedor2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 950, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1282, Short.MAX_VALUE)
                         .addComponent(Inventario_IconoBuscador2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Inventario_Buscador2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -540,7 +420,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_CampoPrecio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(Inventario_BotonGuardar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Inventario_ScrollTabla2, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addComponent(Inventario_ScrollTabla2, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -637,7 +517,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_BotonGuardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(Inventario_Campos3Layout.createSequentialGroup()
                                 .addComponent(Inventario_TituloProveedor3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 950, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1282, Short.MAX_VALUE)
                                 .addComponent(Inventario_IconoBuscador3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Inventario_Buscador3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -679,7 +559,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_CampoPrecio3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(Inventario_BotonGuardar3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Inventario_ScrollTabla3, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addComponent(Inventario_ScrollTabla3, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -776,7 +656,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_BotonGuardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(Inventario_Campos4Layout.createSequentialGroup()
                                 .addComponent(Inventario_TituloProveedor4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 950, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1282, Short.MAX_VALUE)
                                 .addComponent(Inventario_IconoBuscador4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Inventario_Buscador4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -818,7 +698,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_CampoPrecio4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(Inventario_BotonGuardar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Inventario_ScrollTabla4, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addComponent(Inventario_ScrollTabla4, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -915,7 +795,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_BotonGuardar5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(Inventario_Campos5Layout.createSequentialGroup()
                                 .addComponent(Inventario_TituloProveedor5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 950, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1282, Short.MAX_VALUE)
                                 .addComponent(Inventario_IconoBuscador5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Inventario_Buscador5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -957,7 +837,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_CampoPrecio5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(Inventario_BotonGuardar5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Inventario_ScrollTabla5, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addComponent(Inventario_ScrollTabla5, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1052,7 +932,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(Inventario_BotonGuardar6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(Inventario_Campos6Layout.createSequentialGroup()
                         .addComponent(Inventario_TituloProveedor6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 950, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1282, Short.MAX_VALUE)
                         .addComponent(Inventario_IconoBuscador6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Inventario_Buscador6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1094,7 +974,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(Inventario_CampoPrecio6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(Inventario_BotonGuardar6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Inventario_ScrollTabla6, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addComponent(Inventario_ScrollTabla6, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1110,6 +990,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("El. Mesa", jPanel7);
+
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1120));
 
         MenuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MenuBar.setPreferredSize(new java.awt.Dimension(800, 50));
@@ -1165,17 +1047,6 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         setJMenuBar(MenuBar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -1198,10 +1069,6 @@ public class MenuAdmin extends javax.swing.JFrame {
             });
         }
     }//GEN-LAST:event_MoodDarkActionPerformed
-
-    private void Inventario_TituloProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Inventario_TituloProveedorActionPerformed
 
     private void Inventario_TituloProveedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inventario_TituloProveedor1ActionPerformed
         // TODO add your handling code here:
@@ -1264,42 +1131,36 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Inventario_BotonGuardar;
     private javax.swing.JButton Inventario_BotonGuardar1;
     private javax.swing.JButton Inventario_BotonGuardar2;
     private javax.swing.JButton Inventario_BotonGuardar3;
     private javax.swing.JButton Inventario_BotonGuardar4;
     private javax.swing.JButton Inventario_BotonGuardar5;
     private javax.swing.JButton Inventario_BotonGuardar6;
-    private javax.swing.JTextField Inventario_Buscador;
     private javax.swing.JTextField Inventario_Buscador1;
     private javax.swing.JTextField Inventario_Buscador2;
     private javax.swing.JTextField Inventario_Buscador3;
     private javax.swing.JTextField Inventario_Buscador4;
     private javax.swing.JTextField Inventario_Buscador5;
     private javax.swing.JTextField Inventario_Buscador6;
-    private javax.swing.JTextField Inventario_CampoCantidad;
     private javax.swing.JTextField Inventario_CampoCantidad1;
     private javax.swing.JTextField Inventario_CampoCantidad2;
     private javax.swing.JTextField Inventario_CampoCantidad3;
     private javax.swing.JTextField Inventario_CampoCantidad4;
     private javax.swing.JTextField Inventario_CampoCantidad5;
     private javax.swing.JTextField Inventario_CampoCantidad6;
-    private javax.swing.JTextField Inventario_CampoCodigo;
     private javax.swing.JTextField Inventario_CampoCodigo1;
     private javax.swing.JTextField Inventario_CampoCodigo2;
     private javax.swing.JTextField Inventario_CampoCodigo3;
     private javax.swing.JTextField Inventario_CampoCodigo4;
     private javax.swing.JTextField Inventario_CampoCodigo5;
     private javax.swing.JTextField Inventario_CampoCodigo6;
-    private javax.swing.JTextField Inventario_CampoDescripcion;
     private javax.swing.JTextField Inventario_CampoDescripcion1;
     private javax.swing.JTextField Inventario_CampoDescripcion2;
     private javax.swing.JTextField Inventario_CampoDescripcion3;
     private javax.swing.JTextField Inventario_CampoDescripcion4;
     private javax.swing.JTextField Inventario_CampoDescripcion5;
     private javax.swing.JTextField Inventario_CampoDescripcion6;
-    private javax.swing.JTextField Inventario_CampoPrecio;
     private javax.swing.JTextField Inventario_CampoPrecio1;
     private javax.swing.JTextField Inventario_CampoPrecio2;
     private javax.swing.JTextField Inventario_CampoPrecio3;
@@ -1313,56 +1174,48 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel Inventario_Campos4;
     private javax.swing.JPanel Inventario_Campos5;
     private javax.swing.JPanel Inventario_Campos6;
-    private javax.swing.JLabel Inventario_IconoBuscador;
     private javax.swing.JLabel Inventario_IconoBuscador1;
     private javax.swing.JLabel Inventario_IconoBuscador2;
     private javax.swing.JLabel Inventario_IconoBuscador3;
     private javax.swing.JLabel Inventario_IconoBuscador4;
     private javax.swing.JLabel Inventario_IconoBuscador5;
     private javax.swing.JLabel Inventario_IconoBuscador6;
-    private javax.swing.JScrollPane Inventario_ScrollTabla;
     private javax.swing.JScrollPane Inventario_ScrollTabla1;
     private javax.swing.JScrollPane Inventario_ScrollTabla2;
     private javax.swing.JScrollPane Inventario_ScrollTabla3;
     private javax.swing.JScrollPane Inventario_ScrollTabla4;
     private javax.swing.JScrollPane Inventario_ScrollTabla5;
     private javax.swing.JScrollPane Inventario_ScrollTabla6;
-    private javax.swing.JTable Inventario_Tabla;
     private javax.swing.JTable Inventario_Tabla1;
     private javax.swing.JTable Inventario_Tabla2;
     private javax.swing.JTable Inventario_Tabla3;
     private javax.swing.JTable Inventario_Tabla4;
     private javax.swing.JTable Inventario_Tabla5;
     private javax.swing.JTable Inventario_Tabla6;
-    private javax.swing.JLabel Inventario_TituloCantidad;
     private javax.swing.JLabel Inventario_TituloCantidad1;
     private javax.swing.JLabel Inventario_TituloCantidad2;
     private javax.swing.JLabel Inventario_TituloCantidad3;
     private javax.swing.JLabel Inventario_TituloCantidad4;
     private javax.swing.JLabel Inventario_TituloCantidad5;
     private javax.swing.JLabel Inventario_TituloCantidad6;
-    private javax.swing.JLabel Inventario_TituloCodigo;
     private javax.swing.JLabel Inventario_TituloCodigo1;
     private javax.swing.JLabel Inventario_TituloCodigo2;
     private javax.swing.JLabel Inventario_TituloCodigo3;
     private javax.swing.JLabel Inventario_TituloCodigo4;
     private javax.swing.JLabel Inventario_TituloCodigo5;
     private javax.swing.JLabel Inventario_TituloCodigo6;
-    private javax.swing.JLabel Inventario_TituloDescripcion;
     private javax.swing.JLabel Inventario_TituloDescripcion1;
     private javax.swing.JLabel Inventario_TituloDescripcion2;
     private javax.swing.JLabel Inventario_TituloDescripcion3;
     private javax.swing.JLabel Inventario_TituloDescripcion4;
     private javax.swing.JLabel Inventario_TituloDescripcion5;
     private javax.swing.JLabel Inventario_TituloDescripcion6;
-    private javax.swing.JLabel Inventario_TituloPrecio;
     private javax.swing.JLabel Inventario_TituloPrecio1;
     private javax.swing.JLabel Inventario_TituloPrecio2;
     private javax.swing.JLabel Inventario_TituloPrecio3;
     private javax.swing.JLabel Inventario_TituloPrecio4;
     private javax.swing.JLabel Inventario_TituloPrecio5;
     private javax.swing.JLabel Inventario_TituloPrecio6;
-    private javax.swing.JComboBox<String> Inventario_TituloProveedor;
     private javax.swing.JComboBox<String> Inventario_TituloProveedor1;
     private javax.swing.JComboBox<String> Inventario_TituloProveedor2;
     private javax.swing.JComboBox<String> Inventario_TituloProveedor3;
@@ -1372,6 +1225,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenu ModoOscuro;
     private javax.swing.JCheckBoxMenuItem MoodDark;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

@@ -10,6 +10,7 @@ public class ventanaLogin extends javax.swing.JFrame {
     public ventanaLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,103 +32,55 @@ public class ventanaLogin extends javax.swing.JFrame {
         ImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelContenedorLogin.setBackground(new java.awt.Color(255, 255, 255));
-        PanelContenedorLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PanelContenedorLogin.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         PanelContenedorLogin.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        PanelContenedorLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         TituloInicioSesion.setForeground(new java.awt.Color(22, 18, 38));
         TituloInicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TituloInicioSesion.setText("Iniciar Sesión");
+        PanelContenedorLogin.add(TituloInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 407, 170));
 
         BtnLogin.setBackground(new java.awt.Color(22, 18, 38));
         BtnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnLogin.setText("INGRESAR");
+        PanelContenedorLogin.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 453, 230, 40));
 
         OlvidasteContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OlvidasteContraseña.setText("¿ Olvidaste tu contraseña ?");
+        PanelContenedorLogin.add(OlvidasteContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 408, 230, -1));
 
         IconUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/UserIcon.png"))); // NOI18N
+        PanelContenedorLogin.add(IconUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 235, -1, 26));
 
         IconContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/PasswordIcon.png"))); // NOI18N
+        PanelContenedorLogin.add(IconContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 355, -1, 37));
 
         CampoUsuario.setBackground(new java.awt.Color(255, 255, 255));
         CampoUsuario.setToolTipText("");
         CampoUsuario.setLabelText("Usuario");
         CampoUsuario.setLineColor(new java.awt.Color(22, 7, 38));
+        PanelContenedorLogin.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 219, 230, -1));
 
         CampoContraseña.setBackground(new java.awt.Color(255, 255, 255));
         CampoContraseña.setLabelText("Contraseña");
         CampoContraseña.setLineColor(new java.awt.Color(22, 7, 38));
+        PanelContenedorLogin.add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 337, 230, -1));
 
-        javax.swing.GroupLayout PanelContenedorLoginLayout = new javax.swing.GroupLayout(PanelContenedorLogin);
-        PanelContenedorLogin.setLayout(PanelContenedorLoginLayout);
-        PanelContenedorLoginLayout.setHorizontalGroup(
-            PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IconUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IconContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(OlvidasteContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(BtnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(CampoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CampoContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                .addComponent(TituloInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
-        );
-        PanelContenedorLoginLayout.setVerticalGroup(
-            PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                .addComponent(TituloInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(IconUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(CampoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(PanelContenedorLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelContenedorLoginLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(IconContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelContenedorLoginLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(OlvidasteContraseña)
-                .addGap(29, 29, 29)
-                .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(PanelContenedorLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 410, 540));
+        getContentPane().add(PanelContenedorLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 250, 420, 560));
 
         ImgFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ImgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/fondo_4.jpg"))); // NOI18N
-        getContentPane().add(ImgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 620));
+        ImgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/Fondo_Login.gif"))); // NOI18N
+        getContentPane().add(ImgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-        //fUNCION DE CERRAR
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
