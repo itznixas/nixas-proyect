@@ -14,9 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
-import componentes.MenuAnimation;
-import componentes.MenuEvent;
-import componentes.MenuItem;
+
 
 
 public class MenuSliderBar extends JComponent{
@@ -33,10 +31,11 @@ public class MenuSliderBar extends JComponent{
         {""},
         {""},
         {""},
-        {"Agregar", "Pedidos", "Clientes", "Productos"},
-        {"Inventario", " ", ""},
-        {"Facturas", " ", ""},
-        {"Elegir Mesa", " ", ""},
+        {" Agregar", "Pedidos", "Clientes", "Productos", "Empleados"},
+        {" Consultar", "Cliente", "Empleado"},
+        {" Inventario", "Consultar", "Informe"},
+        {" Facturas", "Generar"},
+        {" Elegir Mesa"},
     };
     public MenuSliderBar() {
         init();
