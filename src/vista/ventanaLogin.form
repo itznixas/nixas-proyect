@@ -36,7 +36,7 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Component class="componentes.TextField" name="textField1">
+        <Component class="componentes.TextField" name="CampoUsuario">
           <Properties>
             <Property name="hint" type="java.lang.String" value="Usuario"/>
           </Properties>
@@ -46,7 +46,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="componentes.PasswordField" name="passwordField1">
+        <Component class="componentes.PasswordField" name="CampoContrase&#xf1;a">
           <Properties>
             <Property name="hint" type="java.lang.String" value="Contrase&#xf1;a"/>
           </Properties>
@@ -109,7 +109,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="70" y="380" width="230" height="40"/>
+              <AbsoluteConstraints x="80" y="400" width="230" height="40"/>
             </Constraint>
           </Constraints>
         </Component>

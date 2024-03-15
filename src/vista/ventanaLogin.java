@@ -1,5 +1,6 @@
 package vista;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import controlador.loginCtrl;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -22,8 +23,8 @@ public class ventanaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelTransparente1 = new LIB.JPanelTransparente();
-        textField1 = new componentes.TextField();
-        passwordField1 = new componentes.PasswordField();
+        CampoUsuario = new componentes.TextField();
+        CampoContraseña = new componentes.PasswordField();
         IconUsuario = new javax.swing.JLabel();
         IconContraseña = new javax.swing.JLabel();
         OlvidasteContraseña = new javax.swing.JLabel();
@@ -36,11 +37,11 @@ public class ventanaLogin extends javax.swing.JFrame {
 
         jPanelTransparente1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textField1.setHint("Usuario");
-        jPanelTransparente1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 220, -1));
+        CampoUsuario.setHint("Usuario");
+        jPanelTransparente1.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 220, -1));
 
-        passwordField1.setHint("Contraseña");
-        jPanelTransparente1.add(passwordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 220, -1));
+        CampoContraseña.setHint("Contraseña");
+        jPanelTransparente1.add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 220, -1));
 
         IconUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/UserIcon.png"))); // NOI18N
         jPanelTransparente1.add(IconUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 26));
@@ -56,7 +57,7 @@ public class ventanaLogin extends javax.swing.JFrame {
         BtnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnLogin.setText("INGRESAR");
-        jPanelTransparente1.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 230, 40));
+        jPanelTransparente1.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 230, 40));
 
         TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         TituloInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -78,33 +79,7 @@ public class ventanaLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ventanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ventanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ventanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ventanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        
-        
-        
-        /* Create and display the form */
+        FlatIntelliJLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
@@ -118,14 +93,14 @@ public class ventanaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BtnLogin;
+    private componentes.PasswordField CampoContraseña;
+    private componentes.TextField CampoUsuario;
     private javax.swing.JLabel IconContraseña;
     private javax.swing.JLabel IconUsuario;
     private javax.swing.JLabel ImgFondo;
     private javax.swing.JLabel OlvidasteContraseña;
     private javax.swing.JLabel TituloInicioSesion;
     private LIB.JPanelTransparente jPanelTransparente1;
-    private componentes.PasswordField passwordField1;
-    private componentes.TextField textField1;
     // End of variables declaration//GEN-END:variables
 
     public  JButton getBtnLogin() {
@@ -133,10 +108,10 @@ public class ventanaLogin extends javax.swing.JFrame {
     }
 
     public  JPasswordField getCampoContraseña() {
-        return null;
+        return CampoContraseña;
     }
 
     public  JTextField getCampoUsuario() {
-        return null;
+        return CampoUsuario;
     }
 }
