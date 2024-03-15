@@ -27,23 +27,21 @@ public class ventanaLogin extends javax.swing.JFrame {
         OlvidasteContraseña = new javax.swing.JLabel();
         IconUsuario = new javax.swing.JLabel();
         IconContraseña = new javax.swing.JLabel();
-        CampoUsuario = new componentes.TextField();
-        CampoContraseña = new componentes.PasswordField();
         ImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelContenedorLogin.setBackground(new java.awt.Color(255, 255, 255));
-        PanelContenedorLogin.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        PanelContenedorLogin.setBackground(new java.awt.Color(0, 0, 0, 0));
+        PanelContenedorLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PanelContenedorLogin.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         PanelContenedorLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
-        TituloInicioSesion.setForeground(new java.awt.Color(22, 18, 38));
+        TituloInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
         TituloInicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TituloInicioSesion.setText("Iniciar Sesión");
-        PanelContenedorLogin.add(TituloInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 407, 170));
+        PanelContenedorLogin.add(TituloInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 420, 170));
 
         BtnLogin.setBackground(new java.awt.Color(22, 18, 38));
         BtnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -61,18 +59,7 @@ public class ventanaLogin extends javax.swing.JFrame {
         IconContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/PasswordIcon.png"))); // NOI18N
         PanelContenedorLogin.add(IconContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 355, -1, 37));
 
-        CampoUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        CampoUsuario.setToolTipText("");
-        CampoUsuario.setLabelText("Usuario");
-        CampoUsuario.setLineColor(new java.awt.Color(22, 7, 38));
-        PanelContenedorLogin.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 219, 230, -1));
-
-        CampoContraseña.setBackground(new java.awt.Color(255, 255, 255));
-        CampoContraseña.setLabelText("Contraseña");
-        CampoContraseña.setLineColor(new java.awt.Color(22, 7, 38));
-        PanelContenedorLogin.add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 337, 230, -1));
-
-        getContentPane().add(PanelContenedorLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 250, 420, 560));
+        getContentPane().add(PanelContenedorLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 420, 560));
 
         ImgFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ImgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/Fondo_Login.gif"))); // NOI18N
@@ -126,8 +113,6 @@ public class ventanaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BtnLogin;
-    private componentes.PasswordField CampoContraseña;
-    private componentes.TextField CampoUsuario;
     private javax.swing.JLabel IconContraseña;
     private javax.swing.JLabel IconUsuario;
     private javax.swing.JLabel ImgFondo;
@@ -141,10 +126,10 @@ public class ventanaLogin extends javax.swing.JFrame {
     }
 
     public  JPasswordField getCampoContraseña() {
-        return CampoContraseña;
+        return null;
     }
 
     public  JTextField getCampoUsuario() {
-        return CampoUsuario;
+        return null;
     }
 }
