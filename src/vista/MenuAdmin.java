@@ -73,6 +73,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         menuSliderBar1 = new componentes.MenuSliderBar();
@@ -484,45 +487,35 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Empleados", jPanel6);
 
+        jPanel10.setBackground(new java.awt.Color(11, 18, 35));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Tabla"
             }
         ));
         jScrollPane4.setViewportView(jTable4);
 
-        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
+        jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 1520, 750));
+        jPanel10.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 110, 360, 30));
+
+        jButton10.setText("jButton10");
+        jPanel10.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 110, -1, -1));
+
+        jButton11.setText("jButton11");
+        jPanel10.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 110, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("CLIENTES");
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(655, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
-        );
+        jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 450, -1));
 
         jTabbedPane1.addTab("Cons. Cliente", jPanel10);
 
@@ -583,6 +576,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -627,6 +622,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTextField jTextField1;
     private componentes.MenuSliderBar menuSliderBar1;
     private componentes.TextField textField1;
     private componentes.TextField textField10;

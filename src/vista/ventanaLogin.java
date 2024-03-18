@@ -11,7 +11,6 @@ public class ventanaLogin extends javax.swing.JFrame {
     public ventanaLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setExtendedState(MAXIMIZED_BOTH);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,7 +102,6 @@ public class ventanaLogin extends javax.swing.JFrame {
         FlatIntelliJLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
         ventanaLogin login = new ventanaLogin();
         loginCtrl lox = new loginCtrl(login);
         login.setVisible(true);
