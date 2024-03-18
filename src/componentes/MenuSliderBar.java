@@ -12,7 +12,7 @@ import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JPanel;
+import javax.swing.JPanel; 
 import net.miginfocom.swing.MigLayout;
 
 
@@ -57,7 +57,7 @@ public class MenuSliderBar extends JComponent{
             return null;
         }
     }
-    private void addMenu(String menuName, int index) {
+    private void addMenu(String menuName, int index ) {
         int length = menuItems[index].length;
         MenuItem item = new MenuItem(menuName, index, length > 1);
         Icon icon = getIcon(index);
