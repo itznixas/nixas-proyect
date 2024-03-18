@@ -45,7 +45,7 @@ public class TextFieldAnimation extends JTextField {
     }
 
     private Color backgroundColor = Color.WHITE;
-    private Color animationColor = new Color(11, 22, 47);
+    private Color animationColor = new Color(255, 255, 255);
     private final Icon iconSearch;
     private final Icon iconClose;
     private final Icon iconLoading;
@@ -63,9 +63,9 @@ public class TextFieldAnimation extends JTextField {
         setBorder(new EmptyBorder(10, 10, 10, 50)); //  Set Right border 50
         setFont(new java.awt.Font("sansserif", 0, 14));
         setSelectionColor(new Color(80, 199, 255));
-        iconSearch = new ImageIcon(getClass().getResource("/componentes/search.png"));
-        iconClose = new ImageIcon(getClass().getResource("/componentes/close.png"));
-        iconLoading = new ImageIcon(getClass().getResource("/componentes/loading.gif"));
+        iconSearch = new ImageIcon(getClass().getResource(""));
+        iconClose = new ImageIcon(getClass().getResource(""));
+        iconLoading = new ImageIcon(getClass().getResource(""));
         //  Create and check if mouse over button
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override
