@@ -154,7 +154,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -493,11 +492,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                                 .addComponent(jButton4)
                                 .addGap(76, 76, 76)
                                 .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(tblMesasLayout.createSequentialGroup()
-                                            .addGap(112, 112, 112)
-                                            .addComponent(jButton7)))
+                                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(tblMesasLayout.createSequentialGroup()
+                                        .addGap(112, 112, 112)
+                                        .addComponent(jButton7))
                                     .addGroup(tblMesasLayout.createSequentialGroup()
                                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1445,7 +1443,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     public javax.swing.JTable tblClientes;
-    private javax.swing.JTable tblEmpleados;
+    public javax.swing.JTable tblEmpleados;
     public javax.swing.JTable tblInventario1;
     private javax.swing.JPanel tblMesas;
     private javax.swing.JTable tblPedidoMesas;
