@@ -1,6 +1,7 @@
 package vista;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import controlador.loginCtrl;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -101,7 +102,7 @@ public class ventanaLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FlatIntelliJLaf.setup();
+        FlatDarculaLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
         ventanaLogin login = new ventanaLogin();

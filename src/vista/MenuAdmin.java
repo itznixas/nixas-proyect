@@ -2,6 +2,7 @@ package vista;
 
 import com.formdev.flatlaf.*;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 public class MenuAdmin extends javax.swing.JFrame {
     
@@ -139,7 +140,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -156,6 +157,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnCerrarSesion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -195,7 +197,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel2.add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 390, 220));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/FondoInicio.gif"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1050));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1060));
 
         jTabbedPane1.addTab("Inicio", jPanel2);
 
@@ -1131,7 +1133,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1057, Short.MAX_VALUE)
+            .addGap(0, 1051, Short.MAX_VALUE)
             .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel18Layout.createSequentialGroup()
                     .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1272,6 +1274,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
 
+        MenuBar.setForeground(new java.awt.Color(255, 255, 255));
+
         jMenu1.setText("ADD");
 
         jMenuItem1.setText("ORDERS");
@@ -1286,7 +1290,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jMenuItem4.setText("PRODUCTS");
         jMenu1.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu1);
+        MenuBar.add(jMenu1);
 
         jMenu2.setText("SEARCH");
 
@@ -1296,7 +1300,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jMenuItem6.setText("EMPLOYEES");
         jMenu2.add(jMenuItem6);
 
-        jMenuBar1.add(jMenu2);
+        MenuBar.add(jMenu2);
 
         jMenu3.setText("INVENTORY");
 
@@ -1306,24 +1310,24 @@ public class MenuAdmin extends javax.swing.JFrame {
         jMenuItem8.setText("REPORT");
         jMenu3.add(jMenuItem8);
 
-        jMenuBar1.add(jMenu3);
+        MenuBar.add(jMenu3);
 
         jMenu4.setText("BILLLING");
 
         jMenuItem9.setText("GENERATE");
         jMenu4.add(jMenuItem9);
 
-        jMenuBar1.add(jMenu4);
+        MenuBar.add(jMenu4);
 
-        btnCerrarSesion.setText("LOG OUT");
+        btnCerrarSesion.setText("EXIT");
         btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCerrarSesionMouseClicked(evt);
             }
         });
-        jMenuBar1.add(btnCerrarSesion);
+        MenuBar.add(btnCerrarSesion);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(MenuBar);
 
         pack();
         setLocationRelativeTo(null);
@@ -1345,7 +1349,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarSesionMouseClicked
     
     public static void main(String args[]) {
-        FlatIntelliJLaf.setup();
+        FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuAdmin().setVisible(true);
@@ -1354,6 +1358,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenu btnCerrarSesion;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
@@ -1405,7 +1410,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
