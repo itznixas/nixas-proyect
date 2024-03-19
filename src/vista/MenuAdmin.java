@@ -107,7 +107,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        textFieldAnimation2 = new componentes.TextFieldAnimation();
+        jTextField4 = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -115,7 +115,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        textFieldAnimation3 = new componentes.TextFieldAnimation();
+        jTextField5 = new javax.swing.JTextField();
         jPanel18 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
@@ -991,7 +991,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("CLIENTS");
         jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 450, -1));
-        jPanel10.add(textFieldAnimation2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1084, 100, 270, -1));
+        jPanel10.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 100, 330, 40));
 
         jTabbedPane1.addTab("Cons. Cliente", jPanel10);
 
@@ -1044,7 +1044,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("EMPLOYEES");
         jPanel23.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 460, -1));
-        jPanel23.add(textFieldAnimation3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1084, 100, 270, -1));
+        jPanel23.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 100, 330, 40));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1440,6 +1440,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     public javax.swing.JTable tblClientes;
@@ -1468,7 +1470,5 @@ public class MenuAdmin extends javax.swing.JFrame {
     private componentes.TextField textField7;
     private componentes.TextField textField8;
     private componentes.TextField textField9;
-    private componentes.TextFieldAnimation textFieldAnimation2;
-    private componentes.TextFieldAnimation textFieldAnimation3;
     // End of variables declaration//GEN-END:variables
 }
