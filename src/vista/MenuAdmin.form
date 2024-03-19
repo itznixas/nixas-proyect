@@ -11,26 +11,41 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/componentes/img/IconoAgregar.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="ADD"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoAgregarPedidos.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="ORDERS"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoAgregarClientes.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="CLIENTS"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoAgregarEmpleados.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="EMPLOYEES"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoAgregarProductos.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="PRODUCTS"/>
               </Properties>
             </MenuItem>
@@ -38,16 +53,25 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/componentes/img/IconoBuscar.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="SEARCH"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoBuscarClientes.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="CLIENTS"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoBuscarEmpleados.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="EMPLOYEES"/>
               </Properties>
             </MenuItem>
@@ -55,16 +79,25 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/componentes/img/IconoInventario.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="INVENTORY"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoInventarioBuscar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="SEARCH"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoInventarioReporte.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="REPORT"/>
               </Properties>
             </MenuItem>
@@ -72,11 +105,17 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/componentes/img/IconoFacturacion.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="BILLLING"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/componentes/img/IconoFacturaGenerar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="GENERATE"/>
               </Properties>
             </MenuItem>
@@ -84,6 +123,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="btnCerrarSesion">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/componentes/img/IconoCerrarSesion.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="EXIT"/>
           </Properties>
           <Events>

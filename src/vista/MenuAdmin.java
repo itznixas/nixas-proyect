@@ -1276,49 +1276,63 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         MenuBar.setForeground(new java.awt.Color(255, 255, 255));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregar.png"))); // NOI18N
         jMenu1.setText("ADD");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarPedidos.png"))); // NOI18N
         jMenuItem1.setText("ORDERS");
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarClientes.png"))); // NOI18N
         jMenuItem2.setText("CLIENTS");
         jMenu1.add(jMenuItem2);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarEmpleados.png"))); // NOI18N
         jMenuItem3.setText("EMPLOYEES");
         jMenu1.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarProductos.png"))); // NOI18N
         jMenuItem4.setText("PRODUCTS");
         jMenu1.add(jMenuItem4);
 
         MenuBar.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscar.png"))); // NOI18N
         jMenu2.setText("SEARCH");
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscarClientes.png"))); // NOI18N
         jMenuItem5.setText("CLIENTS");
         jMenu2.add(jMenuItem5);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscarEmpleados.png"))); // NOI18N
         jMenuItem6.setText("EMPLOYEES");
         jMenu2.add(jMenuItem6);
 
         MenuBar.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoInventario.png"))); // NOI18N
         jMenu3.setText("INVENTORY");
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoInventarioBuscar.png"))); // NOI18N
         jMenuItem7.setText("SEARCH");
         jMenu3.add(jMenuItem7);
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoInventarioReporte.png"))); // NOI18N
         jMenuItem8.setText("REPORT");
         jMenu3.add(jMenuItem8);
 
         MenuBar.add(jMenu3);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoFacturacion.png"))); // NOI18N
         jMenu4.setText("BILLLING");
 
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoFacturaGenerar.png"))); // NOI18N
         jMenuItem9.setText("GENERATE");
         jMenu4.add(jMenuItem9);
 
         MenuBar.add(jMenu4);
 
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoCerrarSesion.png"))); // NOI18N
         btnCerrarSesion.setText("EXIT");
         btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

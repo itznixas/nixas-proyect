@@ -6,6 +6,8 @@ import controlador.loginCtrl;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class ventanaLogin extends javax.swing.JFrame {
 
@@ -13,6 +15,16 @@ public class ventanaLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+
+    public class IconoNixas {
+
+        public static void establecerIcono(JFrame frame) {
+            ImageIcon icono = new ImageIcon(IconoNixas.class.getResource("/componentes/img/cursor.png"));
+
+            frame.setIconImage(icono.getImage());
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -105,9 +117,9 @@ public class ventanaLogin extends javax.swing.JFrame {
         FlatDarculaLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-        ventanaLogin login = new ventanaLogin();
-        loginCtrl lox = new loginCtrl(login);
-        login.setVisible(true);
+                ventanaLogin login = new ventanaLogin();
+                loginCtrl lox = new loginCtrl(login);
+                login.setVisible(true);
                 //new ventanaLogin().setVisible(true);
             }
         });
@@ -128,15 +140,15 @@ public class ventanaLogin extends javax.swing.JFrame {
     private LIB.JPanelTransparente jPanelTransparente1;
     // End of variables declaration//GEN-END:variables
 
-    public  JButton getBtnLogin() {
+    public JButton getBtnLogin() {
         return BtnLogin;
     }
 
-    public  JPasswordField getCampoContraseña() {
+    public JPasswordField getCampoContraseña() {
         return CampoContraseña;
     }
 
-    public  JTextField getCampoUsuario() {
+    public JTextField getCampoUsuario() {
         return CampoUsuario;
     }
 }
