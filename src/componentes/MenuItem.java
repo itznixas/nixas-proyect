@@ -10,8 +10,6 @@ import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import componentes.RippleEffect;
-import componentes.ShadowRenderer;
 
 public class MenuItem extends JButton {
 

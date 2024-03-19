@@ -1,7 +1,6 @@
 package vista;
 
 import com.formdev.flatlaf.*;
-import componentes.MenuSliderBar;
 
 public class MenuAdmin extends javax.swing.JFrame {
     
@@ -24,7 +23,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        tblMesas = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -60,13 +59,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel25 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblStockProductos = new javax.swing.JTable();
         jPanel26 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblPedidoMesas = new javax.swing.JTable();
         jPanel27 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblPedidosPendiente = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jPanelTransparente1 = new LIB.JPanelTransparente();
         jLabel3 = new javax.swing.JLabel();
@@ -92,7 +91,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tblClientes = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
@@ -100,7 +99,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tblEmpleados = new javax.swing.JTable();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
@@ -112,11 +111,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         textFieldAnimation4 = new componentes.TextFieldAnimation();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        tblInventario1 = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        tblInventario3 = new javax.swing.JTable();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable();
+        tblInventario2 = new javax.swing.JTable();
         jPanel19 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -149,46 +148,37 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Inicio", jPanel2);
 
-        jPanel3.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel7.setBackground(new java.awt.Color(24, 42, 75));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel7.setForeground(new java.awt.Color(0, 0, 0));
+        tblMesas.setBackground(new java.awt.Color(24, 42, 75));
+        tblMesas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton1.setBackground(new java.awt.Color(153, 255, 153));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Seleccionar");
 
         jButton3.setBackground(new java.awt.Color(153, 255, 153));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Seleccionar");
 
         jButton4.setBackground(new java.awt.Color(153, 255, 153));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Seleccionar");
 
         jButton5.setBackground(new java.awt.Color(153, 255, 153));
         jButton5.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("Seleccionar");
 
         jButton6.setBackground(new java.awt.Color(153, 255, 153));
         jButton6.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setText("Seleccionar");
 
         jButton7.setBackground(new java.awt.Color(153, 255, 153));
         jButton7.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setText("Seleccionar");
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Mesas");
 
@@ -208,7 +198,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
 
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("4");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -238,7 +227,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
 
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("2");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -268,7 +256,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
 
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("3");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -299,7 +286,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
 
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("5");
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -329,7 +315,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("1");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
@@ -359,7 +344,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
 
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("6");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
@@ -384,36 +368,36 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel19))
         );
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout tblMesasLayout = new javax.swing.GroupLayout(tblMesas);
+        tblMesas.setLayout(tblMesasLayout);
+        tblMesasLayout.setHorizontalGroup(
+            tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tblMesasLayout.createSequentialGroup()
+                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tblMesasLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addGroup(tblMesasLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(52, 52, 52)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tblMesasLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(tblMesasLayout.createSequentialGroup()
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, Short.MAX_VALUE))))
                 .addGap(61, 61, 61)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -421,31 +405,31 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(33, 33, 33))
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        tblMesasLayout.setVerticalGroup(
+            tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tblMesasLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tblMesasLayout.createSequentialGroup()
+                        .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
                             .addComponent(jButton4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tblMesasLayout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton5)
                                     .addComponent(jButton7)))
                             .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addGroup(tblMesasLayout.createSequentialGroup()
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
@@ -456,7 +440,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(82, 82, 82))
         );
 
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 610, 560));
+        jPanel3.add(tblMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 610, 560));
 
         jPanel8.setBackground(new java.awt.Color(11, 22, 47));
 
@@ -538,9 +522,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel25.setBackground(new java.awt.Color(11, 22, 47));
 
-        jTable1.setBackground(new java.awt.Color(24, 42, 75));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblStockProductos.setBackground(new java.awt.Color(24, 42, 75));
+        tblStockProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -551,7 +534,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 "Stock de Productos"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblStockProductos);
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -574,10 +557,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel26.setBackground(new java.awt.Color(11, 22, 47));
 
-        jTable2.setBackground(new java.awt.Color(24, 42, 75));
-        jTable2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTable2.setForeground(new java.awt.Color(0, 0, 0));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblPedidoMesas.setBackground(new java.awt.Color(24, 42, 75));
+        tblPedidoMesas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tblPedidoMesas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -588,7 +570,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 "Pedidos por Mesa"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblPedidoMesas);
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -611,9 +593,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel27.setBackground(new java.awt.Color(11, 22, 47));
 
-        jTable3.setBackground(new java.awt.Color(24, 42, 75));
-        jTable3.setForeground(new java.awt.Color(0, 0, 0));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblPedidosPendiente.setBackground(new java.awt.Color(24, 42, 75));
+        tblPedidosPendiente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -624,7 +605,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 "Total pedidos Pendientes"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tblPedidosPendiente);
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -837,8 +818,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(11, 18, 35));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable4.setBackground(new java.awt.Color(24, 42, 75));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblClientes.setBackground(new java.awt.Color(24, 42, 75));
+        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -857,11 +838,11 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable4);
-        if (jTable4.getColumnModel().getColumnCount() > 0) {
-            jTable4.getColumnModel().getColumn(3).setHeaderValue("DNI");
-            jTable4.getColumnModel().getColumn(4).setHeaderValue("Address");
-            jTable4.getColumnModel().getColumn(5).setHeaderValue("Phone number");
+        jScrollPane4.setViewportView(tblClientes);
+        if (tblClientes.getColumnModel().getColumnCount() > 0) {
+            tblClientes.getColumnModel().getColumn(3).setHeaderValue("DNI");
+            tblClientes.getColumnModel().getColumn(4).setHeaderValue("Address");
+            tblClientes.getColumnModel().getColumn(5).setHeaderValue("Phone number");
         }
 
         jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 1520, 750));
@@ -891,8 +872,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel23.setBackground(new java.awt.Color(11, 18, 35));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable5.setBackground(new java.awt.Color(24, 42, 75));
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tblEmpleados.setBackground(new java.awt.Color(24, 42, 75));
+        tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -911,10 +892,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable5);
-        if (jTable5.getColumnModel().getColumnCount() > 0) {
-            jTable5.getColumnModel().getColumn(3).setHeaderValue("DNI");
-            jTable5.getColumnModel().getColumn(4).setHeaderValue("Phone number");
+        jScrollPane5.setViewportView(tblEmpleados);
+        if (tblEmpleados.getColumnModel().getColumnCount() > 0) {
+            tblEmpleados.getColumnModel().getColumn(3).setHeaderValue("DNI");
+            tblEmpleados.getColumnModel().getColumn(4).setHeaderValue("Phone number");
         }
 
         jPanel23.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 1520, 750));
@@ -985,8 +966,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel24.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 450, -1));
         jPanel24.add(textFieldAnimation4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 30, 270, -1));
 
-        jTable7.setBackground(new java.awt.Color(24, 42, 75));
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+        tblInventario1.setBackground(new java.awt.Color(24, 42, 75));
+        tblInventario1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1005,12 +986,12 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane7.setViewportView(jTable7);
+        jScrollPane7.setViewportView(tblInventario1);
 
         jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 560, 330));
 
-        jTable8.setBackground(new java.awt.Color(24, 42, 75));
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        tblInventario3.setBackground(new java.awt.Color(24, 42, 75));
+        tblInventario3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1029,12 +1010,12 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane8.setViewportView(jTable8);
+        jScrollPane8.setViewportView(tblInventario3);
 
         jPanel24.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, 560, 350));
 
-        jTable9.setBackground(new java.awt.Color(24, 42, 75));
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+        tblInventario2.setBackground(new java.awt.Color(24, 42, 75));
+        tblInventario2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1053,7 +1034,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane9.setViewportView(jTable9);
+        jScrollPane9.setViewportView(tblInventario2);
 
         jPanel24.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 100, 560, 350));
 
@@ -1297,7 +1278,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private LIB.JPanelTransparente jPanelTransparente1;
@@ -1311,16 +1291,17 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    public javax.swing.JTable jTable4;
-    public javax.swing.JTable jTable5;
-    public javax.swing.JTable jTable7;
-    public javax.swing.JTable jTable8;
-    public javax.swing.JTable jTable9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    public javax.swing.JTable tblClientes;
+    public javax.swing.JTable tblEmpleados;
+    public javax.swing.JTable tblInventario1;
+    public javax.swing.JTable tblInventario2;
+    public javax.swing.JTable tblInventario3;
+    private javax.swing.JPanel tblMesas;
+    private javax.swing.JTable tblPedidoMesas;
+    private javax.swing.JTable tblPedidosPendiente;
+    private javax.swing.JTable tblStockProductos;
     private componentes.TextField textField1;
     private componentes.TextField textField10;
     private componentes.TextField textField12;
