@@ -24,6 +24,7 @@ public class ventanaLogin extends javax.swing.JFrame {
         TituloInicioSesion = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         ImgFondo = new javax.swing.JLabel();
@@ -34,35 +35,41 @@ public class ventanaLogin extends javax.swing.JFrame {
 
         jPanelTransparente1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        CampoUsuario.setHint("Usuario");
+        CampoUsuario.setHint("USER");
         jPanelTransparente1.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 220, -1));
 
-        CampoContraseña.setHint("Contraseña");
+        CampoContraseña.setHint("PASSWORD");
         jPanelTransparente1.add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 220, -1));
 
         OlvidasteContraseña.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         OlvidasteContraseña.setForeground(new java.awt.Color(255, 255, 255));
         OlvidasteContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OlvidasteContraseña.setText("¿ Olvidaste tu contraseña ?");
-        jPanelTransparente1.add(OlvidasteContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 230, -1));
+        OlvidasteContraseña.setText("¿ Forgot your password ?");
+        jPanelTransparente1.add(OlvidasteContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 220, -1));
 
         BtnLogin.setBackground(new java.awt.Color(22, 18, 38));
         BtnLogin.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        BtnLogin.setText("INGRESAR");
+        BtnLogin.setText("LOG IN");
         jPanelTransparente1.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 260, 50));
 
-        TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
+        TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         TituloInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
         TituloInicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TituloInicioSesion.setText("Iniciar Sesión");
-        jPanelTransparente1.add(TituloInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 140));
+        TituloInicioSesion.setText("SIGN IN TO YOUR ACCOUNT");
+        jPanelTransparente1.add(TituloInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 370, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoUsuario.png"))); // NOI18N
         jPanelTransparente1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoContraseña.png"))); // NOI18N
         jPanelTransparente1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, 40));
+
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("HELLO");
+        jPanelTransparente1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 370, 70));
 
         getContentPane().add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 290, 370, 510));
 
@@ -116,6 +123,7 @@ public class ventanaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private LIB.JPanelTransparente jPanelTransparente1;
     // End of variables declaration//GEN-END:variables
 
