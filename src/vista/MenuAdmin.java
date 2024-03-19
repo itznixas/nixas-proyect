@@ -1,6 +1,7 @@
 package vista;
 
 import com.formdev.flatlaf.*;
+import javax.swing.JOptionPane;
 
 public class MenuAdmin extends javax.swing.JFrame {
     
@@ -152,6 +153,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
+        btnCerrarSesion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1313,6 +1315,14 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        btnCerrarSesion.setText("LOG OUT");
+        btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnCerrarSesion);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -1323,6 +1333,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void btnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseClicked
+        // TODO add your handling code here:
+        int a = JOptionPane.showConfirmDialog(btnCerrarSesion, "¿Desea cerrar sesion?");
+        if (a == JOptionPane.YES_OPTION) {
+            dispose();
+            ventanaLogin obj = new ventanaLogin();
+            obj.setVisible(true);
+        }
+    }//GEN-LAST:event_btnCerrarSesionMouseClicked
     
     public static void main(String args[]) {
         FlatIntelliJLaf.setup();
@@ -1334,6 +1354,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnCerrarSesion;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
