@@ -30,7 +30,6 @@ public class ventanaLogin extends javax.swing.JFrame {
         ImgFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelTransparente1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
