@@ -1,7 +1,10 @@
 package vista;
 
 import com.formdev.flatlaf.*;
+import componentes.TextField;
 import javax.swing.JOptionPane;
+import modelo.*;
+
 import javax.swing.SwingUtilities;
 
 public class MenuAdmin extends javax.swing.JFrame {
@@ -75,12 +78,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanelTransparente1 = new LIB.JPanelTransparente();
         jLabel3 = new javax.swing.JLabel();
-        textField2 = new componentes.TextField();
-        textField3 = new componentes.TextField();
-        textField5 = new componentes.TextField();
-        textField1 = new componentes.TextField();
-        textField4 = new componentes.TextField();
-        jButton19 = new javax.swing.JButton();
+        txtNombreC = new componentes.TextField();
+        txtApellidoC = new componentes.TextField();
+        txtDireccionC = new componentes.TextField();
+        txtCedulaC = new componentes.TextField();
+        txtTelefonoC = new componentes.TextField();
+        btnAgregarC = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanelTransparente2 = new LIB.JPanelTransparente();
@@ -717,20 +720,25 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("CLIENTS REGISTRATION");
 
-        textField2.setHint("NAME");
+        txtNombreC.setHint("NAME");
 
-        textField3.setHint("LAST NAME");
+        txtApellidoC.setHint("LAST NAME");
 
-        textField5.setHint("ADDRESS");
+        txtDireccionC.setHint("ADDRESS");
 
-        textField1.setHint("DNI");
+        txtCedulaC.setHint("DNI");
 
-        textField4.setHint("PHONE NUMBER");
+        txtTelefonoC.setHint("PHONE NUMBER");
 
-        jButton19.setBackground(new java.awt.Color(11, 22, 47));
-        jButton19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton19.setForeground(new java.awt.Color(255, 255, 255));
-        jButton19.setText("ADD");
+        btnAgregarC.setBackground(new java.awt.Color(11, 22, 47));
+        btnAgregarC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAgregarC.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarC.setText("ADD");
+        btnAgregarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTransparente1Layout = new javax.swing.GroupLayout(jPanelTransparente1);
         jPanelTransparente1.setLayout(jPanelTransparente1Layout);
@@ -739,14 +747,14 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanelTransparente1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(jPanelTransparente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCedulaC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefonoC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(jPanelTransparente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton19, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(textField3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAgregarC, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(txtApellidoC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDireccionC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(49, Short.MAX_VALUE))
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -757,17 +765,17 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
                 .addGroup(jPanelTransparente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(104, 104, 104)
+                    .addComponent(txtApellidoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(137, 137, 137)
                 .addGroup(jPanelTransparente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCedulaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDireccionC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(99, 99, 99)
                 .addGroup(jPanelTransparente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
+                    .addComponent(txtTelefonoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarC, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 540, 640));
@@ -1361,6 +1369,52 @@ public class MenuAdmin extends javax.swing.JFrame {
             obj.setVisible(true);
         }
     }//GEN-LAST:event_btnCerrarSesionMouseClicked
+
+    private void btnAgregarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCActionPerformed
+        // TODO add your handling code here:
+                        // Crear una instancia de la clase regEmpleado y clienteDAO
+    regEmpleado cliente = new regEmpleado();
+    clienteDAO cliD = new clienteDAO();
+    
+    // Obtener datos del formulario
+    String nombreCliente = txtNombreC.getText().trim();
+    String apellidoCliente = txtApellidoC.getText().trim();
+    String cedulaText = txtCedulaC.getText().trim();
+    String celularText = txtTelefonoC.getText().trim();
+    String direccionCliente = txtDireccionC.getText().trim();
+   
+    // Validar que los campos no estén vacíos
+    if (nombreCliente.isEmpty() || apellidoCliente.isEmpty() || cedulaText.isEmpty() ||
+        celularText.isEmpty() || direccionCliente.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor complete todos los campos.");
+        return; // Salir del método si algún campo está vacío
+    }
+
+    try {
+        // Convertir cadenas a enteros
+        int cedulaCliente = Integer.parseInt(cedulaText);
+        int celularCliente = Integer.parseInt(celularText);
+
+        // Establecer los datos en la instancia del cliente
+        cliente.setNombreEmpl(nombreCliente);
+        cliente.setApellidoEmpl(apellidoCliente);
+        cliente.setCedulaEmpl(cedulaCliente);
+        cliente.setCelEmpl(celularCliente);
+        cliente.setDireccion(direccionCliente);
+
+        // Llamar al método de clienteDAO para agregar el cliente
+        int r = cliD.agregarCliente(cliente);
+
+        if (r == 1) {
+            JOptionPane.showMessageDialog(this, "Registro exitoso!!!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al agregar el cliente, intente de nuevo");
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Error: La cédula o celular debe ser un número válido.");
+        e.printStackTrace(); // Imprimir la traza de la excepción para depuración
+    }
+    }//GEN-LAST:event_btnAgregarCActionPerformed
     
     public static void main(String args[]) {
         FlatDarkLaf.setup();
@@ -1373,6 +1427,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
+    public javax.swing.JButton btnAgregarC;
     private javax.swing.JMenu btnCerrarSesion;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
@@ -1384,7 +1439,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1488,7 +1542,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTable tblPedidoMesas;
     private javax.swing.JTable tblPedidosPendiente;
     private javax.swing.JTable tblStockProductos;
-    private componentes.TextField textField1;
     private componentes.TextField textField10;
     private componentes.TextField textField11;
     private componentes.TextField textField12;
@@ -1498,14 +1551,39 @@ public class MenuAdmin extends javax.swing.JFrame {
     private componentes.TextField textField17;
     private componentes.TextField textField18;
     private componentes.TextField textField19;
-    private componentes.TextField textField2;
     private componentes.TextField textField20;
-    private componentes.TextField textField3;
-    private componentes.TextField textField4;
-    private componentes.TextField textField5;
     private componentes.TextField textField6;
     private componentes.TextField textField7;
     private componentes.TextField textField8;
     private componentes.TextField textField9;
+    private componentes.TextField txtApellidoC;
+    private componentes.TextField txtCedulaC;
+    private componentes.TextField txtDireccionC;
+    private componentes.TextField txtNombreC;
+    private componentes.TextField txtTelefonoC;
     // End of variables declaration//GEN-END:variables
+
+    public TextField getTxtApellidoC() {
+        return txtApellidoC;
+    }
+
+    public TextField getTxtCedulaC() {
+        return txtCedulaC;
+    }
+
+    public TextField getTxtDireccionC() {
+        return txtDireccionC;
+    }
+
+    public TextField getTxtNombreC() {
+        return txtNombreC;
+    }
+
+    public TextField getTxtTelefonoC() {
+        return txtTelefonoC;
+    }
+
+
+
 }
+

@@ -1228,15 +1228,15 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="textField2" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="textField1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="textField4" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="txtNombreC" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="txtCedulaC" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="txtTelefonoC" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButton19" pref="200" max="32767" attributes="0"/>
-                                  <Component id="textField3" max="32767" attributes="0"/>
-                                  <Component id="textField5" max="32767" attributes="0"/>
+                                  <Component id="btnAgregarC" pref="200" max="32767" attributes="0"/>
+                                  <Component id="txtApellidoC" max="32767" attributes="0"/>
+                                  <Component id="txtDireccionC" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="49" max="32767" attributes="0"/>
                           </Group>
@@ -1250,20 +1250,20 @@
                               <Component id="jLabel3" min="-2" pref="117" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtApellidoC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNombreC" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCedulaC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDireccionC" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton19" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="txtTelefonoC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAgregarC" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="106" max="32767" attributes="0"/>
+                              <EmptySpace pref="73" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1281,32 +1281,32 @@
                         <Property name="text" type="java.lang.String" value="CLIENTS REGISTRATION"/>
                       </Properties>
                     </Component>
-                    <Component class="componentes.TextField" name="textField2">
+                    <Component class="componentes.TextField" name="txtNombreC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="NAME"/>
                       </Properties>
                     </Component>
-                    <Component class="componentes.TextField" name="textField3">
+                    <Component class="componentes.TextField" name="txtApellidoC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="LAST NAME"/>
                       </Properties>
                     </Component>
-                    <Component class="componentes.TextField" name="textField5">
+                    <Component class="componentes.TextField" name="txtDireccionC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="ADDRESS"/>
                       </Properties>
                     </Component>
-                    <Component class="componentes.TextField" name="textField1">
+                    <Component class="componentes.TextField" name="txtCedulaC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="DNI"/>
                       </Properties>
                     </Component>
-                    <Component class="componentes.TextField" name="textField4">
+                    <Component class="componentes.TextField" name="txtTelefonoC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="PHONE NUMBER"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton19">
+                    <Component class="javax.swing.JButton" name="btnAgregarC">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="2f" green="16" red="b" type="rgb"/>
@@ -1319,6 +1319,12 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="ADD"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarCActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
