@@ -2,26 +2,24 @@
 package modelo;
 
 
-public  class regEmpleado extends empleadoRol {
-    private int idEmpl, cedulaEmpl, celEmpl;
-    private String nombreEmpl, apellidoEmpl, userEmpl, claveEmpl;
+public  class regEmpleado {
+    private int idEmpl, cedulaEmpl, celEmpl, idRol;
+    private String nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion;
 
     public regEmpleado() {
     }
 
-    
-    public regEmpleado(int idEmpl, String nombreEmpl, String apellidoEmpl, 
-            int cedulaEmpl, int celEmpl, int idRol, String nombreRol,String userEmpl, String claveEmpl ) {
-        super(idRol, nombreRol  );
-        this.idEmpl = idEmpl; //
-        this.cedulaEmpl = cedulaEmpl;//
-        this.celEmpl = celEmpl;//
+    public regEmpleado(int idEmpl, int cedulaEmpl, int celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
+        this.idEmpl = idEmpl;
+        this.cedulaEmpl = cedulaEmpl;
+        this.celEmpl = celEmpl;
+        this.idRol = idRol;
+        this.nombreEmpl = nombreEmpl;
+        this.apellidoEmpl = apellidoEmpl;
         this.userEmpl = userEmpl;
         this.claveEmpl = claveEmpl;
-        this.nombreEmpl = nombreEmpl; //
-        this.apellidoEmpl = apellidoEmpl;
-      
-       
+        this.nombreRol = nombreRol;
+        this.direccion = direccion;
     }
 
     public int getIdEmpl() {
@@ -31,7 +29,7 @@ public  class regEmpleado extends empleadoRol {
     public void setIdEmpl(int idEmpl) {
         this.idEmpl = idEmpl;
     }
-       //2
+
     public int getCedulaEmpl() {
         return cedulaEmpl;
     }
@@ -39,7 +37,7 @@ public  class regEmpleado extends empleadoRol {
     public void setCedulaEmpl(int cedulaEmpl) {
         this.cedulaEmpl = cedulaEmpl;
     }
-        //3
+
     public int getCelEmpl() {
         return celEmpl;
     }
@@ -47,17 +45,15 @@ public  class regEmpleado extends empleadoRol {
     public void setCelEmpl(int celEmpl) {
         this.celEmpl = celEmpl;
     }
-    //4
-    public String getClaveEmpl() {
-        return claveEmpl;
+
+    public int getIdRol() {
+        return idRol;
     }
 
-    public void setClaveEmpl(String claveEmpl) {
-        this.claveEmpl = claveEmpl;
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
     }
-        //5
 
-        //6
     public String getNombreEmpl() {
         return nombreEmpl;
     }
@@ -65,7 +61,7 @@ public  class regEmpleado extends empleadoRol {
     public void setNombreEmpl(String nombreEmpl) {
         this.nombreEmpl = nombreEmpl;
     }
-        //7
+
     public String getApellidoEmpl() {
         return apellidoEmpl;
     }
@@ -73,35 +69,42 @@ public  class regEmpleado extends empleadoRol {
     public void setApellidoEmpl(String apellidoEmpl) {
         this.apellidoEmpl = apellidoEmpl;
     }
-        //8
-   
+
     public String getUserEmpl() {
         return userEmpl;
     }
 
-    
     public void setUserEmpl(String userEmpl) {
         this.userEmpl = userEmpl;
     }
-    //9
-    @Override
+
+    public String getClaveEmpl() {
+        return claveEmpl;
+    }
+
+    public void setClaveEmpl(String claveEmpl) {
+        this.claveEmpl = claveEmpl;
+    }
+
     public String getNombreRol() {
         return nombreRol;
     }
 
-    @Override
     public void setNombreRol(String nombreRol) {
         this.nombreRol = nombreRol;
     }
-    
-    @Override
-        public int getIdRol() {
-        return idRol;
+
+    public String getDireccion() {
+        return direccion;
     }
 
-    @Override
-    public void setIdRol(int idRol) {
-        this.idRol = idRol;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
+
+
+
+    
+    
 
 }

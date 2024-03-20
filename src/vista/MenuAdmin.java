@@ -4,6 +4,7 @@ import com.formdev.flatlaf.*;
 import componentes.TextField;
 import javax.swing.JOptionPane;
 import modelo.*;
+import javax.swing.table.DefaultTableModel;
 
 import javax.swing.SwingUtilities;
 
@@ -13,7 +14,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
-
+           regEmpleado cliente = new regEmpleado();
+            clienteDAO cliD = new clienteDAO();
+            
+            
+            
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1373,8 +1378,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void btnAgregarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCActionPerformed
         // TODO add your handling code here:
                         // Crear una instancia de la clase regEmpleado y clienteDAO
-    regEmpleado cliente = new regEmpleado();
-    clienteDAO cliD = new clienteDAO();
+ 
     
     // Obtener datos del formulario
     String nombreCliente = txtNombreC.getText().trim();
