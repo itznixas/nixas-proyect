@@ -177,7 +177,10 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+        <Container class="javax.swing.JTabbedPane" name="jmnConsuInve">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="0" width="-1" height="1080"/>
@@ -1383,17 +1386,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="textField6" max="32767" attributes="0"/>
-                                  <Component id="textField9" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="textField10" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtNombreE" max="32767" attributes="0"/>
+                                  <Component id="txtCelE" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtUserE" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jComboBox2" pref="150" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="120" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="btnAgregarEm" alignment="0" pref="150" max="32767" attributes="0"/>
-                                  <Component id="textField8" alignment="0" pref="150" max="32767" attributes="0"/>
-                                  <Component id="textField7" alignment="0" pref="150" max="32767" attributes="0"/>
-                                  <Component id="textField12" max="32767" attributes="0"/>
+                                  <Component id="txtDocE" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  <Component id="txtApellidoE" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  <Component id="txtClaveE" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                           </Group>
@@ -1406,18 +1409,18 @@
                               <Component id="jLabel13" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNombreE" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtApellidoE" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textField9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCelE" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDocE" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="102" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="textField10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtUserE" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtClaveE" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1430,30 +1433,45 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="componentes.TextField" name="textField6">
+                    <Component class="componentes.TextField" name="txtNombreE">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="NAME"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="componentes.TextField" name="textField7">
+                    <Component class="componentes.TextField" name="txtApellidoE">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="LAST NAME"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="componentes.TextField" name="textField8">
+                    <Component class="componentes.TextField" name="txtDocE">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="DNI"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="componentes.TextField" name="textField9">
+                    <Component class="componentes.TextField" name="txtCelE">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="PHONE NUMBER"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="componentes.TextField" name="textField10">
+                    <Component class="componentes.TextField" name="txtUserE">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="USER"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="jComboBox2">
                       <Properties>
@@ -1474,8 +1492,12 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox2ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnAgregarEm">
@@ -1495,10 +1517,13 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
-                    <Component class="componentes.TextField" name="textField12">
+                    <Component class="componentes.TextField" name="txtClaveE">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="PASSWORD"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel13">
                       <Properties>

@@ -30,7 +30,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jmnConsuInve = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanelRound1 = new LIB.JPanelRound();
         jLabel22 = new javax.swing.JLabel();
@@ -93,14 +93,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanelTransparente2 = new LIB.JPanelTransparente();
-        textField6 = new componentes.TextField();
-        textField7 = new componentes.TextField();
-        textField8 = new componentes.TextField();
-        textField9 = new componentes.TextField();
-        textField10 = new componentes.TextField();
+        txtNombreE = new componentes.TextField();
+        txtApellidoE = new componentes.TextField();
+        txtDocE = new componentes.TextField();
+        txtCelE = new componentes.TextField();
+        txtUserE = new componentes.TextField();
         jComboBox2 = new javax.swing.JComboBox<>();
         btnAgregarEm = new javax.swing.JButton();
-        textField12 = new componentes.TextField();
+        txtClaveE = new componentes.TextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -208,7 +208,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/FondoInicio.gif"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1060));
 
-        jTabbedPane1.addTab("Inicio", jPanel2);
+        jmnConsuInve.addTab("Inicio", jPanel2);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -717,7 +717,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 610, 560));
 
-        jTabbedPane1.addTab("Pedidos", jPanel3);
+        jmnConsuInve.addTab("Pedidos", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -789,31 +789,36 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/fondo_formulario.gif"))); // NOI18N
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1020));
 
-        jTabbedPane1.addTab("Clientes", jPanel4);
+        jmnConsuInve.addTab("Clientes", jPanel4);
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textField6.setHint("NAME");
+        txtNombreE.setHint("NAME");
 
-        textField7.setHint("LAST NAME");
+        txtApellidoE.setHint("LAST NAME");
 
-        textField8.setHint("DNI");
+        txtDocE.setHint("DNI");
 
-        textField9.setHint("PHONE NUMBER");
+        txtCelE.setHint("PHONE NUMBER");
 
-        textField10.setHint("USER");
+        txtUserE.setHint("USER");
 
         jComboBox2.setBackground(new java.awt.Color(11, 22, 47));
         jComboBox2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rol", "Cajero", "Administrador" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         btnAgregarEm.setBackground(new java.awt.Color(11, 22, 47));
         btnAgregarEm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregarEm.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarEm.setText("ADD");
 
-        textField12.setHint("PASSWORD");
+        txtClaveE.setHint("PASSWORD");
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -828,16 +833,16 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanelTransparente2Layout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(textField6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNombreE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCelE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtUserE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox2, 0, 150, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgregarEm, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(textField8, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(textField7, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(textField12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtDocE, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(txtApellidoE, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(txtClaveE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(110, 110, 110))
             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -847,16 +852,16 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(101, 101, 101)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCelE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDocE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClaveE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -869,7 +874,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/FondoEmpleado.png"))); // NOI18N
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jTabbedPane1.addTab("Empleados", jPanel6);
+        jmnConsuInve.addTab("Empleados", jPanel6);
 
         jPanel5.setBackground(new java.awt.Color(11, 18, 35));
 
@@ -955,7 +960,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(361, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Productos", jPanel5);
+        jmnConsuInve.addTab("Productos", jPanel5);
 
         jPanel10.setBackground(new java.awt.Color(11, 18, 35));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1009,7 +1014,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 450, -1));
         jPanel10.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 100, 330, 40));
 
-        jTabbedPane1.addTab("Cons. Cliente", jPanel10);
+        jmnConsuInve.addTab("Cons. Cliente", jPanel10);
 
         jPanel23.setBackground(new java.awt.Color(11, 18, 35));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1081,7 +1086,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Cons. Empleados", jPanel17);
+        jmnConsuInve.addTab("Cons. Empleados", jPanel17);
 
         jPanel24.setBackground(new java.awt.Color(11, 18, 35));
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1154,7 +1159,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Cons. Inventario", jPanel18);
+        jmnConsuInve.addTab("Cons. Inventario", jPanel18);
 
         jPanel19.setBackground(new java.awt.Color(11, 18, 35));
 
@@ -1169,7 +1174,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGap(0, 1045, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Informe", jPanel19);
+        jmnConsuInve.addTab("Informe", jPanel19);
 
         jPanel20.setBackground(new java.awt.Color(11, 18, 35));
 
@@ -1270,9 +1275,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        jTabbedPane1.addTab("Factura", jPanel20);
+        jmnConsuInve.addTab("Factura", jPanel20);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1080));
+        jPanel1.add(jmnConsuInve, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1080));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 51));
         jButton2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -1433,6 +1438,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 */
     }//GEN-LAST:event_btnAgregarCActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
     
     public static void main(String args[]) {
         FlatDarkLaf.setup();
@@ -1467,7 +1476,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1546,7 +1555,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -1555,6 +1563,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
+    public javax.swing.JTabbedPane jmnConsuInve;
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEmpleados;
     public javax.swing.JTable tblInventario1;
@@ -1562,9 +1571,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTable tblPedidoMesas;
     private javax.swing.JTable tblPedidosPendiente;
     private javax.swing.JTable tblStockProductos;
-    private componentes.TextField textField10;
     private componentes.TextField textField11;
-    private componentes.TextField textField12;
     private componentes.TextField textField13;
     private componentes.TextField textField14;
     private componentes.TextField textField15;
@@ -1572,15 +1579,17 @@ public class MenuAdmin extends javax.swing.JFrame {
     private componentes.TextField textField18;
     private componentes.TextField textField19;
     private componentes.TextField textField20;
-    private componentes.TextField textField6;
-    private componentes.TextField textField7;
-    private componentes.TextField textField8;
-    private componentes.TextField textField9;
     public componentes.TextField txtApellidoC;
+    public componentes.TextField txtApellidoE;
     public componentes.TextField txtCedulaC;
+    public componentes.TextField txtCelE;
+    public componentes.TextField txtClaveE;
     public componentes.TextField txtDireccionC;
+    public componentes.TextField txtDocE;
     public componentes.TextField txtNombreC;
+    public componentes.TextField txtNombreE;
     public componentes.TextField txtTelefonoC;
+    public componentes.TextField txtUserE;
     // End of variables declaration//GEN-END:variables
 
     public TextField getTxtApellidoC() {
