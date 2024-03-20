@@ -13,7 +13,7 @@ public class regEmpleadoDAO extends dataBase {
          ResultSet rs;
          
          public List listarEmpleado() throws SQLException{
-             String sql ="SELECT * FROM reg_empleados";
+             String sql ="SELECT * FROM reg_empleado";
              List<regEmpleado> lista_empleado = new ArrayList<>();
              try{
                  cn = con.getConnection();
@@ -38,9 +38,9 @@ public class regEmpleadoDAO extends dataBase {
          }
          
          public int autenticacionRol(regEmpleado emp){
-            String sql = "SELECT reg_empleados.rol \n" +
-                        "FROM reg_empleados\n" +
-                        "INNER JOIN emple_rol ON reg_empleados.rol = emple_rol.id_rol WHERE usuario = ? AND clave = ? "; 
+            String sql = "SELECT reg_empleado.rol \n" +
+                        "FROM reg_empleado\n" +
+                        "INNER JOIN emple_rol ON reg_empleado.rol = emple_rol.id_rol WHERE usuario = ? AND clave = ? "; 
             try {
                     cn = con.getConnection();
                     ps = cn.prepareStatement(sql);
@@ -70,7 +70,7 @@ public class regEmpleadoDAO extends dataBase {
          
          
          public boolean autenticacion(regEmpleado emp) {
-    String sql = "SELECT * FROM reg_empleados WHERE usuario = ? AND clave = ?";
+    String sql = "SELECT * FROM reg_empleado WHERE usuario = ? AND clave = ?";
     try {
         cn = con.getConnection();
         ps = cn.prepareStatement(sql);

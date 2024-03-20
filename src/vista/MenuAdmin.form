@@ -1285,26 +1285,41 @@
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="NAME"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="componentes.TextField" name="txtApellidoC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="LAST NAME"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="componentes.TextField" name="txtDireccionC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="ADDRESS"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="componentes.TextField" name="txtCedulaC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="DNI"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="componentes.TextField" name="txtTelefonoC">
                       <Properties>
                         <Property name="hint" type="java.lang.String" value="PHONE NUMBER"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnAgregarC">
                       <Properties>
@@ -1375,7 +1390,7 @@
                               </Group>
                               <EmptySpace pref="120" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButton9" alignment="0" pref="150" max="32767" attributes="0"/>
+                                  <Component id="btnAgregarEm" alignment="0" pref="150" max="32767" attributes="0"/>
                                   <Component id="textField8" alignment="0" pref="150" max="32767" attributes="0"/>
                                   <Component id="textField7" alignment="0" pref="150" max="32767" attributes="0"/>
                                   <Component id="textField12" max="32767" attributes="0"/>
@@ -1407,7 +1422,7 @@
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton9" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="btnAgregarEm" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                           </Group>
@@ -1463,7 +1478,7 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton9">
+                    <Component class="javax.swing.JButton" name="btnAgregarEm">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="2f" green="16" red="b" type="rgb"/>
@@ -1476,6 +1491,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="ADD"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="componentes.TextField" name="textField12">
                       <Properties>

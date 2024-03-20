@@ -2,6 +2,7 @@ package vista;
 
 import com.formdev.flatlaf.*;
 import componentes.TextField;
+import controlador.loginCtrl;
 import javax.swing.JOptionPane;
 import modelo.*;
 import javax.swing.table.DefaultTableModel;
@@ -98,7 +99,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         textField9 = new componentes.TextField();
         textField10 = new componentes.TextField();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jButton9 = new javax.swing.JButton();
+        btnAgregarEm = new javax.swing.JButton();
         textField12 = new componentes.TextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -807,10 +808,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rol", "Cajero", "Administrador" }));
 
-        jButton9.setBackground(new java.awt.Color(11, 22, 47));
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("ADD");
+        btnAgregarEm.setBackground(new java.awt.Color(11, 22, 47));
+        btnAgregarEm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAgregarEm.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarEm.setText("ADD");
 
         textField12.setHint("PASSWORD");
 
@@ -833,7 +834,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(jComboBox2, 0, 150, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(btnAgregarEm, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(textField8, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(textField7, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(textField12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -859,7 +860,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(81, 81, 81)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAgregarEm, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(139, 139, 139))
         );
 
@@ -1365,6 +1366,18 @@ public class MenuAdmin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
+        public void iniciar(){
+         FlatIntelliJLaf.setup();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                MenuAdmin m = new MenuAdmin();
+                 loginCtrl lx = new loginCtrl(m);
+                 m.setVisible(true);
+            }
+        });
+    }
+    
+    
     private void btnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseClicked
         // TODO add your handling code here:
         int a = JOptionPane.showConfirmDialog(btnCerrarSesion, "¿Desea cerrar sesion?");
@@ -1379,7 +1392,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
                         // Crear una instancia de la clase regEmpleado y clienteDAO
  
-    
+    /*
     // Obtener datos del formulario
     String nombreCliente = txtNombreC.getText().trim();
     String apellidoCliente = txtApellidoC.getText().trim();
@@ -1418,13 +1431,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Error: La cédula o celular debe ser un número válido.");
         e.printStackTrace(); // Imprimir la traza de la excepción para depuración
     }
+*/
     }//GEN-LAST:event_btnAgregarCActionPerformed
     
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuAdmin().setVisible(true);
+                 ventanaLogin login = new ventanaLogin();
+                   loginCtrl lox = new loginCtrl(login);
+                  login.setVisible(true);
             }
         });
     }
@@ -1432,6 +1448,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
     public javax.swing.JButton btnAgregarC;
+    public javax.swing.JButton btnAgregarEm;
     private javax.swing.JMenu btnCerrarSesion;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
@@ -1449,7 +1466,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1560,11 +1576,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     private componentes.TextField textField7;
     private componentes.TextField textField8;
     private componentes.TextField textField9;
-    private componentes.TextField txtApellidoC;
-    private componentes.TextField txtCedulaC;
-    private componentes.TextField txtDireccionC;
-    private componentes.TextField txtNombreC;
-    private componentes.TextField txtTelefonoC;
+    public componentes.TextField txtApellidoC;
+    public componentes.TextField txtCedulaC;
+    public componentes.TextField txtDireccionC;
+    public componentes.TextField txtNombreC;
+    public componentes.TextField txtTelefonoC;
     // End of variables declaration//GEN-END:variables
 
     public TextField getTxtApellidoC() {
