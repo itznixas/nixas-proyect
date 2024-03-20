@@ -11,9 +11,9 @@ public class AppNixas {
 
  
     public static void main(String[] args) throws SQLException {
-                    ventanaLogin login = new ventanaLogin();
-                    loginCtrl lox = new loginCtrl(login);
-                    login.setVisible(true);
+        ventanaLogin login = new ventanaLogin();
+        loginCtrl lox = new loginCtrl(login);
+        login.setVisible(true);
               //   m.setVisible(true);
                  
                  

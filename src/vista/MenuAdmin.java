@@ -98,7 +98,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtDocE = new componentes.TextField();
         txtCelE = new componentes.TextField();
         txtUserE = new componentes.TextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbEmpleado = new javax.swing.JComboBox<>();
         btnAgregarEm = new javax.swing.JButton();
         txtClaveE = new componentes.TextField();
         jLabel13 = new javax.swing.JLabel();
@@ -803,13 +803,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtUserE.setHint("USER");
 
-        jComboBox2.setBackground(new java.awt.Color(11, 22, 47));
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rol", "Cajero", "Administrador" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        cmbEmpleado.setBackground(new java.awt.Color(11, 22, 47));
+        cmbEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cmbEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        cmbEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rol", "Cajero", "Administrador" }));
+        cmbEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                cmbEmpleadoActionPerformed(evt);
             }
         });
 
@@ -836,7 +836,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(txtNombreE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCelE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtUserE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, 150, Short.MAX_VALUE))
+                    .addComponent(cmbEmpleado, 0, 150, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgregarEm, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
@@ -864,7 +864,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(txtClaveE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarEm, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(139, 139, 139))
         );
@@ -1439,9 +1439,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 */
     }//GEN-LAST:event_btnAgregarCActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void cmbEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_cmbEmpleadoActionPerformed
     
     public static void main(String args[]) {
         FlatDarkLaf.setup();
@@ -1459,6 +1459,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     private javax.swing.JMenu btnCerrarSesion;
+    public javax.swing.JComboBox<String> cmbEmpleado;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
@@ -1476,7 +1477,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
-    public javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

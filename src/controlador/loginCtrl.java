@@ -44,6 +44,7 @@ public class loginCtrl implements ActionListener{
         this.admin = admin;
         this.admin.btnAgregarC.addActionListener(this);
         this.admin.btnAgregarEm.addActionListener(this);
+        this.admin.cmbEmpleado.addActionListener(this);
     }
       //Ingreso a login
     public void btnIngresar(){
@@ -162,7 +163,7 @@ public class loginCtrl implements ActionListener{
                     celEm = Integer.parseInt(admin.txtCelE.getText());
                     }
 
-                    String direccionCliente = admin.txtDireccionC.getText();
+                    
                     empleado.setNombreEmpl(nombreEm);
                     empleado.setApellidoEmpl(apellidoEm);
                     empleado.setCedulaEmpl(docEmp);
@@ -179,8 +180,19 @@ public class loginCtrl implements ActionListener{
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
                 }
-
     }
+    
+    public void limpiarcajasEmpleado(){
+        admin.txtNombreE.setText(null);
+        admin.txtApellidoE.setText(null);
+        admin.txtUserE.setText(null);
+        admin.txtClaveE.setText(null);
+        admin.txtDocE.setText(null);
+        admin.txtCelE.setText(null);
+        admin.txtDocE.requestFocus();
+        admin.txtUserE.requestFocus();
+        admin.txtClaveE.requestFocus();
+                }
     
 
         //Cmbiar el metodo 
@@ -204,6 +216,7 @@ public class loginCtrl implements ActionListener{
        }
         if(e.getSource()== admin.btnAgregarEm){
             btnAgregarEmple();
+            limpiarcajasEmpleado();
         }
     }
 

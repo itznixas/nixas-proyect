@@ -1389,7 +1389,7 @@
                                   <Component id="txtNombreE" max="32767" attributes="0"/>
                                   <Component id="txtCelE" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtUserE" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jComboBox2" pref="150" max="32767" attributes="0"/>
+                                  <Component id="cmbEmpleado" pref="150" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="120" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1424,7 +1424,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnAgregarEm" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
@@ -1473,7 +1473,7 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox2">
+                    <Component class="javax.swing.JComboBox" name="cmbEmpleado">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="2f" green="16" red="b" type="rgb"/>
@@ -1493,7 +1493,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEmpleadoActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
