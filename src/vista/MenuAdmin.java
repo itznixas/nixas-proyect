@@ -806,7 +806,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         cmbEmpleado.setBackground(new java.awt.Color(11, 22, 47));
         cmbEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cmbEmpleado.setForeground(new java.awt.Color(255, 255, 255));
-        cmbEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rol", "Cajero", "Administrador" }));
+        cmbEmpleado.setActionCommand("Seleccionar...\nCajero\nAdministrador");
         cmbEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbEmpleadoActionPerformed(evt);

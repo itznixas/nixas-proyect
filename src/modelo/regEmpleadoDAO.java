@@ -101,12 +101,12 @@ public class regEmpleadoDAO extends dataBase {
          //Metodo para agregar
          public int agregarEmpleado(regEmpleado emp){
              int r = 1;
-             String sql = "INSERT INTO reg_empleados (id_emple, nom_emple, ape_emple, ced_emple,tele_emple, usuario, clavee, rol)"
+             String sql = "INSERT INTO reg_empleado (id_emple, nom_emple, ape_emple, ced_emple,tele_emple, usuario, clave, rol)"
                      + "VALUES (?,?,?,?,?,?,?,?)";
              try{
                  cn = con.getConnection();
                  ps = cn.prepareStatement(sql);
-                 ps.setString(1, Integer.toString(emp.getIdEmpl()));
+                // ps.setString(1, Integer.toString(emp.getIdEmpl()));
                  ps.setString(2, emp.getNombreEmpl());
                  ps.setString(3, emp.getApellidoEmpl());
                  ps.setString(4, Integer.toString(emp.getCedulaEmpl()));
@@ -129,8 +129,8 @@ public class regEmpleadoDAO extends dataBase {
          //Metodo para actualizar registros
                 public int actualizarEmpleado(regEmpleado emp){
                     int r = 1;
-                    String sql = "UPDATE reg_empleados SET id_emple=?, nom_emple=?,"
-                            + " ape_emple=? ,tele_emple=?, usuario=?, calve=?, rol=? WHERE ced_emple=?";
+                    String sql = "UPDATE reg_empleado SET id_emple=?, nom_emple=?,"
+                            + " ape_emple=? ,tele_emple=?, usuario=?, clave=?, rol=? WHERE ced_emple=?";
                 try{
                     cn = con.getConnection();
                     ps = cn.prepareStatement(sql);
@@ -157,7 +157,7 @@ public class regEmpleadoDAO extends dataBase {
                 
                 //Metodo para eliminar por documento del empleado
                 public void eliminarEmpleado(int doc){
-                    String sql = "DELETE FROM reg_empleados WHERE ced_emple =?"+doc;
+                    String sql = "DELETE FROM reg_empleado WHERE ced_emple =?"+doc;
                     try{
                         cn = con.getConnection();
                         ps = cn.prepareStatement(sql);
@@ -166,6 +166,31 @@ public class regEmpleadoDAO extends dataBase {
                         System.out.println(e);
                     }
                 }
+                
+                
+         public ArrayList<regEmpleado> obtenerRoles() {
+                ArrayList<regEmpleado> listaR = new ArrayList<>();
+
+               String sql = "SELECT id_rol, nom_rol FROM emple_rol";
+
+               try (Connection conex = con.getConnection();
+                    PreparedStatement ps = conex.prepareStatement(sql);
+                    ResultSet rs = ps.executeQuery()) {
+
+                   while(rs.next()){
+                       regEmpleado em = new regEmpleado();
+                       em.setIdRol((rs.getInt("id_rol")));
+                       em.setNombreRol((rs.getString("nom_rol")));
+                       listaR.add(em);
+                       System.out.println("Roles encontrados");
+                   }
+
+                   System.out.println("Roles listados");
+               } catch (SQLException e) {
+                   e.printStackTrace();
+               }
+               return listaR;
+           }
                 
 }
 

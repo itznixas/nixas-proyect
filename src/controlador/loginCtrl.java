@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import vista.MenuAdmin;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,6 +46,7 @@ public class loginCtrl implements ActionListener{
         this.admin.btnAgregarC.addActionListener(this);
         this.admin.btnAgregarEm.addActionListener(this);
         this.admin.cmbEmpleado.addActionListener(this);
+      
     }
       //Ingreso a login
     public void btnIngresar(){
@@ -68,7 +70,7 @@ public class loginCtrl implements ActionListener{
                     MenuAdmin cajero = new MenuAdmin();
                     loginCtrl lgx = new loginCtrl(cajero);
                     cajero.iniciar();
-                    cajero.btnAgregarEm.setEnabled(false);
+                    cajero.btnAgregarEm.enable(false);
                     ventana.setVisible(false);
                 break;
                 default:
@@ -151,7 +153,7 @@ public class loginCtrl implements ActionListener{
         String nombreEm = admin.txtNombreE.getText();
         String apellidoEm = admin.txtApellidoE.getText();
         String usuarioEm = admin.txtUserE.getText();
-        String claveEm = admin.txtClaveE.getText();
+        String claveEm = new String (admin.txtClaveE.getText());
         int idRol = 0;
         int docEmp = 0;
         int celEm = 0;
@@ -169,7 +171,7 @@ public class loginCtrl implements ActionListener{
                     empleado.setCedulaEmpl(docEmp);
                     empleado.setCelEmpl(celEm);
                     empleado.setUserEmpl(usuarioEm);
-                    empleado.setClaveEmpl(claveEm);                  
+                    empleado.setClaveEmpl(hash.sha1(claveEm));                  
                     int r = dao.agregarEmpleado(empleado);
                     
                 if (r == 1) {
@@ -182,6 +184,13 @@ public class loginCtrl implements ActionListener{
                 }
     }
     
+    private void mostrarRoles() {
+        ArrayList<regEmpleado> listaR = emD.obtenerRoles();
+        admin.cmbEmpleado.addItem("Seleccionar");
+        for (int i = 0; i < listaR.size(); i++) {
+            admin.cmbEmpleado.addItem(listaR.get(i).getNombreRol());
+        }
+    }
     public void limpiarcajasEmpleado(){
         admin.txtNombreE.setText(null);
         admin.txtApellidoE.setText(null);
@@ -209,14 +218,23 @@ public class loginCtrl implements ActionListener{
            btnIngresar();
        }
         if(e.getSource()== admin.btnAgregarC){  
-            btnAgregarCliente();
+            if(admin.txtNombreC.getText().isEmpty() && admin.txtApellidoC.getText().isEmpty() && admin.txtCedulaC.getText().isEmpty() && admin.txtTelefonoC.getText().isEmpty() &&
+                  admin.txtDireccionC.getText().isEmpty() &&admin.txtCedulaC.getText().isEmpty() ){     
+                   JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                   admin.txtCedulaC.requestFocus();
+            }else{
+             btnAgregarCliente();
             limpiarcajasCliente();
             limpiartabla();
             listarClientes(admin.tblClientes);
+            }
+
        }
         if(e.getSource()== admin.btnAgregarEm){
             btnAgregarEmple();
+            mostrarRoles();
             limpiarcajasEmpleado();
+            
         }
     }
 
