@@ -18,7 +18,7 @@ public class AppNixas {
                  
                  
                //  login.setVisible(false);
-        //Prueba de conexion
+        //Prueba de conexion    
         dataBase db = new dataBase();
         db.getConnection();
        

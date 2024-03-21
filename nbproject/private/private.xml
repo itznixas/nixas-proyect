@@ -7,7 +7,9 @@
             <file>file:/D:/TPS%20-%2037%20RJ/final/NIXAS-/src/appnixas/AppNixas.java</file>
             <file>file:/D:/TPS%20-%2037%20RJ/final/NIXAS-/src/modelo/regEmpleadoDAO.java</file>
             <file>file:/D:/TPS%20-%2037%20RJ/final/NIXAS-/src/controlador/loginCtrl.java</file>
-            <file>file:/D:/TPS%20-%2037%20RJ/final/NIXAS-/src/modelo/regEmpleado.java</file>
+            <file>file:/D:/TPS%20-%2037%20RJ/final/NIXAS-/src/modelo/clienteDAO.java</file>
+            <file>file:/D:/TPS%20-%2037%20RJ/final/NIXAS-/src/modelo/dataBase.java</file>
+            <file>file:/D:/TPS%20-%2037%20RJ/final/NIXAS-/src/vista/ventanaLogin.java</file>
         </group>
     </open-files>
 </project-private>

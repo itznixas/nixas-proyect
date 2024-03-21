@@ -14,30 +14,44 @@ public class clienteDAO extends dataBase{
          PreparedStatement ps;
          ResultSet rs;
     
-         public List listarCliente()throws SQLException{
-             String sql = "SELECT * FROM reg_cliente";
-             List<regEmpleado> lista_cliente = new ArrayList<>();
-                 try{
-                 cn = con.getConnection();
-                 ps = cn.prepareStatement(sql);
-                 rs = ps.executeQuery();
-                 while(rs.next()){
-                     regEmpleado clin = new regEmpleado();
-                    clin.setNombreEmpl(rs.getString(1));
-                    clin.setApellidoEmpl(rs.getString(2));
-                    clin.setCedulaEmpl(rs.getInt(3));
-                    clin.setDireccion(rs.getString(4));
-                    clin.setCelEmpl(rs.getInt(5));
-                    lista_cliente.add(clin);
-                 }
-                 }catch (SQLException e){
-                 System.out.println("e");
-                 }
-                  return lista_cliente;
-         }
+         public List<regEmpleado> listarCliente() throws SQLException {
+    String sql = "SELECT nom_cli, ape_cli, ced_cli, telef, direccion FROM reg_clientes";
+    List<regEmpleado> lista_cliente = new ArrayList<>();
+    
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            regEmpleado clin = new regEmpleado();
+            clin.setNombreEmpl(rs.getString("nom_cli"));
+            clin.setApellidoEmpl(rs.getString("ape_cli"));
+            clin.setCedulaEmpl(Integer.parseInt(rs.getString("ced_cli"))); // Convertir a entero si es necesario
+            clin.setDireccion(rs.getString("direccion"));
+            clin.setCelEmpl(Integer.parseInt(rs.getString("telef"))); // Convertir a entero si es necesario
+            lista_cliente.add(clin);
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al listar clientes: " + e.getMessage());
+    } finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+        if (cn != null) {
+            cn.close();
+        }
+    }
+    return lista_cliente;
+}
+
          
     public int agregarCliente(regEmpleado cli){
-    String sql = "INSERT INTO reg_clientes (nom_cli, ape_cli, ced_cli, direccion, telef) VALUES (?,?,?,?,?)";
+    String sql = "INSERT INTO reg_clientes (nom_cli, ape_cli, ced_cli, telef, direccion) VALUES (?,?,?,?,?)";
     
     try{
         cn = con.getConnection();
