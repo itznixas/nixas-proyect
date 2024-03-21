@@ -1,13 +1,54 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
-/**
- *
- * @author Royer
- */
-public class prodPreparacion {
+public class prodPreparacion extends platoProducto{
+    protected int idPreparacion;
+
+    public prodPreparacion() {
+       
+    }
+
+    public prodPreparacion(int idPreparacion, int id_plato, String nombre, int id_porciones, int cantidad, float precio) {
+        super(id_plato, nombre, id_porciones, cantidad, precio);
+        this.idPreparacion = idPreparacion;
+    }
+
+    public int getIdPreparacion() {
+        return idPreparacion;
+    }
+
+    public void setIdPreparacion(int idPreparacion) {
+        this.idPreparacion = idPreparacion;
+    }
+
+    @Override
+    public int getId_plato() {
+        return id_plato;
+    }
+
+    @Override
+    public void setId_plato(int id_plato) {
+        this.id_plato = id_plato;
+    }
+
+    @Override
+    public int getId_porciones() {
+        return id_porciones;
+    }
+
+    @Override
+    public void setId_porciones(int id_porciones) {
+        this.id_porciones = id_porciones;
+    }
+
+    @Override
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    @Override
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
     
 }

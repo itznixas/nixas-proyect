@@ -8,7 +8,7 @@ package modelo;
  *
  * @author Royer
  */
-public class platoProducto extends producto {
+public abstract class platoProducto extends producto {
     protected int id_plato;
 
     public platoProducto() {
@@ -28,34 +28,42 @@ public class platoProducto extends producto {
         this.id_plato = id_plato;
     }
 
+    @Override
     public String getNombre() {
         return nombre;
     }
 
+    @Override
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    @Override
     public int getId_porciones() {
         return id_porciones;
     }
 
+    @Override
     public void setId_porciones(int id_porciones) {
         this.id_porciones = id_porciones;
     }
 
+    @Override
     public int getCantidad() {
         return cantidad;
     }
 
+    @Override
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
+    @Override
     public float getPrecio() {
         return precio;
     }
 
+    @Override
     public void setPrecio(float precio) {
         this.precio = precio;
     }
