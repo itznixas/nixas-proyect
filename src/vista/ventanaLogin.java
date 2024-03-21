@@ -6,24 +6,16 @@ import controlador.loginCtrl;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import appnixas.IconoNixas;
 
 public class ventanaLogin extends javax.swing.JFrame {
 
     public ventanaLogin() {
         initComponents();
+        IconoNixas.establecerIcono(this);
         this.setLocationRelativeTo(null);
     }
 
-    public class IconoNixas {
-
-        public static void establecerIcono(JFrame frame) {
-            ImageIcon icono = new ImageIcon(IconoNixas.class.getResource("/componentes/img/cursor.png"));
-
-            frame.setIconImage(icono.getImage());
-        }
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

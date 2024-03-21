@@ -5,6 +5,7 @@ import componentes.TextField;
 import controlador.loginCtrl;
 import javax.swing.JOptionPane;
 import modelo.*;
+import appnixas.IconoNixas;
 import javax.swing.table.DefaultTableModel;
 
 import javax.swing.SwingUtilities;
@@ -13,6 +14,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     
     public MenuAdmin() {
         initComponents();
+        IconoNixas.establecerIcono(this);
         this.setExtendedState(MAXIMIZED_BOTH);
     }
            regEmpleado cliente = new regEmpleado();
