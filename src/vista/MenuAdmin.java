@@ -517,7 +517,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(82, 82, 82))
         );
 
-        jPanel3.add(tblMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 520, 470));
+        jPanel3.add(tblMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 520, 500));
 
         jPanel8.setBackground(new java.awt.Color(11, 22, 47));
 
@@ -806,6 +806,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         cmbEmpleado.setBackground(new java.awt.Color(11, 22, 47));
         cmbEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cmbEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        cmbEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Cajero" }));
         cmbEmpleado.setActionCommand("Seleccionar...\nCajero\nAdministrador");
         cmbEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -965,7 +966,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(11, 18, 35));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblClientes.setBackground(new java.awt.Color(24, 42, 75));
+        tblClientes.setBackground(new java.awt.Color(255, 255, 255));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

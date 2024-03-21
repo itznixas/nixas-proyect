@@ -180,7 +180,7 @@ public class regEmpleadoDAO extends dataBase {
                    while(rs.next()){
                        regEmpleado em = new regEmpleado();
                        em.setIdRol((rs.getInt("id_rol")));
-                       em.setNombreRol((rs.getString("nom_rol")));
+                       em.setNombreRol((    rs.getString("nom_rol")));
                        listaR.add(em);
                        System.out.println("Roles encontrados");
                    }

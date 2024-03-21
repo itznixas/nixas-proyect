@@ -52,10 +52,10 @@ public class loginCtrl implements ActionListener{
     public void btnIngresar(){
         System.out.println("pete");
         String user = ventana.getCampoUsuario().getText();
-        String clave = ventana.getCampoContraseña().getText();
+        String clave = new String(ventana.getCampoContraseña().getText());
          // Establecer los valores de usuario y contraseña en la instancia reG
         reG.setUserEmpl(user);
-        reG.setClaveEmpl(clave);
+        reG.setClaveEmpl(hash.sha1(clave));
          // Obtener el rol
         int rol = emD.autenticacionRol(reG); 
 
@@ -157,6 +157,7 @@ public class loginCtrl implements ActionListener{
         int idRol = 0;
         int docEmp = 0;
         int celEm = 0;
+        int id_rol = 0;
          try {
                 if (!admin.txtDocE.getText().isEmpty()) {
                     docEmp = Integer.parseInt(admin.txtDocE.getText());
@@ -164,14 +165,19 @@ public class loginCtrl implements ActionListener{
                 if (!admin.txtCelE.getText().isEmpty()) {
                     celEm = Integer.parseInt(admin.txtCelE.getText());
                     }
-
+                if(admin.cmbEmpleado.getSelectedItem()=="Admin"){
+                        id_rol = 111;                           
+                }else if(admin.cmbEmpleado.getSelectedItem()=="Cajero"){
+                        id_rol = 222;
+                }
                     
                     empleado.setNombreEmpl(nombreEm);
                     empleado.setApellidoEmpl(apellidoEm);
                     empleado.setCedulaEmpl(docEmp);
                     empleado.setCelEmpl(celEm);
                     empleado.setUserEmpl(usuarioEm);
-                    empleado.setClaveEmpl(hash.sha1(claveEm));                  
+                    empleado.setClaveEmpl(hash.sha1(claveEm));
+                    empleado.setIdRol(id_rol); 
                     int r = dao.agregarEmpleado(empleado);
                     
                 if (r == 1) {
@@ -183,14 +189,17 @@ public class loginCtrl implements ActionListener{
                     JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
                 }
     }
-    
+    /*
     private void mostrarRoles() {
-        ArrayList<regEmpleado> listaR = emD.obtenerRoles();
-        admin.cmbEmpleado.addItem("Seleccionar");
-        for (int i = 0; i < listaR.size(); i++) {
-            admin.cmbEmpleado.addItem(listaR.get(i).getNombreRol());
-        }
-    }
+        regEmpleado empl = new regEmpleado();
+        regEmpleadoDAO dao = new regEmpleadoDAO();
+        if(admin.cmbEmpleado.getSelectedItem()=="Admin"){
+           int id_rol = 111;
+           empl.setIdRol(id_rol);
+           int r = dao.obtenerRoles(empl);
+       }
+    } 
+    */
     public void limpiarcajasEmpleado(){
         admin.txtNombreE.setText(null);
         admin.txtApellidoE.setText(null);
@@ -219,7 +228,7 @@ public class loginCtrl implements ActionListener{
        }
         if(e.getSource()== admin.btnAgregarC){  
             if(admin.txtNombreC.getText().isEmpty() && admin.txtApellidoC.getText().isEmpty() && admin.txtCedulaC.getText().isEmpty() && admin.txtTelefonoC.getText().isEmpty() &&
-                  admin.txtDireccionC.getText().isEmpty() &&admin.txtCedulaC.getText().isEmpty() ){     
+                   admin.txtDireccionC.getText().isEmpty() &&admin.txtCedulaC.getText().isEmpty() ){     
                    JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
                    admin.txtCedulaC.requestFocus();
             }else{
@@ -232,7 +241,7 @@ public class loginCtrl implements ActionListener{
        }
         if(e.getSource()== admin.btnAgregarEm){
             btnAgregarEmple();
-            mostrarRoles();
+           // mostrarRoles();
             limpiarcajasEmpleado();
             
         }
