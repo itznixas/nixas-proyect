@@ -137,7 +137,7 @@ public class loginCtrl implements ActionListener {
         admin.txtCedulaC.setText(null);
         admin.txtTelefonoC.setText(null);
         admin.txtDireccionC.setText(null);
-        admin.txtCedulaC.requestFocus();
+       // admin.txtCedulaC.requestFocus();
     }
 
     public void btnAgregarEmple() {
