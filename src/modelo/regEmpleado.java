@@ -3,13 +3,14 @@ package modelo;
 
 
 public  class regEmpleado {
-    private int idEmpl, cedulaEmpl, celEmpl, idRol;
+    private int idEmpl,   idRol;
+    private Integer cedulaEmpl, celEmpl;
     private String nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion;
 
     public regEmpleado() {
     }
 
-    public regEmpleado(int idEmpl, int cedulaEmpl, int celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
+    public regEmpleado(int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
         this.idEmpl = idEmpl;
         this.cedulaEmpl = cedulaEmpl;
         this.celEmpl = celEmpl;
@@ -34,7 +35,7 @@ public  class regEmpleado {
         return cedulaEmpl;
     }
 
-    public void setCedulaEmpl(int cedulaEmpl) {
+    public void setCedulaEmpl(Integer cedulaEmpl) {
         this.cedulaEmpl = cedulaEmpl;
     }
 
@@ -42,7 +43,7 @@ public  class regEmpleado {
         return celEmpl;
     }
 
-    public void setCelEmpl(int celEmpl) {
+    public void setCelEmpl(Integer celEmpl) {
         this.celEmpl = celEmpl;
     }
 

@@ -99,8 +99,8 @@ public class loginCtrl implements ActionListener {
 
         String nombreCliente = admin.txtNombreC.getText();
         String apellidoCliente = admin.txtApellidoC.getText();
-        int cedulaCliente = 0;
-        int celularCliente = 0;
+        Integer cedulaCliente = 0;
+        Integer celularCliente = 0;
 
         try {
             if (!admin.txtCedulaC.getText().isEmpty()) {
@@ -149,8 +149,8 @@ public class loginCtrl implements ActionListener {
         String usuarioEm = admin.txtUserE.getText();
         String claveEm = new String(admin.txtClaveE.getText());
         int id_rol = 0;
-        int docEmp = 0;
-        int celEm = 0;
+        Integer docEmp = 0;
+        Integer celEm = 0;
 
         try {
             if (!admin.txtDocE.getText().isEmpty()) {
