@@ -15,7 +15,7 @@ public class clienteDAO extends dataBase{
          ResultSet rs;
     
             public List<regEmpleado> listarCliente() throws SQLException {
-        String sql = "SELECT nom_cli, ape_cli, ced_cli, telef, direccion FROM reg_clientes";
+        String sql = "SELECT id_cliente,nom_cli, ape_cli, ced_cli, telef, direccion FROM reg_clientes";
         List<regEmpleado> lista_cliente = new ArrayList<>();
 
         try {
@@ -25,14 +25,16 @@ public class clienteDAO extends dataBase{
 
            while (rs.next()) {
                regEmpleado clin = new regEmpleado();
-               clin.setNombreEmpl(rs.getString(1));
-               clin.setApellidoEmpl(rs.getString(2));
-               clin.setCedulaEmpl(rs.getInt(3)); // Convertir a entero si es necesario
-               clin.setDireccion(rs.getString(4));
-               clin.setCelEmpl(rs.getInt(5)); // Convertir a entero si es necesario
-               lista_cliente.add(clin);
+                clin.setIdEmpl(rs.getInt("id_cliente")); // Obtener el ID directamente desde la base de datos
+            clin.setNombreEmpl(rs.getString("nom_cli"));
+            clin.setApellidoEmpl(rs.getString("ape_cli"));
+            clin.setCedulaEmpl(rs.getInt("ced_cli"));
+            clin.setDireccion(rs.getString("direccion"));
+            clin.setCelEmpl(rs.getInt("telef"));
+            lista_cliente.add(clin);
            }
         } catch (SQLException e) {
+            System.out.println(lista_cliente);
            System.out.println("Error al listar clientes: " + e.getMessage());
         } finally {
            // Cerrar recursos en orden inverso de apertura para evitar problemas

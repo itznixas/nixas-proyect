@@ -75,14 +75,15 @@ public class loginCtrl implements ActionListener {
 
     try {
         List<regEmpleado> listarClientes = cli.listarCliente();
-        Object[] object = new Object[5];
+        Object[] object = new Object[6];
 
         for (int i = 0; i < listarClientes.size(); i++) {
-            object[0] = listarClientes.get(i).getNombreEmpl();
-            object[1] = listarClientes.get(i).getApellidoEmpl();
-            object[2] = listarClientes.get(i).getCedulaEmpl();
-            object[3] = listarClientes.get(i).getCelEmpl();
-            object[4] = listarClientes.get(i).getDireccion();
+            object[0] = listarClientes.get(i).getIdEmpl();
+            object[1] = listarClientes.get(i).getNombreEmpl();
+            object[2] = listarClientes.get(i).getApellidoEmpl();
+            object[3] = listarClientes.get(i).getCedulaEmpl();
+            object[4] = listarClientes.get(i).getCelEmpl();
+            object[5] = listarClientes.get(i).getDireccion();
             modelo.addRow(object);
         }
 
