@@ -32,7 +32,7 @@ public class ventanaLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        ImgFondo = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -50,6 +50,11 @@ public class ventanaLogin extends javax.swing.JFrame {
         OlvidasteContraseña.setForeground(new java.awt.Color(255, 255, 255));
         OlvidasteContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OlvidasteContraseña.setText("¿ Forgot your password ?");
+        OlvidasteContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OlvidasteContraseñaMouseClicked(evt);
+            }
+        });
         jPanelTransparente1.add(OlvidasteContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 220, -1));
 
         BtnLogin.setBackground(new java.awt.Color(22, 18, 38));
@@ -76,7 +81,7 @@ public class ventanaLogin extends javax.swing.JFrame {
         jLabel5.setText("HELLO");
         jPanelTransparente1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 370, 70));
 
-        getContentPane().add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 290, 370, 510));
+        getContentPane().add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 370, 510));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoEquis.png"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -84,14 +89,14 @@ public class ventanaLogin extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1890, 0, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, 30, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MejorLogo (1).png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        ImgFondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ImgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/Fondo_Login.gif"))); // NOI18N
-        getContentPane().add(ImgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/FondoImgLogin (1).jpeg"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
         setLocationRelativeTo(null);
@@ -102,11 +107,17 @@ public class ventanaLogin extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void OlvidasteContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OlvidasteContraseñaMouseClicked
+        // TODO add your handling code here:
+        dispose();
+        
+    }//GEN-LAST:event_OlvidasteContraseñaMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FlatDarculaLaf.setup();
+        FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 ventanaLogin login = new ventanaLogin();
@@ -121,7 +132,6 @@ public class ventanaLogin extends javax.swing.JFrame {
     public javax.swing.JButton BtnLogin;
     private componentes.PasswordField CampoContraseña;
     private componentes.TextField CampoUsuario;
-    private javax.swing.JLabel ImgFondo;
     private javax.swing.JLabel OlvidasteContraseña;
     private javax.swing.JLabel TituloInicioSesion;
     private javax.swing.JLabel jLabel1;
@@ -129,6 +139,7 @@ public class ventanaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private LIB.JPanelTransparente jPanelTransparente1;
     // End of variables declaration//GEN-END:variables
 

@@ -15,7 +15,7 @@ public class dataBase {
     
     public Connection getConnection(){
         try {
-            String url = "jdbc:sqlite:C:\\SQLite\\nixas.db";
+            String url = "jdbc:sqlite:nixas.db";
             con = DriverManager.getConnection(url);
             return con;
         } catch (SQLException e) {
