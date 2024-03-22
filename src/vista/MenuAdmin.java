@@ -145,7 +145,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnCerrarSesion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -542,9 +541,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanelTransparente2Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelTransparente2Layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addComponent(txtDocE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDocE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelTransparente2Layout.createSequentialGroup()
                         .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCelE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1154,13 +1151,13 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu btnCerrarSesion;
     public javax.swing.JComboBox<String> cmbEmpleado;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
+    public javax.swing.JButton jButton10;
+    public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
+    public javax.swing.JButton jButton13;
+    public javax.swing.JButton jButton14;
+    public javax.swing.JButton jButton15;
+    public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton3;
@@ -1237,7 +1234,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JTabbedPane jmnConsuInve;
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEmpleados;
-    private javax.swing.JTable tblInventario1;
+    public javax.swing.JTable tblInventario1;
     private javax.swing.JPanel tblMesas;
     private javax.swing.JTable tblPedidoMesas;
     private javax.swing.JTable tblPedidosPendiente;
