@@ -15,7 +15,7 @@ public class clienteDAO extends dataBase{
          ResultSet rs;
     
             public List<regEmpleado> listarCliente() throws SQLException {
-        String sql = "SELECT id_cliente,nom_cli, ape_cli, ced_cli, telef, direccion FROM reg_clientes";
+        String sql = "SELECT * FROM reg_clientes";
         List<regEmpleado> lista_cliente = new ArrayList<>();
 
         try {

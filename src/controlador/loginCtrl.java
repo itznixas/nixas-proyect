@@ -184,10 +184,36 @@ public class loginCtrl implements ActionListener {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
         }
-
-        limpiarcajasEmpleado();
+        listarEmpleado(admin.tblEmpleados);
+      limpiartabla();
     }
-
+    
+    public void listarEmpleado (JTable tblEmpleado){
+        modelo = (DefaultTableModel) tblEmpleado.getModel();
+        modelo.setRowCount(0);
+        
+        try{
+            List<regEmpleado> listarEmpleado =emD.listarEmpleado();
+            Object[] object = new Object[9];
+            
+            for(int i = 0; i< listarEmpleado.size(); i++){
+                  object[0] = listarEmpleado.get(i).getIdEmpl() ;
+                  object[1] = listarEmpleado.get(i).getNombreEmpl();
+                  object[2] = listarEmpleado.get(i).getApellidoEmpl() ;
+                  object[3] = listarEmpleado.get(i).getCedulaEmpl();
+                  object[4] = listarEmpleado.get(i).getCelEmpl();
+                  object[5] = listarEmpleado.get(i).getUserEmpl();
+                  object[6] = listarEmpleado.get(i).getClaveEmpl();
+                  object[7] = listarEmpleado.get(i).getIdRol();
+                    modelo.addRow(object);
+            }
+                    modelo.fireTableDataChanged();
+        }catch (SQLException e){
+            Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, e);
+          
+        }
+    }
+    
     public void limpiarcajasEmpleado() {
         admin.txtNombreE.setText(null);
         admin.txtApellidoE.setText(null);
@@ -211,9 +237,9 @@ public class loginCtrl implements ActionListener {
             btnIngresar();
         }
         if (e.getSource() == admin.btnAgregarC) {  
-            if (admin.txtNombreC.getText().isEmpty() && admin.txtApellidoC.getText().isEmpty() &&
-                admin.txtCedulaC.getText().isEmpty() && admin.txtTelefonoC.getText().isEmpty() &&
-                admin.txtDireccionC.getText().isEmpty() && admin.txtCedulaC.getText().isEmpty()) {
+            if (admin.txtNombreC.getText().isEmpty() || admin.txtApellidoC.getText().isEmpty() ||
+                admin.txtCedulaC.getText().isEmpty() || admin.txtTelefonoC.getText().isEmpty() ||
+                admin.txtDireccionC.getText().isEmpty() || admin.txtCedulaC.getText().isEmpty()) {
 
                 JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
                 admin.txtCedulaC.requestFocus();
@@ -226,7 +252,18 @@ public class loginCtrl implements ActionListener {
         }
 
         if (e.getSource() == admin.btnAgregarEm) {
-            btnAgregarEmple();
+           if(admin.txtNombreE.getText().isEmpty() ||admin.txtApellidoE.getText().isEmpty() ||
+              admin.txtDocE.getText().isEmpty() || admin.txtCelE.getText().isEmpty() ||
+              admin.txtUserE.getText().isEmpty() || admin.txtClaveE.getText().isEmpty() ||
+              admin.cmbEmpleado.getSelectedItem()==null ){
+                   JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                   admin.txtDocE.requestFocus();
+           }else{
+                   btnAgregarEmple();
+                   limpiarcajasEmpleado();
+                   limpiartabla();
+                   listarEmpleado(admin.tblEmpleados);
+           }
         }
     }
 }

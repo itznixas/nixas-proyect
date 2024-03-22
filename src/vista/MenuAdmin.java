@@ -968,7 +968,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(11, 18, 35));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblClientes.setBackground(new java.awt.Color(255, 255, 255));
+        tblClientes.setBackground(new java.awt.Color(0, 0, 102));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -1022,7 +1022,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel23.setBackground(new java.awt.Color(11, 18, 35));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblEmpleados.setBackground(new java.awt.Color(24, 42, 75));
+        tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

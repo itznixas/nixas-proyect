@@ -21,19 +21,30 @@ public class regEmpleadoDAO extends dataBase {
                  rs = ps.executeQuery();
                  while(rs.next()){
                      regEmpleado emp = new regEmpleado();
-                     emp.setIdEmpl(rs.getInt(1));
-                     emp.setNombreEmpl(rs.getString(2));
-                     emp.setApellidoEmpl(rs.getString(3));
-                     emp.setCedulaEmpl(rs.getInt(4));
-                     emp.setCelEmpl(rs.getInt(5));
-                     emp.setUserEmpl(rs.getString(6));
-                     emp.setClaveEmpl(rs.getString(7));
-                     emp.setIdRol(rs.getInt(8));
+                     emp.setIdEmpl(rs.getInt("id_emple"));
+                     emp.setNombreEmpl(rs.getString("nom_emple"));
+                     emp.setApellidoEmpl(rs.getString("ape_emple"));
+                     emp.setCedulaEmpl(rs.getInt("ced_emple"));
+                     emp.setCelEmpl(rs.getInt("tele_emple"));
+                     emp.setUserEmpl(rs.getString("usuario"));
+                     emp.setClaveEmpl(rs.getString("clave"));
+                     emp.setIdRol(rs.getInt("rol"));
                      lista_empleado.add(emp);
                  }
                 }catch (SQLException e){
-                         System.out.println("e");
-                 }
+                         System.out.println("error"+e.getMessage());
+                 } finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+           if (rs != null) {
+               rs.close();
+           }
+           if (ps != null) {
+               ps.close();
+           }
+           if (cn != null) {
+               cn.close();
+           }
+        }
              return lista_empleado;
          }
          
