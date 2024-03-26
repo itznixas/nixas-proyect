@@ -9,7 +9,7 @@ public  class regEmpleado {
 
     public regEmpleado() {
     }
-
+     
     public regEmpleado(int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
         this.idEmpl = idEmpl;
         this.cedulaEmpl = cedulaEmpl;

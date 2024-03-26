@@ -35,8 +35,35 @@ public class loginCtrl implements ActionListener {
         this.admin.btnAgregarC.addActionListener(this);
         this.admin.btnAgregarEm.addActionListener(this);
         this.admin.cmbEmpleado.addActionListener(this);
+        this.admin.jmiOrdenes.addActionListener(this);
+        this.admin.jmiClientes.addActionListener(this);
+        this.admin.jmiProductos.addActionListener(this);
+        this.admin.jmiEmpleado.addActionListener(this);
+        this.admin.jmiClienteConsu.addActionListener(this);
+        this.admin.jmiEmpleadoConsu.addActionListener(this);
     }
 
+    //CAMBIAR PANELES
+    public void pedidosAggPaneles(){
+        admin.jTabbedPane.setSelectedIndex(1);
+    }
+    public void clienteAggPaneles(){
+        admin.jTabbedPane.setSelectedIndex(2);
+    }
+    public void empleadosAggPaneles(){
+        admin.jTabbedPane.setSelectedIndex(3);
+    }
+    public void productosAggPaneles(){
+        admin.jTabbedPane.setSelectedIndex(4);
+    }
+    public void clienteConsuPaneles(){
+        admin.jTabbedPane.setSelectedIndex(5);
+    }
+    public void empleadoConsuPaneles(){
+        admin.jTabbedPane.setSelectedIndex(6);
+    }
+    
+    //Metodo del login
     public void btnIngresar() {
         String user = ventana.getCampoUsuario().getText();
         String clave = new String(ventana.getCampoContraseña().getText());
@@ -55,7 +82,7 @@ public class loginCtrl implements ActionListener {
                 MenuAdmin cajero = new MenuAdmin();
                 loginCtrl lgx = new loginCtrl(cajero);
                 cajero.iniciar();
-                cajero.jmnConsuInve.setVisible(false);
+                cajero.jTabbedPane.setVisible(false);
                 ventana.setVisible(false);
                 break;
             default:
@@ -122,7 +149,7 @@ public class loginCtrl implements ActionListener {
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
-        }
+        } 
 
         limpiartabla();
         listarClientes(admin.tblClientes); // Actualizar tabla de clientes
@@ -131,7 +158,7 @@ public class loginCtrl implements ActionListener {
     public void limpiarcajasCliente() {
         admin.txtNombreC.setText(null);
         admin.txtApellidoC.setText(null);
-        admin.txtCedulaC.setText(null);
+        admin.txtCedulaC.setText(null);  
         admin.txtTelefonoC.setText(null);
         admin.txtDireccionC.setText(null);
        // admin.txtCedulaC.requestFocus();
@@ -229,6 +256,27 @@ public class loginCtrl implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Cambios de paneles
+        if(e.getSource() == admin.jmiOrdenes){
+            pedidosAggPaneles();
+        }
+        if(e.getSource()== admin.jmiClientes){
+            clienteAggPaneles();
+        }
+        if(e.getSource()== admin.jmiEmpleado){
+            empleadosAggPaneles();
+        }
+        if(e.getSource()== admin.jmiProductos){
+            productosAggPaneles();
+        }
+        if(e.getSource()== admin.jmiClienteConsu){
+            clienteConsuPaneles();
+        } 
+        if(e.getSource()== admin.jmiEmpleadoConsu){
+            empleadoConsuPaneles();
+        }
+        
+        //Ingreso al login
         if (e.getSource() == ventana.BtnLogin) {
             btnIngresar();
         }

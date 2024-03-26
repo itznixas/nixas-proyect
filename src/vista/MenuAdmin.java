@@ -6,6 +6,7 @@ import controlador.loginCtrl;
 import javax.swing.JOptionPane;
 import modelo.*;
 import appnixas.IconoNixas;
+import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 
 import javax.swing.SwingUtilities;
@@ -31,7 +32,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jmnConsuInve = new javax.swing.JTabbedPane();
+        jTabbedPane = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanelRound1 = new LIB.JPanelRound();
         jLabel22 = new javax.swing.JLabel();
@@ -130,13 +131,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jmiOrdenes = new javax.swing.JMenuItem();
+        jmiClientes = new javax.swing.JMenuItem();
+        jmiEmpleado = new javax.swing.JMenuItem();
+        jmiProductos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jmiClienteConsu = new javax.swing.JMenuItem();
+        jmiEmpleadoConsu = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -183,7 +184,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/FondoInicio.gif"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 710));
 
-        jmnConsuInve.addTab("Inicio", jPanel2);
+        jTabbedPane.addTab("Inicio", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(24, 42, 75));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -218,7 +219,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,7 +426,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton12.setText("SEARCH");
         jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1254, 10, 100, 33));
 
-        jmnConsuInve.addTab("Pedidos", jPanel3);
+        jTabbedPane.addTab("Pedidos", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(24, 42, 75));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -495,7 +496,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel4.add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 460, 560));
 
-        jmnConsuInve.addTab("Clientes", jPanel4);
+        jTabbedPane.addTab("Clientes", jPanel4);
 
         jPanel6.setBackground(new java.awt.Color(24, 42, 75));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -583,7 +584,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel6.add(jPanelTransparente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 480, 570));
 
-        jmnConsuInve.addTab("Empleados", jPanel6);
+        jTabbedPane.addTab("Empleados", jPanel6);
 
         jPanel5.setBackground(new java.awt.Color(24, 42, 75));
 
@@ -667,7 +668,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(117, Short.MAX_VALUE))
         );
 
-        jmnConsuInve.addTab("Productos", jPanel5);
+        jTabbedPane.addTab("Productos", jPanel5);
 
         jPanel10.setBackground(new java.awt.Color(11, 18, 35));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -720,7 +721,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
         jPanel10.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
 
-        jmnConsuInve.addTab("Cons. Cliente", jPanel10);
+        jTabbedPane.addTab("Cons. Cliente", jPanel10);
 
         jPanel23.setBackground(new java.awt.Color(11, 18, 35));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -785,7 +786,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jmnConsuInve.addTab("Cons. Empleados", jPanel17);
+        jTabbedPane.addTab("Cons. Empleados", jPanel17);
 
         jPanel24.setBackground(new java.awt.Color(11, 18, 35));
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -849,7 +850,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel18Layout.createSequentialGroup()
                     .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 1367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 3, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -858,7 +859,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE))
         );
 
-        jmnConsuInve.addTab("Cons. Inventario", jPanel18);
+        jTabbedPane.addTab("Cons. Inventario", jPanel18);
 
         jPanel19.setBackground(new java.awt.Color(11, 18, 35));
 
@@ -873,7 +874,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGap(0, 715, Short.MAX_VALUE)
         );
 
-        jmnConsuInve.addTab("Informe", jPanel19);
+        jTabbedPane.addTab("Informe", jPanel19);
 
         jPanel20.setBackground(new java.awt.Color(11, 18, 35));
 
@@ -980,43 +981,43 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(175, Short.MAX_VALUE))
         );
 
-        jmnConsuInve.addTab("Factura", jPanel20);
+        jTabbedPane.addTab("Factura", jPanel20);
 
-        getContentPane().add(jmnConsuInve, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 750));
+        getContentPane().add(jTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 750));
 
         MenuBar.setForeground(new java.awt.Color(255, 255, 255));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregar.png"))); // NOI18N
         jMenu1.setText("ADD");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarPedidos.png"))); // NOI18N
-        jMenuItem1.setText("ORDERS");
-        jMenu1.add(jMenuItem1);
+        jmiOrdenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarPedidos.png"))); // NOI18N
+        jmiOrdenes.setText("ORDERS");
+        jMenu1.add(jmiOrdenes);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarClientes.png"))); // NOI18N
-        jMenuItem2.setText("CLIENTS");
-        jMenu1.add(jMenuItem2);
+        jmiClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarClientes.png"))); // NOI18N
+        jmiClientes.setText("CLIENTS");
+        jMenu1.add(jmiClientes);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarEmpleados.png"))); // NOI18N
-        jMenuItem3.setText("EMPLOYEES");
-        jMenu1.add(jMenuItem3);
+        jmiEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarEmpleados.png"))); // NOI18N
+        jmiEmpleado.setText("EMPLOYEES");
+        jMenu1.add(jmiEmpleado);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarProductos.png"))); // NOI18N
-        jMenuItem4.setText("PRODUCTS");
-        jMenu1.add(jMenuItem4);
+        jmiProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarProductos.png"))); // NOI18N
+        jmiProductos.setText("PRODUCTS");
+        jMenu1.add(jmiProductos);
 
         MenuBar.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscar.png"))); // NOI18N
         jMenu2.setText("SEARCH");
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscarClientes.png"))); // NOI18N
-        jMenuItem5.setText("CLIENTS");
-        jMenu2.add(jMenuItem5);
+        jmiClienteConsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscarClientes.png"))); // NOI18N
+        jmiClienteConsu.setText("CLIENTS");
+        jMenu2.add(jmiClienteConsu);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscarEmpleados.png"))); // NOI18N
-        jMenuItem6.setText("EMPLOYEES");
-        jMenu2.add(jMenuItem6);
+        jmiEmpleadoConsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscarEmpleados.png"))); // NOI18N
+        jmiEmpleadoConsu.setText("EMPLOYEES");
+        jMenu2.add(jmiEmpleadoConsu);
 
         MenuBar.add(jMenu2);
 
@@ -1130,7 +1131,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarCActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:be
+        
     }//GEN-LAST:event_jButton15ActionPerformed
     
     public static void main(String args[]) {
@@ -1186,12 +1188,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
@@ -1223,6 +1219,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    public javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -1231,7 +1228,12 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
-    public javax.swing.JTabbedPane jmnConsuInve;
+    public javax.swing.JMenuItem jmiClienteConsu;
+    public javax.swing.JMenuItem jmiClientes;
+    public javax.swing.JMenuItem jmiEmpleado;
+    public javax.swing.JMenuItem jmiEmpleadoConsu;
+    public javax.swing.JMenuItem jmiOrdenes;
+    public javax.swing.JMenuItem jmiProductos;
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEmpleados;
     public javax.swing.JTable tblInventario1;
