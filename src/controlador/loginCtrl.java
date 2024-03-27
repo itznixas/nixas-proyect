@@ -275,11 +275,12 @@ public class loginCtrl implements ActionListener {
              nombreB =admin.txtNombreP.getText();
              
                if (!admin.txtCantidadP.getText().isEmpty()) {
-                cantidadB = Integer.parseInt(admin.txtDocE.getText());
-               }
-               if (!admin.txtPrecioP.getText().isEmpty()) {
-                precioC = Float.parseFloat(admin.txtDocE.getText());
-            }
+    cantidadB = Integer.parseInt(admin.txtCantidadP.getText()); 
+}
+if (!admin.txtPrecioP.getText().isEmpty()) {
+    precioB = Float.parseFloat(admin.txtPrecioP.getText()); 
+}
+
              prod.setNombre(nombreB);
              prod.setCantidad(cantidadB);
              prod.setPrecio(precioB);
@@ -293,17 +294,17 @@ public class loginCtrl implements ActionListener {
           //METODO DE AGG COMIDA
           else if  (admin.cmbPorcion.getSelectedItem().equals("COMIDA")){
             id = 1;
-             nombreB =admin.txtNombreP.getText();
+             nombreC =admin.txtNombreP.getText();
              
                if (!admin.txtCantidadP.getText().isEmpty()) {
-                cantidadC = Integer.parseInt(admin.txtDocE.getText());
+                cantidadC = Integer.parseInt(admin.txtCantidadP.getText());
                }
                if (!admin.txtPrecioP.getText().isEmpty()) {
-                precioC = Float.parseFloat(admin.txtDocE.getText());
+                precioC = Float.parseFloat(admin.txtPrecioP.getText());
             }
-             prod.setNombre(nombreB);
-             prod.setCantidad(cantidadB);
-             prod.setPrecio(precioB);
+             prod.setNombre(nombreC);
+             prod.setCantidad(cantidadC);
+             prod.setPrecio(precioC);
              r = porDAO.agregarPorciones(prod);
              if (r == 1) {
                 JOptionPane.showMessageDialog(admin, "Registro exitoso");
