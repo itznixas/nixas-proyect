@@ -3,24 +3,17 @@ package vista;
 import com.formdev.flatlaf.*;
 import componentes.TextField;
 import controlador.loginCtrl;
-import javax.swing.JOptionPane;
 import modelo.*;
 import appnixas.IconoNixas;
-import javax.swing.JTabbedPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.SwingUtilities;
 
 public class MenuAdmin extends javax.swing.JFrame {
     
     public MenuAdmin() {
         initComponents();
         IconoNixas.establecerIcono(this);
-        this.setExtendedState(MAXIMIZED_BOTH);
     }
            regEmpleado cliente = new regEmpleado();
             clienteDAO cliD = new clienteDAO();
-            
-            
             
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1066,7 +1059,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
         public void iniciar(){
-         FlatIntelliJLaf.setup();
+         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 MenuAdmin m = new MenuAdmin();
