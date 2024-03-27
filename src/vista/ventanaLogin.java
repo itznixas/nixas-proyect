@@ -130,8 +130,8 @@ public class ventanaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BtnLogin;
-    private componentes.PasswordField CampoContraseña;
-    private componentes.TextField CampoUsuario;
+    public componentes.PasswordField CampoContraseña;
+    public componentes.TextField CampoUsuario;
     private javax.swing.JLabel OlvidasteContraseña;
     private javax.swing.JLabel TituloInicioSesion;
     private javax.swing.JLabel jLabel1;

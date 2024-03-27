@@ -40,6 +40,7 @@ public class loginCtrl implements ActionListener {
         this.admin.jmiClienteConsu.addActionListener(this);
         this.admin.jmiEmpleadoConsu.addActionListener(this);
         this.admin.cerrar.addActionListener(this);
+        this.admin.btnPorcion.addActionListener(this);
     }
 
     //CAMBIAR PANELES
@@ -73,8 +74,8 @@ public class loginCtrl implements ActionListener {
     
     //Metodo del login
     public void btnIngresar() {
-        String user = ventana.getCampoUsuario().getText();
-        String clave = new String(ventana.getCampoContraseña().getText());
+        String user = ventana.CampoUsuario.getText();
+        String clave = new String(ventana.CampoContraseña.getText());
         reG.setUserEmpl(user);
         reG.setClaveEmpl(hash.sha1(clave));
         int rol = emD.autenticacionRol(reG);
@@ -267,6 +268,7 @@ public class loginCtrl implements ActionListener {
         float precioC = 0;
         int id = 0;
         int r = 0;
+        System.out.println("g");
         try{
           if (admin.cmbPorcion.getSelectedItem().equals("BEBIDAS")){
             id = 1;
@@ -351,7 +353,12 @@ public class loginCtrl implements ActionListener {
         
         //Ingreso al login
         if (e.getSource() == ventana.BtnLogin) {
-            btnIngresar();
+            if(ventana.CampoUsuario.getText().isEmpty() ||ventana.CampoContraseña.getText().isEmpty() ){
+                 JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                 ventana.CampoContraseña.requestFocus();
+            }else{
+                btnIngresar();
+            }
         }
         if (e.getSource() == admin.btnAgregarC) {  
             if (admin.txtNombreC.getText().isEmpty() || admin.txtApellidoC.getText().isEmpty() ||
