@@ -27,7 +27,7 @@ public class bebidasDAO {
     
         while (rs.next()){
             producto prod = new producto() {};
-            prod.setId_porciones(rs.getInt("id_porciones"));
+            prod.setId_porciones(rs.getInt("id_prod_bebi"));
             prod.setNombre(rs.getString("nombre"));
             prod.setCantidad(rs.getInt("cantidad"));
             prod.setPrecio(rs.getFloat("precio"));
@@ -51,7 +51,7 @@ public class bebidasDAO {
     
     public int agregarBebidas(producto pro){
         int r = 1;
-        String sql = "INSERT INTO prod_bebidas (id_porciones, nombre, cantidad, precio)"
+        String sql = "INSERT INTO prod_bebidas (id_prod_bebi, nombre, cantidad, precio)"
                 + "VALUES (?,?,?,?)";
     try{
         cn = con.getConnection();
