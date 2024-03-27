@@ -8,7 +8,6 @@ import modelo.*;
 import appnixas.IconoNixas;
 import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
-
 import javax.swing.SwingUtilities;
 
 public class MenuAdmin extends javax.swing.JFrame {
@@ -87,12 +86,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanelTransparente4 = new LIB.JPanelTransparente();
         jLabel24 = new javax.swing.JLabel();
-        textField17 = new componentes.TextField();
-        textField18 = new componentes.TextField();
-        textField19 = new componentes.TextField();
-        jButton18 = new javax.swing.JButton();
+        txtCantidadP = new componentes.TextField();
+        txtPrecioP = new componentes.TextField();
+        txtNombreP = new componentes.TextField();
+        btnPorcion = new javax.swing.JButton();
         jToggleButton2 = new javax.swing.JToggleButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbPorcion = new javax.swing.JComboBox<>();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
@@ -143,7 +142,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
-        btnCerrarSesion = new javax.swing.JMenu();
+        jmbCerrarSesion = new javax.swing.JMenu();
+        cerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -594,59 +594,62 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("PRODUCTS");
 
-        textField17.setHint("QUANTITY");
+        txtCantidadP.setHint("QUANTITY");
 
-        textField18.setHint("PRICE");
+        txtPrecioP.setHint("PRICE");
 
-        textField19.setHint("NAME");
+        txtNombreP.setHint("NAME");
 
-        jButton18.setBackground(new java.awt.Color(11, 22, 47));
-        jButton18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton18.setForeground(new java.awt.Color(255, 255, 255));
-        jButton18.setText("ADD");
+        btnPorcion.setBackground(new java.awt.Color(11, 22, 47));
+        btnPorcion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPorcion.setForeground(new java.awt.Color(255, 255, 255));
+        btnPorcion.setText("ADD");
 
         jToggleButton2.setBackground(new java.awt.Color(11, 22, 47));
         jToggleButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("CLOSE");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CATEGORY" }));
+        cmbPorcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BEBIDAS", "COMIDA" }));
 
         javax.swing.GroupLayout jPanelTransparente4Layout = new javax.swing.GroupLayout(jPanelTransparente4);
         jPanelTransparente4.setLayout(jPanelTransparente4Layout);
         jPanelTransparente4Layout.setHorizontalGroup(
             jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente4Layout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente4Layout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
             .addGroup(jPanelTransparente4Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addGroup(jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(textField19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtNombreP, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                        .addComponent(txtPrecioP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCantidadP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelTransparente4Layout.setVerticalGroup(
             jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTransparente4Layout.createSequentialGroup()
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(textField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(textField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(textField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(30, 30, 30)
+                .addComponent(cmbPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(txtCantidadP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(txtPrecioP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51))
         );
@@ -656,7 +659,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(431, Short.MAX_VALUE)
+                .addContainerGap(426, Short.MAX_VALUE)
                 .addComponent(jPanelTransparente4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(495, 495, 495))
         );
@@ -1043,14 +1046,18 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         MenuBar.add(jMenu4);
 
-        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoCerrarSesion.png"))); // NOI18N
-        btnCerrarSesion.setText("EXIT");
-        btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+        jmbCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoCerrarSesion.png"))); // NOI18N
+        jmbCerrarSesion.setText("EXIT");
+        jmbCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCerrarSesionMouseClicked(evt);
+                jmbCerrarSesionMouseClicked(evt);
             }
         });
-        MenuBar.add(btnCerrarSesion);
+
+        cerrar.setText("exit");
+        jmbCerrarSesion.add(cerrar);
+
+        MenuBar.add(jmbCerrarSesion);
 
         setJMenuBar(MenuBar);
 
@@ -1070,15 +1077,9 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
     
     
-    private void btnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMouseClicked
+    private void jmbCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmbCerrarSesionMouseClicked
         // TODO add your handling code here:
-        int a = JOptionPane.showConfirmDialog(btnCerrarSesion, "¿Desea cerrar sesion?");
-        if (a == JOptionPane.YES_OPTION) {
-            dispose();
-            ventanaLogin obj = new ventanaLogin();
-            obj.setVisible(true);
-        }
-    }//GEN-LAST:event_btnCerrarSesionMouseClicked
+    }//GEN-LAST:event_jmbCerrarSesionMouseClicked
 
     private void cmbEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpleadoActionPerformed
         // TODO add your handling code here:
@@ -1150,8 +1151,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
-    private javax.swing.JMenu btnCerrarSesion;
+    public javax.swing.JButton btnPorcion;
+    public javax.swing.JMenuItem cerrar;
     public javax.swing.JComboBox<String> cmbEmpleado;
+    public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
@@ -1161,11 +1164,9 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1228,6 +1229,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
+    public javax.swing.JMenu jmbCerrarSesion;
     public javax.swing.JMenuItem jmiClienteConsu;
     public javax.swing.JMenuItem jmiClientes;
     public javax.swing.JMenuItem jmiEmpleado;
@@ -1245,11 +1247,9 @@ public class MenuAdmin extends javax.swing.JFrame {
     private componentes.TextField textField13;
     private componentes.TextField textField14;
     private componentes.TextField textField15;
-    private componentes.TextField textField17;
-    private componentes.TextField textField18;
-    private componentes.TextField textField19;
     public componentes.TextField txtApellidoC;
     public componentes.TextField txtApellidoE;
+    public componentes.TextField txtCantidadP;
     public componentes.TextField txtCedulaC;
     public componentes.TextField txtCelE;
     public componentes.TextField txtClaveE;
@@ -1257,6 +1257,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtDocE;
     public componentes.TextField txtNombreC;
     public componentes.TextField txtNombreE;
+    public componentes.TextField txtNombreP;
+    public componentes.TextField txtPrecioP;
     public componentes.TextField txtTelefonoC;
     public componentes.TextField txtUserE;
     // End of variables declaration//GEN-END:variables

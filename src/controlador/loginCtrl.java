@@ -1,11 +1,9 @@
 package controlador;
 
-import vista.ventanaLogin;
-import vista.MenuAdmin;
-import modelo.regEmpleado;
-import modelo.regEmpleadoDAO;
-import modelo.clienteDAO;
-import modelo.hash;
+
+import vista.*;
+import modelo.*;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,6 +39,7 @@ public class loginCtrl implements ActionListener {
         this.admin.jmiEmpleado.addActionListener(this);
         this.admin.jmiClienteConsu.addActionListener(this);
         this.admin.jmiEmpleadoConsu.addActionListener(this);
+        this.admin.cerrar.addActionListener(this);
     }
 
     //CAMBIAR PANELES
@@ -61,6 +60,15 @@ public class loginCtrl implements ActionListener {
     }
     public void empleadoConsuPaneles(){
         admin.jTabbedPane.setSelectedIndex(6);
+    }
+    public void cerrarSesion(){
+         int a = JOptionPane.showConfirmDialog(admin.cerrar, "¿Desea cerrar sesion?");
+        if (a == JOptionPane.YES_OPTION) {
+            admin.dispose();
+        ventanaLogin login = new ventanaLogin();
+        loginCtrl lox = new loginCtrl(login);
+        login.setVisible(true);
+        }
     }
     
     //Metodo del login
@@ -247,6 +255,68 @@ public class loginCtrl implements ActionListener {
         admin.txtDocE.requestFocus();
     }
 
+    //Metodos de prociones
+    public void btnAgregarPorcion(){
+        producto prod = new producto(){};
+        porcionesDAO porDAO = new porcionesDAO();
+        bebidasDAO be = new bebidasDAO();
+        String nombreB,nombreC;
+        int cantidadB = 0;
+        float precioB = 0;
+        int cantidadC = 0;
+        float precioC = 0;
+        int id = 0;
+        int r = 0;
+        try{
+          if (admin.cmbPorcion.getSelectedItem().equals("BEBIDAS")){
+            id = 1;
+             nombreB =admin.txtNombreP.getText();
+             
+               if (!admin.txtCantidadP.getText().isEmpty()) {
+                cantidadB = Integer.parseInt(admin.txtDocE.getText());
+               }
+               if (!admin.txtPrecioP.getText().isEmpty()) {
+                precioC = Float.parseFloat(admin.txtDocE.getText());
+            }
+             prod.setNombre(nombreB);
+             prod.setCantidad(cantidadB);
+             prod.setPrecio(precioB);
+             r = be.agregarBebidas(prod);
+              if (r == 1) {
+                JOptionPane.showMessageDialog(admin, "Registro exitoso");
+            } else {
+                JOptionPane.showMessageDialog(admin, "Error al registrar empleado");
+            }
+        }
+          //METODO DE AGG COMIDA
+          else if  (admin.cmbPorcion.getSelectedItem().equals("COMIDA")){
+            id = 1;
+             nombreB =admin.txtNombreP.getText();
+             
+               if (!admin.txtCantidadP.getText().isEmpty()) {
+                cantidadC = Integer.parseInt(admin.txtDocE.getText());
+               }
+               if (!admin.txtPrecioP.getText().isEmpty()) {
+                precioC = Float.parseFloat(admin.txtDocE.getText());
+            }
+             prod.setNombre(nombreB);
+             prod.setCantidad(cantidadB);
+             prod.setPrecio(precioB);
+             r = porDAO.agregarPorciones(prod);
+             if (r == 1) {
+                JOptionPane.showMessageDialog(admin, "Registro exitoso");
+            } else {
+                JOptionPane.showMessageDialog(admin, "Error al registrar empleado");
+            }
+        }
+        }catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
+        }
+            //Guardar datos de BEBIDAS
+            
+    }
+    
+    
         public void limpiartabla() {
             int rowCount = modelo.getRowCount();
             for (int i = rowCount - 1; i >= 0; i--) {
@@ -274,6 +344,9 @@ public class loginCtrl implements ActionListener {
         } 
         if(e.getSource()== admin.jmiEmpleadoConsu){
             empleadoConsuPaneles();
+        }
+        if(e.getSource()== admin.cerrar){
+            cerrarSesion();
         }
         
         //Ingreso al login
@@ -308,6 +381,9 @@ public class loginCtrl implements ActionListener {
                    limpiartabla();
                    listarEmpleado(admin.tblEmpleados);
            }
+        }
+        if (e.getSource()== admin.btnPorcion){
+            btnAgregarPorcion();
         }
     }
 }

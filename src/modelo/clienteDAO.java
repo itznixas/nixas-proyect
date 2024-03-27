@@ -53,7 +53,7 @@ public class clienteDAO extends dataBase{
 
 
             public int agregarCliente(regEmpleado cli){
-            String sql = "INSERT INTO reg_clientes (nom_cli, ape_cli, ced_cli, telef, direccion) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO reg_clientes (nom_cli, ape_cli, ced_cli,direccion, telef) VALUES (?,?,?,?,?)";
 
             try{
                 cn = con.getConnection();
