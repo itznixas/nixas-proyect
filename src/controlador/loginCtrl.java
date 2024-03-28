@@ -1,12 +1,14 @@
 package controlador;
 
 
+import java.awt.FontFormatException;
 import vista.*;
 import modelo.*;
 
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,17 +20,19 @@ import javax.swing.table.DefaultTableModel;
 public class loginCtrl implements ActionListener {
     regEmpleado reG = new regEmpleado();
     regEmpleadoDAO emD = new regEmpleadoDAO();
-    ventanaLogin ventana = new ventanaLogin();
+    ventanaLogin ventana;
     MenuAdmin admin = new MenuAdmin();
     DefaultTableModel modelo = new DefaultTableModel();
     clienteDAO cli = new clienteDAO();
 
-    public loginCtrl(ventanaLogin ventana) {
+    public loginCtrl(ventanaLogin ventana) throws FontFormatException, IOException {
+        this.ventana = new ventanaLogin();
         this.ventana = ventana;
         this.ventana.BtnLogin.addActionListener(this);
     }
 
-    public loginCtrl(MenuAdmin admin) {
+    public loginCtrl(MenuAdmin admin) throws FontFormatException, IOException {
+        this.ventana = new ventanaLogin();
         this.admin = admin;
         this.admin.btnAgregarC.addActionListener(this);
         this.admin.btnAgregarEm.addActionListener(this);
@@ -62,7 +66,7 @@ public class loginCtrl implements ActionListener {
     public void empleadoConsuPaneles(){
         admin.jTabbedPane.setSelectedIndex(6);
     }
-    public void cerrarSesion(){
+    public void cerrarSesion() throws FontFormatException, IOException{
          int a = JOptionPane.showConfirmDialog(admin.cerrar, "¿Desea cerrar sesion?");
         if (a == JOptionPane.YES_OPTION) {
             admin.dispose();
@@ -73,7 +77,7 @@ public class loginCtrl implements ActionListener {
     }
     
     //Metodo del login
-    public void btnIngresar() {
+    public void btnIngresar() throws FontFormatException, IOException {
         String user = ventana.CampoUsuario.getText();
         String clave = new String(ventana.CampoContraseña.getText());
         reG.setUserEmpl(user);
@@ -349,7 +353,13 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
             empleadoConsuPaneles();
         }
         if(e.getSource()== admin.cerrar){
-            cerrarSesion();
+            try {
+                cerrarSesion();
+            } catch (FontFormatException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         //Ingreso al login
@@ -358,7 +368,13 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
                  JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
                  ventana.CampoContraseña.requestFocus();
             }else{
-                btnIngresar();
+                try {
+                    btnIngresar();
+                } catch (FontFormatException ex) {
+                    Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         if (e.getSource() == admin.btnAgregarC) {  

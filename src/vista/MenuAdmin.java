@@ -5,16 +5,50 @@ import componentes.TextField;
 import controlador.loginCtrl;
 import modelo.*;
 import appnixas.IconoNixas;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 
 public class MenuAdmin extends javax.swing.JFrame {
-    
+
+    DefaultTableCellRenderer TablaRenderer = new DefaultTableCellRenderer();
+
     public MenuAdmin() {
         initComponents();
         IconoNixas.establecerIcono(this);
+
+        TablaRenderer.setHorizontalAlignment(SwingConstants.LEFT);
+        //Tabla Clientes
+
+        tblClientes.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
+        tblClientes.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
+        tblClientes.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
+        tblClientes.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
+        tblClientes.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
+        tblClientes.getColumnModel().getColumn(5).setCellRenderer(TablaRenderer);
+
+        //Tabla Empleados
+        tblEmpleados.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
+        tblEmpleados.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
+        tblEmpleados.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
+        tblEmpleados.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
+        tblEmpleados.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
+        tblEmpleados.getColumnModel().getColumn(5).setCellRenderer(TablaRenderer);
+
+        //Tabla Inventario
+        tblInventario1.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
+        tblInventario1.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
+        tblInventario1.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
+        tblInventario1.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
+        tblInventario1.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
+
     }
-           regEmpleado cliente = new regEmpleado();
-            clienteDAO cliD = new clienteDAO();
-            
+    regEmpleado cliente = new regEmpleado();
+    clienteDAO cliD = new clienteDAO();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,23 +63,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanelRound1 = new LIB.JPanelRound();
         jLabel22 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        tblMesas = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblStockProductos = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -109,7 +127,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblInventario1 = new javax.swing.JTable();
         jTextField3 = new javax.swing.JTextField();
         jComboBox3 = new javax.swing.JComboBox<>();
-        jPanel19 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jPanelTransparente3 = new LIB.JPanelTransparente();
         jLabel23 = new javax.swing.JLabel();
@@ -121,6 +138,19 @@ public class MenuAdmin extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmiOrdenes = new javax.swing.JMenuItem();
@@ -139,8 +169,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         cerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(0, 0, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -174,180 +206,10 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel2.add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 390, 220));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/FondoInicio.gif"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 710));
-
         jTabbedPane.addTab("Inicio", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(24, 42, 75));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tblMesas.setBackground(new java.awt.Color(24, 42, 75));
-        tblMesas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jButton1.setBackground(new java.awt.Color(153, 255, 153));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton1.setText("SELECT");
-
-        jButton3.setBackground(new java.awt.Color(153, 255, 153));
-        jButton3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton3.setText("SELECT");
-
-        jButton4.setBackground(new java.awt.Color(153, 255, 153));
-        jButton4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton4.setText("SELECT");
-
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("TABLES");
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-        );
-
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
-
-        jLabel15.setText("2");
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addContainerGap())
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jLabel15))
-        );
-
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
-
-        jLabel16.setText("3");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addContainerGap())))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel16))
-        );
-
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoMesas.png"))); // NOI18N
-
-        jLabel5.setText("1");
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 48, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addContainerGap())
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel5))
-        );
-
-        javax.swing.GroupLayout tblMesasLayout = new javax.swing.GroupLayout(tblMesas);
-        tblMesas.setLayout(tblMesasLayout);
-        tblMesasLayout.setHorizontalGroup(
-            tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tblMesasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        tblMesasLayout.setVerticalGroup(
-            tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tblMesasLayout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tblMesasLayout.createSequentialGroup()
-                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tblMesasLayout.createSequentialGroup()
-                        .addGroup(tblMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tblMesasLayout.createSequentialGroup()
-                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tblMesasLayout.createSequentialGroup()
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton4)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-
-        jPanel3.add(tblMesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 470, 300));
 
         tblStockProductos.setBackground(new java.awt.Color(24, 42, 75));
         tblStockProductos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -364,7 +226,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblStockProductos);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 470, 380));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 470, 630));
 
         tblPedidoMesas.setBackground(new java.awt.Color(24, 42, 75));
         tblPedidoMesas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -402,15 +264,15 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, 450, 630));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WAITERS", "" }));
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 270, 36));
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, 293, 33));
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, 130, 33));
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 270, 36));
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 293, 33));
+        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, 130, 33));
 
         jButton12.setBackground(new java.awt.Color(11, 22, 47));
         jButton12.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setText("SEARCH");
-        jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1254, 10, 100, 33));
+        jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 100, 33));
 
         jTabbedPane.addTab("Pedidos", jPanel3);
 
@@ -432,7 +294,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtTelefonoC.setHint("PHONE NUMBER");
 
-        btnAgregarC.setBackground(new java.awt.Color(11, 22, 47));
+        btnAgregarC.setBackground(java.awt.Color.green);
         btnAgregarC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregarC.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarC.setText("ADD");
@@ -480,7 +342,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(102, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 460, 560));
+        jPanel4.add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 460, 560));
 
         jTabbedPane.addTab("Clientes", jPanel4);
 
@@ -498,7 +360,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtUserE.setHint("USER");
 
         cmbEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        cmbEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         cmbEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Cajero" }));
         cmbEmpleado.setActionCommand("Seleccionar...\nCajero\nAdministrador");
         cmbEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -507,7 +368,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
 
-        btnAgregarEm.setBackground(new java.awt.Color(11, 22, 47));
+        btnAgregarEm.setBackground(java.awt.Color.green);
         btnAgregarEm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregarEm.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarEm.setText("ADD");
@@ -568,7 +429,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(114, 114, 114))
         );
 
-        jPanel6.add(jPanelTransparente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 480, 570));
+        jPanel6.add(jPanelTransparente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 480, 570));
 
         jTabbedPane.addTab("Empleados", jPanel6);
 
@@ -586,12 +447,12 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtNombreP.setHint("NAME");
 
-        btnPorcion.setBackground(new java.awt.Color(11, 22, 47));
+        btnPorcion.setBackground(java.awt.Color.green);
         btnPorcion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPorcion.setForeground(new java.awt.Color(255, 255, 255));
         btnPorcion.setText("ADD");
 
-        jToggleButton2.setBackground(new java.awt.Color(11, 22, 47));
+        jToggleButton2.setBackground(java.awt.Color.red);
         jToggleButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("CLOSE");
@@ -650,9 +511,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(63, 63, 63)
                 .addComponent(jPanelTransparente4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Productos", jPanel5);
@@ -680,6 +541,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tblClientes.setFocusable(false);
+        tblClientes.setRowHeight(25);
+        tblClientes.setSelectionBackground(new java.awt.Color(232, 57, 95));
         jScrollPane4.setViewportView(tblClientes);
         if (tblClientes.getColumnModel().getColumnCount() > 0) {
             tblClientes.getColumnModel().getColumn(3).setHeaderValue("DNI");
@@ -687,7 +551,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             tblClientes.getColumnModel().getColumn(5).setHeaderValue("Phone number");
         }
 
-        jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1330, 570));
+        jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1060, 490));
 
         jButton10.setBackground(java.awt.Color.green);
         jButton10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -713,6 +577,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel23.setBackground(new java.awt.Color(11, 18, 35));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblEmpleados.setBackground(new java.awt.Color(0, 0, 102));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -738,7 +603,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             tblEmpleados.getColumnModel().getColumn(4).setHeaderValue("Phone number");
         }
 
-        jPanel23.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1320, 570));
+        jPanel23.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1060, 490));
 
         jButton13.setBackground(java.awt.Color.green);
         jButton13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -768,8 +633,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane.addTab("Cons. Empleados", jPanel17);
@@ -777,7 +642,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel24.setBackground(new java.awt.Color(11, 18, 35));
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton15.setBackground(new java.awt.Color(11, 22, 47));
+        jButton15.setBackground(java.awt.Color.green);
         jButton15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton15.setForeground(new java.awt.Color(255, 255, 255));
         jButton15.setText("ADD");
@@ -800,7 +665,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel21.setText("INVENTORY");
         jPanel24.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 280, -1));
 
-        tblInventario1.setBackground(new java.awt.Color(24, 42, 75));
+        tblInventario1.setBackground(new java.awt.Color(0, 0, 102));
         tblInventario1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -822,7 +687,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(tblInventario1);
 
-        jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1320, 560));
+        jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1060, 490));
         jPanel24.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 310, 40));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CATEGORIA" }));
@@ -840,27 +705,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
+            .addGap(0, 725, Short.MAX_VALUE)
             .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE))
+                .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Cons. Inventario", jPanel18);
-
-        jPanel19.setBackground(new java.awt.Color(11, 18, 35));
-
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1370, Short.MAX_VALUE)
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
-        );
-
-        jTabbedPane.addTab("Informe", jPanel19);
 
         jPanel20.setBackground(new java.awt.Color(11, 18, 35));
 
@@ -878,12 +728,12 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         textField15.setHint("NAME");
 
-        jButton17.setBackground(new java.awt.Color(11, 22, 47));
+        jButton17.setBackground(java.awt.Color.green);
         jButton17.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jButton17.setForeground(new java.awt.Color(255, 255, 255));
         jButton17.setText("ADD");
 
-        jToggleButton1.setBackground(new java.awt.Color(11, 22, 47));
+        jToggleButton1.setBackground(java.awt.Color.red);
         jToggleButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("DELETE");
@@ -964,13 +814,73 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Factura", jPanel20);
 
-        getContentPane().add(jTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 750));
+        jPanel1.setBackground(new java.awt.Color(11, 18, 35));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Mesa 1");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 90, 276, 218));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Mesa 1");
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 400, 276, 218));
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Mesa 1");
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 276, 218));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Mesa 1");
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 276, 218));
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Mesa 1");
+        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 276, 218));
+
+        jButton1.setText("Selecciona");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, 240, 30));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Mesa 1");
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 276, 218));
+
+        jButton2.setText("Selecciona");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 310, 240, 30));
+
+        jButton3.setText("Selecciona");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 240, 30));
+
+        jButton4.setText("Selecciona");
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 240, 30));
+
+        jButton5.setText("Selecciona");
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 630, 240, 30));
+
+        jButton6.setText("Selecciona");
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 630, 240, 30));
+
+        jTabbedPane.addTab("Mesas", jPanel1);
+
+        getContentPane().add(jTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 760));
+
+        MenuBar.setBackground(new java.awt.Color(0, 0, 0));
         MenuBar.setForeground(new java.awt.Color(255, 255, 255));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregar.png"))); // NOI18N
@@ -1048,18 +958,24 @@ public class MenuAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-        public void iniciar(){
-         FlatDarkLaf.setup();
+    public void iniciar() {
+        FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 MenuAdmin m = new MenuAdmin();
-                 loginCtrl lx = new loginCtrl(m);
-                 m.setVisible(true);
+                try {
+                    loginCtrl lx = new loginCtrl(m);
+                } catch (FontFormatException ex) {
+                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                m.setVisible(true);
             }
         });
     }
-    
-    
+
+
     private void jmbCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmbCerrarSesionMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jmbCerrarSesionMouseClicked
@@ -1111,21 +1027,29 @@ public class MenuAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: La cédula o celular debe ser un número válido.");
             e.printStackTrace(); // Imprimir la traza de la excepción para depuración
         }
-        */
+         */
     }//GEN-LAST:event_btnAgregarCActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:be
-        
+
     }//GEN-LAST:event_jButton15ActionPerformed
-    
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                 ventanaLogin login = new ventanaLogin();
-                   loginCtrl lox = new loginCtrl(login);
-                  login.setVisible(true);
+                ventanaLogin login;
+                try {
+                    login = new ventanaLogin();
+                    loginCtrl lox = new loginCtrl(login);
+                    login.setVisible(true);
+                } catch (FontFormatException ex) {
+                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
         });
     }
@@ -1147,16 +1071,17 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1175,13 +1100,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel23;
@@ -1190,7 +1112,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel9;
     private LIB.JPanelRound jPanelRound1;
     private LIB.JPanelTransparente jPanelTransparente1;
     private LIB.JPanelTransparente jPanelTransparente2;
@@ -1222,7 +1143,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEmpleados;
     public javax.swing.JTable tblInventario1;
-    private javax.swing.JPanel tblMesas;
     private javax.swing.JTable tblPedidoMesas;
     private javax.swing.JTable tblPedidosPendiente;
     private javax.swing.JTable tblStockProductos;
@@ -1266,7 +1186,4 @@ public class MenuAdmin extends javax.swing.JFrame {
         return txtTelefonoC;
     }
 
-
-
 }
-

@@ -1,21 +1,32 @@
 package vista;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
 import controlador.loginCtrl;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import appnixas.IconoNixas;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ventanaLogin extends javax.swing.JFrame {
 
-    public ventanaLogin() {
+    public ventanaLogin() throws FontFormatException, IOException {
         initComponents();
         IconoNixas.establecerIcono(this);
         this.setLocationRelativeTo(null);
+        try {
+            InputStream inputStream = getClass().getResourceAsStream("/fonts/Helixa-Bold.otf");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, inputStream).deriveFont(40f);
+            jLabel5.setFont(font);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -63,7 +74,7 @@ public class ventanaLogin extends javax.swing.JFrame {
         BtnLogin.setText("LOG IN");
         jPanelTransparente1.add(BtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 260, 50));
 
-        TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        TituloInicioSesion.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         TituloInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
         TituloInicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TituloInicioSesion.setText("SIGN IN TO YOUR ACCOUNT");
@@ -104,13 +115,13 @@ public class ventanaLogin extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void OlvidasteContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OlvidasteContraseñaMouseClicked
         // TODO add your handling code here:
         dispose();
-        
+
     }//GEN-LAST:event_OlvidasteContraseñaMouseClicked
 
     /**
@@ -120,9 +131,17 @@ public class ventanaLogin extends javax.swing.JFrame {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ventanaLogin login = new ventanaLogin();
-                loginCtrl lox = new loginCtrl(login);
-                login.setVisible(true);
+                ventanaLogin login;
+                try {
+                    login = new ventanaLogin();
+                    loginCtrl lox = new loginCtrl(login);
+                    login.setVisible(true);
+                } catch (FontFormatException ex) {
+                    Logger.getLogger(ventanaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ventanaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
                 //new ventanaLogin().setVisible(true);
             }
         });
