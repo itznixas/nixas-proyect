@@ -45,6 +45,7 @@ public class loginCtrl implements ActionListener {
         this.admin.jmiEmpleadoConsu.addActionListener(this);
         this.admin.cerrar.addActionListener(this);
         this.admin.btnPorcion.addActionListener(this);
+        this.admin.btnConsultarEm.addActionListener(this);
     }
 
     //CAMBIAR PANELES
@@ -224,6 +225,33 @@ public class loginCtrl implements ActionListener {
       limpiartabla();
     }
     
+    
+   public void btnConsultar(JTable tblEmpleado) {
+    regEmpleado empleado = new regEmpleado();
+    Integer cedula = 0;
+    if (!admin.txtConsultarEm.getText().isEmpty()) {
+        try {
+            cedula = Integer.parseInt(admin.txtConsultarEm.getText());
+   
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un número de cédula válido", "Error", JOptionPane.ERROR_MESSAGE);
+            return; // Salir del método si la cédula no es válida
+        }
+        empleado.setCedulaEmpl(cedula);
+    }
+    if (cedula != 0) {
+        try {
+            List<regEmpleado> empleadoNombre = emD.buscarNomEmpleado(empleado);
+            actualizarTablaEmpleados(empleadoNombre, tblEmpleado);
+            admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al buscar empleado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Debe ingresar una cédula válida", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
     public void listarEmpleado (JTable tblEmpleado){
         modelo = (DefaultTableModel) tblEmpleado.getModel();
         modelo.setRowCount(0);
@@ -259,6 +287,27 @@ public class loginCtrl implements ActionListener {
         admin.txtCelE.setText(null);
         admin.txtDocE.requestFocus();
     }
+   public void actualizarTablaEmpleados(List<regEmpleado> empleados, JTable tblEmpleado) {
+    DefaultTableModel modelo = (DefaultTableModel) tblEmpleado.getModel();
+    modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
+
+    for (regEmpleado empleado : empleados) {
+        Object[] fila = {
+            empleado.getIdEmpl(),
+            empleado.getNombreEmpl(),
+            empleado.getApellidoEmpl(),
+            empleado.getCedulaEmpl(),
+            empleado.getCelEmpl(),
+            empleado.getNombreRol(),
+            empleado.getUserEmpl(),
+            empleado.getClaveEmpl()
+        };
+        modelo.addRow(fila);
+    }
+
+    modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+}
+
 
     //Metodos de prociones
     public void btnAgregarPorcion(){
@@ -408,6 +457,9 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
         }
         if (e.getSource()== admin.btnPorcion){
             btnAgregarPorcion();
+        }
+        if(e.getSource()== admin.btnConsultarEm){
+            btnConsultar(admin.tblEmpleados);
         }
     }
 }

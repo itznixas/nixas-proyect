@@ -114,10 +114,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel23 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblEmpleados = new javax.swing.JTable();
-        jButton13 = new javax.swing.JButton();
+        btnConsultarEm = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtConsultarEm = new javax.swing.JTextField();
         jPanel18 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
@@ -577,20 +577,20 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel23.setBackground(new java.awt.Color(11, 18, 35));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblEmpleados.setBackground(new java.awt.Color(0, 0, 102));
+        tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Last name", "DNI", "Phone number", "Rol"
+                "ID", "Name", "Last name", "DNI", "Phone number", "Rol", "user", "Clave"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -605,11 +605,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel23.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1060, 490));
 
-        jButton13.setBackground(java.awt.Color.green);
-        jButton13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton13.setForeground(new java.awt.Color(255, 255, 255));
-        jButton13.setText("ADD");
-        jPanel23.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 100, 40));
+        btnConsultarEm.setBackground(java.awt.Color.green);
+        btnConsultarEm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnConsultarEm.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultarEm.setText("ADD");
+        jPanel23.add(btnConsultarEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 100, 40));
 
         jButton14.setBackground(java.awt.Color.red);
         jButton14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -622,7 +622,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("EMPLOYEES");
         jPanel23.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 230, -1));
-        jPanel23.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
+        jPanel23.add(txtConsultarEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1058,6 +1058,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
+    public javax.swing.JButton btnConsultarEm;
     public javax.swing.JButton btnPorcion;
     public javax.swing.JMenuItem cerrar;
     public javax.swing.JComboBox<String> cmbEmpleado;
@@ -1066,7 +1067,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    public javax.swing.JButton jButton13;
     public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton16;
@@ -1130,7 +1130,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     public javax.swing.JMenu jmbCerrarSesion;
@@ -1156,6 +1155,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtCedulaC;
     public componentes.TextField txtCelE;
     public componentes.TextField txtClaveE;
+    public javax.swing.JTextField txtConsultarEm;
     public componentes.TextField txtDireccionC;
     public componentes.TextField txtDocE;
     public componentes.TextField txtNombreC;

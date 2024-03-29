@@ -79,6 +79,44 @@ public class regEmpleadoDAO extends dataBase {
             }
          
          
+             public List<regEmpleado> buscarNomEmpleado (regEmpleado empe) throws SQLException{
+            List<regEmpleado> empleado = new ArrayList<>();
+            String sql = "SELECT * FROM reg_empleado WHERE ced_emple = ?";
+            try{
+               cn = con.getConnection();
+               ps = cn.prepareStatement(sql);
+               ps.setInt(1, empe.getCedulaEmpl());
+               rs = ps.executeQuery();
+               
+               while (rs.next()){
+                   regEmpleado emp = new regEmpleado();
+                     emp.setIdEmpl(rs.getInt("id_emple"));
+                     emp.setNombreEmpl(rs.getString("nom_emple"));
+                     emp.setApellidoEmpl(rs.getString("ape_emple"));
+                     emp.setCedulaEmpl(rs.getInt("ced_emple"));
+                     emp.setCelEmpl(rs.getInt("tele_emple"));
+                     emp.setUserEmpl(rs.getString("usuario"));
+                     emp.setClaveEmpl(rs.getString("clave"));
+                     emp.setIdRol(rs.getInt("rol"));
+                     empleado.add(emp);
+               }
+            }catch (SQLException e){
+                System.out.println(e);
+            }finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+           if (rs != null) {
+               rs.close();
+           }
+           if (ps != null) {
+               ps.close();
+           }
+           if (cn != null) {
+               cn.close();
+           }
+        }
+            return empleado;
+        }
+         
          
          public boolean autenticacion(regEmpleado emp) {
     String sql = "SELECT * FROM reg_empleado WHERE usuario = ? AND clave = ?";
