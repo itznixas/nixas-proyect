@@ -71,9 +71,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPedidosPendiente = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jButton12 = new javax.swing.JButton();
+        txtNombreE1 = new componentes.TextField();
+        txtNombreE2 = new componentes.TextField();
         jPanel4 = new javax.swing.JPanel();
         jPanelTransparente1 = new LIB.JPanelTransparente();
         jLabel3 = new javax.swing.JLabel();
@@ -109,7 +109,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtNombreC1 = new componentes.TextField();
+        txtApellidoC1 = new componentes.TextField();
+        txtDireccionC1 = new componentes.TextField();
+        txtCedulaC1 = new componentes.TextField();
+        txtTelefonoC1 = new componentes.TextField();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        txtNombreC2 = new componentes.TextField();
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -117,7 +124,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnConsultarEm = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        txtConsultarEm = new javax.swing.JTextField();
+        txtConsultarEm = new componentes.TextField();
+        txtApellidoC2 = new componentes.TextField();
+        txtCedulaC2 = new componentes.TextField();
+        txtDireccionC2 = new componentes.TextField();
+        txtTelefonoC2 = new componentes.TextField();
+        jButton9 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        txtNombreC4 = new componentes.TextField();
+        txtDireccionC4 = new componentes.TextField();
+        txtDireccionC5 = new componentes.TextField();
         jPanel18 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
@@ -125,8 +141,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblInventario1 = new javax.swing.JTable();
-        jTextField3 = new javax.swing.JTextField();
         jComboBox3 = new javax.swing.JComboBox<>();
+        txtNombreC5 = new componentes.TextField();
+        txtApellidoC3 = new componentes.TextField();
+        txtCedulaC3 = new componentes.TextField();
+        txtDireccionC3 = new componentes.TextField();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        txtNombreC6 = new componentes.TextField();
         jPanel20 = new javax.swing.JPanel();
         jPanelTransparente3 = new LIB.JPanelTransparente();
         jLabel23 = new javax.swing.JLabel();
@@ -172,7 +194,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel2.setBackground(new java.awt.Color(24, 42, 75));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -226,7 +248,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblStockProductos);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 470, 630));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 440, 630));
 
         tblPedidoMesas.setBackground(new java.awt.Color(24, 42, 75));
         tblPedidoMesas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -244,7 +266,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblPedidoMesas);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 420, 630));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 420, 630));
 
         tblPedidosPendiente.setBackground(new java.awt.Color(24, 42, 75));
         tblPedidosPendiente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -263,16 +285,22 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, 450, 630));
 
+        jComboBox1.setBackground(new java.awt.Color(24, 42, 75));
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WAITERS", "" }));
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 270, 36));
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 293, 33));
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, 130, 33));
 
-        jButton12.setBackground(new java.awt.Color(11, 22, 47));
+        jButton12.setBackground(new java.awt.Color(24, 42, 75));
         jButton12.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setText("SEARCH");
         jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 100, 33));
+
+        txtNombreE1.setHint("Cantidad");
+        jPanel3.add(txtNombreE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 10, 150, -1));
+
+        txtNombreE2.setHint("Nombre de productos");
+        jPanel3.add(txtNombreE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 300, -1));
 
         jTabbedPane.addTab("Pedidos", jPanel3);
 
@@ -359,7 +387,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtUserE.setHint("USER");
 
+        cmbEmpleado.setBackground(new java.awt.Color(102, 111, 127));
         cmbEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cmbEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         cmbEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Cajero" }));
         cmbEmpleado.setActionCommand("Seleccionar...\nCajero\nAdministrador");
         cmbEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -457,7 +487,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("CLOSE");
 
-        cmbPorcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BEBIDAS", "COMIDA" }));
+        cmbPorcion.setBackground(new java.awt.Color(102, 111, 127));
+        cmbPorcion.setForeground(new java.awt.Color(255, 255, 255));
+        cmbPorcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DRINKS", "FOOD" }));
 
         javax.swing.GroupLayout jPanelTransparente4Layout = new javax.swing.GroupLayout(jPanelTransparente4);
         jPanelTransparente4.setLayout(jPanelTransparente4Layout);
@@ -471,12 +503,11 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(36, 36, 36))
             .addGroup(jPanelTransparente4Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addGroup(jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtNombreP, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                        .addComponent(txtPrecioP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCantidadP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtNombreP, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(txtPrecioP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCantidadP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbPorcion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -484,9 +515,9 @@ public class MenuAdmin extends javax.swing.JFrame {
             jPanelTransparente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTransparente4Layout.createSequentialGroup()
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(cmbPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(29, 29, 29)
+                .addComponent(cmbPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addComponent(txtCantidadP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -518,7 +549,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Productos", jPanel5);
 
-        jPanel10.setBackground(new java.awt.Color(11, 18, 35));
+        jPanel10.setBackground(new java.awt.Color(24, 42, 75));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblClientes.setBackground(new java.awt.Color(0, 0, 102));
@@ -545,13 +576,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblClientes.setRowHeight(25);
         tblClientes.setSelectionBackground(new java.awt.Color(232, 57, 95));
         jScrollPane4.setViewportView(tblClientes);
-        if (tblClientes.getColumnModel().getColumnCount() > 0) {
-            tblClientes.getColumnModel().getColumn(3).setHeaderValue("DNI");
-            tblClientes.getColumnModel().getColumn(4).setHeaderValue("Address");
-            tblClientes.getColumnModel().getColumn(5).setHeaderValue("Phone number");
-        }
 
-        jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1060, 490));
+        jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 700, 490));
 
         jButton10.setBackground(java.awt.Color.green);
         jButton10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -570,14 +596,37 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("CLIENTS");
         jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
-        jPanel10.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
+
+        txtNombreC1.setHint("SEARCH");
+        jPanel10.add(txtNombreC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 370, 40));
+
+        txtApellidoC1.setHint("LAST NAME");
+        jPanel10.add(txtApellidoC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 140, -1));
+
+        txtDireccionC1.setHint("ADDRESS");
+        jPanel10.add(txtDireccionC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 130, -1));
+
+        txtCedulaC1.setHint("DNI");
+        jPanel10.add(txtCedulaC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 140, -1));
+
+        txtTelefonoC1.setHint("PHONE NUMBER");
+        jPanel10.add(txtTelefonoC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 130, -1));
+
+        jButton7.setText("MODIFY");
+        jPanel10.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, -1));
+
+        jButton8.setText("DELETE");
+        jPanel10.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, -1));
+
+        txtNombreC2.setHint("NAME");
+        jPanel10.add(txtNombreC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
 
         jTabbedPane.addTab("Cons. Cliente", jPanel10);
 
-        jPanel23.setBackground(new java.awt.Color(11, 18, 35));
+        jPanel23.setBackground(new java.awt.Color(24, 42, 75));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
+        tblEmpleados.setBackground(new java.awt.Color(0, 0, 102));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -586,7 +635,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Last name", "DNI", "Phone number", "Rol", "user", "Clave"
+                "ID", "Name", "Last name", "DNI", "Phone number", "Rol", "User", "Password"
             }
         ) {
             Class[] types = new Class [] {
@@ -598,12 +647,8 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
         jScrollPane5.setViewportView(tblEmpleados);
-        if (tblEmpleados.getColumnModel().getColumnCount() > 0) {
-            tblEmpleados.getColumnModel().getColumn(3).setHeaderValue("DNI");
-            tblEmpleados.getColumnModel().getColumn(4).setHeaderValue("Phone number");
-        }
 
-        jPanel23.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1060, 490));
+        jPanel23.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 820, 490));
 
         btnConsultarEm.setBackground(java.awt.Color.green);
         btnConsultarEm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -622,7 +667,41 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("EMPLOYEES");
         jPanel23.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 230, -1));
-        jPanel23.add(txtConsultarEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
+
+        txtConsultarEm.setHint("SEARCH");
+        jPanel23.add(txtConsultarEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 370, 40));
+
+        txtApellidoC2.setHint("LAST NAME");
+        jPanel23.add(txtApellidoC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 140, -1));
+
+        txtCedulaC2.setHint("DNI");
+        jPanel23.add(txtCedulaC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 130, -1));
+
+        txtDireccionC2.setHint("USER");
+        txtDireccionC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionC2ActionPerformed(evt);
+            }
+        });
+        jPanel23.add(txtDireccionC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 130, -1));
+
+        txtTelefonoC2.setHint("PHONE NUMBER");
+        jPanel23.add(txtTelefonoC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 140, -1));
+
+        jButton9.setText("MODIFY");
+        jPanel23.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 120, -1));
+
+        jButton13.setText("DELETE");
+        jPanel23.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 550, 120, -1));
+
+        txtNombreC4.setHint("NAME");
+        jPanel23.add(txtNombreC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
+
+        txtDireccionC4.setHint("ROL");
+        jPanel23.add(txtDireccionC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 130, -1));
+
+        txtDireccionC5.setHint("PASSWORD");
+        jPanel23.add(txtDireccionC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 130, -1));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -639,7 +718,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Cons. Empleados", jPanel17);
 
-        jPanel24.setBackground(new java.awt.Color(11, 18, 35));
+        jPanel24.setBackground(new java.awt.Color(24, 42, 75));
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton15.setBackground(java.awt.Color.green);
@@ -687,11 +766,33 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(tblInventario1);
 
-        jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1060, 490));
-        jPanel24.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 310, 40));
+        jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 720, 490));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CATEGORIA" }));
-        jPanel24.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 190, 40));
+        jComboBox3.setBackground(new java.awt.Color(24, 42, 75));
+        jComboBox3.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CATEGORY" }));
+        jPanel24.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 170, 40));
+
+        txtNombreC5.setHint("NAME");
+        jPanel24.add(txtNombreC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
+
+        txtApellidoC3.setHint("CATEGORY");
+        jPanel24.add(txtApellidoC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 140, -1));
+
+        txtCedulaC3.setHint("QUANTITY");
+        jPanel24.add(txtCedulaC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 140, -1));
+
+        txtDireccionC3.setHint("PRICE");
+        jPanel24.add(txtDireccionC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 130, -1));
+
+        jButton18.setText("MODIFY");
+        jPanel24.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, -1));
+
+        jButton19.setText("DELETE");
+        jPanel24.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, -1));
+
+        txtNombreC6.setHint("NAME");
+        jPanel24.add(txtNombreC6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 130, -1));
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -712,7 +813,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Cons. Inventario", jPanel18);
 
-        jPanel20.setBackground(new java.awt.Color(11, 18, 35));
+        jPanel20.setBackground(new java.awt.Color(24, 42, 75));
 
         jLabel23.setBackground(new java.awt.Color(255, 255, 255));
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -819,7 +920,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Factura", jPanel20);
 
-        jPanel1.setBackground(new java.awt.Color(11, 18, 35));
+        jPanel1.setBackground(new java.awt.Color(24, 42, 75));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -881,7 +982,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         getContentPane().add(jTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 760));
 
         MenuBar.setBackground(new java.awt.Color(0, 0, 0));
-        MenuBar.setForeground(new java.awt.Color(255, 255, 255));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregar.png"))); // NOI18N
         jMenu1.setText("ADD");
@@ -1035,6 +1135,10 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    private void txtDireccionC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionC2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionC2ActionPerformed
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1067,15 +1171,21 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
@@ -1126,10 +1236,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     public javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     public javax.swing.JMenu jmbCerrarSesion;
@@ -1150,19 +1256,39 @@ public class MenuAdmin extends javax.swing.JFrame {
     private componentes.TextField textField14;
     private componentes.TextField textField15;
     public componentes.TextField txtApellidoC;
+    public componentes.TextField txtApellidoC1;
+    public componentes.TextField txtApellidoC2;
+    public componentes.TextField txtApellidoC3;
     public componentes.TextField txtApellidoE;
     public componentes.TextField txtCantidadP;
     public componentes.TextField txtCedulaC;
+    public componentes.TextField txtCedulaC1;
+    public componentes.TextField txtCedulaC2;
+    public componentes.TextField txtCedulaC3;
     public componentes.TextField txtCelE;
     public componentes.TextField txtClaveE;
-    public javax.swing.JTextField txtConsultarEm;
+    public componentes.TextField txtConsultarEm;
     public componentes.TextField txtDireccionC;
+    public componentes.TextField txtDireccionC1;
+    public componentes.TextField txtDireccionC2;
+    public componentes.TextField txtDireccionC3;
+    public componentes.TextField txtDireccionC4;
+    public componentes.TextField txtDireccionC5;
     public componentes.TextField txtDocE;
     public componentes.TextField txtNombreC;
+    public componentes.TextField txtNombreC1;
+    public componentes.TextField txtNombreC2;
+    public componentes.TextField txtNombreC4;
+    public componentes.TextField txtNombreC5;
+    public componentes.TextField txtNombreC6;
     public componentes.TextField txtNombreE;
+    public componentes.TextField txtNombreE1;
+    public componentes.TextField txtNombreE2;
     public componentes.TextField txtNombreP;
     public componentes.TextField txtPrecioP;
     public componentes.TextField txtTelefonoC;
+    public componentes.TextField txtTelefonoC1;
+    public componentes.TextField txtTelefonoC2;
     public componentes.TextField txtUserE;
     // End of variables declaration//GEN-END:variables
 
