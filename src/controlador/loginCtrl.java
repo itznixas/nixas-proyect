@@ -46,6 +46,7 @@ public class loginCtrl implements ActionListener {
         this.admin.cerrar.addActionListener(this);
         this.admin.btnPorcion.addActionListener(this);
         this.admin.btnConsultarEm.addActionListener(this);
+        this.admin.btnEliminarEmp.addActionListener(this);
     }
 
     //CAMBIAR PANELES
@@ -226,8 +227,41 @@ public class loginCtrl implements ActionListener {
     }
     
     
-   public void btnConsultar(JTable tblEmpleado) {
+   public void btnConsultarEmlpleado(JTable tblEmpleado) throws SQLException {
     regEmpleado empleado = new regEmpleado();
+    Integer cedula = 0;
+    String nombre =  admin.txtConsultarEm.getText();
+    if (!admin.txtConsultarEm.getText().isEmpty()  ) {
+        try {
+            cedula = Integer.parseInt(admin.txtConsultarEm.getText());
+            
+        } catch (NumberFormatException e) {
+            nombre = admin.txtConsultarEm.getText();
+            //JOptionPane.showMessageDialog(null, "Ingrese un número de cédula válido", "Error", JOptionPane.ERROR_MESSAGE);
+            //return; // Salir del método si la cédula no es válida
+        }
+        empleado.setCedulaEmpl(cedula);
+        empleado.setNombreEmpl(nombre);
+    }else{
+        JOptionPane.showMessageDialog(null, "Ingrese un número de cédula válido", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    if (cedula != 0) {
+            List<regEmpleado> empleadoNombre = emD.buscarCedEmpleado(empleado);
+            actualizarTablaEmpleados(empleadoNombre, tblEmpleado);
+            admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+        
+    }else if(!nombre.isEmpty()){
+         List<regEmpleado> empleadoNombre = emD.buscarNomEmpleado(empleado);
+            actualizarTablaEmpleados(empleadoNombre, tblEmpleado);
+            admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+    } 
+    else {
+        JOptionPane.showMessageDialog(null, "Debe ingresar una cédula válida", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+   public void btnEliminarEmpleado(){
+       regEmpleado empleado = new regEmpleado();
     Integer cedula = 0;
     if (!admin.txtConsultarEm.getText().isEmpty()) {
         try {
@@ -241,8 +275,8 @@ public class loginCtrl implements ActionListener {
     }
     if (cedula != 0) {
         try {
-            List<regEmpleado> empleadoNombre = emD.buscarNomEmpleado(empleado);
-            actualizarTablaEmpleados(empleadoNombre, tblEmpleado);
+            emD.eliminarEmpleado(empleado);
+            JOptionPane.showMessageDialog(null, "Empleado eliminado ");
             admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar empleado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -250,8 +284,7 @@ public class loginCtrl implements ActionListener {
     } else {
         JOptionPane.showMessageDialog(null, "Debe ingresar una cédula válida", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
-
+   } 
     public void listarEmpleado (JTable tblEmpleado){
         modelo = (DefaultTableModel) tblEmpleado.getModel();
         modelo.setRowCount(0);
@@ -266,9 +299,9 @@ public class loginCtrl implements ActionListener {
                   object[2] = listarEmpleado.get(i).getApellidoEmpl() ;
                   object[3] = listarEmpleado.get(i).getCedulaEmpl();
                   object[4] = listarEmpleado.get(i).getCelEmpl();
-                  object[5] = listarEmpleado.get(i).getUserEmpl();
-                  object[6] = listarEmpleado.get(i).getClaveEmpl();
-                  object[7] = listarEmpleado.get(i).getIdRol();
+                  object[5] = listarEmpleado.get(i).getIdRol();
+                  object[6] = listarEmpleado.get(i).getUserEmpl();
+                  object[7] = listarEmpleado.get(i).getClaveEmpl();
                     modelo.addRow(object);
             }
                     modelo.fireTableDataChanged();
@@ -298,7 +331,7 @@ public class loginCtrl implements ActionListener {
             empleado.getApellidoEmpl(),
             empleado.getCedulaEmpl(),
             empleado.getCelEmpl(),
-            empleado.getNombreRol(),
+            empleado.getIdRol(),
             empleado.getUserEmpl(),
             empleado.getClaveEmpl()
         };
@@ -459,7 +492,16 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
             btnAgregarPorcion();
         }
         if(e.getSource()== admin.btnConsultarEm){
-            btnConsultar(admin.tblEmpleados);
+            try
+            {
+                btnConsultarEmlpleado(admin.tblEmpleados);
+            } catch (SQLException ex)
+            {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if(e.getSource()== admin.btnEliminarEmp){
+            btnEliminarEmpleado();
         }
     }
 }

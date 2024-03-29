@@ -122,7 +122,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tblEmpleados = new javax.swing.JTable();
         btnConsultarEm = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
+        btnEliminarEmp = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         txtConsultarEm = new componentes.TextField();
         txtApellidoC2 = new componentes.TextField();
@@ -626,7 +626,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel23.setBackground(new java.awt.Color(24, 42, 75));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblEmpleados.setBackground(new java.awt.Color(0, 0, 102));
+        tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -656,11 +656,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnConsultarEm.setText("ADD");
         jPanel23.add(btnConsultarEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 100, 40));
 
-        jButton14.setBackground(java.awt.Color.red);
-        jButton14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton14.setForeground(new java.awt.Color(255, 255, 255));
-        jButton14.setText("DELETE");
-        jPanel23.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 50, 90, 40));
+        btnEliminarEmp.setBackground(java.awt.Color.red);
+        btnEliminarEmp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminarEmp.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarEmp.setText("DELETE");
+        jPanel23.add(btnEliminarEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 50, 90, 40));
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
@@ -1163,6 +1163,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     public javax.swing.JButton btnConsultarEm;
+    public javax.swing.JButton btnEliminarEmp;
     public javax.swing.JButton btnPorcion;
     public javax.swing.JMenuItem cerrar;
     public javax.swing.JComboBox<String> cmbEmpleado;
@@ -1172,7 +1173,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;

@@ -79,7 +79,7 @@ public class regEmpleadoDAO extends dataBase {
             }
          
          
-             public List<regEmpleado> buscarNomEmpleado (regEmpleado empe) throws SQLException{
+             public List<regEmpleado> buscarCedEmpleado (regEmpleado empe) throws SQLException{
             List<regEmpleado> empleado = new ArrayList<>();
             String sql = "SELECT * FROM reg_empleado WHERE ced_emple = ?";
             try{
@@ -117,7 +117,44 @@ public class regEmpleadoDAO extends dataBase {
             return empleado;
         }
          
-         
+        public List<regEmpleado> buscarNomEmpleado (regEmpleado empe) throws SQLException{
+            List<regEmpleado> empleado = new ArrayList<>();
+            String sql = "SELECT * FROM reg_empleado WHERE nom_emple = ?";
+            try{
+               cn = con.getConnection();
+               ps = cn.prepareStatement(sql);
+               ps.setString(1, empe.getNombreEmpl());
+               rs = ps.executeQuery();
+               
+               while (rs.next()){
+                   regEmpleado emp = new regEmpleado();
+                     emp.setIdEmpl(rs.getInt("id_emple"));
+                     emp.setNombreEmpl(rs.getString("nom_emple"));
+                     emp.setApellidoEmpl(rs.getString("ape_emple"));
+                     emp.setCedulaEmpl(rs.getInt("ced_emple"));
+                     emp.setCelEmpl(rs.getInt("tele_emple"));
+                     emp.setUserEmpl(rs.getString("usuario"));
+                     emp.setClaveEmpl(rs.getString("clave"));
+                     emp.setIdRol(rs.getInt("rol"));
+                     empleado.add(emp);
+               }
+            }catch (SQLException e){
+                System.out.println(e);
+            }finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+           if (rs != null) {
+               rs.close();
+           }
+           if (ps != null) {
+               ps.close();
+           }
+           if (cn != null) {
+               cn.close();
+           }
+        }
+            return empleado;
+        }
+                      
          public boolean autenticacion(regEmpleado emp) {
     String sql = "SELECT * FROM reg_empleado WHERE usuario = ? AND clave = ?";
     try {
@@ -205,41 +242,31 @@ public class regEmpleadoDAO extends dataBase {
                 
                 
                 //Metodo para eliminar por documento del empleado
-                public void eliminarEmpleado(int doc){
-                    String sql = "DELETE FROM reg_empleado WHERE ced_emple =?"+doc;
+                public void eliminarEmpleado(regEmpleado empe) throws SQLException{
+                    String sql = "DELETE FROM reg_empleado WHERE ced_emple =?";
                     try{
                         cn = con.getConnection();
                         ps = cn.prepareStatement(sql);
+                        ps.setInt(1, empe.getCedulaEmpl());
                         ps.executeUpdate();
                     } catch (SQLException e){
                         System.out.println(e);
-                    }
+                    }finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+           if (rs != null) {
+               rs.close();
+           }
+           if (ps != null) {
+               ps.close();
+           }
+           if (cn != null) {
+               cn.close();
+           }
+        }
                 }
                 
                 
-         public ArrayList<regEmpleado> obtenerRoles() {
-                ArrayList<regEmpleado> listaR = new ArrayList<>();
 
-               String sql = "SELECT id_rol, nom_rol FROM emple_rol";
-
-               try (Connection conex = con.getConnection();
-                    PreparedStatement ps = conex.prepareStatement(sql);
-                    ResultSet rs = ps.executeQuery()) {
-
-                   while(rs.next()){
-                       regEmpleado em = new regEmpleado();
-                       em.setIdRol((rs.getInt("id_rol")));
-                       em.setNombreRol((    rs.getString("nom_rol")));
-                       listaR.add(em);
-                       System.out.println("Roles encontrados");
-                   }
-
-                   System.out.println("Roles listados");
-               } catch (SQLException e) {
-                   e.printStackTrace();
-               }
-               return listaR;
-           }
                 
 }
 
