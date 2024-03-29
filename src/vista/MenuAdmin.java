@@ -107,15 +107,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnEliminarClie = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        txtNombreC1 = new componentes.TextField();
+        txtConsulatCL = new componentes.TextField();
         txtApellidoC1 = new componentes.TextField();
         txtDireccionC1 = new componentes.TextField();
         txtCedulaC1 = new componentes.TextField();
         txtTelefonoC1 = new componentes.TextField();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         txtNombreC2 = new componentes.TextField();
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
@@ -552,7 +551,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(24, 42, 75));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblClientes.setBackground(new java.awt.Color(0, 0, 102));
+        tblClientes.setBackground(new java.awt.Color(255, 255, 255));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -585,11 +584,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton10.setText("ADD");
         jPanel10.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 100, 40));
 
-        jButton11.setBackground(java.awt.Color.red);
-        jButton11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setText("DELETE");
-        jPanel10.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 50, 90, 40));
+        btnEliminarClie.setBackground(java.awt.Color.red);
+        btnEliminarClie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminarClie.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarClie.setText("DELETE");
+        jPanel10.add(btnEliminarClie, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 90, 30));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
@@ -597,8 +596,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel11.setText("CLIENTS");
         jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
-        txtNombreC1.setHint("SEARCH");
-        jPanel10.add(txtNombreC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 370, 40));
+        txtConsulatCL.setHint("SEARCH");
+        jPanel10.add(txtConsulatCL, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 370, 40));
 
         txtApellidoC1.setHint("LAST NAME");
         jPanel10.add(txtApellidoC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 140, -1));
@@ -614,9 +613,6 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jButton7.setText("MODIFY");
         jPanel10.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, -1));
-
-        jButton8.setText("DELETE");
-        jPanel10.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, -1));
 
         txtNombreC2.setHint("NAME");
         jPanel10.add(txtNombreC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
@@ -1163,6 +1159,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     public javax.swing.JButton btnConsultarEm;
+    public javax.swing.JButton btnEliminarClie;
     public javax.swing.JButton btnEliminarEmp;
     public javax.swing.JButton btnPorcion;
     public javax.swing.JMenuItem cerrar;
@@ -1170,7 +1167,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton10;
-    public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     public javax.swing.JButton jButton15;
@@ -1184,7 +1180,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1267,6 +1262,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtCedulaC3;
     public componentes.TextField txtCelE;
     public componentes.TextField txtClaveE;
+    public componentes.TextField txtConsulatCL;
     public componentes.TextField txtConsultarEm;
     public componentes.TextField txtDireccionC;
     public componentes.TextField txtDireccionC1;
@@ -1276,7 +1272,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtDireccionC5;
     public componentes.TextField txtDocE;
     public componentes.TextField txtNombreC;
-    public componentes.TextField txtNombreC1;
     public componentes.TextField txtNombreC2;
     public componentes.TextField txtNombreC4;
     public componentes.TextField txtNombreC5;

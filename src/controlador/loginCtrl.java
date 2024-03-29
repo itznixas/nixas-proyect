@@ -228,35 +228,37 @@ public class loginCtrl implements ActionListener {
     
     
    public void btnConsultarEmlpleado(JTable tblEmpleado) throws SQLException {
-    regEmpleado empleado = new regEmpleado();
+     regEmpleado empleado = new regEmpleado();
     Integer cedula = 0;
-    String nombre =  admin.txtConsultarEm.getText();
-    if (!admin.txtConsultarEm.getText().isEmpty()  ) {
+    String nombre = admin.txtConsultarEm.getText();
+    
+    if (!admin.txtConsultarEm.getText().isEmpty()) {
         try {
             cedula = Integer.parseInt(admin.txtConsultarEm.getText());
-            
+            empleado.setCedulaEmpl(cedula);
         } catch (NumberFormatException e) {
-            nombre = admin.txtConsultarEm.getText();
-            //JOptionPane.showMessageDialog(null, "Ingrese un número de cédula válido", "Error", JOptionPane.ERROR_MESSAGE);
-            //return; // Salir del método si la cédula no es válida
+            // No es un número de cédula válido
+            empleado.setNombreEmpl(nombre);
         }
-        empleado.setCedulaEmpl(cedula);
-        empleado.setNombreEmpl(nombre);
-    }else{
-        JOptionPane.showMessageDialog(null, "Ingrese un número de cédula válido", "Error", JOptionPane.ERROR_MESSAGE);
     }
-    if (cedula != 0) {
-            List<regEmpleado> empleadoNombre = emD.buscarCedEmpleado(empleado);
-            actualizarTablaEmpleados(empleadoNombre, tblEmpleado);
-            admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+    try {
+        List<regEmpleado> empleadosEncontrados;
+        if (cedula != 0) {
+            // Buscar por cédula
+            empleadosEncontrados = emD.buscarNomEmpleado(empleado);
+        } else if (!nombre.isEmpty()) {
+            // Buscar por nombre si no se ingresó una cédula válida
+            empleado.setNombreEmpl(nombre);
+            empleadosEncontrados = emD.buscarNomEmpleado(empleado);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una cédula o un nombre válido", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
-    }else if(!nombre.isEmpty()){
-         List<regEmpleado> empleadoNombre = emD.buscarNomEmpleado(empleado);
-            actualizarTablaEmpleados(empleadoNombre, tblEmpleado);
-            admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
-    } 
-    else {
-        JOptionPane.showMessageDialog(null, "Debe ingresar una cédula válida", "Error", JOptionPane.ERROR_MESSAGE);
+        actualizarTablaEmpleados(empleadosEncontrados, tblEmpleado);
+        admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al buscar empleado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
 

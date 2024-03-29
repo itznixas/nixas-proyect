@@ -50,7 +50,43 @@ public class clienteDAO extends dataBase {
         }
         return lista_cliente;
     }
-
+    
+     public List<regEmpleado> buscarCedCliente (regEmpleado empe) throws SQLException{
+            List<regEmpleado> cliente = new ArrayList<>();
+            String sql = "SELECT * FROM reg_clientes WHERE ced_cli = ?";
+            try{
+               cn = con.getConnection();
+               ps = cn.prepareStatement(sql);
+               ps.setInt(1, empe.getCedulaEmpl());
+               rs = ps.executeQuery();
+               
+               while (rs.next()){
+                   regEmpleado cli = new regEmpleado();
+                     cli.setIdEmpl(rs.getInt("id_cliente"));
+                     cli.setNombreEmpl(rs.getString("nom_cli"));
+                     cli.setApellidoEmpl(rs.getString("ape_cli"));
+                     cli.setCedulaEmpl(rs.getInt("ced_cli"));
+                     cli.setDireccion(rs.getString("direccion"));
+                     cli.setCelEmpl(rs.getInt("telef"));
+                     cliente.add(cli);
+               }
+            }catch (SQLException e){
+                System.out.println(e);
+            }finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+           if (rs != null) {
+               rs.close();
+           }
+           if (ps != null) {
+               ps.close();
+           }
+           if (cn != null) {
+               cn.close();
+           }
+        }
+            return empleado;
+        }
+    
     public int agregarCliente(regEmpleado cli) {
         String sql = "INSERT INTO reg_clientes (nom_cli, ape_cli, ced_cli,direccion, telef) VALUES (?,?,?,?,?)";
 
@@ -114,15 +150,27 @@ public class clienteDAO extends dataBase {
     }
 
     //Metodo para eliminar por documento del cliente
-    public void eliminarCliente(int doc) {
-        String sql = "DELETE FROM reg_cliente WHERE ced_cli =?" + doc;
-        try {
-            cn = con.getConnection();
-            ps = cn.prepareStatement(sql);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
+    public void eliminarEmpleado(regEmpleado cli) throws SQLException{
+                    String sql = "DELETE FROM reg_cliente WHERE ced_cli =?";
+                    try{
+                        cn = con.getConnection();
+                        ps = cn.prepareStatement(sql);
+                        ps.setInt(1, cli.getCedulaEmpl());
+                        ps.executeUpdate();
+                    } catch (SQLException e){
+                        System.out.println(e);
+                    }finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+           if (rs != null) {
+               rs.close();
+           }
+           if (ps != null) {
+               ps.close();
+           }
+           if (cn != null) {
+               cn.close();
+           }
         }
-    }
+                }
 
 }
