@@ -106,7 +106,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
-        jButton10 = new javax.swing.JButton();
+        btnConsultaCL = new javax.swing.JButton();
         btnEliminarClie = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         txtConsulatCL = new componentes.TextField();
@@ -578,11 +578,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 700, 490));
 
-        jButton10.setBackground(java.awt.Color.green);
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("ADD");
-        jPanel10.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 100, 40));
+        btnConsultaCL.setBackground(java.awt.Color.green);
+        btnConsultaCL.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnConsultaCL.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultaCL.setText("ADD");
+        jPanel10.add(btnConsultaCL, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 100, 40));
 
         btnEliminarClie.setBackground(java.awt.Color.red);
         btnEliminarClie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1158,6 +1158,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
+    public javax.swing.JButton btnConsultaCL;
     public javax.swing.JButton btnConsultarEm;
     public javax.swing.JButton btnEliminarClie;
     public javax.swing.JButton btnEliminarEmp;
@@ -1166,7 +1167,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbEmpleado;
     public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     public javax.swing.JButton jButton15;

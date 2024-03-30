@@ -84,7 +84,43 @@ public class clienteDAO extends dataBase {
                cn.close();
            }
         }
-            return empleado;
+            return cliente;
+        }
+     
+      public List<regEmpleado> buscarNomCliente (regEmpleado empe) throws SQLException{
+             List<regEmpleado> cliente = new ArrayList<>();
+            String sql = "SELECT * FROM reg_clientes WHERE nom_cli = ?";
+            try{
+               cn = con.getConnection();
+               ps = cn.prepareStatement(sql);
+               ps.setString(1, empe.getNombreEmpl());
+               rs = ps.executeQuery();
+               
+               while (rs.next()){
+                   regEmpleado cli = new regEmpleado();
+                     cli.setIdEmpl(rs.getInt("id_cliente"));
+                     cli.setNombreEmpl(rs.getString("nom_cli"));
+                     cli.setApellidoEmpl(rs.getString("ape_cli"));
+                     cli.setCedulaEmpl(rs.getInt("ced_cli"));
+                     cli.setDireccion(rs.getString("direccion"));
+                     cli.setCelEmpl(rs.getInt("telef"));
+                     cliente.add(cli);
+               }
+            }catch (SQLException e){
+                System.out.println(e);
+            }finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+           if (rs != null) {
+               rs.close();
+           }
+           if (ps != null) {
+               ps.close();
+           }
+           if (cn != null) {
+               cn.close();
+           }
+        }
+            return cliente;
         }
     
     public int agregarCliente(regEmpleado cli) {

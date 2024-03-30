@@ -24,6 +24,7 @@ public class loginCtrl implements ActionListener {
     MenuAdmin admin = new MenuAdmin();
     DefaultTableModel modelo = new DefaultTableModel();
     clienteDAO cli = new clienteDAO();
+   
 
     public loginCtrl(ventanaLogin ventana) throws FontFormatException, IOException {
         this.ventana = new ventanaLogin();
@@ -47,6 +48,8 @@ public class loginCtrl implements ActionListener {
         this.admin.btnPorcion.addActionListener(this);
         this.admin.btnConsultarEm.addActionListener(this);
         this.admin.btnEliminarEmp.addActionListener(this);
+        this.admin.btnConsultaCL.addActionListener(this);
+        this.admin.btnEliminarClie.addActionListener(this);
     }
 
     //CAMBIAR PANELES
@@ -68,6 +71,7 @@ public class loginCtrl implements ActionListener {
     public void empleadoConsuPaneles(){
         admin.jTabbedPane.setSelectedIndex(6);
     }
+   
     public void cerrarSesion() throws FontFormatException, IOException{
          int a = JOptionPane.showConfirmDialog(admin.cerrar, "¿Desea cerrar sesion?");
         if (a == JOptionPane.YES_OPTION) {
@@ -170,6 +174,61 @@ public class loginCtrl implements ActionListener {
         listarClientes(admin.tblClientes); // Actualizar tabla de clientes
     }
 
+   public void btnConsultarCliente(JTable tblClientes){
+        regEmpleado cliente = new regEmpleado();
+    Integer cedula = 0;
+    String nombre = admin.txtConsulatCL.getText();
+    
+    if (!admin.txtConsulatCL.getText().isEmpty()) {
+        try {
+            cedula = Integer.parseInt(admin.txtConsulatCL.getText());
+            cliente.setCedulaEmpl(cedula);
+        } catch (NumberFormatException e) {
+            // No es un número de cédula válido
+            cliente.setNombreEmpl(nombre);
+        }
+    }
+    try {
+        List<regEmpleado> empleadosEncontrados;
+        if (cedula != 0) {
+            // Buscar por cédula
+            empleadosEncontrados = cli.buscarCedCliente(cliente);
+        } else if (!nombre.isEmpty()) {
+            // Buscar por nombre si no se ingresó una cédula válida
+            cliente.setNombreEmpl(nombre);
+            empleadosEncontrados = cli.buscarNomCliente(cliente);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una cédula o un nombre válido", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        actualizarTablaCliente(empleadosEncontrados, tblClientes);
+        admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al buscar empleado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+   }
+    
+    public void actualizarTablaCliente(List<regEmpleado> cliente, JTable tblClientes) {
+    DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
+    modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
+
+    for (regEmpleado clien : cliente) {
+        Object[] fila = {
+            clien.getIdEmpl(),
+            clien.getNombreEmpl(),
+            clien.getApellidoEmpl(),
+            clien.getCedulaEmpl(),
+            clien.getCelEmpl(),
+            clien.getDireccion(),
+           
+        };
+        modelo.addRow(fila);
+    }
+
+    modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+}
+   
     public void limpiarcajasCliente() {
         admin.txtNombreC.setText(null);
         admin.txtApellidoC.setText(null);
@@ -313,7 +372,8 @@ public class loginCtrl implements ActionListener {
         }
     }
     
-    public void limpiarcajasEmpleado() {
+   
+   public void limpiarcajasEmpleado() {
         admin.txtNombreE.setText(null);
         admin.txtApellidoE.setText(null);
         admin.txtUserE.setText(null);
@@ -322,6 +382,7 @@ public class loginCtrl implements ActionListener {
         admin.txtCelE.setText(null);
         admin.txtDocE.requestFocus();
     }
+   
    public void actualizarTablaEmpleados(List<regEmpleado> empleados, JTable tblEmpleado) {
     DefaultTableModel modelo = (DefaultTableModel) tblEmpleado.getModel();
     modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
@@ -504,6 +565,9 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
         }
         if(e.getSource()== admin.btnEliminarEmp){
             btnEliminarEmpleado();
+        }
+        if(e.getSource()== admin.btnConsultaCL){
+            btnConsultarCliente(admin.tblClientes);
         }
     }
 }
