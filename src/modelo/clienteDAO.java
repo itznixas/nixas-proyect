@@ -186,8 +186,8 @@ public class clienteDAO extends dataBase {
     }
 
     //Metodo para eliminar por documento del cliente
-    public void eliminarEmpleado(regEmpleado cli) throws SQLException{
-                    String sql = "DELETE FROM reg_cliente WHERE ced_cli =?";
+    public void eliminarCliente(regEmpleado cli) throws SQLException{
+                    String sql = "DELETE FROM reg_clientes WHERE ced_cli =?";
                     try{
                         cn = con.getConnection();
                         ps = cn.prepareStatement(sql);

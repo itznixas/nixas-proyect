@@ -209,6 +209,31 @@ public class loginCtrl implements ActionListener {
     }
    }
     
+    public void btnEliminarCliente(){
+       regEmpleado cliente = new regEmpleado();
+    Integer cedula = 0;
+    if (!admin.txtConsulatCL.getText().isEmpty()) {
+        try {
+            cedula = Integer.parseInt(admin.txtConsulatCL.getText());
+   
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un número de cédula válido", "Error", JOptionPane.ERROR_MESSAGE);
+            return; // Salir del método si la cédula no es válida
+        }
+        cliente.setCedulaEmpl(cedula);
+    }
+    if (cedula != 0) {
+        try {
+            cli.eliminarCliente(cliente);
+            JOptionPane.showMessageDialog(null, "Cliente eliminado ");
+           // admin.txtConsulatCL.setText(""); // Limpiar el campo de consulta después de la búsqueda
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al buscar Cliente: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Debe ingresar una cédula válida", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+   } 
     public void actualizarTablaCliente(List<regEmpleado> cliente, JTable tblClientes) {
     DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
     modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
@@ -286,7 +311,7 @@ public class loginCtrl implements ActionListener {
     }
     
     
-   public void btnConsultarEmlpleado(JTable tblEmpleado) throws SQLException {
+   public void btnConsultarEmpleado(JTable tblEmpleado) throws SQLException {
      regEmpleado empleado = new regEmpleado();
     Integer cedula = 0;
     String nombre = admin.txtConsultarEm.getText();
@@ -304,7 +329,7 @@ public class loginCtrl implements ActionListener {
         List<regEmpleado> empleadosEncontrados;
         if (cedula != 0) {
             // Buscar por cédula
-            empleadosEncontrados = emD.buscarNomEmpleado(empleado);
+            empleadosEncontrados = emD.buscarCedEmpleado(empleado);
         } else if (!nombre.isEmpty()) {
             // Buscar por nombre si no se ingresó una cédula válida
             empleado.setNombreEmpl(nombre);
@@ -315,7 +340,7 @@ public class loginCtrl implements ActionListener {
         }
         
         actualizarTablaEmpleados(empleadosEncontrados, tblEmpleado);
-        admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+        //admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
     } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error al buscar empleado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -338,7 +363,7 @@ public class loginCtrl implements ActionListener {
         try {
             emD.eliminarEmpleado(empleado);
             JOptionPane.showMessageDialog(null, "Empleado eliminado ");
-            admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+           // admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar empleado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -557,7 +582,7 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
         if(e.getSource()== admin.btnConsultarEm){
             try
             {
-                btnConsultarEmlpleado(admin.tblEmpleados);
+                btnConsultarEmpleado(admin.tblEmpleados);
             } catch (SQLException ex)
             {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -568,6 +593,9 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
         }
         if(e.getSource()== admin.btnConsultaCL){
             btnConsultarCliente(admin.tblClientes);
+        }
+        if(e.getSource()== admin.btnEliminarClie){
+            btnEliminarCliente();
         }
     }
 }
