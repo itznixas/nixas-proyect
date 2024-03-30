@@ -19,7 +19,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public MenuAdmin() {
         initComponents();
         IconoNixas.establecerIcono(this);
-
+        //jmiProductos.setEnabled(false);
         TablaRenderer.setHorizontalAlignment(SwingConstants.LEFT);
         //Tabla Clientes
 
@@ -63,6 +63,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanelRound1 = new LIB.JPanelRound();
         jLabel22 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        lblRoles = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblStockProductos = new javax.swing.JTable();
@@ -114,8 +115,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtDireccionC1 = new componentes.TextField();
         txtCedulaC1 = new componentes.TextField();
         txtTelefonoC1 = new componentes.TextField();
-        jButton7 = new javax.swing.JButton();
+        btnActbCli = new javax.swing.JButton();
         txtNombreC2 = new componentes.TextField();
+        jButton8 = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -129,7 +131,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtDireccionC2 = new componentes.TextField();
         txtTelefonoC2 = new componentes.TextField();
         jButton9 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        btnActblE = new javax.swing.JButton();
         txtNombreC4 = new componentes.TextField();
         txtDireccionC4 = new componentes.TextField();
         txtDireccionC5 = new componentes.TextField();
@@ -226,6 +228,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 390, 220));
+
+        lblRoles.setText("jLabel8");
+        jPanel2.add(lblRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 100, 50));
 
         jTabbedPane.addTab("Inicio", jPanel2);
 
@@ -574,6 +579,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblClientes.setFocusable(false);
         tblClientes.setRowHeight(25);
         tblClientes.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblClientesMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(tblClientes);
 
         jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 700, 490));
@@ -611,11 +621,24 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtTelefonoC1.setHint("PHONE NUMBER");
         jPanel10.add(txtTelefonoC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 130, -1));
 
-        jButton7.setText("MODIFY");
-        jPanel10.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, -1));
+        btnActbCli.setText("ACTUAL");
+        btnActbCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActbCliActionPerformed(evt);
+            }
+        });
+        jPanel10.add(btnActbCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 650, 120, -1));
 
         txtNombreC2.setHint("NAME");
         jPanel10.add(txtNombreC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
+
+        jButton8.setText("MODIFY");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, -1));
 
         jTabbedPane.addTab("Cons. Cliente", jPanel10);
 
@@ -640,6 +663,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        tblEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmpleadosMouseClicked(evt);
             }
         });
         jScrollPane5.setViewportView(tblEmpleados);
@@ -687,8 +715,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton9.setText("MODIFY");
         jPanel23.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 120, -1));
 
-        jButton13.setText("DELETE");
-        jPanel23.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 550, 120, -1));
+        btnActblE.setText("ACTUA");
+        jPanel23.add(btnActblE, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 650, 120, -1));
 
         txtNombreC4.setHint("NAME");
         jPanel23.add(txtNombreC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
@@ -1135,6 +1163,31 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccionC2ActionPerformed
 
+    private void btnActbCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActbCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActbCliActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void tblEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadosMouseClicked
+   
+    }//GEN-LAST:event_tblEmpleadosMouseClicked
+
+    private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
+        // TODO add your handling code here:
+             int fila = tblClientes.rowAtPoint(evt.getPoint());
+    txtNombreC.setText( tblClientes.getValueAt(fila, 1).toString());
+    txtApellidoC.setText( tblClientes.getValueAt(fila, 2).toString());  
+    txtCedulaC.setText( tblClientes.getValueAt(fila, 3).toString()); 
+    txtTelefonoC.setText( tblClientes.getValueAt(fila, 4).toString());
+    txtDireccionC.setText( tblClientes.getValueAt(fila, 5).toString());
+   
+    // Aquí puedes usar la variable 'fila' como la fila seleccionada
+    System.out.println("Fila seleccionada: " + fila);
+    }//GEN-LAST:event_tblClientesMouseClicked
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1156,6 +1209,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
+    public javax.swing.JButton btnActbCli;
+    public javax.swing.JButton btnActblE;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     public javax.swing.JButton btnConsultaCL;
@@ -1168,7 +1223,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
@@ -1179,7 +1233,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1240,6 +1294,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JMenuItem jmiEmpleadoConsu;
     public javax.swing.JMenuItem jmiOrdenes;
     public javax.swing.JMenuItem jmiProductos;
+    public javax.swing.JLabel lblRoles;
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEmpleados;
     public javax.swing.JTable tblInventario1;

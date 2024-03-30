@@ -7,6 +7,8 @@ import modelo.*;
 
 
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 
 public class loginCtrl implements ActionListener {
     regEmpleado reG = new regEmpleado();
@@ -50,6 +53,8 @@ public class loginCtrl implements ActionListener {
         this.admin.btnEliminarEmp.addActionListener(this);
         this.admin.btnConsultaCL.addActionListener(this);
         this.admin.btnEliminarClie.addActionListener(this);
+        this.admin.btnActblE.addActionListener(this);
+        this.admin.btnActbCli.addActionListener(this);
     }
 
     //CAMBIAR PANELES
@@ -89,19 +94,24 @@ public class loginCtrl implements ActionListener {
         reG.setUserEmpl(user);
         reG.setClaveEmpl(hash.sha1(clave));
         int rol = emD.autenticacionRol(reG);
-
+        admin.jmiProductos.setEnabled(false);
+        admin.jmiClienteConsu.setVisible(true);
         switch (rol) {
             case 111:
                 MenuAdmin m = new MenuAdmin();
                 loginCtrl lx = new loginCtrl(m);
                 m.iniciar();
+                System.out.println(rol);
+                m.lblRoles.setText(   Integer.toString(rol));
+                admin.jmiProductos.setEnabled(true);
                 ventana.setVisible(false);
                 break;
             case 222:
                 MenuAdmin cajero = new MenuAdmin();
-                loginCtrl lgx = new loginCtrl(cajero);
+                loginCtrl lgx = new loginCtrl(cajero);               
                 cajero.iniciar();
-                cajero.jTabbedPane.setVisible(false);
+                admin.jmiClienteConsu.setVisible(false);
+                cajero.lblRoles.setText(   Integer.toString(rol));
                 ventana.setVisible(false);
                 break;
             default:
@@ -226,7 +236,7 @@ public class loginCtrl implements ActionListener {
         try {
             cli.eliminarCliente(cliente);
             JOptionPane.showMessageDialog(null, "Cliente eliminado ");
-           // admin.txtConsulatCL.setText(""); // Limpiar el campo de consulta después de la búsqueda
+            admin.txtConsulatCL.setText(""); // Limpiar el campo de consulta después de la búsqueda
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar Cliente: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -234,6 +244,20 @@ public class loginCtrl implements ActionListener {
         JOptionPane.showMessageDialog(null, "Debe ingresar una cédula válida", "Error", JOptionPane.ERROR_MESSAGE);
     }
    } 
+  
+    public void seleccionarFilaCliente(JTable tblClientes, MouseEvent evt) {
+    int fila = tblClientes.rowAtPoint(evt.getPoint());
+    admin.txtNombreC.setText( tblClientes.getValueAt(fila, 1).toString());
+    admin.txtApellidoC.setText( tblClientes.getValueAt(fila, 2).toString());  
+    admin.txtCedulaC.setText( tblClientes.getValueAt(fila, 3).toString()); 
+    admin.txtTelefonoC.setText( tblClientes.getValueAt(fila, 4).toString());
+    admin.txtDireccionC.setText( tblClientes.getValueAt(fila, 5).toString());
+   
+    // Aquí puedes usar la variable 'fila' como la fila seleccionada
+    System.out.println("Fila seleccionada: " + fila);
+    // Realiza las operaciones necesarias con la fila seleccionada
+}
+
     public void actualizarTablaCliente(List<regEmpleado> cliente, JTable tblClientes) {
     DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
     modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
@@ -340,7 +364,7 @@ public class loginCtrl implements ActionListener {
         }
         
         actualizarTablaEmpleados(empleadosEncontrados, tblEmpleado);
-        //admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+        admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
     } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error al buscar empleado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -363,7 +387,7 @@ public class loginCtrl implements ActionListener {
         try {
             emD.eliminarEmpleado(empleado);
             JOptionPane.showMessageDialog(null, "Empleado eliminado ");
-           // admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
+            admin.txtConsultarEm.setText(""); // Limpiar el campo de consulta después de la búsqueda
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al buscar empleado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -449,11 +473,11 @@ public class loginCtrl implements ActionListener {
              nombreB =admin.txtNombreP.getText();
              
                if (!admin.txtCantidadP.getText().isEmpty()) {
-    cantidadB = Integer.parseInt(admin.txtCantidadP.getText()); 
-}
-if (!admin.txtPrecioP.getText().isEmpty()) {
-    precioB = Float.parseFloat(admin.txtPrecioP.getText()); 
-}
+                    cantidadB = Integer.parseInt(admin.txtCantidadP.getText()); 
+                }
+                if (!admin.txtPrecioP.getText().isEmpty()) {
+                    precioB = Float.parseFloat(admin.txtPrecioP.getText()); 
+                }
 
              prod.setNombre(nombreB);
              prod.setCantidad(cantidadB);
@@ -508,6 +532,7 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
             pedidosAggPaneles();
         }
         if(e.getSource()== admin.jmiClientes){
+           
             clienteAggPaneles();
         }
         if(e.getSource()== admin.jmiEmpleado){
@@ -518,9 +543,13 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
         }
         if(e.getSource()== admin.jmiClienteConsu){
             clienteConsuPaneles();
+            listarClientes(admin.tblClientes);
+           
         } 
         if(e.getSource()== admin.jmiEmpleadoConsu){
             empleadoConsuPaneles();
+            listarEmpleado(admin.tblEmpleados);
+          
         }
         if(e.getSource()== admin.cerrar){
             try {
@@ -589,13 +618,26 @@ if (!admin.txtPrecioP.getText().isEmpty()) {
             }
         }
         if(e.getSource()== admin.btnEliminarEmp){
-            btnEliminarEmpleado();
+             int pregunta = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar");
+             if(pregunta == 0){
+               btnEliminarEmpleado();  
+             }     
         }
         if(e.getSource()== admin.btnConsultaCL){
             btnConsultarCliente(admin.tblClientes);
         }
         if(e.getSource()== admin.btnEliminarClie){
-            btnEliminarCliente();
+           int pregunta = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar");
+           if(pregunta == 0){
+               btnEliminarCliente();
+           }  
+        }
+        if(e.getSource()== admin.btnActbCli){
+             listarClientes(admin.tblClientes);
+            
+        }
+        if(e.getSource()== admin.btnActblE){
+            listarEmpleado(admin.tblEmpleados);
         }
     }
 }
