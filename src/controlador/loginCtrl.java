@@ -55,6 +55,8 @@ public class loginCtrl implements ActionListener {
         this.admin.btnEliminarClie.addActionListener(this);
         this.admin.btnActblE.addActionListener(this);
         this.admin.btnActbCli.addActionListener(this);
+        this.admin.btnModificarEmpl.addActionListener(this);
+        
     }
 
     //CAMBIAR PANELES
@@ -119,7 +121,7 @@ public class loginCtrl implements ActionListener {
                 break;
         }
     }
-
+        
     
  public void listarClientes(JTable tblClientes) {
     modelo = (DefaultTableModel) tblClientes.getModel();
@@ -203,6 +205,7 @@ public class loginCtrl implements ActionListener {
         if (cedula != 0) {
             // Buscar por cédula
             empleadosEncontrados = cli.buscarCedCliente(cliente);
+            admin.txtConsulatCL.setText("");
         } else if (!nombre.isEmpty()) {
             // Buscar por nombre si no se ingresó una cédula válida
             cliente.setNombreEmpl(nombre);
@@ -243,20 +246,10 @@ public class loginCtrl implements ActionListener {
     } else {
         JOptionPane.showMessageDialog(null, "Debe ingresar una cédula válida", "Error", JOptionPane.ERROR_MESSAGE);
     }
+        listarClientes(admin.tblClientes);
    } 
   
-    public void seleccionarFilaCliente(JTable tblClientes, MouseEvent evt) {
-    int fila = tblClientes.rowAtPoint(evt.getPoint());
-    admin.txtNombreC.setText( tblClientes.getValueAt(fila, 1).toString());
-    admin.txtApellidoC.setText( tblClientes.getValueAt(fila, 2).toString());  
-    admin.txtCedulaC.setText( tblClientes.getValueAt(fila, 3).toString()); 
-    admin.txtTelefonoC.setText( tblClientes.getValueAt(fila, 4).toString());
-    admin.txtDireccionC.setText( tblClientes.getValueAt(fila, 5).toString());
-   
-    // Aquí puedes usar la variable 'fila' como la fila seleccionada
-    System.out.println("Fila seleccionada: " + fila);
-    // Realiza las operaciones necesarias con la fila seleccionada
-}
+    
 
     public void actualizarTablaCliente(List<regEmpleado> cliente, JTable tblClientes) {
     DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
@@ -287,7 +280,7 @@ public class loginCtrl implements ActionListener {
        // admin.txtCedulaC.requestFocus();
     }
 
-    public void btnAgregarEmple() {
+    public void btnAgregarEmple() throws SQLException {
         regEmpleado empleado = new regEmpleado();
         regEmpleadoDAO dao = new regEmpleadoDAO();
 
@@ -332,6 +325,32 @@ public class loginCtrl implements ActionListener {
         }
         listarEmpleado(admin.tblEmpleados);
       limpiartabla();
+    }
+    
+    public void btnModificarEmple() throws SQLException {
+        regEmpleado em = new regEmpleado();
+        regEmpleadoDAO dao = new regEmpleadoDAO();
+        int id_rol=0;
+        if("".equals(admin.txtIdConsuEmpl.getText())){
+            JOptionPane.showMessageDialog(admin, "Selecciona la ");
+        }else{ 
+            em.setIdEmpl(Integer.parseInt(admin.txtIdConsuEmpl.getText()));
+            em.setNombreEmpl(admin.txtNombreConsuEmpl.getText());
+            em.setApellidoEmpl(admin.txtIdConsuEmpl.getText());
+            em.setCedulaEmpl(Integer.parseInt(admin.txtCedulaConseEmpl.getText()));
+            em.setCelEmpl(Integer.parseInt(admin.txtTelefonoConsuEmpl.getText()));
+            em.setUserEmpl(admin.txtIdConsuEmpl.getText());
+            em.setClaveEmpl(admin.txtCedulaConseEmpl.getText());
+             if (admin.cmbEmpleado.getSelectedItem().equals("Admin")) {
+                id_rol = 111;
+            } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
+                id_rol = 222;
+            }
+             em.setIdRol(id_rol);
+             }
+             dao.actualizarEmpleado(em);
+             listarEmpleado(admin.tblEmpleados);     
+             JOptionPane.showMessageDialog(admin, "Correcto");
     }
     
     
@@ -394,6 +413,7 @@ public class loginCtrl implements ActionListener {
     } else {
         JOptionPane.showMessageDialog(null, "Debe ingresar una cédula válida", "Error", JOptionPane.ERROR_MESSAGE);
     }
+       listarEmpleado(admin.tblEmpleados);
    } 
     public void listarEmpleado (JTable tblEmpleado){
         modelo = (DefaultTableModel) tblEmpleado.getModel();
@@ -599,10 +619,40 @@ public class loginCtrl implements ActionListener {
                    JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
                    admin.txtDocE.requestFocus();
            }else{
+               try
+               {
                    btnAgregarEmple();
-                   limpiarcajasEmpleado();
+                    limpiarcajasEmpleado();
                    limpiartabla();
                    listarEmpleado(admin.tblEmpleados);
+               } catch (SQLException ex)
+               {
+                   Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+               }
+                  
+           }
+        }
+        if (e.getSource()==admin.btnModificarEmpl ){
+             if(admin.txtNombreConsuEmpl.getText().isEmpty() ||admin.txtIdConsuEmpl.getText().isEmpty() ||
+              admin.txtCedulaConseEmpl.getText().isEmpty() || admin.txtTelefonoConsuEmpl.getText().isEmpty() ||
+              admin.txtUserConsuEmpl.getText().isEmpty() || admin.txtClaveConsuEmpl.getText().isEmpty() ||
+              admin.jcmRConsuEmpl.getSelectedItem()==null ){
+                   JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                   admin.txtDocE.requestFocus();
+           }else{    
+                 try
+                 {
+                     btnModificarEmple();
+                     limpiarcajasEmpleado();
+                     limpiartabla();
+                    listarEmpleado(admin.tblEmpleados);
+                 } catch (SQLException ex)
+                 {
+                     Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                     
+                
+                  
            }
         }
         if (e.getSource()== admin.btnPorcion){
@@ -620,7 +670,8 @@ public class loginCtrl implements ActionListener {
         if(e.getSource()== admin.btnEliminarEmp){
              int pregunta = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar");
              if(pregunta == 0){
-               btnEliminarEmpleado();  
+               btnEliminarEmpleado(); 
+                 listarEmpleado(admin.tblEmpleados);
              }     
         }
         if(e.getSource()== admin.btnConsultaCL){
@@ -630,6 +681,7 @@ public class loginCtrl implements ActionListener {
            int pregunta = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar");
            if(pregunta == 0){
                btnEliminarCliente();
+               listarClientes(admin.tblClientes);
            }  
         }
         if(e.getSource()== admin.btnActbCli){

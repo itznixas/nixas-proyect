@@ -185,7 +185,7 @@ public class regEmpleadoDAO extends dataBase {
 
          
          //Metodo para agregar
-         public int agregarEmpleado(regEmpleado emp){
+         public int agregarEmpleado(regEmpleado emp) throws SQLException{
              int r = 1;
              String sql = "INSERT INTO reg_empleado (id_emple, nom_emple, ape_emple, ced_emple,tele_emple, usuario, clave, rol)"
                      + "VALUES (?,?,?,?,?,?,?,?)";
@@ -208,38 +208,54 @@ public class regEmpleadoDAO extends dataBase {
                  }
              }catch (SQLException e){
                  System.out.println(e);
-             }
+             }finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+                        if (rs != null) {
+                            rs.close();
+                        }
+                        if (ps != null) {
+                            ps.close();
+                        }
+                        if (cn != null) {
+                            cn.close();
+                        }
+                     }
              return r;
          }
          
          //Metodo para actualizar registros
-                public int actualizarEmpleado(regEmpleado emp){
-                    int r = 1;
-                    String sql = "UPDATE reg_empleado SET id_emple=?, nom_emple=?,"
-                            + " ape_emple=? ,tele_emple=?, usuario=?, clave=?, rol=? WHERE ced_emple=?";
-                try{
-                    cn = con.getConnection();
-                    ps = cn.prepareStatement(sql);
-                    ps.setString(1, Integer.toString(emp.getIdEmpl()));
-                    ps.setString(2, emp.getNombreEmpl());
-                    ps.setString(3, emp.getApellidoEmpl());
-                    ps.setString(4, Integer.toString(emp.getCedulaEmpl()));
-                   ps.setString(5, Integer.toString(emp.getCelEmpl()));
-                    ps.setString(6, emp.getUserEmpl());
-                    ps.setString(7, emp.getClaveEmpl());
-                    ps.setString(8,Integer.toString(emp.getIdRol()));
-                    ps.executeUpdate();
-                    if(r == 1){
-                        return 1;
-                    }else{
-                        return 0;
-                    }
-                }catch (SQLException e){
-                    System.out.println(e);
-                }
-                return r;
-                }
-                
+               public boolean actualizarEmpleado(regEmpleado emp) throws SQLException {
+   
+    String sql = "UPDATE reg_empleado SET nom_emple=?, ape_emple=?, ced_emple=?, tele_emple=?, usuario=?, clave=?, rol=? WHERE id_emple=?";
+    
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        
+        ps.setString(2, emp.getNombreEmpl());  // Índice 1
+        ps.setString(3, emp.getApellidoEmpl());  // Índice 2
+        ps.setInt(4, emp.getCedulaEmpl());  // Índice 3
+        ps.setInt(5, emp.getCelEmpl());  // Índice 4
+        ps.setString(6, emp.getUserEmpl());  // Índice 5
+        ps.setString(7, emp.getClaveEmpl());  // Índice 6
+        ps.setInt(8, emp.getIdRol());  // Índice 7
+        ps.setInt(1, emp.getIdEmpl());  // Índice 8 (id_emple)
+              return true;
+
+    } catch (SQLException e) {
+        System.out.println(e);
+        return false;
+    } finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        if (ps != null) {
+            ps.close();
+        }
+        if (cn != null) {
+            cn.close();
+        }
+    }
+}
+
                 
                 //Metodo para eliminar por documento del empleado
                 public void eliminarEmpleado(regEmpleado empe) throws SQLException{
@@ -253,21 +269,18 @@ public class regEmpleadoDAO extends dataBase {
                         System.out.println(e);
                     }finally {
            // Cerrar recursos en orden inverso de apertura para evitar problemas
-           if (rs != null) {
-               rs.close();
-           }
-           if (ps != null) {
-               ps.close();
-           }
-           if (cn != null) {
-               cn.close();
-           }
-        }
-                }
-                
-                
-
-                
+                        if (rs != null) {
+                            rs.close();
+                        }
+                        if (ps != null) {
+                            ps.close();
+                        }
+                        if (cn != null) {
+                            cn.close();
+                        }
+                     }
+                             }
+              
 }
 
 

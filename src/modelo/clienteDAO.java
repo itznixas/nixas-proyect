@@ -6,6 +6,8 @@ import java.util.List;
 import modelo.dataBase;
 import modelo.regEmpleado;
 import vista.ventanaLogin;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class clienteDAO extends dataBase {
 
@@ -161,29 +163,39 @@ public class clienteDAO extends dataBase {
         }
     }
 
-    public int actualizarCliente(regEmpleado cli) {
-        int r = 1;
-        String sql = "UPDATE reg_cliente SET  nom_cli=?, ape_cli=?, ced_cli=?"
-                + " direccion=?, telef=? WHERE ced_cli";
-        try {
-            cn = con.getConnection();
-            ps = cn.prepareStatement(sql);
-            ps.setString(1, cli.getNombreEmpl());
-            ps.setString(2, cli.getApellidoEmpl());
-            ps.setString(3, Integer.toString(cli.getCedulaEmpl()));
-            ps.setString(4, Integer.toString(cli.getCelEmpl()));
-            ps.setString(5, cli.getDireccion());
-            ps.executeUpdate();
-            if (r == 1) {
-                return 1;
-            } else {
-                return 0;
-            }
-        } catch (SQLException e) {
-            System.out.println("e");
-        }
-        return r;
-    }
+     public int actualizarCliente(regEmpleado emp) throws SQLException{
+             int r = 1;
+             String sql = "UPDATE reg_clientes SET  nom_cli=?,"
+                    + " ape_cli=? ,ced_cli=?, direccion=?, telef=?,  WHERE ced_cli=?";
+                try{
+                    cn = con.getConnection();
+                    ps = cn.prepareStatement(sql);               
+                    ps.setString(2, emp.getNombreEmpl());
+                    ps.setString(3, emp.getApellidoEmpl());
+                    ps.setInt(4, emp.getCedulaEmpl());
+                    ps.setString(6, emp.getDireccion());
+                    ps.setInt(5, emp.getCelEmpl());
+                    ps.executeUpdate();
+                   if (r == 1){
+                 return 1;
+             }else{
+                     return 0;
+                 }
+                }catch (SQLException e){
+                    System.out.println(e);
+                }finally {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (ps != null) {
+                        ps.close();
+                    }
+                    if (cn != null) {
+                        cn.close();
+                    }
+                 }
+                return r;
+                }
 
     //Metodo para eliminar por documento del cliente
     public void eliminarCliente(regEmpleado cli) throws SQLException{

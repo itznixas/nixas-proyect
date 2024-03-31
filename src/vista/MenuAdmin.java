@@ -111,12 +111,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnEliminarClie = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         txtConsulatCL = new componentes.TextField();
-        txtApellidoC1 = new componentes.TextField();
-        txtDireccionC1 = new componentes.TextField();
-        txtCedulaC1 = new componentes.TextField();
-        txtTelefonoC1 = new componentes.TextField();
+        txtApellidoConsuCli = new componentes.TextField();
+        txtDireccionConsuCli = new componentes.TextField();
+        txtCedulaConsuCli = new componentes.TextField();
+        txtTelefonoConsuCli = new componentes.TextField();
         btnActbCli = new javax.swing.JButton();
-        txtNombreC2 = new componentes.TextField();
+        txtNombreConsCli = new componentes.TextField();
         jButton8 = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
@@ -126,15 +126,17 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnEliminarEmp = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         txtConsultarEm = new componentes.TextField();
-        txtApellidoC2 = new componentes.TextField();
-        txtCedulaC2 = new componentes.TextField();
-        txtDireccionC2 = new componentes.TextField();
-        txtTelefonoC2 = new componentes.TextField();
-        jButton9 = new javax.swing.JButton();
+        txtIdConsuEmpl = new componentes.TextField();
+        txtCedulaConseEmpl = new componentes.TextField();
+        txtUserConsuEmpl = new componentes.TextField();
+        txtTelefonoConsuEmpl = new componentes.TextField();
+        btnModificarEmpl = new javax.swing.JButton();
         btnActblE = new javax.swing.JButton();
-        txtNombreC4 = new componentes.TextField();
-        txtDireccionC4 = new componentes.TextField();
-        txtDireccionC5 = new componentes.TextField();
+        txtNombreConsuEmpl = new componentes.TextField();
+        txtClaveConsuEmpl = new componentes.TextField();
+        cmbEmpleado1 = new javax.swing.JComboBox<>();
+        jcmRConsuEmpl = new javax.swing.JComboBox<>();
+        txtApellidoConuEmpl = new componentes.TextField();
         jPanel18 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
@@ -452,7 +454,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCelE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDocE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUserE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtClaveE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -557,6 +559,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblClientes.setBackground(new java.awt.Color(255, 255, 255));
+        tblClientes.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        tblClientes.setForeground(new java.awt.Color(0, 0, 0));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -609,17 +613,17 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtConsulatCL.setHint("SEARCH");
         jPanel10.add(txtConsulatCL, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 370, 40));
 
-        txtApellidoC1.setHint("LAST NAME");
-        jPanel10.add(txtApellidoC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 140, -1));
+        txtApellidoConsuCli.setHint("LAST NAME");
+        jPanel10.add(txtApellidoConsuCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 140, -1));
 
-        txtDireccionC1.setHint("ADDRESS");
-        jPanel10.add(txtDireccionC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 130, -1));
+        txtDireccionConsuCli.setHint("ADDRESS");
+        jPanel10.add(txtDireccionConsuCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 130, -1));
 
-        txtCedulaC1.setHint("DNI");
-        jPanel10.add(txtCedulaC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 140, -1));
+        txtCedulaConsuCli.setHint("DNI");
+        jPanel10.add(txtCedulaConsuCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 140, -1));
 
-        txtTelefonoC1.setHint("PHONE NUMBER");
-        jPanel10.add(txtTelefonoC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 130, -1));
+        txtTelefonoConsuCli.setHint("PHONE NUMBER");
+        jPanel10.add(txtTelefonoConsuCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 130, -1));
 
         btnActbCli.setText("ACTUAL");
         btnActbCli.addActionListener(new java.awt.event.ActionListener() {
@@ -629,8 +633,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jPanel10.add(btnActbCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 650, 120, -1));
 
-        txtNombreC2.setHint("NAME");
-        jPanel10.add(txtNombreC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
+        txtNombreConsCli.setHint("NAME");
+        jPanel10.add(txtNombreConsCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
 
         jButton8.setText("MODIFY");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -646,6 +650,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
+        tblEmpleados.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        tblEmpleados.setForeground(new java.awt.Color(0, 0, 0));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -695,37 +701,57 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtConsultarEm.setHint("SEARCH");
         jPanel23.add(txtConsultarEm, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 370, 40));
 
-        txtApellidoC2.setHint("LAST NAME");
-        jPanel23.add(txtApellidoC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 140, -1));
-
-        txtCedulaC2.setHint("DNI");
-        jPanel23.add(txtCedulaC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 130, -1));
-
-        txtDireccionC2.setHint("USER");
-        txtDireccionC2.addActionListener(new java.awt.event.ActionListener() {
+        txtIdConsuEmpl.setHint("LAST NAME");
+        txtIdConsuEmpl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionC2ActionPerformed(evt);
+                txtIdConsuEmplActionPerformed(evt);
             }
         });
-        jPanel23.add(txtDireccionC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 130, -1));
+        jPanel23.add(txtIdConsuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 140, -1));
 
-        txtTelefonoC2.setHint("PHONE NUMBER");
-        jPanel23.add(txtTelefonoC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 140, -1));
+        txtCedulaConseEmpl.setHint("DNI");
+        jPanel23.add(txtCedulaConseEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 130, -1));
 
-        jButton9.setText("MODIFY");
-        jPanel23.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 120, -1));
+        txtUserConsuEmpl.setHint("USER");
+        txtUserConsuEmpl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUserConsuEmplActionPerformed(evt);
+            }
+        });
+        jPanel23.add(txtUserConsuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 130, -1));
+
+        txtTelefonoConsuEmpl.setHint("PHONE NUMBER");
+        jPanel23.add(txtTelefonoConsuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 140, -1));
+
+        btnModificarEmpl.setText("MODIFY");
+        jPanel23.add(btnModificarEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, 120, -1));
 
         btnActblE.setText("ACTUA");
         jPanel23.add(btnActblE, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 650, 120, -1));
 
-        txtNombreC4.setHint("NAME");
-        jPanel23.add(txtNombreC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
+        txtNombreConsuEmpl.setHint("NAME");
+        jPanel23.add(txtNombreConsuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
 
-        txtDireccionC4.setHint("ROL");
-        jPanel23.add(txtDireccionC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 130, -1));
+        txtClaveConsuEmpl.setHint("PASSWORD");
+        jPanel23.add(txtClaveConsuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 130, -1));
 
-        txtDireccionC5.setHint("PASSWORD");
-        jPanel23.add(txtDireccionC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 130, -1));
+        cmbEmpleado1.setBackground(new java.awt.Color(102, 111, 127));
+        cmbEmpleado1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cmbEmpleado1.setForeground(new java.awt.Color(255, 255, 255));
+        cmbEmpleado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Cajero" }));
+        cmbEmpleado1.setActionCommand("Seleccionar...\nCajero\nAdministrador");
+        cmbEmpleado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEmpleado1ActionPerformed(evt);
+            }
+        });
+        jPanel23.add(cmbEmpleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jcmRConsuEmpl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Cajero" }));
+        jPanel23.add(jcmRConsuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 120, -1));
+
+        txtApellidoConuEmpl.setHint("LAST NAME");
+        jPanel23.add(txtApellidoConuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 140, -1));
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1159,9 +1185,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void txtDireccionC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionC2ActionPerformed
+    private void txtUserConsuEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserConsuEmplActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionC2ActionPerformed
+    }//GEN-LAST:event_txtUserConsuEmplActionPerformed
 
     private void btnActbCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActbCliActionPerformed
         // TODO add your handling code here:
@@ -1172,21 +1198,41 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void tblEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadosMouseClicked
-   
+      // TODO add your handling code here:
+        int fila = tblEmpleados.rowAtPoint(evt.getPoint());
+        txtIdConsuEmpl.setText( tblEmpleados.getValueAt(fila, 0).toString());
+        txtNombreConsuEmpl.setText( tblEmpleados.getValueAt(fila, 1).toString());
+        txtApellidoConuEmpl.setText( tblEmpleados.getValueAt(fila, 2).toString());  
+        txtCedulaConseEmpl.setText( tblEmpleados.getValueAt(fila, 3).toString()); 
+        txtTelefonoConsuEmpl.setText( tblEmpleados.getValueAt(fila, 4).toString());
+        
+        txtUserConsuEmpl.setText( tblEmpleados.getValueAt(fila, 6).toString());
+        txtClaveConsuEmpl.setText( tblEmpleados.getValueAt(fila, 7).toString());
+        
+        txtConsultarEm.setText( tblEmpleados.getValueAt(fila, 3).toString()); 
     }//GEN-LAST:event_tblEmpleadosMouseClicked
 
     private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
         // TODO add your handling code here:
-             int fila = tblClientes.rowAtPoint(evt.getPoint());
-    txtNombreC.setText( tblClientes.getValueAt(fila, 1).toString());
-    txtApellidoC.setText( tblClientes.getValueAt(fila, 2).toString());  
-    txtCedulaC.setText( tblClientes.getValueAt(fila, 3).toString()); 
-    txtTelefonoC.setText( tblClientes.getValueAt(fila, 4).toString());
-    txtDireccionC.setText( tblClientes.getValueAt(fila, 5).toString());
+     int fila = tblClientes.rowAtPoint(evt.getPoint());
+        txtNombreConsCli.setText( tblClientes.getValueAt(fila, 1).toString());
+        txtApellidoConsuCli.setText( tblClientes.getValueAt(fila, 2).toString());  
+        txtCedulaConsuCli.setText( tblClientes.getValueAt(fila, 3).toString()); 
+        txtTelefonoConsuCli.setText( tblClientes.getValueAt(fila, 4).toString());
+        txtDireccionConsuCli.setText( tblClientes.getValueAt(fila, 5).toString());
+        txtConsulatCL.setText( tblClientes.getValueAt(fila, 3).toString()); 
    
     // Aquí puedes usar la variable 'fila' como la fila seleccionada
     System.out.println("Fila seleccionada: " + fila);
     }//GEN-LAST:event_tblClientesMouseClicked
+
+    private void cmbEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpleado1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEmpleado1ActionPerformed
+
+    private void txtIdConsuEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdConsuEmplActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdConsuEmplActionPerformed
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
@@ -1217,9 +1263,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnConsultarEm;
     public javax.swing.JButton btnEliminarClie;
     public javax.swing.JButton btnEliminarEmp;
+    public javax.swing.JButton btnModificarEmpl;
     public javax.swing.JButton btnPorcion;
     public javax.swing.JMenuItem cerrar;
     public javax.swing.JComboBox<String> cmbEmpleado;
+    public javax.swing.JComboBox<String> cmbEmpleado1;
     public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
@@ -1234,7 +1282,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
@@ -1287,6 +1334,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
+    public javax.swing.JComboBox<String> jcmRConsuEmpl;
     public javax.swing.JMenu jmbCerrarSesion;
     public javax.swing.JMenuItem jmiClienteConsu;
     public javax.swing.JMenuItem jmiClientes;
@@ -1306,39 +1354,39 @@ public class MenuAdmin extends javax.swing.JFrame {
     private componentes.TextField textField14;
     private componentes.TextField textField15;
     public componentes.TextField txtApellidoC;
-    public componentes.TextField txtApellidoC1;
-    public componentes.TextField txtApellidoC2;
     public componentes.TextField txtApellidoC3;
+    public componentes.TextField txtApellidoConsuCli;
+    public componentes.TextField txtApellidoConuEmpl;
     public componentes.TextField txtApellidoE;
     public componentes.TextField txtCantidadP;
     public componentes.TextField txtCedulaC;
-    public componentes.TextField txtCedulaC1;
-    public componentes.TextField txtCedulaC2;
     public componentes.TextField txtCedulaC3;
+    public componentes.TextField txtCedulaConseEmpl;
+    public componentes.TextField txtCedulaConsuCli;
     public componentes.TextField txtCelE;
+    public componentes.TextField txtClaveConsuEmpl;
     public componentes.TextField txtClaveE;
     public componentes.TextField txtConsulatCL;
     public componentes.TextField txtConsultarEm;
     public componentes.TextField txtDireccionC;
-    public componentes.TextField txtDireccionC1;
-    public componentes.TextField txtDireccionC2;
     public componentes.TextField txtDireccionC3;
-    public componentes.TextField txtDireccionC4;
-    public componentes.TextField txtDireccionC5;
+    public componentes.TextField txtDireccionConsuCli;
     public componentes.TextField txtDocE;
+    public componentes.TextField txtIdConsuEmpl;
     public componentes.TextField txtNombreC;
-    public componentes.TextField txtNombreC2;
-    public componentes.TextField txtNombreC4;
     public componentes.TextField txtNombreC5;
     public componentes.TextField txtNombreC6;
+    public componentes.TextField txtNombreConsCli;
+    public componentes.TextField txtNombreConsuEmpl;
     public componentes.TextField txtNombreE;
     public componentes.TextField txtNombreE1;
     public componentes.TextField txtNombreE2;
     public componentes.TextField txtNombreP;
     public componentes.TextField txtPrecioP;
     public componentes.TextField txtTelefonoC;
-    public componentes.TextField txtTelefonoC1;
-    public componentes.TextField txtTelefonoC2;
+    public componentes.TextField txtTelefonoConsuCli;
+    public componentes.TextField txtTelefonoConsuEmpl;
+    public componentes.TextField txtUserConsuEmpl;
     public componentes.TextField txtUserE;
     // End of variables declaration//GEN-END:variables
 

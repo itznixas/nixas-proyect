@@ -733,7 +733,7 @@
                               <Component id="txtCelE" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtDocE" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="61" max="32767" attributes="0"/>
+                          <EmptySpace pref="64" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtUserE" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtClaveE" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1072,6 +1072,12 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="12" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="6" rowCount="4">
                         <Column editable="true" title="ID" type="java.lang.Integer"/>
@@ -1176,7 +1182,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="componentes.TextField" name="txtApellidoC1">
+            <Component class="componentes.TextField" name="txtApellidoConsuCli">
               <Properties>
                 <Property name="hint" type="java.lang.String" value="LAST NAME"/>
               </Properties>
@@ -1189,7 +1195,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="componentes.TextField" name="txtDireccionC1">
+            <Component class="componentes.TextField" name="txtDireccionConsuCli">
               <Properties>
                 <Property name="hint" type="java.lang.String" value="ADDRESS"/>
               </Properties>
@@ -1202,7 +1208,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="componentes.TextField" name="txtCedulaC1">
+            <Component class="componentes.TextField" name="txtCedulaConsuCli">
               <Properties>
                 <Property name="hint" type="java.lang.String" value="DNI"/>
               </Properties>
@@ -1215,7 +1221,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="componentes.TextField" name="txtTelefonoC1">
+            <Component class="componentes.TextField" name="txtTelefonoConsuCli">
               <Properties>
                 <Property name="hint" type="java.lang.String" value="PHONE NUMBER"/>
               </Properties>
@@ -1244,7 +1250,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="componentes.TextField" name="txtNombreC2">
+            <Component class="componentes.TextField" name="txtNombreConsCli">
               <Properties>
                 <Property name="hint" type="java.lang.String" value="NAME"/>
               </Properties>
@@ -1324,6 +1330,12 @@
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Dialog" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="8" rowCount="4">
@@ -1470,20 +1482,23 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="componentes.TextField" name="txtApellidoC2">
+                <Component class="componentes.TextField" name="txtIdConsuEmpl">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="LAST NAME"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdConsuEmplActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="250" y="170" width="140" height="-1"/>
+                      <AbsoluteConstraints x="250" y="420" width="140" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="componentes.TextField" name="txtCedulaC2">
+                <Component class="componentes.TextField" name="txtCedulaConseEmpl">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="DNI"/>
                   </Properties>
@@ -1496,12 +1511,12 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="componentes.TextField" name="txtDireccionC2">
+                <Component class="componentes.TextField" name="txtUserConsuEmpl">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="USER"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDireccionC2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUserConsuEmplActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1512,7 +1527,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="componentes.TextField" name="txtTelefonoC2">
+                <Component class="componentes.TextField" name="txtTelefonoConsuEmpl">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="PHONE NUMBER"/>
                   </Properties>
@@ -1525,10 +1540,13 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton9">
+                <Component class="javax.swing.JButton" name="btnModificarEmpl">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="MODIFY"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="90" y="550" width="120" height="-1"/>
@@ -1548,7 +1566,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="componentes.TextField" name="txtNombreC4">
+                <Component class="componentes.TextField" name="txtNombreConsuEmpl">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="NAME"/>
                   </Properties>
@@ -1561,20 +1579,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="componentes.TextField" name="txtDireccionC4">
-                  <Properties>
-                    <Property name="hint" type="java.lang.String" value="ROL"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="80" y="450" width="130" height="-1"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-                <Component class="componentes.TextField" name="txtDireccionC5">
+                <Component class="componentes.TextField" name="txtClaveConsuEmpl">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="PASSWORD"/>
                   </Properties>
@@ -1584,6 +1589,70 @@
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="250" y="360" width="130" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cmbEmpleado1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="7f" green="6f" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="Admin"/>
+                        <StringItem index="1" value="Cajero"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="actionCommand" type="java.lang.String" value="Seleccionar...&#xa;Cajero&#xa;Administrador"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEmpleado1ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jcmRConsuEmpl">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="Admin"/>
+                        <StringItem index="1" value="Cajero"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="80" y="430" width="120" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="componentes.TextField" name="txtApellidoConuEmpl">
+                  <Properties>
+                    <Property name="hint" type="java.lang.String" value="LAST NAME"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="250" y="170" width="140" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
