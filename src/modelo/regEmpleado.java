@@ -2,7 +2,7 @@
 package modelo;
 
 
-public  class regEmpleado {
+public abstract class regEmpleado {
     private int idEmpl,   idRol;
     private Integer cedulaEmpl, celEmpl;
     private String nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion;

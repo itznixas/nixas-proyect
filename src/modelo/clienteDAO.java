@@ -26,7 +26,7 @@ public class clienteDAO extends dataBase {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                regEmpleado clin = new regEmpleado();
+                regEmpleado clin = new regEmpleado(){};
                 clin.setIdEmpl(rs.getInt("id_cliente")); // Obtener el ID directamente desde la base de datos
                 clin.setNombreEmpl(rs.getString("nom_cli"));
                 clin.setApellidoEmpl(rs.getString("ape_cli"));
@@ -63,7 +63,7 @@ public class clienteDAO extends dataBase {
                rs = ps.executeQuery();
                
                while (rs.next()){
-                   regEmpleado cli = new regEmpleado();
+                   regEmpleado cli = new regEmpleado(){};
                      cli.setIdEmpl(rs.getInt("id_cliente"));
                      cli.setNombreEmpl(rs.getString("nom_cli"));
                      cli.setApellidoEmpl(rs.getString("ape_cli"));
@@ -99,7 +99,7 @@ public class clienteDAO extends dataBase {
                rs = ps.executeQuery();
                
                while (rs.next()){
-                   regEmpleado cli = new regEmpleado();
+                   regEmpleado cli = new regEmpleado(){};
                      cli.setIdEmpl(rs.getInt("id_cliente"));
                      cli.setNombreEmpl(rs.getString("nom_cli"));
                      cli.setApellidoEmpl(rs.getString("ape_cli"));

@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class loginCtrl implements ActionListener {
-    regEmpleado reG = new regEmpleado();
+    regEmpleado reG = new regEmpleado(){};
     regEmpleadoDAO emD = new regEmpleadoDAO();
     ventanaLogin ventana;
     MenuAdmin admin = new MenuAdmin();
@@ -151,7 +151,7 @@ public class loginCtrl implements ActionListener {
 
 
     public void btnAgregarCliente() {
-        regEmpleado cliente = new regEmpleado();
+        regEmpleado cliente = new regEmpleado(){};
         clienteDAO cliD = new clienteDAO();
 
         String nombreCliente = admin.txtNombreC.getText();
@@ -189,7 +189,7 @@ public class loginCtrl implements ActionListener {
     }
 
    public void btnConsultarCliente(JTable tblClientes){
-        regEmpleado cliente = new regEmpleado();
+        regEmpleado cliente = new regEmpleado(){};
     Integer cedula = 0;
     String nombre = admin.txtConsulatCL.getText();
     
@@ -225,7 +225,7 @@ public class loginCtrl implements ActionListener {
    }
     
     public void btnEliminarCliente(){
-       regEmpleado cliente = new regEmpleado();
+       regEmpleado cliente = new regEmpleado(){};
     Integer cedula = 0;
     if (!admin.txtConsulatCL.getText().isEmpty()) {
         try {
@@ -283,7 +283,7 @@ public class loginCtrl implements ActionListener {
     }
 
     public void btnAgregarEmple() throws SQLException {
-        regEmpleado empleado = new regEmpleado();
+        regEmpleado empleado = new regEmpleado(){};
         regEmpleadoDAO dao = new regEmpleadoDAO();
 
         String nombreEm = admin.txtNombreE.getText();
@@ -330,7 +330,7 @@ public class loginCtrl implements ActionListener {
     }
     
     public void btnModificarEmple() throws SQLException {
-        regEmpleado em = new regEmpleado();
+        regEmpleado em = new regEmpleado(){};
         regEmpleadoDAO dao = new regEmpleadoDAO();
         int id_rol=0;
         if("".equals(admin.txtIdConsuEmpl.getText())){
@@ -357,7 +357,7 @@ public class loginCtrl implements ActionListener {
     
     
    public void btnConsultarEmpleado(JTable tblEmpleado) throws SQLException {
-     regEmpleado empleado = new regEmpleado();
+     regEmpleado empleado = new regEmpleado(){};
     Integer cedula = 0;
     String nombre = admin.txtConsultarEm.getText();
     
@@ -392,7 +392,7 @@ public class loginCtrl implements ActionListener {
 }
 
    public void btnEliminarEmpleado(){
-       regEmpleado empleado = new regEmpleado();
+       regEmpleado empleado = new regEmpleado(){};
     Integer cedula = 0;
     if (!admin.txtConsultarEm.getText().isEmpty()) {
         try {

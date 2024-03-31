@@ -47,7 +47,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblInventario1.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
 
     }
-    regEmpleado cliente = new regEmpleado();
+    regEmpleado cliente = new regEmpleado(){};
     clienteDAO cliD = new clienteDAO();
 
     /**

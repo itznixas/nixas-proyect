@@ -20,7 +20,7 @@ public class regEmpleadoDAO extends dataBase {
                  ps = cn.prepareStatement(sql);
                  rs = ps.executeQuery();
                  while(rs.next()){
-                     regEmpleado emp = new regEmpleado();
+                     regEmpleado emp = new regEmpleado(){};
                      emp.setIdEmpl(rs.getInt("id_emple"));
                      emp.setNombreEmpl(rs.getString("nom_emple"));
                      emp.setApellidoEmpl(rs.getString("ape_emple"));
@@ -89,7 +89,7 @@ public class regEmpleadoDAO extends dataBase {
                rs = ps.executeQuery();
                
                while (rs.next()){
-                   regEmpleado emp = new regEmpleado();
+                   regEmpleado emp = new regEmpleado(){};
                      emp.setIdEmpl(rs.getInt("id_emple"));
                      emp.setNombreEmpl(rs.getString("nom_emple"));
                      emp.setApellidoEmpl(rs.getString("ape_emple"));
@@ -127,7 +127,7 @@ public class regEmpleadoDAO extends dataBase {
                rs = ps.executeQuery();
                
                while (rs.next()){
-                   regEmpleado emp = new regEmpleado();
+                   regEmpleado emp = new regEmpleado(){};
                      emp.setIdEmpl(rs.getInt("id_emple"));
                      emp.setNombreEmpl(rs.getString("nom_emple"));
                      emp.setApellidoEmpl(rs.getString("ape_emple"));
