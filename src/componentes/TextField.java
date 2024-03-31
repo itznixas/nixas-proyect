@@ -16,6 +16,8 @@ import org.jdesktop.animation.timing.TimingTargetAdapter;
 
 public class TextField extends JTextField {
 
+    public String getText;
+
     public String getHint() {
         return hint;
     }

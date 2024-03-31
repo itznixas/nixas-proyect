@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/final/Pr/daño/src/modelo/accionEmple.java</file>
             <file>file:/C:/final/Pr/daño/src/vista/MenuAdmin.java</file>
             <file>file:/C:/final/Pr/daño/src/appnixas/AppNixas.java</file>
+            <file>file:/C:/final/Pr/daño/src/modelo/tmpPedidos.java</file>
+            <file>file:/C:/final/Pr/daño/src/modelo/regEmpleado.java</file>
             <file>file:/C:/final/Pr/daño/src/modelo/regEmpleadoDAO.java</file>
-            <file>file:/C:/final/Pr/daño/src/vista/ventanaLogin.java</file>
+            <file>file:/C:/final/Pr/daño/src/modelo/clienteDAO.java</file>
+            <file>file:/C:/final/Pr/daño/src/modelo/mesas.java</file>
             <file>file:/C:/final/Pr/daño/src/controlador/loginCtrl.java</file>
         </group>
     </open-files>

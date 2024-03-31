@@ -3,9 +3,9 @@ package modelo;
 
 
 public abstract class regEmpleado {
-    private int idEmpl,   idRol;
-    private Integer cedulaEmpl, celEmpl;
-    private String nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion;
+    protected int idEmpl,   idRol;
+    protected Integer cedulaEmpl, celEmpl;
+    protected String nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion;
 
     public regEmpleado() {
     }
