@@ -27,6 +27,7 @@ public class loginCtrl implements ActionListener {
     MenuAdmin admin = new MenuAdmin();
     DefaultTableModel modelo = new DefaultTableModel();
     clienteDAO cli = new clienteDAO();
+    proCatDAO proDAO = new proCatDAO();
    
 
     public loginCtrl(ventanaLogin ventana) throws FontFormatException, IOException {
@@ -35,7 +36,7 @@ public class loginCtrl implements ActionListener {
         this.ventana.BtnLogin.addActionListener(this);
     }
 
-    public loginCtrl(MenuAdmin admin) throws FontFormatException, IOException {
+    public loginCtrl(MenuAdmin admin) throws FontFormatException, IOException, SQLException {
         this.ventana = new ventanaLogin();
         this.admin = admin;
         this.admin.btnAgregarC.addActionListener(this);
@@ -56,6 +57,7 @@ public class loginCtrl implements ActionListener {
         this.admin.btnActblE.addActionListener(this);
         this.admin.btnActbCli.addActionListener(this);
         this.admin.btnModificarEmpl.addActionListener(this);
+        this.proDAO.categoria( admin.cmbPorcion);
         
     }
 
@@ -90,7 +92,7 @@ public class loginCtrl implements ActionListener {
     }
     
     //Metodo del login
-    public void btnIngresar() throws FontFormatException, IOException {
+    public void btnIngresar() throws FontFormatException, IOException, SQLException {
         String user = ventana.CampoUsuario.getText();
         String clave = new String(ventana.CampoContraseña.getText());
         reG.setUserEmpl(user);
@@ -475,6 +477,7 @@ public class loginCtrl implements ActionListener {
 
 
     //Metodos de prociones
+   
     public void btnAgregarPorcion(){
         producto prod = new producto(){};
         porcionesDAO porDAO = new porcionesDAO();
@@ -488,7 +491,7 @@ public class loginCtrl implements ActionListener {
         int r = 0;
         System.out.println("g");
         try{
-          if (admin.cmbPorcion.getSelectedItem().equals("BEBIDAS")){
+          if (admin.cmbPorcion.getSelectedItem().equals("Bebidas")){
             id = 1;
              nombreB =admin.txtNombreP.getText();
              
@@ -499,7 +502,7 @@ public class loginCtrl implements ActionListener {
                     precioB = Float.parseFloat(admin.txtPrecioP.getText()); 
                 }
 
-             prod.setNombre(nombreB);
+             prod.setNombreProd(nombreB);
              prod.setCantidad(cantidadB);
              prod.setPrecio(precioB);
              r = be.agregarBebidas(prod);
@@ -510,7 +513,7 @@ public class loginCtrl implements ActionListener {
             }
         }
           //METODO DE AGG COMIDA
-          else if  (admin.cmbPorcion.getSelectedItem().equals("COMIDA")){
+          else if  (admin.cmbPorcion.getSelectedItem().equals("Comida")){
             id = 1;
              nombreC =admin.txtNombreP.getText();
              
@@ -520,7 +523,7 @@ public class loginCtrl implements ActionListener {
                if (!admin.txtPrecioP.getText().isEmpty()) {
                 precioC = Float.parseFloat(admin.txtPrecioP.getText());
             }
-             prod.setNombre(nombreC);
+             prod.setNombreProd(nombreC);
              prod.setCantidad(cantidadC);
              prod.setPrecio(precioC);
              r = porDAO.agregarPorciones(prod);
@@ -588,7 +591,13 @@ public class loginCtrl implements ActionListener {
                  ventana.CampoContraseña.requestFocus();
             }else{
                 try {
-                    btnIngresar();
+                    try
+                    {
+                        btnIngresar();
+                    } catch (SQLException ex)
+                    {
+                        Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } catch (FontFormatException ex) {
                     Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
@@ -656,7 +665,7 @@ public class loginCtrl implements ActionListener {
            }
         }
         if (e.getSource()== admin.btnPorcion){
-            btnAgregarPorcion();
+           btnAgregarPorcion();
         }
         if(e.getSource()== admin.btnConsultarEm){
             try

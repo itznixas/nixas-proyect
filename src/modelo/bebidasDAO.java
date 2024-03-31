@@ -27,8 +27,8 @@ public class bebidasDAO {
     
         while (rs.next()){
             producto prod = new producto() {};
-            prod.setId_porciones(rs.getInt("id_prod_bebi"));
-            prod.setNombre(rs.getString("nombre"));
+            prod.setIdCategoria(rs.getInt("id_prod_bebi"));
+            prod.setNombreProd(rs.getString("nombre"));
             prod.setCantidad(rs.getInt("cantidad"));
             prod.setPrecio(rs.getFloat("precio"));
             lista_producto.add(prod);
@@ -56,7 +56,7 @@ public class bebidasDAO {
     try{
         cn = con.getConnection();
         ps = cn.prepareStatement(sql);
-        ps.setString(2, pro.getNombre());
+        ps.setString(2, pro.getNombreProd());
         ps.setString(3, Integer.toString(pro.getCantidad()));
         ps.setString(4, Float.toString(pro.getPrecio()));
         ps.executeUpdate();
@@ -88,7 +88,7 @@ public class bebidasDAO {
     try{
         cn = con.getConnection();
         ps = cn.prepareStatement(sql);
-        ps.setString(1, pro.getNombre());
+        ps.setString(1, pro.getNombreProd());
         ps.setString(2,Integer.toString(pro.getCantidad()) );
         ps.setString(3, Float.toString(pro.getPrecio()));
         ps.executeUpdate();

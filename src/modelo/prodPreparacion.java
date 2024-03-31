@@ -4,12 +4,8 @@ package modelo;
 public class prodPreparacion extends platoProducto{
     protected int idPreparacion;
 
-    public prodPreparacion() {
-       
-    }
-
-    public prodPreparacion(int idPreparacion, int id_plato, String nombre, int id_porciones, int cantidad, float precio) {
-        super(id_plato, nombre, id_porciones, cantidad, precio);
+    public prodPreparacion(int idPreparacion, int id_plato, String nombreProd, int cantidad, float precio, int idCategoria, String nombreCategoria) {
+        super(id_plato, nombreProd, cantidad, precio, idCategoria, nombreCategoria);
         this.idPreparacion = idPreparacion;
     }
 
@@ -32,13 +28,13 @@ public class prodPreparacion extends platoProducto{
     }
 
     @Override
-    public int getId_porciones() {
-        return id_porciones;
+    public String getNombreProd() {
+        return nombreProd;
     }
 
     @Override
-    public void setId_porciones(int id_porciones) {
-        this.id_porciones = id_porciones;
+    public void setNombreProd(String nombreProd) {
+        this.nombreProd = nombreProd;
     }
 
     @Override
@@ -50,5 +46,19 @@ public class prodPreparacion extends platoProducto{
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    @Override
+    public float getPrecio() {
+        return precio;
+    }
+
+    @Override
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    
+
+   
     
 }

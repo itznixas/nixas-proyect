@@ -5,35 +5,27 @@
 package modelo;
 
 
-public abstract class producto {
-    protected String nombre;
-    protected int id_porciones, cantidad;
+public abstract class producto extends categoriaProd  {
+    protected String nombreProd;
+    protected int  cantidad;
     protected float precio;
 
-    public producto() {
-    }
-
-    public producto(String nombre, int id_porciones, int cantidad, float precio) {
-        this.nombre = nombre;
-        this.id_porciones = id_porciones;
+    public producto(String nombreProd, int cantidad, float precio, int idCategoria, String nombreCategoria) {
+        super(idCategoria, nombreCategoria);
+        this.nombreProd = nombreProd;
         this.cantidad = cantidad;
         this.precio = precio;
     }
 
-    public String getNombre() {
-        return nombre;
+    public producto() {
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getNombreProd() {
+        return nombreProd;
     }
 
-    public int getId_porciones() {
-        return id_porciones;
-    }
-
-    public void setId_porciones(int id_porciones) {
-        this.id_porciones = id_porciones;
+    public void setNombreProd(String nombreProd) {
+        this.nombreProd = nombreProd;
     }
 
     public int getCantidad() {
@@ -51,5 +43,28 @@ public abstract class producto {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
+    @Override
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    @Override
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    @Override
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    @Override
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
+    }
     
+    
+
+   
 }

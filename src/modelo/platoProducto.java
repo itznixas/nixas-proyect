@@ -15,8 +15,8 @@ public abstract class platoProducto extends producto {
    
     }
 
-    public platoProducto(int id_plato, String nombre, int id_porciones, int cantidad, float precio) {
-        super(nombre, id_porciones, cantidad, precio);
+    public platoProducto(int id_plato, String nombreProd, int cantidad, float precio, int idCategoria, String nombreCategoria) {
+        super(nombreProd, cantidad, precio, idCategoria, nombreCategoria);
         this.id_plato = id_plato;
     }
 
@@ -29,23 +29,13 @@ public abstract class platoProducto extends producto {
     }
 
     @Override
-    public String getNombre() {
-        return nombre;
+    public String getNombreProd() {
+        return nombreProd;
     }
 
     @Override
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    @Override
-    public int getId_porciones() {
-        return id_porciones;
-    }
-
-    @Override
-    public void setId_porciones(int id_porciones) {
-        this.id_porciones = id_porciones;
+    public void setNombreProd(String nombreProd) {
+        this.nombreProd = nombreProd;
     }
 
     @Override
@@ -66,7 +56,5 @@ public abstract class platoProducto extends producto {
     @Override
     public void setPrecio(float precio) {
         this.precio = precio;
-    }
-    
-    
+    }   
 }

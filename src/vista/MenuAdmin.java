@@ -7,6 +7,7 @@ import modelo.*;
 import appnixas.IconoNixas;
 import java.awt.FontFormatException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingConstants;
@@ -134,7 +135,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnActblE = new javax.swing.JButton();
         txtNombreConsuEmpl = new componentes.TextField();
         txtClaveConsuEmpl = new componentes.TextField();
-        cmbEmpleado1 = new javax.swing.JComboBox<>();
         jcmRConsuEmpl = new javax.swing.JComboBox<>();
         txtApellidoConuEmpl = new componentes.TextField();
         jPanel18 = new javax.swing.JPanel();
@@ -495,7 +495,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         cmbPorcion.setBackground(new java.awt.Color(102, 111, 127));
         cmbPorcion.setForeground(new java.awt.Color(255, 255, 255));
-        cmbPorcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DRINKS", "FOOD" }));
+        cmbPorcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
 
         javax.swing.GroupLayout jPanelTransparente4Layout = new javax.swing.GroupLayout(jPanelTransparente4);
         jPanelTransparente4.setLayout(jPanelTransparente4Layout);
@@ -735,18 +735,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtClaveConsuEmpl.setHint("PASSWORD");
         jPanel23.add(txtClaveConsuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 130, -1));
 
-        cmbEmpleado1.setBackground(new java.awt.Color(102, 111, 127));
-        cmbEmpleado1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        cmbEmpleado1.setForeground(new java.awt.Color(255, 255, 255));
-        cmbEmpleado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Cajero" }));
-        cmbEmpleado1.setActionCommand("Seleccionar...\nCajero\nAdministrador");
-        cmbEmpleado1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbEmpleado1ActionPerformed(evt);
-            }
-        });
-        jPanel23.add(cmbEmpleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
+        jcmRConsuEmpl.setBackground(new java.awt.Color(0, 51, 102));
         jcmRConsuEmpl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Cajero" }));
         jPanel23.add(jcmRConsuEmpl, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 120, -1));
 
@@ -1119,6 +1108,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                     Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
                     Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex)
+                {
+                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 m.setVisible(true);
             }
@@ -1226,10 +1218,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     System.out.println("Fila seleccionada: " + fila);
     }//GEN-LAST:event_tblClientesMouseClicked
 
-    private void cmbEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpleado1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbEmpleado1ActionPerformed
-
     private void txtIdConsuEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdConsuEmplActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdConsuEmplActionPerformed
@@ -1267,7 +1255,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnPorcion;
     public javax.swing.JMenuItem cerrar;
     public javax.swing.JComboBox<String> cmbEmpleado;
-    public javax.swing.JComboBox<String> cmbEmpleado1;
     public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
