@@ -1,19 +1,16 @@
 package modelo;
+
 import java.sql.*;
 
 public class dataBase {
-    
-    Connection con;
+
+    private Connection con;
 
     public dataBase() {
-    
+        this.con = getConnection();
     }
 
-    public dataBase(Connection con) {
-        this.con = con;
-    }
-    
-    public Connection getConnection(){
+    public Connection getConnection() {
         try {
             String url = "jdbc:sqlite:nixas.db";
             con = DriverManager.getConnection(url);
@@ -21,9 +18,6 @@ public class dataBase {
         } catch (SQLException e) {
             System.out.println("No se pudo conectar a la base de datos");
         }
-        
         return null;
     }
-    
-    
 }

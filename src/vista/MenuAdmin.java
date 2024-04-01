@@ -2,24 +2,29 @@ package vista;
 
 import com.formdev.flatlaf.*;
 import componentes.TextField;
-import controlador.loginCtrl;
 import modelo.*;
+import modelo.mesasDAO;
 import appnixas.IconoNixas;
+import controlador.BtnControlador;
 import java.awt.FontFormatException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import controlador.loginCtrl;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
 public class MenuAdmin extends javax.swing.JFrame {
 
     DefaultTableCellRenderer TablaRenderer = new DefaultTableCellRenderer();
+    private Connection connection;
 
     public MenuAdmin() {
         initComponents();
         IconoNixas.establecerIcono(this);
+
         //jmiProductos.setEnabled(false);
         TablaRenderer.setHorizontalAlignment(SwingConstants.LEFT);
         //Tabla Clientes
@@ -46,8 +51,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblInventario1.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
         tblInventario1.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
 
+        this.connection = connection; // Asigna la conexión
+        mesasDAO mesasDao = new mesasDAO(connection);
+        BtnControlador controller = new BtnControlador(btnMesa1, btnMesa2, btnMesa3, btnMesa4, btnMesa5, btnMesa6, mesasDao);
+        controller.cargarEstadoMesas2();
     }
-    regEmpleado cliente = new regEmpleado(){};
+    regEmpleado cliente = new regEmpleado() {
+    };
     clienteDAO cliD = new clienteDAO();
 
     /**
@@ -169,13 +179,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnMesa6 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnMesa3 = new javax.swing.JButton();
+        btnMesa2 = new javax.swing.JButton();
+        btnMesa1 = new javax.swing.JButton();
+        btnMesa4 = new javax.swing.JButton();
+        btnMesa5 = new javax.swing.JButton();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmiOrdenes = new javax.swing.JMenuItem();
@@ -194,7 +204,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         cerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(24, 42, 75));
@@ -558,9 +568,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(24, 42, 75));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblClientes.setBackground(new java.awt.Color(255, 255, 255));
         tblClientes.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        tblClientes.setForeground(new java.awt.Color(0, 0, 0));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -649,9 +657,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel23.setBackground(new java.awt.Color(24, 42, 75));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblEmpleados.setBackground(new java.awt.Color(255, 255, 255));
         tblEmpleados.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        tblEmpleados.setForeground(new java.awt.Color(0, 0, 0));
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -992,8 +998,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 276, 218));
 
-        jButton1.setText("Selecciona");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, 240, 30));
+        btnMesa6.setBackground(java.awt.Color.green);
+        btnMesa6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMesa6.setForeground(new java.awt.Color(255, 255, 255));
+        btnMesa6.setText("Libre");
+        jPanel1.add(btnMesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, 240, 30));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1001,20 +1010,40 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 276, 218));
 
-        jButton2.setText("Selecciona");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 310, 240, 30));
+        btnMesa3.setBackground(java.awt.Color.green);
+        btnMesa3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMesa3.setForeground(new java.awt.Color(255, 255, 255));
+        btnMesa3.setText("Libre");
+        jPanel1.add(btnMesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 310, 240, 30));
 
-        jButton3.setText("Selecciona");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 240, 30));
+        btnMesa2.setBackground(java.awt.Color.green);
+        btnMesa2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMesa2.setForeground(new java.awt.Color(255, 255, 255));
+        btnMesa2.setText("Libre");
+        jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 240, 30));
 
-        jButton4.setText("Selecciona");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 240, 30));
+        btnMesa1.setBackground(java.awt.Color.green);
+        btnMesa1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMesa1.setForeground(new java.awt.Color(255, 255, 255));
+        btnMesa1.setText("Libre");
+        btnMesa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesa1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 240, 30));
 
-        jButton5.setText("Selecciona");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 630, 240, 30));
+        btnMesa4.setBackground(java.awt.Color.green);
+        btnMesa4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMesa4.setForeground(new java.awt.Color(255, 255, 255));
+        btnMesa4.setText("Libre");
+        jPanel1.add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 630, 240, 30));
 
-        jButton6.setText("Selecciona");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 630, 240, 30));
+        btnMesa5.setBackground(java.awt.Color.green);
+        btnMesa5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMesa5.setForeground(new java.awt.Color(255, 255, 255));
+        btnMesa5.setText("Libre");
+        jPanel1.add(btnMesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 630, 240, 30));
 
         jTabbedPane.addTab("Mesas", jPanel1);
 
@@ -1108,8 +1137,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
                     Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex)
-                {
+                } catch (SQLException ex) {
                     Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 m.setVisible(true);
@@ -1190,37 +1218,41 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void tblEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadosMouseClicked
-      // TODO add your handling code here:
+        // TODO add your handling code here:
         int fila = tblEmpleados.rowAtPoint(evt.getPoint());
-        txtIdConsuEmpl.setText( tblEmpleados.getValueAt(fila, 0).toString());
-        txtNombreConsuEmpl.setText( tblEmpleados.getValueAt(fila, 1).toString());
-        txtApellidoConuEmpl.setText( tblEmpleados.getValueAt(fila, 2).toString());  
-        txtCedulaConseEmpl.setText( tblEmpleados.getValueAt(fila, 3).toString()); 
-        txtTelefonoConsuEmpl.setText( tblEmpleados.getValueAt(fila, 4).toString());
-        
-        txtUserConsuEmpl.setText( tblEmpleados.getValueAt(fila, 6).toString());
-        txtClaveConsuEmpl.setText( tblEmpleados.getValueAt(fila, 7).toString());
-        
-        txtConsultarEm.setText( tblEmpleados.getValueAt(fila, 3).toString()); 
+        txtIdConsuEmpl.setText(tblEmpleados.getValueAt(fila, 0).toString());
+        txtNombreConsuEmpl.setText(tblEmpleados.getValueAt(fila, 1).toString());
+        txtApellidoConuEmpl.setText(tblEmpleados.getValueAt(fila, 2).toString());
+        txtCedulaConseEmpl.setText(tblEmpleados.getValueAt(fila, 3).toString());
+        txtTelefonoConsuEmpl.setText(tblEmpleados.getValueAt(fila, 4).toString());
+
+        txtUserConsuEmpl.setText(tblEmpleados.getValueAt(fila, 6).toString());
+        txtClaveConsuEmpl.setText(tblEmpleados.getValueAt(fila, 7).toString());
+
+        txtConsultarEm.setText(tblEmpleados.getValueAt(fila, 3).toString());
     }//GEN-LAST:event_tblEmpleadosMouseClicked
 
     private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
         // TODO add your handling code here:
-     int fila = tblClientes.rowAtPoint(evt.getPoint());
-        txtNombreConsCli.setText( tblClientes.getValueAt(fila, 1).toString());
-        txtApellidoConsuCli.setText( tblClientes.getValueAt(fila, 2).toString());  
-        txtCedulaConsuCli.setText( tblClientes.getValueAt(fila, 3).toString()); 
-        txtTelefonoConsuCli.setText( tblClientes.getValueAt(fila, 4).toString());
-        txtDireccionConsuCli.setText( tblClientes.getValueAt(fila, 5).toString());
-        txtConsulatCL.setText( tblClientes.getValueAt(fila, 3).toString()); 
-   
-    // Aquí puedes usar la variable 'fila' como la fila seleccionada
-    System.out.println("Fila seleccionada: " + fila);
+        int fila = tblClientes.rowAtPoint(evt.getPoint());
+        txtNombreConsCli.setText(tblClientes.getValueAt(fila, 1).toString());
+        txtApellidoConsuCli.setText(tblClientes.getValueAt(fila, 2).toString());
+        txtCedulaConsuCli.setText(tblClientes.getValueAt(fila, 3).toString());
+        txtTelefonoConsuCli.setText(tblClientes.getValueAt(fila, 4).toString());
+        txtDireccionConsuCli.setText(tblClientes.getValueAt(fila, 5).toString());
+        txtConsulatCL.setText(tblClientes.getValueAt(fila, 3).toString());
+
+        // Aquí puedes usar la variable 'fila' como la fila seleccionada
+        System.out.println("Fila seleccionada: " + fila);
     }//GEN-LAST:event_tblClientesMouseClicked
 
     private void txtIdConsuEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdConsuEmplActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdConsuEmplActionPerformed
+
+    private void btnMesa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMesa1ActionPerformed
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
@@ -1251,23 +1283,23 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnConsultarEm;
     public javax.swing.JButton btnEliminarClie;
     public javax.swing.JButton btnEliminarEmp;
+    private javax.swing.JButton btnMesa1;
+    private javax.swing.JButton btnMesa2;
+    private javax.swing.JButton btnMesa3;
+    private javax.swing.JButton btnMesa4;
+    private javax.swing.JButton btnMesa5;
+    private javax.swing.JButton btnMesa6;
     public javax.swing.JButton btnModificarEmpl;
     public javax.swing.JButton btnPorcion;
     public javax.swing.JMenuItem cerrar;
     public javax.swing.JComboBox<String> cmbEmpleado;
     public javax.swing.JComboBox<String> cmbPorcion;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;

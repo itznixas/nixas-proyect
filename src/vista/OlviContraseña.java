@@ -1,20 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 
-/**
- *
- * @author Aprendiz
- */
 public class OlviContraseña extends javax.swing.JFrame {
 
-    /**
-     * Creates new form OlviContraseña
-     */
     public OlviContraseña() {
         initComponents();
     }
@@ -39,7 +28,7 @@ public class OlviContraseña extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -60,12 +49,6 @@ public class OlviContraseña extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("RECUPERAR PASSWORD");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 680, 85));
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
 
         jButton1.setBackground(new java.awt.Color(7, 2, 42));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
