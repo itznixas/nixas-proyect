@@ -142,8 +142,9 @@ public class loginCtrl implements ActionListener {
                 object[1] = listarClientes.get(i).getNombreEmpl();
                 object[2] = listarClientes.get(i).getApellidoEmpl();
                 object[3] = listarClientes.get(i).getCedulaEmpl();
-                object[4] = listarClientes.get(i).getCelEmpl();
-                object[5] = listarClientes.get(i).getDireccion();
+                object[4] = listarClientes.get(i).getDireccion();
+                object[5] = listarClientes.get(i).getCelEmpl();
+                
                 modelo.addRow(object);
             }
 
@@ -172,11 +173,13 @@ public class loginCtrl implements ActionListener {
             }
 
             String direccionCliente = admin.txtDireccionC.getText();
+            System.out.println(direccionCliente);
             cliente.setNombreEmpl(nombreCliente);
             cliente.setApellidoEmpl(apellidoCliente);
             cliente.setCedulaEmpl(cedulaCliente);
-            cliente.setCelEmpl(celularCliente);
             cliente.setDireccion(direccionCliente);
+            cliente.setCelEmpl(celularCliente);
+            
 
             int r = cliD.agregarCliente(cliente);
             if (r == 1) {

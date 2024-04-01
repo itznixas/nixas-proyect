@@ -1201,7 +1201,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="componentes.TextField" name="txtCedulaConsuCli">
+            <Component class="componentes.TextField" name="txtIdConsuCli">
               <Properties>
                 <Property name="hint" type="java.lang.String" value="DNI"/>
               </Properties>
@@ -1210,7 +1210,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="250" y="260" width="140" height="-1"/>
+                  <AbsoluteConstraints x="240" y="350" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1266,6 +1266,19 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="90" y="480" width="120" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="componentes.TextField" name="txtCedulaConsuCli1">
+              <Properties>
+                <Property name="hint" type="java.lang.String" value="DNI"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="250" y="260" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

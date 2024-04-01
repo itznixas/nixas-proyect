@@ -134,8 +134,9 @@ public class clienteDAO extends dataBase {
             ps.setString(1, cli.getNombreEmpl());
             ps.setString(2, cli.getApellidoEmpl());
             ps.setInt(3, cli.getCedulaEmpl()); // Utilizar setInt para el número de cédula
-            ps.setInt(4, cli.getCelEmpl()); // Utilizar setInt para el teléfono
-            ps.setString(5, cli.getDireccion());
+             ps.setString(4, cli.getDireccion());
+            ps.setInt(5, cli.getCelEmpl()); // Utilizar setInt para el teléfono
+           
 
             int r = ps.executeUpdate(); // Ejecutar la actualización
 

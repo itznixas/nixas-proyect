@@ -124,11 +124,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtConsulatCL = new componentes.TextField();
         txtApellidoConsuCli = new componentes.TextField();
         txtDireccionConsuCli = new componentes.TextField();
-        txtCedulaConsuCli = new componentes.TextField();
+        txtIdConsuCli = new componentes.TextField();
         txtTelefonoConsuCli = new componentes.TextField();
         btnActbCli = new javax.swing.JButton();
         txtNombreConsCli = new componentes.TextField();
         jButton8 = new javax.swing.JButton();
+        txtCedulaConsuCli1 = new componentes.TextField();
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -627,8 +628,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtDireccionConsuCli.setHint("ADDRESS");
         jPanel10.add(txtDireccionConsuCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 130, -1));
 
-        txtCedulaConsuCli.setHint("DNI");
-        jPanel10.add(txtCedulaConsuCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 140, -1));
+        txtIdConsuCli.setHint("DNI");
+        jPanel10.add(txtIdConsuCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 140, -1));
 
         txtTelefonoConsuCli.setHint("PHONE NUMBER");
         jPanel10.add(txtTelefonoConsuCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 130, -1));
@@ -651,6 +652,9 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
         jPanel10.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, -1));
+
+        txtCedulaConsuCli1.setHint("DNI");
+        jPanel10.add(txtCedulaConsuCli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 140, -1));
 
         jTabbedPane.addTab("Cons. Cliente", jPanel10);
 
@@ -1235,9 +1239,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
         // TODO add your handling code here:
         int fila = tblClientes.rowAtPoint(evt.getPoint());
+        txtIdConsuCli.setText(tblClientes.getValueAt(fila, 0).toString());
         txtNombreConsCli.setText(tblClientes.getValueAt(fila, 1).toString());
         txtApellidoConsuCli.setText(tblClientes.getValueAt(fila, 2).toString());
-        txtCedulaConsuCli.setText(tblClientes.getValueAt(fila, 3).toString());
+        txtIdConsuCli.setText(tblClientes.getValueAt(fila, 3).toString());
         txtTelefonoConsuCli.setText(tblClientes.getValueAt(fila, 4).toString());
         txtDireccionConsuCli.setText(tblClientes.getValueAt(fila, 5).toString());
         txtConsulatCL.setText(tblClientes.getValueAt(fila, 3).toString());
@@ -1381,7 +1386,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtCedulaC;
     public componentes.TextField txtCedulaC3;
     public componentes.TextField txtCedulaConseEmpl;
-    public componentes.TextField txtCedulaConsuCli;
+    public componentes.TextField txtCedulaConsuCli1;
     public componentes.TextField txtCelE;
     public componentes.TextField txtClaveConsuEmpl;
     public componentes.TextField txtClaveE;
@@ -1391,6 +1396,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtDireccionC3;
     public componentes.TextField txtDireccionConsuCli;
     public componentes.TextField txtDocE;
+    public componentes.TextField txtIdConsuCli;
     public componentes.TextField txtIdConsuEmpl;
     public componentes.TextField txtNombreC;
     public componentes.TextField txtNombreC5;
