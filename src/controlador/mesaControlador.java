@@ -5,8 +5,14 @@ import java.awt.*;
 import java.sql.Connection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import modelo.dataBase;
+import modelo.mesas;
 import modelo.mesasDAO;
+import vista.MenuAdmin;
 
 public class mesaControlador {
 
@@ -16,9 +22,11 @@ public class mesaControlador {
     private JButton btnMesa4;
     private JButton btnMesa5;
     private JButton btnMesa6;
+    private JButton btnActuaMesa;
     private boolean ocupado = false;
     private mesasDAO mesasDAO;
     private Connection connection;
+    
 
     public mesaControlador(JButton btnMesa1, JButton btnMesa2, JButton btnMesa3, JButton btnMesa4, JButton btnMesa5, JButton btnMesa6, mesasDAO mesasDAO) {
         this.btnMesa1 = btnMesa1;
@@ -28,11 +36,18 @@ public class mesaControlador {
         this.btnMesa5 = btnMesa5;
         this.btnMesa6 = btnMesa6;
         this.mesasDAO = mesasDAO;
+       
         // Crear una instancia de DataBase
         dataBase db = new dataBase();
-
+        
+        
 // Obtener la conexión
         Connection connection = db.getConnection();
+        
+        
+                
+       
+    
 
         btnMesa1.addActionListener(new ActionListener() {
             @Override
@@ -107,6 +122,7 @@ public class mesaControlador {
                     btnMesa4.setText("Libre");
                     ocupado = false;
                     mesasDAO.actualizarEstadoMesa(connection, 4, "Libre"); // Actualizar estado en la base de datos
+                    
                 } else {
                     // Cambiar a estado Ocupado y actualizar en la base de datos
                     btnMesa4.setBackground(Color.RED);
@@ -241,19 +257,29 @@ public class mesaControlador {
         }
     }
 
-    private void actualizarEstadoBoton(JButton boton, int idMesa) {
+    private void actualizarEstadoBoton(JButton boton, int idMesa) throws SQLException {
         if (ocupado) {
+            MenuAdmin admin = new MenuAdmin();
             boton.setBackground(Color.GREEN);
             boton.setForeground(Color.WHITE);
             boton.setText("Libre");
             ocupado = false;
             mesasDAO.actualizarEstadoMesa(idMesa, "Libre"); // Actualizar estado en la base de datos
+            listarMesas(admin.tblEleccionMesa);
         } else {
+            MenuAdmin admin = new MenuAdmin();
             boton.setBackground(Color.RED);
             boton.setForeground(Color.WHITE);
             boton.setText("Ocupado");
             ocupado = true;
             mesasDAO.actualizarEstadoMesa(idMesa, "Ocupado"); // Actualizar estado en la base de datos
+            listarMesas(admin.tblEleccionMesa);
         }
+    }
+    
+    
+     public void listarMesas(JTable tblEleccionMesa) throws SQLException{
+       
+        
     }
 }

@@ -21,14 +21,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class loginCtrl implements ActionListener {
 
-    regEmpleado reG = new regEmpleado() {
-    };
+    regEmpleado reG = new regEmpleado() {};
     regEmpleadoDAO emD = new regEmpleadoDAO();
     ventanaLogin ventana;
     MenuAdmin admin = new MenuAdmin();
     DefaultTableModel modelo = new DefaultTableModel();
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
+    mesasDAO mDAO = new mesasDAO();
 
     public loginCtrl(ventanaLogin ventana) throws FontFormatException, IOException {
         this.ventana = new ventanaLogin();
@@ -58,9 +58,32 @@ public class loginCtrl implements ActionListener {
         this.admin.btnActbCli.addActionListener(this);
         this.admin.btnModificarEmpl.addActionListener(this);
         this.proDAO.categoria(admin.cmbPorcion);
+        this.admin.btnActuaMesa.addActionListener(this);
 
     }
 
+     public void listarMesas(JTable tblEleccionMesa) throws SQLException{
+        System.out.println("aa");
+        modelo = (DefaultTableModel) tblEleccionMesa.getModel();
+        modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
+        
+        try{
+            List<mesas> estadoMes = mDAO.estadoMesas();
+             Object[] object = new Object[2];
+             
+             for (int i =0; i <estadoMes.size(); i++ ){
+                  object[0] = estadoMes.get(i).getIdMesas();
+                  object[1] = estadoMes.get(i).getEstadoMesa();
+                  
+                  modelo.addRow(object);
+             }     
+         modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+        } catch (SQLException ex) {
+            Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     //CAMBIAR PANELES
     public void pedidosAggPaneles() {
         admin.jTabbedPane.setSelectedIndex(1);
@@ -694,5 +717,13 @@ public class loginCtrl implements ActionListener {
         if (e.getSource() == admin.btnActblE) {
             listarEmpleado(admin.tblEmpleados);
         }
+        if(e.getSource()== admin.btnActuaMesa){
+            try {
+                listarMesas(admin.tblEleccionMesa);
+            } catch (SQLException ex) {
+                System.out.println(ex);       
+            }
+        }
     }
+    
 }

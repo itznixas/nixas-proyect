@@ -77,7 +77,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         lblRoles = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblStockProductos = new javax.swing.JTable();
+        tblEleccionMesa = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPedidoMesas = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -86,6 +86,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         txtNombreE1 = new componentes.TextField();
         txtNombreE2 = new componentes.TextField();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tblStockProductos1 = new javax.swing.JTable();
+        btnActuaMesa = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanelTransparente1 = new LIB.JPanelTransparente();
         jLabel3 = new javax.swing.JLabel();
@@ -250,22 +253,30 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(24, 42, 75));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblStockProductos.setBackground(new java.awt.Color(24, 42, 75));
-        tblStockProductos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tblStockProductos.setModel(new javax.swing.table.DefaultTableModel(
+        tblEleccionMesa.setBackground(new java.awt.Color(24, 42, 75));
+        tblEleccionMesa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblEleccionMesa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "PRODUCT STOCK"
+                "Id", "Tables"
             }
-        ));
-        jScrollPane1.setViewportView(tblStockProductos);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 440, 630));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblEleccionMesa);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 250, 150));
 
         tblPedidoMesas.setBackground(new java.awt.Color(24, 42, 75));
         tblPedidoMesas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -318,6 +329,31 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtNombreE2.setHint("Nombre de productos");
         jPanel3.add(txtNombreE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 300, -1));
+
+        tblStockProductos1.setBackground(new java.awt.Color(24, 42, 75));
+        tblStockProductos1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblStockProductos1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "PRODUCT STOCK"
+            }
+        ));
+        jScrollPane8.setViewportView(tblStockProductos1);
+
+        jPanel3.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 440, 280));
+
+        btnActuaMesa.setText("jButton1");
+        btnActuaMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActuaMesaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnActuaMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
 
         jTabbedPane.addTab("Pedidos", jPanel3);
 
@@ -465,7 +501,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCelE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDocE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUserE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtClaveE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1259,6 +1295,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMesa1ActionPerformed
 
+    private void btnActuaMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuaMesaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActuaMesaActionPerformed
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1282,6 +1322,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar;
     public javax.swing.JButton btnActbCli;
     public javax.swing.JButton btnActblE;
+    public javax.swing.JButton btnActuaMesa;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     public javax.swing.JButton btnConsultaCL;
@@ -1354,6 +1395,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     public javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
@@ -1368,11 +1410,12 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JMenuItem jmiProductos;
     public javax.swing.JLabel lblRoles;
     public javax.swing.JTable tblClientes;
+    public javax.swing.JTable tblEleccionMesa;
     public javax.swing.JTable tblEmpleados;
     public javax.swing.JTable tblInventario1;
     private javax.swing.JTable tblPedidoMesas;
     private javax.swing.JTable tblPedidosPendiente;
-    private javax.swing.JTable tblStockProductos;
+    private javax.swing.JTable tblStockProductos1;
     private componentes.TextField textField11;
     private componentes.TextField textField13;
     private componentes.TextField textField14;
