@@ -5,7 +5,7 @@ import componentes.TextField;
 import modelo.*;
 import modelo.mesasDAO;
 import appnixas.IconoNixas;
-import controlador.BtnControlador;
+import controlador.mesaControlador;
 import java.awt.FontFormatException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -53,7 +53,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         this.connection = connection; // Asigna la conexión
         mesasDAO mesasDao = new mesasDAO(connection);
-        BtnControlador controller = new BtnControlador(btnMesa1, btnMesa2, btnMesa3, btnMesa4, btnMesa5, btnMesa6, mesasDao);
+        mesaControlador controller = new mesaControlador(btnMesa1, btnMesa2, btnMesa3, btnMesa4, btnMesa5, btnMesa6, mesasDao);
         controller.cargarEstadoMesas2();
     }
     regEmpleado cliente = new regEmpleado() {

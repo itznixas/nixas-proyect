@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import modelo.dataBase;
 import modelo.mesasDAO;
 
-public class BtnControlador {
+public class mesaControlador {
 
     private JButton btnMesa1;
     private JButton btnMesa2;
@@ -20,7 +20,7 @@ public class BtnControlador {
     private mesasDAO mesasDAO;
     private Connection connection;
 
-    public BtnControlador(JButton btnMesa1, JButton btnMesa2, JButton btnMesa3, JButton btnMesa4, JButton btnMesa5, JButton btnMesa6, mesasDAO mesasDAO) {
+    public mesaControlador(JButton btnMesa1, JButton btnMesa2, JButton btnMesa3, JButton btnMesa4, JButton btnMesa5, JButton btnMesa6, mesasDAO mesasDAO) {
         this.btnMesa1 = btnMesa1;
         this.btnMesa2 = btnMesa2;
         this.btnMesa3 = btnMesa3;
