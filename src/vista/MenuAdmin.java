@@ -82,13 +82,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblPedidoMesas = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPedidosPendiente = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcbMesero = new javax.swing.JComboBox<>();
         jButton12 = new javax.swing.JButton();
-        txtNombreE1 = new componentes.TextField();
+        txtMesaId = new componentes.TextField();
         txtNombreE2 = new componentes.TextField();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblStockProductos1 = new javax.swing.JTable();
         btnActuaMesa = new javax.swing.JButton();
+        txtNombreE3 = new componentes.TextField();
         jPanel4 = new javax.swing.JPanel();
         jPanelTransparente1 = new LIB.JPanelTransparente();
         jLabel3 = new javax.swing.JLabel();
@@ -274,6 +275,11 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tblEleccionMesa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEleccionMesaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblEleccionMesa);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 250, 150));
@@ -294,7 +300,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblPedidoMesas);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 420, 630));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 460, 260));
 
         tblPedidosPendiente.setBackground(new java.awt.Color(24, 42, 75));
         tblPedidosPendiente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -313,22 +319,27 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, 450, 630));
 
-        jComboBox1.setBackground(new java.awt.Color(24, 42, 75));
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WAITERS", "" }));
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 270, 36));
+        jcbMesero.setBackground(new java.awt.Color(24, 42, 75));
+        jcbMesero.setForeground(new java.awt.Color(255, 255, 255));
+        jcbMesero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WAITERS", "" }));
+        jcbMesero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbMeseroActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jcbMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 190, 36));
 
         jButton12.setBackground(new java.awt.Color(24, 42, 75));
         jButton12.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setText("SEARCH");
-        jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 100, 33));
+        jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 100, 33));
 
-        txtNombreE1.setHint("Cantidad");
-        jPanel3.add(txtNombreE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 10, 150, -1));
+        txtMesaId.setHint("Cantidad");
+        jPanel3.add(txtMesaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 20, -1, -1));
 
         txtNombreE2.setHint("Nombre de productos");
-        jPanel3.add(txtNombreE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 300, -1));
+        jPanel3.add(txtNombreE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 300, -1));
 
         tblStockProductos1.setBackground(new java.awt.Color(24, 42, 75));
         tblStockProductos1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -345,7 +356,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         ));
         jScrollPane8.setViewportView(tblStockProductos1);
 
-        jPanel3.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 440, 280));
+        jPanel3.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 290, 190));
 
         btnActuaMesa.setText("jButton1");
         btnActuaMesa.addActionListener(new java.awt.event.ActionListener() {
@@ -354,6 +365,9 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btnActuaMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+
+        txtNombreE3.setHint("Cantidad");
+        jPanel3.add(txtNombreE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 150, -1));
 
         jTabbedPane.addTab("Pedidos", jPanel3);
 
@@ -1299,6 +1313,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActuaMesaActionPerformed
 
+    private void jcbMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbMeseroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbMeseroActionPerformed
+
+    private void tblEleccionMesaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEleccionMesaMouseClicked
+        // TODO add your handling code here:
+        int fila = tblEleccionMesa.rowAtPoint(evt.getPoint());
+        txtMesaId.setText(tblEleccionMesa.getValueAt(fila, 0).toString());
+    }//GEN-LAST:event_tblEleccionMesaMouseClicked
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1347,7 +1371,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -1400,6 +1423,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
+    public javax.swing.JComboBox<String> jcbMesero;
     public javax.swing.JComboBox<String> jcmRConsuEmpl;
     public javax.swing.JMenu jmbCerrarSesion;
     public javax.swing.JMenuItem jmiClienteConsu;
@@ -1441,14 +1465,15 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtDocE;
     public componentes.TextField txtIdConsuCli;
     public componentes.TextField txtIdConsuEmpl;
+    public componentes.TextField txtMesaId;
     public componentes.TextField txtNombreC;
     public componentes.TextField txtNombreC5;
     public componentes.TextField txtNombreC6;
     public componentes.TextField txtNombreConsCli;
     public componentes.TextField txtNombreConsuEmpl;
     public componentes.TextField txtNombreE;
-    public componentes.TextField txtNombreE1;
     public componentes.TextField txtNombreE2;
+    public componentes.TextField txtNombreE3;
     public componentes.TextField txtNombreP;
     public componentes.TextField txtPrecioP;
     public componentes.TextField txtTelefonoC;

@@ -6,8 +6,7 @@ import java.util.List;
 import modelo.dataBase;
 import modelo.regEmpleado;
 import vista.ventanaLogin;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 
 public class clienteDAO extends dataBase {
 
