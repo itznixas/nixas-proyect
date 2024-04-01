@@ -285,22 +285,38 @@ public class loginCtrl implements ActionListener {
     }
 
     public void btnAgregarEmple() throws SQLException {
-        regEmpleado empleado = new regEmpleado() {
-        };
+        regEmpleado empleado = new regEmpleado(){};
         regEmpleadoDAO dao = new regEmpleadoDAO();
-        empleado.setNombreEmpl(admin.txtNombreE.getText());
-        empleado.setApellidoEmpl(admin.txtApellidoE.getText());
-        empleado.setUserEmpl(admin.txtUserE.getText());
-        empleado.setClaveEmpl(new String(admin.txtClaveE.getText()));
+
+        String nombreEm = admin.txtNombreE.getText();
+        String apellidoEm = admin.txtApellidoE.getText();
+        String usuarioEm = admin.txtUserE.getText();
+        String claveEm = new String(admin.txtClaveE.getText());
         int id_rol = 0;
-        empleado.setCedulaEmpl(Integer.parseInt(admin.txtDocE.getText()));
-        empleado.setCelEmpl(Integer.parseInt(admin.txtCelE.getText()));
+        Integer docEmp = 0;
+        Integer celEm = 0;
+
         try {
+            if (!admin.txtDocE.getText().isEmpty()) {
+                docEmp = Integer.parseInt(admin.txtDocE.getText());
+            }
+            if (!admin.txtCelE.getText().isEmpty()) {
+                celEm = Integer.parseInt(admin.txtCelE.getText());
+            }
             if (admin.cmbEmpleado.getSelectedItem().equals("Admin")) {
                 id_rol = 111;
             } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
                 id_rol = 222;
             }
+
+            empleado.setNombreEmpl(nombreEm);
+            empleado.setApellidoEmpl(apellidoEm);
+            empleado.setCedulaEmpl(docEmp);
+            empleado.setCelEmpl(celEm);
+            empleado.setUserEmpl(usuarioEm);
+            empleado.setClaveEmpl(hash.sha1(claveEm));
+            empleado.setIdRol(id_rol);
+
             int r = dao.agregarEmpleado(empleado);
 
             if (r == 1) {
@@ -312,7 +328,7 @@ public class loginCtrl implements ActionListener {
             JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
         }
         listarEmpleado(admin.tblEmpleados);
-        limpiartabla();
+      limpiartabla();
     }
 
     public void btnModificarEmple() throws SQLException {
