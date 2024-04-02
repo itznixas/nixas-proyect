@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import controlador.loginCtrl;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -1734,6 +1735,20 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtClaveConsuEmpl.setText(tblEmpleados.getValueAt(fila, 7).toString());
 
         txtConsultarEm.setText(tblEmpleados.getValueAt(fila, 3).toString());
+        int fSeleccionada = tblEmpleados.getSelectedRow();
+        int cSeleccionada = tblEmpleados.getSelectedColumn();
+
+        String tituloColumna = tblEmpleados.getColumnName(cSeleccionada); // Obtener el título de la columna seleccionada
+
+// Verificar si la columna seleccionada tiene el título "Password"
+        if (tituloColumna.equals("Password")) {
+            // Verificar si se ha seleccionado una fila válida
+            if (fSeleccionada != -1) {
+                Object valorCelda = tblEmpleados.getValueAt(fSeleccionada, cSeleccionada);
+                JOptionPane.showMessageDialog(null, "La verdadera contraseña es: " + valorCelda.toString());
+            }
+        }
+        
     }//GEN-LAST:event_tblEmpleadosMouseClicked
 
     private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
