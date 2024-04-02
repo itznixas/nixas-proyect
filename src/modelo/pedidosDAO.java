@@ -133,5 +133,56 @@ while (rs.next()) {
     // Return the list of pending orders
     return lista_pedi;
 }
+   
+   public void eliminarPedidoPendie() throws SQLException{
+       String sql = "DELETE FROM tmp_pedidos WHERE id_pedidos";
+       try{
+           tmpPedidos pt = new tmpPedidos() {};
+           cn = con.getConnection();
+           ps = cn.prepareStatement(sql);
+           ps.setInt(1, pt.getIdPedidos());
+           ps.executeUpdate();
+       }catch (SQLException e){
+                        System.out.println(e);
+                    }finally {
+           // Cerrar recursos en orden inverso de apertura para evitar problemas
+                        if (rs != null) {
+                            rs.close();
+                        }
+                        if (ps != null) {
+                            ps.close();
+                        }
+                        if (cn != null) {
+                            cn.close();
+                        }
+                     }
+   }
+   
+    public boolean actualizarPedidoListo() throws SQLException {
+
+        String sql = "UPDATE tmp_pedidos SET estado=? WHERE id_pedidos=?";
+
+        try {
+            tmpPedidos emp = new tmpPedidos(){};
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+
+            ps.setInt(1, emp.getIdPedidos());  // Índice 1
+            ps.setString(2, emp.getEstado());  // Índice 2
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            // Cerrar recursos en orden inverso de apertura para evitar problemas
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        }
+    }
 
 }

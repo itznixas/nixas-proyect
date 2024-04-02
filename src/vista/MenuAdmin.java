@@ -215,7 +215,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         tblPedidoPendiente = new javax.swing.JTable();
         txtIdPedidoConse = new componentes.TextField();
-        jButton23 = new javax.swing.JButton();
+        btnPedidosListo = new javax.swing.JButton();
         btnActuaTabPenPet = new javax.swing.JButton();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -1506,10 +1506,10 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtIdPedidoConse.setHint("Cantidad");
 
-        jButton23.setBackground(new java.awt.Color(41, 53, 87));
-        jButton23.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton23.setForeground(new java.awt.Color(255, 255, 255));
-        jButton23.setText("READY");
+        btnPedidosListo.setBackground(new java.awt.Color(41, 53, 87));
+        btnPedidosListo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnPedidosListo.setForeground(new java.awt.Color(255, 255, 255));
+        btnPedidosListo.setText("READY");
 
         btnActuaTabPenPet.setBackground(new java.awt.Color(41, 53, 87));
         btnActuaTabPenPet.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -1524,7 +1524,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(69, Short.MAX_VALUE)
                 .addComponent(txtIdPedidoConse, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton23)
+                .addComponent(btnPedidosListo)
                 .addGap(176, 176, 176)
                 .addComponent(btnActuaTabPenPet, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
@@ -1542,7 +1542,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtIdPedidoConse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnPedidosListo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnActuaTabPenPet, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -1847,6 +1847,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnMesa5;
     private javax.swing.JButton btnMesa6;
     public javax.swing.JButton btnModificarEmpl;
+    public javax.swing.JButton btnPedidosListo;
     public javax.swing.JButton btnPorcion;
     public javax.swing.JMenuItem cerrar;
     public javax.swing.JComboBox<String> cmbEmpleado;
@@ -1860,7 +1861,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
-    public javax.swing.JButton jButton23;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;

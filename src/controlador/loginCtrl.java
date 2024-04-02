@@ -75,6 +75,7 @@ public class loginCtrl implements ActionListener {
         this.peD.mesero(admin.jcbMesero);
         this.admin.btnActuaProdPedi.addActionListener(this);
         this.admin.btnActuaTabPenPet.addActionListener(this);
+        this.admin.btnPedidosListo.addActionListener(this);
     }
 
      public void listarMesas(JTable tblEleccionMesa) throws SQLException{
@@ -403,7 +404,6 @@ public class loginCtrl implements ActionListener {
         regEmpleadoDAO dao = new regEmpleadoDAO();
         int id_rol = 0;
         if ("".equals(admin.txtIdConsuEmpl.getText())) {
-            JOptionPane.showMessageDialog(admin, "Selecciona la ");
         } else {
             em.setIdEmpl(Integer.parseInt(admin.txtIdConsuEmpl.getText()));
             em.setNombreEmpl(admin.txtNombreConsuEmpl.getText());
@@ -669,6 +669,23 @@ public class loginCtrl implements ActionListener {
         e.printStackTrace();
     }
 } 
+    
+   public void pedidosListo(KeyEvent evt) throws SQLException{
+       if (evt.getKeyCode()== KeyEvent.VK_ENTER){
+           if(!"".equals(admin.txtIdPedidoConse.getText())){  
+               tmpPedidos tp = new tmpPedidos(){};
+               String est = "LISTO";
+               tp.setEstado(est);
+           }else{
+               JOptionPane.showMessageDialog(admin, "Ingrese el ID del pedido"); 
+               return;
+           }
+       }
+       peD.actualizarPedidoListo();
+       listaPedidos(admin.tblPedidoListo);
+       JOptionPane.showMessageDialog(admin, "Correcto");
+   }
+   
    
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
@@ -853,7 +870,17 @@ public class loginCtrl implements ActionListener {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        if(e.getSource()== admin.btnPedidosListo){
+            KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            try {
+                pedidosListo(fakeEvent);
+            } catch (SQLException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
+    
     
     
 }

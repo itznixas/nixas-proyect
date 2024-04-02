@@ -282,7 +282,7 @@ public class regEmpleadoDAO extends dataBase {
                      }
                              }
                 
-                 public void rol(JComboBox<String> rolCombo) throws SQLException {
+     public void rol(JComboBox<String> rolCombo) throws SQLException {
         String sql = "SELECT  nom_rol FROM emple_rol";
         
         try {
@@ -314,6 +314,8 @@ public class regEmpleadoDAO extends dataBase {
         }
     }
      
+                 
+                 
               
 }
 
