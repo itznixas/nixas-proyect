@@ -4,6 +4,7 @@ package modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
 import vista.ventanaLogin;
 
 public class regEmpleadoDAO extends dataBase {
@@ -280,6 +281,39 @@ public class regEmpleadoDAO extends dataBase {
                         }
                      }
                              }
+                
+                 public void rol(JComboBox<String> rolCombo) throws SQLException {
+        String sql = "SELECT  nom_rol FROM emple_rol";
+        
+        try {
+            // Establecer conexión y preparar la consulta SQL
+            Connection cn = con.getConnection();
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            // Limpiar el JComboBox antes de agregar elementos
+            rolCombo.removeAllItems();
+            
+            // Recorrer el resultado y agregar elementos al JComboBox
+            while (rs.next()) {
+                rolCombo.addItem(rs.getString("nom_rol"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        } finally {
+            // Cerrar recursos en el bloque finally
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        }
+    }
+     
               
 }
 

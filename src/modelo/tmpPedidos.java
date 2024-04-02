@@ -3,16 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package modelo;
+import java.time.LocalTime;
 
 /**
  *
  * @author Royer
  */
 public abstract class tmpPedidos extends regEmpleado{
-    protected int idMesas, idPedidos, mesero,cantidad, hora;
+    protected int idMesas, idPedidos, mesero,cantidad;
     protected String producto, estado;
+    protected LocalTime hora;
 
-    public tmpPedidos(int idMesas, int idPedidos, int mesero, int cantidad, int hora, String producto, String estado, int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
+    public tmpPedidos(int idMesas, int idPedidos, int mesero, int cantidad, LocalTime hora, String producto, String estado, int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
         super(idEmpl, cedulaEmpl, celEmpl, idRol, nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion);
         this.idMesas = idMesas;
         this.idPedidos = idPedidos;
@@ -58,11 +60,11 @@ public abstract class tmpPedidos extends regEmpleado{
         this.cantidad = cantidad;
     }
 
-    public int getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(int hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 
@@ -74,7 +76,7 @@ public abstract class tmpPedidos extends regEmpleado{
         this.producto = producto;
     }
 
-    public String getEstado() {
+    public String getEstado(String est) {
         return estado;
     }
 

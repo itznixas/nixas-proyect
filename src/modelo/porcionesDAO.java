@@ -7,9 +7,8 @@ package modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.dataBase;
-import modelo.producto;
-import vista.ventanaLogin;
+
+import java.time.LocalTime;
 
 public class porcionesDAO {
          dataBase con = new dataBase();

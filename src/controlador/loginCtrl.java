@@ -5,10 +5,12 @@ import java.awt.FontFormatException;
 import vista.*;
 import modelo.*;
 
+import java.time.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -29,7 +31,13 @@ public class loginCtrl implements ActionListener {
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
     mesasDAO mDAO = new mesasDAO();
+    pedidosDAO peD = new pedidosDAO(){};
+   
 
+    public loginCtrl() {
+    }
+
+    
     public loginCtrl(ventanaLogin ventana) throws FontFormatException, IOException {
         this.ventana = new ventanaLogin();
         this.ventana = ventana;
@@ -59,6 +67,9 @@ public class loginCtrl implements ActionListener {
         this.admin.btnModificarEmpl.addActionListener(this);
         this.proDAO.categoria(admin.cmbPorcion);
         this.admin.btnActuaMesa.addActionListener(this);
+        this.emD.rol(admin.cmbEmpleado);
+        this.admin.btnAggPedidos.addActionListener(this);
+        this.peD.mesero(admin.jcbMesero);
 
     }
 
@@ -310,52 +321,57 @@ public class loginCtrl implements ActionListener {
         // admin.txtCedulaC.requestFocus();
     }
 
-    public void btnAgregarEmple() throws SQLException {
-        regEmpleado empleado = new regEmpleado(){};
-        regEmpleadoDAO dao = new regEmpleadoDAO();
+ public void btnAgregarEmple() throws SQLException {
+    regEmpleado empleado = new regEmpleado() {};
+    regEmpleadoDAO dao = new regEmpleadoDAO();
 
-        String nombreEm = admin.txtNombreE.getText();
-        String apellidoEm = admin.txtApellidoE.getText();
-        String usuarioEm = admin.txtUserE.getText();
-        String claveEm = new String(admin.txtClaveE.getText());
-        int id_rol = 0;
-        Integer docEmp = 0;
-        Integer celEm = 0;
+    String nombreEm = admin.txtNombreE.getText();
+    String apellidoEm = admin.txtApellidoE.getText();
+    String usuarioEm = admin.txtUserE.getText();
+    String claveEm = new String(admin.txtClaveE.getText());
+    int id_rol = 0;
+    Integer docEmp = 0;
+    Integer celEm = 0;
 
-        try {
-            if (!admin.txtDocE.getText().isEmpty()) {
-                docEmp = Integer.parseInt(admin.txtDocE.getText());
-            }
-            if (!admin.txtCelE.getText().isEmpty()) {
-                celEm = Integer.parseInt(admin.txtCelE.getText());
-            }
-            if (admin.cmbEmpleado.getSelectedItem().equals("Admin")) {
-                id_rol = 111;
-            } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
-                id_rol = 222;
-            }
-
-            empleado.setNombreEmpl(nombreEm);
-            empleado.setApellidoEmpl(apellidoEm);
-            empleado.setCedulaEmpl(docEmp);
-            empleado.setCelEmpl(celEm);
-            empleado.setUserEmpl(usuarioEm);
-            empleado.setClaveEmpl(hash.sha1(claveEm));
-            empleado.setIdRol(id_rol);
-
-            int r = dao.agregarEmpleado(empleado);
-
-            if (r == 1) {
-                JOptionPane.showMessageDialog(admin, "Registro exitoso");
-            } else {
-                JOptionPane.showMessageDialog(admin, "Error al registrar empleado");
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
+    try {
+        if (!admin.txtDocE.getText().isEmpty()) {
+            docEmp = Integer.parseInt(admin.txtDocE.getText());
         }
-        listarEmpleado(admin.tblEmpleados);
-      limpiartabla();
+        if (!admin.txtCelE.getText().isEmpty()) {
+            celEm = Integer.parseInt(admin.txtCelE.getText());
+        }
+        if (admin.cmbEmpleado.getSelectedItem().equals("Administrador")) {
+            id_rol = 111;
+        } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
+            id_rol = 222;
+        } else if (admin.cmbEmpleado.getSelectedItem().equals("Mesero")) {
+            id_rol = 333;
+        }
+
+        empleado.setNombreEmpl(nombreEm);
+        empleado.setApellidoEmpl(apellidoEm);
+        empleado.setCedulaEmpl(docEmp);
+        empleado.setCelEmpl(celEm);
+        empleado.setUserEmpl(usuarioEm);
+        empleado.setClaveEmpl(hash.sha1(claveEm));
+        empleado.setIdRol(id_rol);
+
+        int r = dao.agregarEmpleado(empleado);
+
+        if (r == 1) {
+            JOptionPane.showMessageDialog(admin, "Registro exitoso");
+        } else {
+            JOptionPane.showMessageDialog(admin, "Error al registrar empleado");
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
     }
+    
+    // Llamar a métodos después de la operación try-catch
+    listarEmpleado(admin.tblEmpleados);
+    limpiartabla();
+}
+
 
     public void btnModificarEmple() throws SQLException {
         regEmpleado em = new regEmpleado() {
@@ -376,6 +392,8 @@ public class loginCtrl implements ActionListener {
                 id_rol = 111;
             } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
                 id_rol = 222;
+            }else if (admin.cmbEmpleado.getSelectedItem().equals("Mesero")) {
+                id_rol = 333;
             }
             em.setIdRol(id_rol);
         }
@@ -565,9 +583,29 @@ public class loginCtrl implements ActionListener {
             JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
         }
         //Guardar datos de BEBIDAS
-
     }
+    
+   public void ingresarPedidos(KeyEvent evt) {
+    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtCantidadProPed.getText())) {
+            tmpPedidos tp = new tmpPedidos(){};
+            tp.setIdMesas(Integer.parseInt(admin.txtMesaId.getText()));
+            tp.setMesero((int) admin.jcbMesero.getSelectedItem());
+            tp.setProducto(admin.txtNomProducPed.getText());
+            tp.setCantidad(Integer.parseInt(admin.txtCantidadProPed.getText()));
 
+     
+            int r = peD.agregarPedidos(tp);
+            if (r == 1) {
+                JOptionPane.showMessageDialog(admin, "Registro exitoso");
+            } else {
+                JOptionPane.showMessageDialog(admin, "Error al registrar pedido");
+            }
+        } else {
+            JOptionPane.showMessageDialog(admin, "Ingrese la cantidad del producto");
+        }
+    }
+   }
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -724,6 +762,11 @@ public class loginCtrl implements ActionListener {
                 System.out.println(ex);       
             }
         }
+        if (e.getSource() == admin.btnAggPedidos){
+             KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+             ingresarPedidos(fakeEvent);
+        }
     }
+    
     
 }
