@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class pedidosDAO {
     dataBase con = new dataBase();
@@ -71,7 +72,7 @@ public class pedidosDAO {
         ps.setString(3, pro.getProducto()); // Índice 3 para producto
         ps.setString(4, Integer.toString(pro.getCantidad())); // Índice 4 para cantidad
         ps.setString(5, est); // Índice 5 para estado
-        ps.setString(6, LocalTime.now().toString()); // Índice 6 para hora
+        ps.setString(6, pro.getHora()); // Índice 6 para hora
         ps.executeUpdate();
         return r; // Devolver 1 si se ejecuta correctamente
     } catch (SQLException e) {
@@ -91,5 +92,46 @@ public class pedidosDAO {
     }
 }
 
+   public List<tmpPedidos> listaPedidoPendiente() throws SQLException {
+    String sql = "SELECT * FROM tmp_pedidos";
+    List<tmpPedidos> lista_pedi = new ArrayList<>();
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        rs = ps.executeQuery();
+      
+while (rs.next()) {
+    tmpPedidos ped = new tmpPedidos(){};
+    ped.setIdPedidos(rs.getInt("id_pedidos"));
+    ped.setIdMesas(rs.getInt("mesa"));
+    ped.setMesero(rs.getInt("mesero")); 
+    ped.setProducto(rs.getString("producto"));
+    ped.setCantidad(rs.getInt("cantidad"));
+    ped.setEstado(rs.getString("estado"));
+    ped.setHora(rs.getString("hora"));
+    // Obtener la cadena de tiempo como String desde la base de datos
+    
+
+    // Convertir la cadena de tiempo a LocalTime con milisegundos
+   
+
+    lista_pedi.add(ped);
+}
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+        if (cn != null) {
+            cn.close();
+        }
+    }
+    // Return the list of pending orders
+    return lista_pedi;
+}
 
 }

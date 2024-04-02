@@ -1,20 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
-import java.time.LocalTime;
 
-/**
- *
- * @author Royer
- */
-public abstract class tmpPedidos extends regEmpleado{
-    protected int idMesas, idPedidos, mesero,cantidad;
-    protected String producto, estado;
-    protected LocalTime hora;
+public abstract class tmpPedidos extends regEmpleado {
+    protected int idMesas, idPedidos, mesero, cantidad;
+    protected String producto, estado, hora;
 
-    public tmpPedidos(int idMesas, int idPedidos, int mesero, int cantidad, LocalTime hora, String producto, String estado, int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
+    // Constructor con parámetros
+    public tmpPedidos(int idMesas, int idPedidos, int mesero, int cantidad, String hora, String producto, String estado, int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
         super(idEmpl, cedulaEmpl, celEmpl, idRol, nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion);
         this.idMesas = idMesas;
         this.idPedidos = idPedidos;
@@ -25,11 +16,14 @@ public abstract class tmpPedidos extends regEmpleado{
         this.estado = estado;
     }
 
+    // Constructor sin parámetros
     public tmpPedidos() {
+        super(); // Llama al constructor de la clase padre si es necesario
     }
 
+    // Métodos getters y setters
     public int getIdMesas() {
-        return idMesas;
+        return idMesas; 
     }
 
     public void setIdMesas(int idMesas) {
@@ -60,11 +54,11 @@ public abstract class tmpPedidos extends regEmpleado{
         this.cantidad = cantidad;
     }
 
-    public LocalTime getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(LocalTime hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
@@ -76,13 +70,11 @@ public abstract class tmpPedidos extends regEmpleado{
         this.producto = producto;
     }
 
-    public String getEstado(String est) {
+    public String getEstado() {
         return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
 }

@@ -14,13 +14,14 @@ public class mesas extends tmpPedidos{
     protected int cantSillas;
     protected String tipoMesa, estadoMesa;
 
-    public mesas(int cantSillas, String tipoMesa, String estadoMesa, int idMesas, int idPedidos, int mesero, int cantidad, LocalTime hora, String producto, String estado, int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
+    public mesas(int cantSillas, String tipoMesa, String estadoMesa, int idMesas, int idPedidos, int mesero, int cantidad, String hora, String producto, String estado, int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
         super(idMesas, idPedidos, mesero, cantidad, hora, producto, estado, idEmpl, cedulaEmpl, celEmpl, idRol, nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion);
         this.cantSillas = cantSillas;
         this.tipoMesa = tipoMesa;
         this.estadoMesa = estadoMesa;
     }
 
+   
     
 
     public mesas() {

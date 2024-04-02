@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -607,9 +608,8 @@ public class loginCtrl implements ActionListener {
         //Guardar datos de BEBIDAS
     }
     
-   public void ingresarPedidos(KeyEvent evt) {
-       
-       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+ public void ingresarPedidos(KeyEvent evt) throws SQLException {
+    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
         if (!"".equals(admin.txtCantidadProPed.getText())) {
             tmpPedidos tp = new tmpPedidos(){};
             tp.setIdMesas(Integer.parseInt(admin.txtMesaId.getText()));
@@ -620,10 +620,17 @@ public class loginCtrl implements ActionListener {
             tp.setCantidad(Integer.parseInt(admin.txtCantidadProPed.getText()));
             String est = "PENDIENTE";
             tp.setEstado(est);
-     
-            int r = peD.agregarPedidos(tp,est);
+            
+            // Obtener la hora actual como un String en formato HH:mm
+            LocalDateTime ahora = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+            String horaActual = ahora.format(formatter);
+            tp.setHora(horaActual);
+            
+            int r = peD.agregarPedidos(tp, est);
             if (r == 1) {
                 JOptionPane.showMessageDialog(admin, "Registro exitoso");
+                listaPedidos(admin.tblPedidoPendiente);
             } else {
                 JOptionPane.showMessageDialog(admin, "Error al registrar pedido");
             }
@@ -631,7 +638,36 @@ public class loginCtrl implements ActionListener {
             JOptionPane.showMessageDialog(admin, "Ingrese la cantidad del producto");
         }
     }
-   }
+}
+
+   public void listaPedidos(JTable tblPedidoPendiente) throws SQLException {
+    DefaultTableModel modelo = (DefaultTableModel) tblPedidoPendiente.getModel();
+    modelo.setRowCount(0);
+    String est = "";
+    try {
+        List<tmpPedidos> listarPed = peD.listaPedidoPendiente();
+        Object[] object = new Object[8]; // Solo hay 6 columnas según tu código
+
+        for (int i = 0; i < listarPed.size(); i++) {
+            object[0] = listarPed.get(i).getIdPedidos();
+            object[1] = listarPed.get(i).getIdMesas();
+            object[2] = listarPed.get(i).getMesero();
+            object[3] = listarPed.get(i).getProducto();
+            object[4] = listarPed.get(i).getCantidad();
+            object[5] = listarPed.get(i).getEstado();
+            object[6] = listarPed.get(i).getHora();
+
+            // Agregar el objeto al modelo de la tabla
+            modelo.addRow(object);
+        }
+
+        // Asignar el modelo actualizado a la tabla
+        tblPedidoPendiente.setModel(modelo);
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+} 
    
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
@@ -790,8 +826,14 @@ public class loginCtrl implements ActionListener {
             }
         }
         if (e.getSource() == admin.btnAggPedidos){
-             KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-             ingresarPedidos(fakeEvent);
+            
+            try {
+                 KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+                ingresarPedidos(fakeEvent);
+            } catch (SQLException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             
         }
         if(e.getSource()== admin.btnActuaProdPedi){
             try
