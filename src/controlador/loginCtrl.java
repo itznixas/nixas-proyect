@@ -32,6 +32,8 @@ public class loginCtrl implements ActionListener {
     proCatDAO proDAO = new proCatDAO();
     mesasDAO mDAO = new mesasDAO();
     pedidosDAO peD = new pedidosDAO(){};
+    platoProducto pl = new platoProducto() {};
+    prodPlatosDAO plDAO = new prodPlatosDAO();
    
 
     public loginCtrl() {
@@ -70,7 +72,7 @@ public class loginCtrl implements ActionListener {
         this.emD.rol(admin.cmbEmpleado);
         this.admin.btnAggPedidos.addActionListener(this);
         this.peD.mesero(admin.jcbMesero);
-
+        this.admin.btnActuaProdPedi.addActionListener(this);
     }
 
      public void listarMesas(JTable tblEleccionMesa) throws SQLException{
@@ -92,7 +94,27 @@ public class loginCtrl implements ActionListener {
         } catch (SQLException ex) {
             Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+     
+          public void listarPlatosPedidos(JTable tblStockProductos) throws SQLException{
+        System.out.println("aa");
+        modelo = (DefaultTableModel) tblStockProductos.getModel();
+        modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
         
+        try{
+            List<platoProducto> plato = plDAO.platos();
+             Object[] object = new Object[3];
+             
+             for (int i =0; i <plato.size(); i++ ){
+                  object[0] = plato.get(i).getId_plato();
+                  object[1] = plato.get(i).getNombreProd();
+                  object[2] = plato.get(i).getCantidad();
+                  modelo.addRow(object);
+             }     
+         modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+        } catch (SQLException ex) {
+            Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     //CAMBIAR PANELES
@@ -586,16 +608,20 @@ public class loginCtrl implements ActionListener {
     }
     
    public void ingresarPedidos(KeyEvent evt) {
-    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+       
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
         if (!"".equals(admin.txtCantidadProPed.getText())) {
             tmpPedidos tp = new tmpPedidos(){};
             tp.setIdMesas(Integer.parseInt(admin.txtMesaId.getText()));
-            tp.setMesero((int) admin.jcbMesero.getSelectedItem());
+            String meseroSeleccionadoStr = (String) admin.jcbMesero.getSelectedItem();
+            int meseroSeleccionadoInt = Integer.parseInt(meseroSeleccionadoStr);
+            tp.setMesero(meseroSeleccionadoInt);
             tp.setProducto(admin.txtNomProducPed.getText());
             tp.setCantidad(Integer.parseInt(admin.txtCantidadProPed.getText()));
-
+            String est = "PENDIENTE";
+            tp.setEstado(est);
      
-            int r = peD.agregarPedidos(tp);
+            int r = peD.agregarPedidos(tp,est);
             if (r == 1) {
                 JOptionPane.showMessageDialog(admin, "Registro exitoso");
             } else {
@@ -606,6 +632,7 @@ public class loginCtrl implements ActionListener {
         }
     }
    }
+   
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -765,6 +792,15 @@ public class loginCtrl implements ActionListener {
         if (e.getSource() == admin.btnAggPedidos){
              KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
              ingresarPedidos(fakeEvent);
+        }
+        if(e.getSource()== admin.btnActuaProdPedi){
+            try
+            {
+                listarPlatosPedidos(admin.tblStockProductos);
+            } catch (SQLException ex)
+            {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     

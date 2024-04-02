@@ -26,10 +26,9 @@ public class prodPlatosDAO {
                 platoProducto plato = new platoProducto() {};
                 plato.setId_plato(rs.getInt("id_platos"));
                 plato.setNombreProd(rs.getString("nombre"));
-                plato.setCantidad(0);
-            }
-       
-       
+                plato.setCantidad(rs.getInt("cantidad"));
+                listaPlato.add(plato);
+            } 
        }catch (SQLException e) {
         System.out.println(e);
     } finally {
@@ -43,10 +42,8 @@ public class prodPlatosDAO {
         if (cn != null) {
             cn.close();
         }
-    }
-    
-        return null;
-       
+    }  
+        return listaPlato;  
    }
     
 }

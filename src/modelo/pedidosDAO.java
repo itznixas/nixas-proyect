@@ -60,40 +60,36 @@ public class pedidosDAO {
     }
 }
 
-    public int agregarPedidos(tmpPedidos pro){
-           int r = 1;
-           String sql = "INSERT INTO tmp_pedidos (mesa, mesero, producto, cantidad, estado, hora) VALUES (?, ?, ?, ?, ?, strftime('%Y-%m-%d %H:%M:%S', 'now'))";
-       try{
-          
-           cn = con.getConnection();
-           ps = cn.prepareStatement(sql);
-           ps.setString(2, Integer.toString(pro.getIdMesas()));
-           ps.setString(3, Integer.toString(pro.getMesero()));
-           ps.setString(4, pro.getProducto());
-           ps.setString(5, Integer.toString(pro.getCantidad()));
-           ps.setString(6, "PEDIENTE");
-           ps.setString(7, LocalTime.now().toString());
-           ps.executeUpdate();
-       if(r == 1){
-           return 1;
-       }else{
-           return 0;
-       }
-       }catch (SQLException e){
-           System.out.println("Error al agregar la porcion " + e.getMessage());
-           return 0;
-       }finally{
-            try {
-               if (ps != null) {
-                   ps.close();
-                   }
-                       if (cn != null) {
-                           cn.close();
-                       }
-                   } catch (SQLException ex) {
-                       ex.printStackTrace(); // Manejar cualquier excepción al cerrar recursos
-                   }
-       }
-       }
+   public int agregarPedidos(tmpPedidos pro, String est) {
+    int r = 1;
+    String sql = "INSERT INTO tmp_pedidos (mesa, mesero, producto, cantidad, estado, hora) VALUES (?, ?, ?, ?, ?, ?)";
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        ps.setString(1, Integer.toString(pro.getIdMesas())); // Índice 1 para mesa
+        ps.setString(2, Integer.toString(pro.getMesero())); // Índice 2 para mesero
+        ps.setString(3, pro.getProducto()); // Índice 3 para producto
+        ps.setString(4, Integer.toString(pro.getCantidad())); // Índice 4 para cantidad
+        ps.setString(5, est); // Índice 5 para estado
+        ps.setString(6, LocalTime.now().toString()); // Índice 6 para hora
+        ps.executeUpdate();
+        return r; // Devolver 1 si se ejecuta correctamente
+    } catch (SQLException e) {
+        System.out.println("Error al agregar la porcion " + e.getMessage());
+        return 0; // Devolver 0 en caso de error
+    } finally {
+        try {
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(); // Manejar cualquier excepción al cerrar recursos
+        }
+    }
+}
+
 
 }

@@ -184,8 +184,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblEleccionMesa = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        tblStockProductos1 = new javax.swing.JTable();
-        jButton20 = new javax.swing.JButton();
+        tblStockProductos = new javax.swing.JTable();
+        btnActuaProdPedi = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -1074,9 +1074,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(61, 99, 157));
 
-        tblStockProductos1.setBackground(new java.awt.Color(255, 255, 255));
-        tblStockProductos1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tblStockProductos1.setModel(new javax.swing.table.DefaultTableModel(
+        tblStockProductos.setBackground(new java.awt.Color(255, 255, 255));
+        tblStockProductos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblStockProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -1095,12 +1095,17 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane8.setViewportView(tblStockProductos1);
+        tblStockProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblStockProductosMouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(tblStockProductos);
 
-        jButton20.setBackground(new java.awt.Color(41, 53, 87));
-        jButton20.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton20.setForeground(new java.awt.Color(255, 255, 255));
-        jButton20.setText("SEARCH");
+        btnActuaProdPedi.setBackground(new java.awt.Color(41, 53, 87));
+        btnActuaProdPedi.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnActuaProdPedi.setForeground(new java.awt.Color(255, 255, 255));
+        btnActuaProdPedi.setText("SEARCH");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1108,7 +1113,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(101, 101, 101)
-                .addComponent(jButton20)
+                .addComponent(btnActuaProdPedi)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1121,7 +1126,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActuaProdPedi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1775,6 +1780,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPendienteKeyPressed
 
+    private void tblStockProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStockProductosMouseClicked
+        // TODO add your handling code here:
+        int fila = tblStockProductos.rowAtPoint(evt.getPoint());
+        txtNomProducPed.setText((String) tblStockProductos.getValueAt(fila, 1));
+    }//GEN-LAST:event_tblStockProductosMouseClicked
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1799,6 +1810,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnActbCli;
     public javax.swing.JButton btnActblE;
     public javax.swing.JButton btnActuaMesa;
+    public javax.swing.JButton btnActuaProdPedi;
     public javax.swing.JButton btnAggPedidos;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
@@ -1824,7 +1836,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    public javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     public javax.swing.JButton jButton23;
@@ -1912,7 +1923,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JTable tblInventario1;
     public javax.swing.JTable tblPedidoListo;
     public javax.swing.JTable tblPedidoPendiente;
-    private javax.swing.JTable tblStockProductos1;
+    public javax.swing.JTable tblStockProductos;
     private componentes.TextField textField11;
     private componentes.TextField textField13;
     private componentes.TextField textField14;
