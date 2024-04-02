@@ -225,37 +225,37 @@ public class regEmpleadoDAO extends dataBase {
          }
          
          //Metodo para actualizar registros
-               public boolean actualizarEmpleado(regEmpleado emp) throws SQLException {
-   
-    String sql = "UPDATE reg_empleado SET nom_emple=?, ape_emple=?, ced_emple=?, tele_emple=?, usuario=?, clave=?, rol=? WHERE id_emple=?";
-    
-    try {
-        cn = con.getConnection();
-        ps = cn.prepareStatement(sql);
-        
-        ps.setString(2, emp.getNombreEmpl());  // Índice 1
-        ps.setString(3, emp.getApellidoEmpl());  // Índice 2
-        ps.setInt(4, emp.getCedulaEmpl());  // Índice 3
-        ps.setInt(5, emp.getCelEmpl());  // Índice 4
-        ps.setString(6, emp.getUserEmpl());  // Índice 5
-        ps.setString(7, emp.getClaveEmpl());  // Índice 6
-        ps.setInt(8, emp.getIdRol());  // Índice 7
-        ps.setInt(1, emp.getIdEmpl());  // Índice 8 (id_emple)
-              return true;
+      public boolean actualizarEmpleado(regEmpleado emp) throws SQLException {
 
-    } catch (SQLException e) {
-        System.out.println(e);
-        return false;
-    } finally {
-        // Cerrar recursos en orden inverso de apertura para evitar problemas
-        if (ps != null) {
-            ps.close();
-        }
-        if (cn != null) {
-            cn.close();
+        String sql = "UPDATE reg_empleado SET nom_emple=?, ape_emple=?, ced_emple=?, tele_emple=?, usuario=?, clave=?, rol=? WHERE id_emple=?";
+
+        try {
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+
+            ps.setString(1, emp.getNombreEmpl());  // Índice 1
+            ps.setString(2, emp.getApellidoEmpl());  // Índice 2
+            ps.setInt(3, emp.getCedulaEmpl());  // Índice 3
+            ps.setInt(4, emp.getCelEmpl());  // Índice 4
+            ps.setString(5, emp.getUserEmpl());  // Índice 5
+            ps.setString(6, emp.getClaveEmpl());  // Índice 6
+            ps.setInt(7, emp.getIdRol());  // Índice 7
+            ps.setInt(8, emp.getIdEmpl());  // Índice 8 (id_emple)
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            // Cerrar recursos en orden inverso de apertura para evitar problemas
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
         }
     }
-}
 
                 
                 //Metodo para eliminar por documento del empleado

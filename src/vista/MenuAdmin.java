@@ -214,8 +214,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel28 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         tblPedidoPendiente = new javax.swing.JTable();
-        txtNombreE5 = new componentes.TextField();
+        txtIdPedidoConse = new componentes.TextField();
         jButton23 = new javax.swing.JButton();
+        btnActuaTabPenPet = new javax.swing.JButton();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmiOrdenes = new javax.swing.JMenuItem();
@@ -1496,14 +1497,24 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblPedidoPendiente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPedidoPendienteMouseClicked(evt);
+            }
+        });
         jScrollPane9.setViewportView(tblPedidoPendiente);
 
-        txtNombreE5.setHint("Cantidad");
+        txtIdPedidoConse.setHint("Cantidad");
 
         jButton23.setBackground(new java.awt.Color(41, 53, 87));
         jButton23.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jButton23.setForeground(new java.awt.Color(255, 255, 255));
         jButton23.setText("READY");
+
+        btnActuaTabPenPet.setBackground(new java.awt.Color(41, 53, 87));
+        btnActuaTabPenPet.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnActuaTabPenPet.setForeground(new java.awt.Color(255, 255, 255));
+        btnActuaTabPenPet.setText("UPDATE");
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
@@ -1511,10 +1522,12 @@ public class MenuAdmin extends javax.swing.JFrame {
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
-                .addComponent(txtNombreE5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIdPedidoConse, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton23)
-                .addGap(305, 305, 305))
+                .addGap(176, 176, 176)
+                .addComponent(btnActuaTabPenPet, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane9)
@@ -1526,10 +1539,12 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNombreE5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtIdPedidoConse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActuaTabPenPet, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 520, 340));
@@ -1786,6 +1801,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtNomProducPed.setText((String) tblStockProductos.getValueAt(fila, 1));
     }//GEN-LAST:event_tblStockProductosMouseClicked
 
+    private void tblPedidoPendienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPedidoPendienteMouseClicked
+        // TODO add your handling code here:
+        int fila = tblPedidoPendiente.rowAtPoint(evt.getPoint());
+        txtIdPedidoConse.setText(tblPedidoPendiente.getValueAt(fila, 0).toString());
+    }//GEN-LAST:event_tblPedidoPendienteMouseClicked
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1811,6 +1832,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnActblE;
     public javax.swing.JButton btnActuaMesa;
     public javax.swing.JButton btnActuaProdPedi;
+    public javax.swing.JButton btnActuaTabPenPet;
     public javax.swing.JButton btnAggPedidos;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
@@ -1950,6 +1972,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtDocE;
     public componentes.TextField txtIdConsuCli;
     public componentes.TextField txtIdConsuEmpl;
+    public componentes.TextField txtIdPedidoConse;
     public componentes.TextField txtMesaId;
     public componentes.TextField txtNomProducPed;
     public componentes.TextField txtNombreC;
@@ -1959,7 +1982,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtNombreConsuEmpl;
     public componentes.TextField txtNombreE;
     public componentes.TextField txtNombreE4;
-    public componentes.TextField txtNombreE5;
     public componentes.TextField txtNombreP;
     public componentes.TextField txtPendiente;
     public componentes.TextField txtPrecioP;

@@ -74,6 +74,7 @@ public class loginCtrl implements ActionListener {
         this.admin.btnAggPedidos.addActionListener(this);
         this.peD.mesero(admin.jcbMesero);
         this.admin.btnActuaProdPedi.addActionListener(this);
+        this.admin.btnActuaTabPenPet.addActionListener(this);
     }
 
      public void listarMesas(JTable tblEleccionMesa) throws SQLException{
@@ -396,7 +397,7 @@ public class loginCtrl implements ActionListener {
 }
 
 
-    public void btnModificarEmple() throws SQLException {
+  public void btnModificarEmple() throws SQLException {
         regEmpleado em = new regEmpleado() {
         };
         regEmpleadoDAO dao = new regEmpleadoDAO();
@@ -406,11 +407,11 @@ public class loginCtrl implements ActionListener {
         } else {
             em.setIdEmpl(Integer.parseInt(admin.txtIdConsuEmpl.getText()));
             em.setNombreEmpl(admin.txtNombreConsuEmpl.getText());
-            em.setApellidoEmpl(admin.txtIdConsuEmpl.getText());
+            em.setApellidoEmpl(admin.txtApellidoConuEmpl.getText());
             em.setCedulaEmpl(Integer.parseInt(admin.txtCedulaConseEmpl.getText()));
             em.setCelEmpl(Integer.parseInt(admin.txtTelefonoConsuEmpl.getText()));
-            em.setUserEmpl(admin.txtIdConsuEmpl.getText());
-            em.setClaveEmpl(admin.txtCedulaConseEmpl.getText());
+            em.setUserEmpl(admin.txtUserConsuEmpl.getText());
+            em.setClaveEmpl(admin.txtClaveConsuEmpl.getText());
             if (admin.cmbEmpleado.getSelectedItem().equals("Admin")) {
                 id_rol = 111;
             } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
@@ -841,6 +842,14 @@ public class loginCtrl implements ActionListener {
                 listarPlatosPedidos(admin.tblStockProductos);
             } catch (SQLException ex)
             {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(e.getSource()== admin.btnActuaTabPenPet){
+            try {
+                listaPedidos(admin.tblPedidoPendiente);
+            } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
