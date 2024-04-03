@@ -116,7 +116,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblPedidoListo = new javax.swing.JTable();
         txtNombreE4 = new componentes.TextField();
         jButton14 = new javax.swing.JButton();
-        txtPendiente = new componentes.TextField();
         jPanel15 = new javax.swing.JPanel();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
@@ -502,18 +501,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton14.setForeground(new java.awt.Color(255, 255, 255));
         jButton14.setText("CHECK IN");
 
-        txtPendiente.setHint("Cantidad");
-        txtPendiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPendienteActionPerformed(evt);
-            }
-        });
-        txtPendiente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPendienteKeyPressed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
@@ -528,27 +515,17 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2)
                 .addContainerGap())
-            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel14Layout.createSequentialGroup()
-                    .addGap(185, 185, 185)
-                    .addComponent(txtPendiente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(185, Short.MAX_VALUE)))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtNombreE4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
-            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel14Layout.createSequentialGroup()
-                    .addGap(153, 153, 153)
-                    .addComponent(txtPendiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(154, Short.MAX_VALUE)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, 520, 340));
@@ -1825,14 +1802,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantidadProPedActionPerformed
 
-    private void txtPendienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPendienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPendienteActionPerformed
-
-    private void txtPendienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPendienteKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPendienteKeyPressed
-
     private void tblStockProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStockProductosMouseClicked
         // TODO add your handling code here:
         int fila = tblStockProductos.rowAtPoint(evt.getPoint());
@@ -2025,7 +1994,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtNombreE;
     public componentes.TextField txtNombreE4;
     public componentes.TextField txtNombreP;
-    public componentes.TextField txtPendiente;
     public componentes.TextField txtPrecioP;
     public componentes.TextField txtTelefonoC;
     public componentes.TextField txtTelefonoConsuCli;

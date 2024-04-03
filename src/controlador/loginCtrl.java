@@ -684,17 +684,16 @@ public class loginCtrl implements ActionListener {
                 tmpPedidos tp = new tmpPedidos() {
                 };
                 tp.setIdPedidos(Integer.parseInt(admin.txtIdPedidoConse.getText()));
-                String est = "Listo";
+                String est = "LISTO";
                 tp.setEstado(est);
 
                 pedidosDAO peD = new pedidosDAO();
-
                 // Verificar si el pedido ya está en estado "Listo"
                 if (peD.verificarEstadoListo(tp)) {
                     JOptionPane.showMessageDialog(admin, "El pedido ya se encuentra en estado Listo.");
                 } else {
                     peD.actualizarPedidoListo(tp);
-                    listaPedidos(admin.tblPedidoListo);
+                    listaPedidosListo(admin.tblPedidoListo);
                     JOptionPane.showMessageDialog(admin, "Pedido actualizado correctamente.");
                 }
             } else {
@@ -703,6 +702,35 @@ public class loginCtrl implements ActionListener {
         }
     }
 
+     public void listaPedidosListo(JTable tblPedidoListo) throws SQLException {
+         System.out.println("aaaaasd");
+        DefaultTableModel modelo = (DefaultTableModel) tblPedidoListo.getModel();
+        modelo.setRowCount(0);
+        String est = "";
+        try {
+            List<tmpPedidos> listarPed = peD.listaPedidoListo();
+            Object[] object = new Object[8]; // Solo hay 6 columnas según tu código
+
+            for (int i = 0; i < listarPed.size(); i++) {
+                object[0] = listarPed.get(i).getIdPedidos();
+                object[1] = listarPed.get(i).getIdMesas();
+                object[2] = listarPed.get(i).getMesero();
+                object[3] = listarPed.get(i).getProducto();
+                object[4] = listarPed.get(i).getCantidad();
+                object[5] = listarPed.get(i).getEstado();
+                object[6] = listarPed.get(i).getHora();
+
+                // Agregar el objeto al modelo de la tabla
+                modelo.addRow(object);
+            }
+
+            // Asignar el modelo actualizado a la tabla
+            tblPedidoListo.setModel(modelo);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -888,6 +916,7 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 pedidosListo(fakeEvent);
+                //listaPedidosListo(admin.tblPedidoListo);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }

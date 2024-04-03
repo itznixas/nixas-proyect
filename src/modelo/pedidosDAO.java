@@ -186,13 +186,57 @@ public class pedidosDAO {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     String estadoActual = rs.getString("estado");
-                    return "Listo".equalsIgnoreCase(estadoActual); // Verificar si el estado es "Listo"
+                    return "LISTO".equalsIgnoreCase(estadoActual); // Verificar si el estado es "Listo"
                 } else {
                     // El pedido no fue encontrado en la base de datos
                     return false;
                 }
             }
         }
+    }
+    
+     public List<tmpPedidos> listaPedidoListo() throws SQLException {
+        String sql = "SELECT * FROM tmp_pedidos WHERE estado = 'LISTO'";
+        List<tmpPedidos> lista_ped = new ArrayList<>();
+        Connection cn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                tmpPedidos ped = new tmpPedidos(){};
+                ped.setIdPedidos(rs.getInt("id_pedidos"));
+                ped.setIdMesas(rs.getInt("mesa"));
+                ped.setMesero(rs.getInt("mesero"));
+                ped.setProducto(rs.getString("producto"));
+                ped.setCantidad(rs.getInt("cantidad"));
+                ped.setEstado(rs.getString("estado"));
+                ped.setHora(rs.getString("hora"));
+                // Convertir la cadena de tiempo a LocalTime (si es necesario)
+
+                lista_ped.add(ped);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Aquí podrías manejar la excepción de manera más específica o lanzarla hacia arriba
+        } finally {
+            // Cerrar recursos en orden inverso de apertura para evitar problemas
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        // Return la lista de pedidos listos
+        return lista_ped;
     }
 
 }
