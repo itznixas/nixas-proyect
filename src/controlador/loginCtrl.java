@@ -24,7 +24,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class loginCtrl implements ActionListener {
 
-    regEmpleado reG = new regEmpleado() {};
+    regEmpleado reG = new regEmpleado() {
+    };
     regEmpleadoDAO emD = new regEmpleadoDAO();
     ventanaLogin ventana;
     MenuAdmin admin = new MenuAdmin();
@@ -32,15 +33,15 @@ public class loginCtrl implements ActionListener {
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
     mesasDAO mDAO = new mesasDAO();
-    pedidosDAO peD = new pedidosDAO(){};
-    platoProducto pl = new platoProducto() {};
+    pedidosDAO peD = new pedidosDAO() {
+    };
+    platoProducto pl = new platoProducto() {
+    };
     prodPlatosDAO plDAO = new prodPlatosDAO();
-   
 
     public loginCtrl() {
     }
 
-    
     public loginCtrl(ventanaLogin ventana) throws FontFormatException, IOException {
         this.ventana = new ventanaLogin();
         this.ventana = ventana;
@@ -59,7 +60,7 @@ public class loginCtrl implements ActionListener {
         this.admin.jmiEmpleado.addActionListener(this);
         this.admin.jmiClienteConsu.addActionListener(this);
         this.admin.jmiEmpleadoConsu.addActionListener(this);
-        this.admin.cerrar.addActionListener(this);
+        this.admin.jmiCerrarSesion.addActionListener(this);
         this.admin.btnPorcion.addActionListener(this);
         this.admin.btnConsultarEm.addActionListener(this);
         this.admin.btnEliminarEmp.addActionListener(this);
@@ -78,48 +79,48 @@ public class loginCtrl implements ActionListener {
         this.admin.btnPedidosListo.addActionListener(this);
     }
 
-     public void listarMesas(JTable tblEleccionMesa) throws SQLException{
+    public void listarMesas(JTable tblEleccionMesa) throws SQLException {
         System.out.println("aa");
         modelo = (DefaultTableModel) tblEleccionMesa.getModel();
         modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
-        
-        try{
+
+        try {
             List<mesas> estadoMes = mDAO.estadoMesas();
-             Object[] object = new Object[2];
-             
-             for (int i =0; i <estadoMes.size(); i++ ){
-                  object[0] = estadoMes.get(i).getIdMesas();
-                  object[1] = estadoMes.get(i).getEstadoMesa();
-                  
-                  modelo.addRow(object);
-             }     
-         modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+            Object[] object = new Object[2];
+
+            for (int i = 0; i < estadoMes.size(); i++) {
+                object[0] = estadoMes.get(i).getIdMesas();
+                object[1] = estadoMes.get(i).getEstadoMesa();
+
+                modelo.addRow(object);
+            }
+            modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
         } catch (SQLException ex) {
             Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
-          public void listarPlatosPedidos(JTable tblStockProductos) throws SQLException{
+
+    public void listarPlatosPedidos(JTable tblStockProductos) throws SQLException {
         System.out.println("aa");
         modelo = (DefaultTableModel) tblStockProductos.getModel();
         modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
-        
-        try{
+
+        try {
             List<platoProducto> plato = plDAO.platos();
-             Object[] object = new Object[3];
-             
-             for (int i =0; i <plato.size(); i++ ){
-                  object[0] = plato.get(i).getId_plato();
-                  object[1] = plato.get(i).getNombreProd();
-                  object[2] = plato.get(i).getCantidad();
-                  modelo.addRow(object);
-             }     
-         modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+            Object[] object = new Object[3];
+
+            for (int i = 0; i < plato.size(); i++) {
+                object[0] = plato.get(i).getId_plato();
+                object[1] = plato.get(i).getNombreProd();
+                object[2] = plato.get(i).getCantidad();
+                modelo.addRow(object);
+            }
+            modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
         } catch (SQLException ex) {
             Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     //CAMBIAR PANELES
     public void pedidosAggPaneles() {
         admin.jTabbedPane.setSelectedIndex(1);
@@ -146,8 +147,15 @@ public class loginCtrl implements ActionListener {
     }
 
     public void cerrarSesion() throws FontFormatException, IOException {
-        int a = JOptionPane.showConfirmDialog(admin.cerrar, "¿Desea cerrar sesion?");
-        if (a == JOptionPane.YES_OPTION) {
+        int option = JOptionPane.showOptionDialog(admin,
+                "¿Desea continuar?",
+                "Confirmación",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                new String[]{"Sí", "No"},
+                "Sí");
+        if (option == JOptionPane.YES_OPTION) {
             admin.dispose();
             ventanaLogin login = new ventanaLogin();
             loginCtrl lox = new loginCtrl(login);
@@ -203,7 +211,7 @@ public class loginCtrl implements ActionListener {
                 object[3] = listarClientes.get(i).getCedulaEmpl();
                 object[4] = listarClientes.get(i).getDireccion();
                 object[5] = listarClientes.get(i).getCelEmpl();
-                
+
                 modelo.addRow(object);
             }
 
@@ -238,7 +246,6 @@ public class loginCtrl implements ActionListener {
             cliente.setCedulaEmpl(cedulaCliente);
             cliente.setDireccion(direccionCliente);
             cliente.setCelEmpl(celularCliente);
-            
 
             int r = cliD.agregarCliente(cliente);
             if (r == 1) {
@@ -346,59 +353,59 @@ public class loginCtrl implements ActionListener {
         // admin.txtCedulaC.requestFocus();
     }
 
- public void btnAgregarEmple() throws SQLException {
-    regEmpleado empleado = new regEmpleado() {};
-    regEmpleadoDAO dao = new regEmpleadoDAO();
+    public void btnAgregarEmple() throws SQLException {
+        regEmpleado empleado = new regEmpleado() {
+        };
+        regEmpleadoDAO dao = new regEmpleadoDAO();
 
-    String nombreEm = admin.txtNombreE.getText();
-    String apellidoEm = admin.txtApellidoE.getText();
-    String usuarioEm = admin.txtUserE.getText();
-    String claveEm = new String(admin.txtClaveE.getText());
-    int id_rol = 0;
-    Integer docEmp = 0;
-    Integer celEm = 0;
+        String nombreEm = admin.txtNombreE.getText();
+        String apellidoEm = admin.txtApellidoE.getText();
+        String usuarioEm = admin.txtUserE.getText();
+        String claveEm = new String(admin.txtClaveE.getText());
+        int id_rol = 0;
+        Integer docEmp = 0;
+        Integer celEm = 0;
 
-    try {
-        if (!admin.txtDocE.getText().isEmpty()) {
-            docEmp = Integer.parseInt(admin.txtDocE.getText());
+        try {
+            if (!admin.txtDocE.getText().isEmpty()) {
+                docEmp = Integer.parseInt(admin.txtDocE.getText());
+            }
+            if (!admin.txtCelE.getText().isEmpty()) {
+                celEm = Integer.parseInt(admin.txtCelE.getText());
+            }
+            if (admin.cmbEmpleado.getSelectedItem().equals("Administrador")) {
+                id_rol = 111;
+            } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
+                id_rol = 222;
+            } else if (admin.cmbEmpleado.getSelectedItem().equals("Mesero")) {
+                id_rol = 333;
+            }
+
+            empleado.setNombreEmpl(nombreEm);
+            empleado.setApellidoEmpl(apellidoEm);
+            empleado.setCedulaEmpl(docEmp);
+            empleado.setCelEmpl(celEm);
+            empleado.setUserEmpl(usuarioEm);
+            empleado.setClaveEmpl(hash.sha1(claveEm));
+            empleado.setIdRol(id_rol);
+
+            int r = dao.agregarEmpleado(empleado);
+
+            if (r == 1) {
+                JOptionPane.showMessageDialog(admin, "Registro exitoso");
+            } else {
+                JOptionPane.showMessageDialog(admin, "Error al registrar empleado");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
         }
-        if (!admin.txtCelE.getText().isEmpty()) {
-            celEm = Integer.parseInt(admin.txtCelE.getText());
-        }
-        if (admin.cmbEmpleado.getSelectedItem().equals("Administrador")) {
-            id_rol = 111;
-        } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
-            id_rol = 222;
-        } else if (admin.cmbEmpleado.getSelectedItem().equals("Mesero")) {
-            id_rol = 333;
-        }
 
-        empleado.setNombreEmpl(nombreEm);
-        empleado.setApellidoEmpl(apellidoEm);
-        empleado.setCedulaEmpl(docEmp);
-        empleado.setCelEmpl(celEm);
-        empleado.setUserEmpl(usuarioEm);
-        empleado.setClaveEmpl(hash.sha1(claveEm));
-        empleado.setIdRol(id_rol);
-
-        int r = dao.agregarEmpleado(empleado);
-
-        if (r == 1) {
-            JOptionPane.showMessageDialog(admin, "Registro exitoso");
-        } else {
-            JOptionPane.showMessageDialog(admin, "Error al registrar empleado");
-        }
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
+        // Llamar a métodos después de la operación try-catch
+        listarEmpleado(admin.tblEmpleados);
+        limpiartabla();
     }
-    
-    // Llamar a métodos después de la operación try-catch
-    listarEmpleado(admin.tblEmpleados);
-    limpiartabla();
-}
 
-
-  public void btnModificarEmple() throws SQLException {
+    public void btnModificarEmple() throws SQLException {
         regEmpleado em = new regEmpleado() {
         };
         regEmpleadoDAO dao = new regEmpleadoDAO();
@@ -416,7 +423,7 @@ public class loginCtrl implements ActionListener {
                 id_rol = 111;
             } else if (admin.cmbEmpleado.getSelectedItem().equals("Cajero")) {
                 id_rol = 222;
-            }else if (admin.cmbEmpleado.getSelectedItem().equals("Mesero")) {
+            } else if (admin.cmbEmpleado.getSelectedItem().equals("Mesero")) {
                 id_rol = 333;
             }
             em.setIdRol(id_rol);
@@ -608,85 +615,94 @@ public class loginCtrl implements ActionListener {
         }
         //Guardar datos de BEBIDAS
     }
-    
- public void ingresarPedidos(KeyEvent evt) throws SQLException {
-    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtCantidadProPed.getText())) {
-            tmpPedidos tp = new tmpPedidos(){};
-            tp.setIdMesas(Integer.parseInt(admin.txtMesaId.getText()));
-            String meseroSeleccionadoStr = (String) admin.jcbMesero.getSelectedItem();
-            int meseroSeleccionadoInt = Integer.parseInt(meseroSeleccionadoStr);
-            tp.setMesero(meseroSeleccionadoInt);
-            tp.setProducto(admin.txtNomProducPed.getText());
-            tp.setCantidad(Integer.parseInt(admin.txtCantidadProPed.getText()));
-            String est = "PENDIENTE";
-            tp.setEstado(est);
-            
-            // Obtener la hora actual como un String en formato HH:mm
-            LocalDateTime ahora = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-            String horaActual = ahora.format(formatter);
-            tp.setHora(horaActual);
-            
-            int r = peD.agregarPedidos(tp, est);
-            if (r == 1) {
-                JOptionPane.showMessageDialog(admin, "Registro exitoso");
-                listaPedidos(admin.tblPedidoPendiente);
+
+    public void ingresarPedidos(KeyEvent evt) throws SQLException {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtCantidadProPed.getText())) {
+                tmpPedidos tp = new tmpPedidos() {
+                };
+                tp.setIdMesas(Integer.parseInt(admin.txtMesaId.getText()));
+                String meseroSeleccionadoStr = (String) admin.jcbMesero.getSelectedItem();
+                int meseroSeleccionadoInt = Integer.parseInt(meseroSeleccionadoStr);
+                tp.setMesero(meseroSeleccionadoInt);
+                tp.setProducto(admin.txtNomProducPed.getText());
+                tp.setCantidad(Integer.parseInt(admin.txtCantidadProPed.getText()));
+                String est = "PENDIENTE";
+                tp.setEstado(est);
+
+                // Obtener la hora actual como un String en formato HH:mm
+                LocalDateTime ahora = LocalDateTime.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+                String horaActual = ahora.format(formatter);
+                tp.setHora(horaActual);
+
+                int r = peD.agregarPedidos(tp, est);
+                if (r == 1) {
+                    JOptionPane.showMessageDialog(admin, "Registro exitoso");
+                    listaPedidos(admin.tblPedidoPendiente);
+                } else {
+                    JOptionPane.showMessageDialog(admin, "Error al registrar pedido");
+                }
             } else {
-                JOptionPane.showMessageDialog(admin, "Error al registrar pedido");
+                JOptionPane.showMessageDialog(admin, "Ingrese la cantidad del producto");
             }
-        } else {
-            JOptionPane.showMessageDialog(admin, "Ingrese la cantidad del producto");
         }
     }
-}
 
-   public void listaPedidos(JTable tblPedidoPendiente) throws SQLException {
-    DefaultTableModel modelo = (DefaultTableModel) tblPedidoPendiente.getModel();
-    modelo.setRowCount(0);
-    String est = "";
-    try {
-        List<tmpPedidos> listarPed = peD.listaPedidoPendiente();
-        Object[] object = new Object[8]; // Solo hay 6 columnas según tu código
+    public void listaPedidos(JTable tblPedidoPendiente) throws SQLException {
+        DefaultTableModel modelo = (DefaultTableModel) tblPedidoPendiente.getModel();
+        modelo.setRowCount(0);
+        String est = "";
+        try {
+            List<tmpPedidos> listarPed = peD.listaPedidoPendiente();
+            Object[] object = new Object[8]; // Solo hay 6 columnas según tu código
 
-        for (int i = 0; i < listarPed.size(); i++) {
-            object[0] = listarPed.get(i).getIdPedidos();
-            object[1] = listarPed.get(i).getIdMesas();
-            object[2] = listarPed.get(i).getMesero();
-            object[3] = listarPed.get(i).getProducto();
-            object[4] = listarPed.get(i).getCantidad();
-            object[5] = listarPed.get(i).getEstado();
-            object[6] = listarPed.get(i).getHora();
+            for (int i = 0; i < listarPed.size(); i++) {
+                object[0] = listarPed.get(i).getIdPedidos();
+                object[1] = listarPed.get(i).getIdMesas();
+                object[2] = listarPed.get(i).getMesero();
+                object[3] = listarPed.get(i).getProducto();
+                object[4] = listarPed.get(i).getCantidad();
+                object[5] = listarPed.get(i).getEstado();
+                object[6] = listarPed.get(i).getHora();
 
-            // Agregar el objeto al modelo de la tabla
-            modelo.addRow(object);
+                // Agregar el objeto al modelo de la tabla
+                modelo.addRow(object);
+            }
+
+            // Asignar el modelo actualizado a la tabla
+            tblPedidoPendiente.setModel(modelo);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        // Asignar el modelo actualizado a la tabla
-        tblPedidoPendiente.setModel(modelo);
-
-    } catch (SQLException e) {
-        e.printStackTrace();
     }
-} 
-    
-   public void pedidosListo(KeyEvent evt) throws SQLException{
-       if (evt.getKeyCode()== KeyEvent.VK_ENTER){
-           if(!"".equals(admin.txtIdPedidoConse.getText())){  
-               tmpPedidos tp = new tmpPedidos(){};
-               String est = "LISTO";
-               tp.setEstado(est);
-           }else{
-               JOptionPane.showMessageDialog(admin, "Ingrese el ID del pedido"); 
-               return;
-           }
-       }
-       peD.actualizarPedidoListo();
-       listaPedidos(admin.tblPedidoListo);
-       JOptionPane.showMessageDialog(admin, "Correcto");
-   }
-   
-   
+
+    public void pedidosListo(KeyEvent evt) throws SQLException {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtIdPedidoConse.getText())) {
+                tmpPedidos tp = new tmpPedidos() {
+                };
+                tp.setIdPedidos(Integer.parseInt(admin.txtIdPedidoConse.getText()));
+                String est = "Listo";
+                tp.setEstado(est);
+
+                pedidosDAO peD = new pedidosDAO();
+
+                // Verificar si el pedido ya está en estado "Listo"
+                if (peD.verificarEstadoListo(tp)) {
+                    JOptionPane.showMessageDialog(admin, "El pedido ya se encuentra en estado Listo.");
+                } else {
+                    peD.actualizarPedidoListo(tp);
+                    listaPedidos(admin.tblPedidoListo);
+                    JOptionPane.showMessageDialog(admin, "Pedido actualizado correctamente.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "Ingrese el ID del pedido");
+            }
+        }
+    }
+
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -701,7 +717,6 @@ public class loginCtrl implements ActionListener {
             pedidosAggPaneles();
         }
         if (e.getSource() == admin.jmiClientes) {
-
             clienteAggPaneles();
         }
         if (e.getSource() == admin.jmiEmpleado) {
@@ -836,42 +851,40 @@ public class loginCtrl implements ActionListener {
         if (e.getSource() == admin.btnActblE) {
             listarEmpleado(admin.tblEmpleados);
         }
-        if(e.getSource()== admin.btnActuaMesa){
+        if (e.getSource() == admin.btnActuaMesa) {
             try {
                 listarMesas(admin.tblEleccionMesa);
             } catch (SQLException ex) {
-                System.out.println(ex);       
+                System.out.println(ex);
             }
         }
-        if (e.getSource() == admin.btnAggPedidos){
-            
+        if (e.getSource() == admin.btnAggPedidos) {
+
             try {
-                 KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+                KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
                 ingresarPedidos(fakeEvent);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
-             
+
         }
-        if(e.getSource()== admin.btnActuaProdPedi){
-            try
-            {
+        if (e.getSource() == admin.btnActuaProdPedi) {
+            try {
                 listarPlatosPedidos(admin.tblStockProductos);
-            } catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        if(e.getSource()== admin.btnActuaTabPenPet){
+
+        if (e.getSource() == admin.btnActuaTabPenPet) {
             try {
                 listaPedidos(admin.tblPedidoPendiente);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        if(e.getSource()== admin.btnPedidosListo){
+
+        if (e.getSource() == admin.btnPedidosListo) {
             KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 pedidosListo(fakeEvent);
@@ -880,7 +893,4 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
-    
-    
-    
 }
