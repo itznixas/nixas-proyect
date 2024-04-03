@@ -239,6 +239,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnMesa1 = new javax.swing.JButton();
         btnMesa4 = new javax.swing.JButton();
         btnMesa5 = new javax.swing.JButton();
+        jPanel26 = new javax.swing.JPanel();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmiOrdenes = new javax.swing.JMenuItem();
@@ -1547,6 +1548,19 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Mesas", jPanel1);
 
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1370, Short.MAX_VALUE)
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 725, Short.MAX_VALUE)
+        );
+
+        jTabbedPane.addTab("tab11", jPanel26);
+
         getContentPane().add(jTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 760));
 
         MenuBar.setBackground(new java.awt.Color(0, 0, 0));
@@ -1914,6 +1928,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
