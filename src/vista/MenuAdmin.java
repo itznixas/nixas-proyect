@@ -1311,6 +1311,11 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tblInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblInventarioMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(tblInventario);
 
         jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 830, 490));
@@ -1679,48 +1684,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnAgregarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCActionPerformed
         // TODO add your handling code here:
-        // Crear una instancia de la clase regEmpleado y clienteDAO
 
-        /*
-        // Obtener datos del formulario
-        String nombreCliente = txtNombreC.getText().trim();
-        String apellidoCliente = txtApellidoC.getText().trim();
-        String cedulaText = txtCedulaC.getText().trim();
-        String celularText = txtTelefonoC.getText().trim();
-        String direccionCliente = txtDireccionC.getText().trim();
-
-        // Validar que los campos no estén vacíos
-        if (nombreCliente.isEmpty() || apellidoCliente.isEmpty() || cedulaText.isEmpty() ||
-            celularText.isEmpty() || direccionCliente.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor complete todos los campos.");
-            return; // Salir del método si algún campo está vacío
-        }
-
-        try {
-            // Convertir cadenas a enteros
-            int cedulaCliente = Integer.parseInt(cedulaText);
-            int celularCliente = Integer.parseInt(celularText);
-
-            // Establecer los datos en la instancia del cliente
-            cliente.setNombreEmpl(nombreCliente);
-            cliente.setApellidoEmpl(apellidoCliente);
-            cliente.setCedulaEmpl(cedulaCliente);
-            cliente.setCelEmpl(celularCliente);
-            cliente.setDireccion(direccionCliente);
-
-            // Llamar al método de clienteDAO para agregar el cliente
-            int r = cliD.agregarCliente(cliente);
-
-            if (r == 1) {
-                JOptionPane.showMessageDialog(this, "Registro exitoso!!!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al agregar el cliente, intente de nuevo");
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Error: La cédula o celular debe ser un número válido.");
-            e.printStackTrace(); // Imprimir la traza de la excepción para depuración
-        }
-         */
     }//GEN-LAST:event_btnAgregarCActionPerformed
 
     private void btnAggProInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggProInvActionPerformed
@@ -1763,7 +1727,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             // Verificar si se ha seleccionado una fila válida
             if (fSeleccionada != -1) {
                 Object valorCelda = tblEmpleados.getValueAt(fSeleccionada, cSeleccionada);
-                JOptionPane.showMessageDialog(null, "La verdadera contraseña es: " + valorCelda.toString());
+                JOptionPane.showMessageDialog(null, "La verdadera contraseña es: " + new String(valorCelda.toString()));
             }
         }
         
@@ -1835,6 +1799,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cerrarActionPerformed
+
+    private void tblInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInventarioMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tblInventarioMouseClicked
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
