@@ -13,28 +13,41 @@ public class inventarioDAO {
          PreparedStatement ps;
          ResultSet rs;
          
-         public int agregarPedidoEntrada(inventario inv) throws SQLException{
-             int r = 0;
-             String sql = "INSERT INTO iv_prod_ent (id_prod_ent, nombre, cantidad, fecha)"
-                     + "VALUES (?, ?, ?, ?)";
-             try{
-                cn = con.getConnection();
-                ps = cn.prepareStatement(sql);
-                ps.setString(2, inv.getNomEntrada());
-                ps.setInt(3, inv.getCantEntrada());
-                ps.setString(4,inv.getFechaInvEntrada());
-                ps.executeUpdate();
-                if(r == 1){
-                        return 1;
-                    }else{
-                        return 0;
-                    }
-             }catch (SQLException e){
-        System.out.println("Error al agregar producto de entrada " + e.getMessage());
+        public int agregarPedidoEntrada(inventario inv) throws SQLException {
+    String sql = "INSERT INTO iv_prod_ent (nombre, cantidad, fecha) VALUES (?, ?, ?)";
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.setString(1, inv.getNomEntrada());
+        ps.setInt(2, inv.getCantEntrada());
+        ps.setString(3, inv.getFechaInvEntrada());
+        
+        int r = ps.executeUpdate();
+        if (r == 1) {
+            // Obtener el ID generado para iv_prod_ent
+            rs = ps.getGeneratedKeys();
+            int idGenerado = -1;
+            if (rs.next()) {
+                idGenerado = rs.getInt(1);
+                inv.setIdProEntrada(idGenerado);
+            }
+            System.out.println("ID generado para iv_prod_ent: " + idGenerado);
+            return 1;
+        } else {
+            return 0;
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al agregar pedido de entrada " + e.getMessage());
         return 0;
+    } finally {
+        // Cerrar conexiones y recursos
+        if (rs != null) rs.close();
+        if (ps != null) ps.close();
+        if (cn != null) cn.close();
     }
-         }
-         
+}
+
+         inventario inv = new inventario();
     public int agregarPedidoSal(inventario inv) throws SQLException {
         int r = 0;
         String sql = "INSERT INTO iv_prod_sal (id_prod_sal, nombre, cantidad, fecha)"
@@ -83,27 +96,40 @@ public class inventarioDAO {
         return r;
     }
     
-    public int agregarPedidoSalida(inventario inv) throws SQLException{
-             int r = 0;
-             String sql = "INSERT INTO iv_prod_sal (id_prod_sal, nombre, cantidad, fecha)"
-                     + "VALUES (?, ?, ?, ?)";
-             try{
-                cn = con.getConnection();
-                ps = cn.prepareStatement(sql);
-                ps.setString(2, inv.getNomSalida());
-                ps.setInt(3, inv.getCantSalida());
-                ps.setString(4,inv.getFechaInvSalida());
-                ps.executeUpdate();
-                if(r == 1){
-                        return 1;
-                    }else{
-                        return 0;
-                    }
-             }catch (SQLException e){
-        System.out.println("Error al agregar producto de salida " + e.getMessage());
+    public int agregarPedidoSalida(inventario inv) throws SQLException {
+    String sql = "INSERT INTO iv_prod_sal (nombre, cantidad, fecha) VALUES (?, ?, ?)";
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.setString(1, inv.getNomSalida());
+        ps.setInt(2, inv.getCantSalida());
+        ps.setString(3, inv.getFechaInvSalida());
+        
+        int r = ps.executeUpdate();
+        if (r == 1) {
+            // Obtener el ID generado para iv_prod_sal
+            rs = ps.getGeneratedKeys();
+            int idGenerado = -1;
+            if (rs.next()) {
+                idGenerado = rs.getInt(1);
+                inv.setIdProSalida(idGenerado);
+            }
+            System.out.println("ID generado para iv_prod_sal: " + idGenerado);
+            return 1;
+        } else {
+            return 0;
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al agregar pedido de salida " + e.getMessage());
         return 0;
-    }         
-         }
+    } finally {
+        // Cerrar conexiones y recursos
+        if (rs != null) rs.close();
+        if (ps != null) ps.close();
+        if (cn != null) cn.close();
+    }
+}
+
    
     
     public int agregarInvetario(inventario inv) throws SQLException{

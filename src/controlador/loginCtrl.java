@@ -749,9 +749,9 @@ public class loginCtrl implements ActionListener {
               
                     int r = inDAO.agregarPedidoEntrada(in);
                     if (r == 1) {
-                        JOptionPane.showMessageDialog(admin, "Error");
+                        JOptionPane.showMessageDialog(admin, "Producto ingresado");
                     } else {
-                        JOptionPane.showMessageDialog(admin, "Exito en el Registro");
+                        JOptionPane.showMessageDialog(admin, "Error");
                     }        
         } else {
             JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
@@ -773,14 +773,14 @@ public class loginCtrl implements ActionListener {
                
             
             inventarioDAO dao = new inventarioDAO();
-            if(dao.productoExiste(in)){
-                    
+            if(dao.productoExiste(in)){                   
                     JOptionPane.showMessageDialog(admin, "EXISTE");
                     int r = inDAO.agregarPedidoSalida(in);
                     if (r == 1) {
-                        JOptionPane.showMessageDialog(admin, "Error");
-                    } else {
                         JOptionPane.showMessageDialog(admin, "Exito en el Registro");
+                        AggInventario();
+                    } else {
+                        JOptionPane.showMessageDialog(admin, "Error");
                     }
                }else{
                     JOptionPane.showMessageDialog(admin, "Producto NO EXISTE");  
@@ -792,6 +792,23 @@ public class loginCtrl implements ActionListener {
 }
      }
 
+     public void AggInventario() throws SQLException{
+         in.getFechaInvSalida();
+         in.getCantEntrada();
+         in.getCantSalida();
+         in.getFechaInvSalida();
+         int r = inDAO.agregarInvetario(in);
+         if (r == 1) {
+                        JOptionPane.showMessageDialog(admin, "Producto ingresado");
+                    } else {
+                        JOptionPane.showMessageDialog(admin, "Error");
+                    }       
+     }
+     
+     public void limpiarCajaInventario(){
+         admin.txtNomProdInv.setText(null);
+         admin.txtCanProdInv.setText(null);
+     }
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -986,6 +1003,7 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 ingresarInvenEntrada(fakeEvent);
+                limpiarCajaInventario();
                 //listaPedidosListo(admin.tblPedidoListo);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -995,6 +1013,7 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 ingresarInvenSalida(fakeEvent);
+                limpiarCajaInventario();
                 //listaPedidosListo(admin.tblPedidoListo);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
