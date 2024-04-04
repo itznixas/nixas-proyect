@@ -56,8 +56,8 @@ public class porcionesDAO {
         cn = con.getConnection();
         ps = cn.prepareStatement(sql);
         ps.setString(2, pro.getNombreProd());
-        ps.setString(3, Integer.toString(pro.getCantidad()));
-        ps.setString(4, Float.toString(pro.getPrecio()));
+        ps.setInt(3, pro.getCantidad());
+        ps.setFloat(4, pro.getPrecio());
         ps.executeUpdate();
     if(r == 1){
         return 1;
@@ -67,17 +67,6 @@ public class porcionesDAO {
     }catch (SQLException e){
         System.out.println("Error al agregar la porcion " + e.getMessage());
         return 0;
-    }finally{
-         try {
-            if (ps != null) {
-                ps.close();
-                }
-                    if (cn != null) {
-                        cn.close();
-                    }
-                } catch (SQLException ex) {
-                    ex.printStackTrace(); // Manejar cualquier excepción al cerrar recursos
-                }
     }
     }
     

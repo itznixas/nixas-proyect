@@ -608,7 +608,7 @@ public class loginCtrl implements ActionListener {
                 if (r == 1) {
                     JOptionPane.showMessageDialog(admin, "Registro exitoso");
                 } else {
-                    JOptionPane.showMessageDialog(admin, "Error al registrar empleado");
+                    JOptionPane.showMessageDialog(admin, "Error");
                 }
             }
         } catch (NumberFormatException e) {
@@ -759,12 +759,9 @@ public class loginCtrl implements ActionListener {
     }
     }
     
-     public void ingresarInvenSalida(KeyEvent evt) throws SQLException {
-    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtNomProdInv.getText())) {
-            
-            in.setNomSalida(admin.txtNomProdInv.getText());
-            in.setCantSalida(Integer.parseInt(admin.txtCanProdInv.getText()));
+     public void ingresarInvenSalida() throws SQLException {    
+            in.setNomSalida(admin.txtNombreP.getText());
+            in.setCantSalida(Integer.parseInt(admin.txtCantidadP.getText()));
             
             LocalDate fechaActual = LocalDate.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -786,24 +783,38 @@ public class loginCtrl implements ActionListener {
                     JOptionPane.showMessageDialog(admin, "Producto NO EXISTE");  
                }
           
-        } else {
-            JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
-        }
-}
+       
+
      }
 
-     public void AggInventario() throws SQLException{
+    public void AggInventario() {
+    try {
+        inventarioDAO da = new inventarioDAO();
+        System.out.println(in.getNomSalida());
+        // Obtener valores del objeto in y asignarlos a variables
+         in.getNomSalida();
          in.getFechaInvSalida();
          in.getCantEntrada();
          in.getCantSalida();
-         in.getFechaInvSalida();
-         int r = inDAO.agregarInvetario(in);
-         if (r == 1) {
-                        JOptionPane.showMessageDialog(admin, "Producto ingresado");
-                    } else {
-                        JOptionPane.showMessageDialog(admin, "Error");
-                    }       
-     }
+
+        // Verificar si el producto ya existe en la base de datos
+        if (da.productoExiste(in)) {
+            int r = da.agregarInvetario(in); // Se asume que el método es agregarInventario, ajusta según tu DAO
+
+            if (r == 1) {
+                JOptionPane.showMessageDialog(admin, "Producto ingresado");
+            } else {
+                JOptionPane.showMessageDialog(admin, "Error, no se pudo ingresar al inventario");
+            }     
+        } else {
+            JOptionPane.showMessageDialog(admin, "Error, no se encuentra el producto");
+        }
+    } catch (SQLException e) {
+        // Manejar la excepción SQL aquí (mostrar mensaje, registrar en log, etc.)
+        JOptionPane.showMessageDialog(admin, "Error SQL: " + e.getMessage());
+    }
+}
+
      
      public void limpiarCajaInventario(){
          admin.txtNomProdInv.setText(null);
@@ -924,7 +935,15 @@ public class loginCtrl implements ActionListener {
             }
         }
         if (e.getSource() == admin.btnPorcion) {
-            btnAgregarPorcion();
+            
+            try
+            {
+                btnAgregarPorcion();
+                ingresarInvenSalida();
+            } catch (SQLException ex)
+            {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         if (e.getSource() == admin.btnConsultarEm) {
             try {
@@ -1009,15 +1028,7 @@ public class loginCtrl implements ActionListener {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-                 if (e.getSource() == admin.btnAggSalida) {
-            KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-            try {
-                ingresarInvenSalida(fakeEvent);
-                limpiarCajaInventario();
-                //listaPedidosListo(admin.tblPedidoListo);
-            } catch (SQLException ex) {
-                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
         }
     }
-}
+

@@ -139,7 +139,7 @@ public class inventarioDAO {
              try{
                 cn = con.getConnection();
                 ps = cn.prepareStatement(sql);
-                ps.setString(2, inv.getNomEntrada());
+                ps.setString(2, inv.getNomSalida());
                 ps.setInt(3, inv.getCantEntrada());
                 ps.setInt(4, inv.getCantSalida());
                 ps.setString(5,inv.getFechaInvSalida());
@@ -159,6 +159,22 @@ public class inventarioDAO {
     
     public boolean productoExiste(inventario in) throws SQLException {
         String sql = "SELECT nombre FROM iv_prod_ent WHERE nombre = ?";
+        try (Connection cn = con.getConnection(); PreparedStatement ps = cn.prepareStatement(sql)) {
+            ps.setString(1, in.getNomSalida());
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String nombree = rs.getString("nombre");
+                    return in.getNomSalida().equalsIgnoreCase(nombree); // Verificar si el estado es "Listo"
+                } else {
+                    // El pedido no fue encontrado en la base de datos
+                    return false;
+                }
+            }
+        }
+    }
+    
+     public boolean nombreInvExi(inventario in) throws SQLException {
+        String sql = "SELECT nombre FROM iv_temp WHERE nombre = ?";
         try (Connection cn = con.getConnection(); PreparedStatement ps = cn.prepareStatement(sql)) {
             ps.setString(1, in.getNomSalida());
             try (ResultSet rs = ps.executeQuery()) {
