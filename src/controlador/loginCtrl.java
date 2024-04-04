@@ -745,18 +745,19 @@ public class loginCtrl implements ActionListener {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             String fechaFormateada = fechaActual.format(formatter);
             in.setFechaInvEntrada(fechaFormateada);
-               
-            int r = inDAO.agregarPedidoEntrada(in);
-            if (r == 1) {
-                JOptionPane.showMessageDialog(admin, "Error exitoso");
-            } else {
-                JOptionPane.showMessageDialog(admin, "Exito en el Registro");
-            }
+              
+              
+                    int r = inDAO.agregarPedidoEntrada(in);
+                    if (r == 1) {
+                        JOptionPane.showMessageDialog(admin, "Error");
+                    } else {
+                        JOptionPane.showMessageDialog(admin, "Exito en el Registro");
+                    }        
         } else {
             JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
         }
     }
-}
+    }
     
      public void ingresarInvenSalida(KeyEvent evt) throws SQLException {
     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -771,24 +772,26 @@ public class loginCtrl implements ActionListener {
             in.setFechaInvSalida(fechaFormateada);
                
             
-           
-             int r = inDAO.agregarPedidoSalida(in);
-            if (r == 1) {
-                JOptionPane.showMessageDialog(admin, "Error exitoso");
-            } else {
-                JOptionPane.showMessageDialog(admin, "Exito en el Registro");
-            } 
-            }else{
-               JOptionPane.showMessageDialog(admin, "No se encuentra producto"); 
-            }
+            inventarioDAO dao = new inventarioDAO();
+            if(dao.productoExiste(in)){
+                    
+                    JOptionPane.showMessageDialog(admin, "EXISTE");
+                    int r = inDAO.agregarPedidoSalida(in);
+                    if (r == 1) {
+                        JOptionPane.showMessageDialog(admin, "Error");
+                    } else {
+                        JOptionPane.showMessageDialog(admin, "Exito en el Registro");
+                    }
+               }else{
+                    JOptionPane.showMessageDialog(admin, "Producto NO EXISTE");  
+               }
           
         } else {
             JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
         }
 }
-        public void AgregarInventario(){
-            
-        }
+     }
+
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {

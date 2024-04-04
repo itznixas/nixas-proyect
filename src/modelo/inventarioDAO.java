@@ -131,37 +131,19 @@ public class inventarioDAO {
     }         
          }
     
-   public String productEntradaExiste(inventario in) {
-    String sql = "SELECT nombre FROM iv_prod_ent WHERE nombre = ?";
-    boolean existe = false;
-    try {
-        cn = con.getConnection();
-        ps = cn.prepareStatement(sql);
-        ps.setString(1, in.getNomSalida());
-        ResultSet rs = ps.executeQuery();
-        // Verificar si se encontraron resultados en la consulta
-        if (rs.next()) {
-            return rs.getString("nombre");// El producto ya existe en la base de datos
-        }
-    } catch (SQLException e) {
-        System.out.println("Error al verificar existencia del producto de entrada: " + e.getMessage());
-    } finally {
-            // Cerrar recursos en el bloque finally
-            try {
-                if (rs != null) {
-                    rs.close();
+    public boolean productoExiste(inventario in) throws SQLException {
+        String sql = "SELECT nombre FROM iv_prod_ent WHERE nombre = ?";
+        try (Connection cn = con.getConnection(); PreparedStatement ps = cn.prepareStatement(sql)) {
+            ps.setString(1, in.getNomSalida());
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String nombree = rs.getString("nombre");
+                    return in.getNomSalida().equalsIgnoreCase(nombree); // Verificar si el estado es "Listo"
+                } else {
+                    // El pedido no fue encontrado en la base de datos
+                    return false;
                 }
-                if (ps != null) {
-                    ps.close();
-                }
-                if (cn != null) {
-                    cn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.toString());
             }
         }
-             return null;
-}
-
+    }
 }
