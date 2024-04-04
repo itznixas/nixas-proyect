@@ -1,6 +1,8 @@
 package modelo;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -152,7 +154,7 @@ public class inventarioDAO {
                         return 0;
                     }
              }catch (SQLException e){
-        System.out.println("Error al agregar producto de salida " + e.getMessage());
+        System.out.println("Error al agregar" + e.getMessage());
         return 0;
     }         
          }
@@ -173,19 +175,47 @@ public class inventarioDAO {
         }
     }
     
-     public boolean nombreInvExi(inventario in) throws SQLException {
-        String sql = "SELECT nombre FROM iv_temp WHERE nombre = ?";
-        try (Connection cn = con.getConnection(); PreparedStatement ps = cn.prepareStatement(sql)) {
-            ps.setString(1, in.getNomSalida());
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    String nombree = rs.getString("nombre");
-                    return in.getNomSalida().equalsIgnoreCase(nombree); // Verificar si el estado es "Listo"
-                } else {
-                    // El pedido no fue encontrado en la base de datos
-                    return false;
-                }
+    public boolean existeNombreEnInventario(inventario in) throws SQLException {
+    String sql = "SELECT nombre, id_prod_ent FROM iv_prod_ent WHERE nombre=?";
+    try (Connection cn = con.getConnection(); PreparedStatement ps = cn.prepareStatement(sql)) {
+        ps.setString(1, in.getNomSalida());
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                String nombreEnDB = rs.getString("nombre");
+                // Verificar si el nombre obtenido de la base de datos es igual al nombre proporcionado (ignorando mayúsculas y minúsculas)
+                return in.getNomSalida().equalsIgnoreCase(nombreEnDB);
+            } else {
+                return false;
             }
         }
+    } catch (SQLException e) {
+        // Manejar cualquier excepción de SQL
+        e.printStackTrace();
+        throw e; // Propagar la excepción hacia arriba
+    }
+}
+
+    public List listaInventario()throws SQLException{
+        String sql = "SELECT * FROM iv_temp";
+        List<inventario> lista_inventario = new ArrayList<>();
+        try{
+             cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                inventario inv = new inventario();
+                inv.setIdIvTmp(rs.getInt("id_iv_temp"));
+                inv.setNomSalida(rs.getString("nombre"));
+                inv.setCantEntrada(rs.getInt("cant_ent"));
+                inv.setCantSalida(rs.getInt("cant_sal"));
+                inv.setFechaInvSalida(rs.getString("fecha"));
+                inv.setIdProSalida(rs.getInt("iv_prod_sal_id_prod_sal"));
+                inv.setIdProEntrada(rs.getInt("iv_prod_ent_id_prod_ent"));
+                lista_inventario.add(inv);
+            }
+            }catch (SQLException e) {
+            System.out.println("error" + e.getMessage());
+        }
+        return lista_inventario;
     }
 }

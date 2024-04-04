@@ -47,11 +47,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblEmpleados.getColumnModel().getColumn(5).setCellRenderer(TablaRenderer);
 
         //Tabla Inventario
-        tblInventario1.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
-        tblInventario1.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
-        tblInventario1.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
-        tblInventario1.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
-        tblInventario1.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
+        tblInventario.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
+        tblInventario.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
+        tblInventario.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
+        tblInventario.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
+        tblInventario.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
         
         tblEleccionMesa.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
         tblEleccionMesa.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
@@ -206,15 +206,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        tblInventario1 = new javax.swing.JTable();
+        tblInventario = new javax.swing.JTable();
         jComboBox3 = new javax.swing.JComboBox<>();
         txtNombreC5 = new componentes.TextField();
         txtApellidoC3 = new componentes.TextField();
         txtCanProdInv = new componentes.TextField();
         txtDireccionC3 = new componentes.TextField();
-        btnAggSalida = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        btnActualizarInv = new javax.swing.JButton();
+        btnExcel = new javax.swing.JButton();
         txtNomProdInv = new componentes.TextField();
+        jButton20 = new javax.swing.JButton();
         jPanel20 = new javax.swing.JPanel();
         jPanelTransparente3 = new LIB.JPanelTransparente();
         jLabel23 = new javax.swing.JLabel();
@@ -1290,29 +1291,29 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel21.setText("INVENTORY");
         jPanel24.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 280, -1));
 
-        tblInventario1.setBackground(new java.awt.Color(0, 0, 102));
-        tblInventario1.setModel(new javax.swing.table.DefaultTableModel(
+        tblInventario.setBackground(new java.awt.Color(0, 0, 102));
+        tblInventario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Category", "Price", "Quantity"
+                "ID", "Nombre", "Entrada", "Salida", "Fecha", "id_Entrada", "id_Salida"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane7.setViewportView(tblInventario1);
+        jScrollPane7.setViewportView(tblInventario);
 
-        jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 720, 490));
+        jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 830, 490));
 
         jComboBox3.setBackground(new java.awt.Color(24, 42, 75));
         jComboBox3.setForeground(new java.awt.Color(255, 255, 255));
@@ -1331,14 +1332,17 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtDireccionC3.setHint("PRICE");
         jPanel24.add(txtDireccionC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 130, -1));
 
-        btnAggSalida.setText("MODIFY");
-        jPanel24.add(btnAggSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 120, -1));
+        btnActualizarInv.setText("Actualizar");
+        jPanel24.add(btnActualizarInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 630, 120, -1));
 
-        jButton19.setText("DELETE");
-        jPanel24.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, -1));
+        btnExcel.setText("EXCEL");
+        jPanel24.add(btnExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 120, 40));
 
         txtNomProdInv.setHint("NAME");
         jPanel24.add(txtNomProdInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 130, -1));
+
+        jButton20.setText("DELETE");
+        jPanel24.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, -1));
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -1858,15 +1862,16 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnActuaMesa;
     public javax.swing.JButton btnActuaProdPedi;
     public javax.swing.JButton btnActuaTabPenPet;
+    public javax.swing.JButton btnActualizarInv;
     public javax.swing.JButton btnAggPedidos;
     public javax.swing.JButton btnAggProInv;
-    public javax.swing.JButton btnAggSalida;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     public javax.swing.JButton btnConsultaCL;
     public javax.swing.JButton btnConsultarEm;
     public javax.swing.JButton btnEliminarClie;
     public javax.swing.JButton btnEliminarEmp;
+    public javax.swing.JButton btnExcel;
     private javax.swing.JButton btnMesa1;
     private javax.swing.JButton btnMesa2;
     private javax.swing.JButton btnMesa3;
@@ -1883,7 +1888,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton8;
@@ -1968,7 +1973,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEleccionMesa;
     public javax.swing.JTable tblEmpleados;
-    public javax.swing.JTable tblInventario1;
+    public javax.swing.JTable tblInventario;
     public javax.swing.JTable tblPedidoListo;
     public javax.swing.JTable tblPedidoPendiente;
     public javax.swing.JTable tblStockProductos;

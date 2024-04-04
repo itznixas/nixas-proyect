@@ -38,6 +38,7 @@ public class loginCtrl implements ActionListener {
     platoProducto pl = new platoProducto() {};
     prodPlatosDAO plDAO = new prodPlatosDAO();
     inventarioDAO inDAO = new inventarioDAO();
+    Excel ex = new Excel();
     public loginCtrl() {
     }
 
@@ -77,9 +78,14 @@ public class loginCtrl implements ActionListener {
         this.admin.btnActuaTabPenPet.addActionListener(this);
         this.admin.btnPedidosListo.addActionListener(this);
         this.admin.btnAggProInv.addActionListener(this);
-        this.admin.btnAggSalida.addActionListener(this);
+        this.admin.btnActualizarInv.addActionListener(this);
+        this.admin.btnActualizarInv.addActionListener(this);
+        this.admin.btnExcel.addActionListener(this);
     }
 
+    public void btnExcell(){
+        ex.reporte();
+    }
     public void listarMesas(JTable tblEleccionMesa) throws SQLException {
         System.out.println("aa");
         modelo = (DefaultTableModel) tblEleccionMesa.getModel();
@@ -556,7 +562,7 @@ public class loginCtrl implements ActionListener {
     }
 
     //Metodos de prociones
-    public void btnAgregarPorcion() {
+    public void btnAgregarPorcion() throws SQLException {
         producto prod = new producto() {
         };
         porcionesDAO porDAO = new porcionesDAO();
@@ -570,6 +576,7 @@ public class loginCtrl implements ActionListener {
         int r = 0;
         System.out.println("g");
         try {
+          
             if (admin.cmbPorcion.getSelectedItem().equals("Bebidas")) {
                 id = 1;
                 nombreB = admin.txtNombreP.getText();
@@ -580,15 +587,16 @@ public class loginCtrl implements ActionListener {
                 if (!admin.txtPrecioP.getText().isEmpty()) {
                     precioB = Float.parseFloat(admin.txtPrecioP.getText());
                 }
-
+                
                 prod.setNombreProd(nombreB);
                 prod.setCantidad(cantidadB);
                 prod.setPrecio(precioB);
                 r = be.agregarBebidas(prod);
                 if (r == 1) {
-                    JOptionPane.showMessageDialog(admin, "Registro exitoso");
+                    AggInventario();
+                   // JOptionPane.showMessageDialog(admin, "Registro exitoso");
                 } else {
-                    JOptionPane.showMessageDialog(admin, "Error al registrar empleado");
+                    JOptionPane.showMessageDialog(admin, "Error ");
                 }
             } //METODO DE AGG COMIDA
             else if (admin.cmbPorcion.getSelectedItem().equals("Comida")) {
@@ -596,17 +604,18 @@ public class loginCtrl implements ActionListener {
                 nombreC = admin.txtNombreP.getText();
 
                 if (!admin.txtCantidadP.getText().isEmpty()) {
-                    cantidadC = Integer.parseInt(admin.txtCantidadP.getText());
+                    cantidadB = Integer.parseInt(admin.txtCantidadP.getText());
                 }
                 if (!admin.txtPrecioP.getText().isEmpty()) {
-                    precioC = Float.parseFloat(admin.txtPrecioP.getText());
+                    precioB = Float.parseFloat(admin.txtPrecioP.getText());
                 }
                 prod.setNombreProd(nombreC);
                 prod.setCantidad(cantidadC);
                 prod.setPrecio(precioC);
                 r = porDAO.agregarPorciones(prod);
                 if (r == 1) {
-                    JOptionPane.showMessageDialog(admin, "Registro exitoso");
+                    AggInventario();
+                    //JOptionPane.showMessageDialog(admin, "Registro exitoso");
                 } else {
                     JOptionPane.showMessageDialog(admin, "Error");
                 }
@@ -771,10 +780,8 @@ public class loginCtrl implements ActionListener {
             
             inventarioDAO dao = new inventarioDAO();
             if(dao.productoExiste(in)){                   
-                    JOptionPane.showMessageDialog(admin, "EXISTE");
                     int r = inDAO.agregarPedidoSalida(in);
                     if (r == 1) {
-                        JOptionPane.showMessageDialog(admin, "Exito en el Registro");
                         AggInventario();
                     } else {
                         JOptionPane.showMessageDialog(admin, "Error");
@@ -787,25 +794,28 @@ public class loginCtrl implements ActionListener {
 
      }
 
-    public void AggInventario() {
+ public void AggInventario() throws SQLException {
     try {
         inventarioDAO da = new inventarioDAO();
-        System.out.println(in.getNomSalida());
+        
         // Obtener valores del objeto in y asignarlos a variables
          in.getNomSalida();
          in.getFechaInvSalida();
          in.getCantEntrada();
          in.getCantSalida();
-
+        
+        // Agregar inventario a la base de datos
+        int r = da.agregarInvetario(in);
+        
         // Verificar si el producto ya existe en la base de datos
-        if (da.productoExiste(in)) {
-            int r = da.agregarInvetario(in); // Se asume que el método es agregarInventario, ajusta según tu DAO
-
+        if (da.existeNombreEnInventario(in)) {
             if (r == 1) {
-                JOptionPane.showMessageDialog(admin, "Producto ingresado");
+                // La inserción fue exitosa
+            } else if (da.productoExiste(in)) {
+                // El nombre del inventario ya existe en la base de datos
             } else {
                 JOptionPane.showMessageDialog(admin, "Error, no se pudo ingresar al inventario");
-            }     
+            }
         } else {
             JOptionPane.showMessageDialog(admin, "Error, no se encuentra el producto");
         }
@@ -814,6 +824,28 @@ public class loginCtrl implements ActionListener {
         JOptionPane.showMessageDialog(admin, "Error SQL: " + e.getMessage());
     }
 }
+
+ public void listarInventario (JTable tblInventario){
+     System.out.println("ss");
+     modelo = (DefaultTableModel) tblInventario.getModel();
+     modelo.setRowCount(0);
+     try{
+         List<inventario> listaInv = inDAO.listaInventario();
+         Object[] object = new Object[7];
+         for(int i = 0; i< listaInv.size(); i++ ){
+             object[0] = listaInv.get(i).getIdIvTmp();
+             object[1] = listaInv.get(i).getNomSalida();
+             object[2] = listaInv.get(i).getCantEntrada();
+             object[3] = listaInv.get(i).getCantSalida();
+             object[4] = listaInv.get(i).getFechaInvSalida();
+
+             modelo.addRow(object);
+         }
+           modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+        } catch (SQLException ex) {
+            Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ }
 
      
      public void limpiarCajaInventario(){
@@ -829,6 +861,9 @@ public class loginCtrl implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource()== admin.btnExcel){
+           btnExcell();
+        }
         //Cambios de paneles
         if (e.getSource() == admin.jmiOrdenes) {
             pedidosAggPaneles();
@@ -1028,7 +1063,10 @@ public class loginCtrl implements ActionListener {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
+            if(e.getSource()== admin.btnActualizarInv){
+                System.out.println("wws");
+                listarInventario(admin.tblInventario);
+            }
         }
     }
 

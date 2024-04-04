@@ -2430,24 +2430,26 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="470" y="120" width="720" height="490"/>
+                      <AbsoluteConstraints x="450" y="120" width="830" height="490"/>
                     </Constraint>
                   </Constraints>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tblInventario1">
+                    <Component class="javax.swing.JTable" name="tblInventario">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="66" green="0" red="0" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="4">
+                          <Table columnCount="7" rowCount="4">
                             <Column editable="true" title="ID" type="java.lang.Integer"/>
-                            <Column editable="true" title="Name" type="java.lang.String"/>
-                            <Column editable="true" title="Category" type="java.lang.Object"/>
-                            <Column editable="true" title="Price" type="java.lang.String"/>
-                            <Column editable="true" title="Quantity" type="java.lang.Object"/>
+                            <Column editable="true" title="Nombre" type="java.lang.String"/>
+                            <Column editable="true" title="Entrada" type="java.lang.Integer"/>
+                            <Column editable="true" title="Salida" type="java.lang.Integer"/>
+                            <Column editable="true" title="Fecha" type="java.lang.String"/>
+                            <Column editable="true" title="id_Entrada" type="java.lang.Integer"/>
+                            <Column editable="true" title="id_Salida" type="java.lang.Integer"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -2564,26 +2566,29 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnAggSalida">
+                <Component class="javax.swing.JButton" name="btnActualizarInv">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="MODIFY"/>
+                    <Property name="text" type="java.lang.String" value="Actualizar"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="260" y="430" width="120" height="-1"/>
+                      <AbsoluteConstraints x="1100" y="630" width="120" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton19">
+                <Component class="javax.swing.JButton" name="btnExcel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="DELETE"/>
+                    <Property name="text" type="java.lang.String" value="EXCEL"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="260" y="480" width="120" height="-1"/>
+                      <AbsoluteConstraints x="70" y="560" width="120" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -2597,6 +2602,16 @@
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="80" y="200" width="130" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton20">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="DELETE"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="260" y="480" width="120" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
