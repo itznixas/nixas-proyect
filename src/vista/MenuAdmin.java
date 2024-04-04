@@ -202,7 +202,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtApellidoConuEmpl = new componentes.TextField();
         jPanel18 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
-        jButton15 = new javax.swing.JButton();
+        btnAggProInv = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -210,11 +210,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         txtNombreC5 = new componentes.TextField();
         txtApellidoC3 = new componentes.TextField();
-        txtCedulaC3 = new componentes.TextField();
+        txtCanProdInv = new componentes.TextField();
         txtDireccionC3 = new componentes.TextField();
-        jButton18 = new javax.swing.JButton();
+        btnAggSalida = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
-        txtNombreC6 = new componentes.TextField();
+        txtNomProdInv = new componentes.TextField();
         jPanel20 = new javax.swing.JPanel();
         jPanelTransparente3 = new LIB.JPanelTransparente();
         jLabel23 = new javax.swing.JLabel();
@@ -1049,7 +1049,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(431, Short.MAX_VALUE)
+                .addContainerGap(428, Short.MAX_VALUE)
                 .addComponent(jPanelTransparente4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(495, 495, 495))
         );
@@ -1253,7 +1253,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, 1370, Short.MAX_VALUE)
+            .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, 1367, Short.MAX_VALUE)
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1267,16 +1267,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel24.setBackground(new java.awt.Color(24, 42, 75));
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton15.setBackground(java.awt.Color.green);
-        jButton15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton15.setForeground(new java.awt.Color(255, 255, 255));
-        jButton15.setText("ADD");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        btnAggProInv.setBackground(java.awt.Color.green);
+        btnAggProInv.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAggProInv.setForeground(new java.awt.Color(255, 255, 255));
+        btnAggProInv.setText("ADD");
+        btnAggProInv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                btnAggProInvActionPerformed(evt);
             }
         });
-        jPanel24.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 100, 40));
+        jPanel24.add(btnAggProInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 100, 30));
 
         jButton16.setBackground(java.awt.Color.red);
         jButton16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1323,22 +1323,22 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel24.add(txtNombreC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
 
         txtApellidoC3.setHint("CATEGORY");
-        jPanel24.add(txtApellidoC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 140, -1));
+        jPanel24.add(txtApellidoC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 140, -1));
 
-        txtCedulaC3.setHint("QUANTITY");
-        jPanel24.add(txtCedulaC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 140, -1));
+        txtCanProdInv.setHint("QUANTITY");
+        jPanel24.add(txtCanProdInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 140, -1));
 
         txtDireccionC3.setHint("PRICE");
         jPanel24.add(txtDireccionC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 130, -1));
 
-        jButton18.setText("MODIFY");
-        jPanel24.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, -1));
+        btnAggSalida.setText("MODIFY");
+        jPanel24.add(btnAggSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 120, -1));
 
         jButton19.setText("DELETE");
         jPanel24.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, -1));
 
-        txtNombreC6.setHint("NAME");
-        jPanel24.add(txtNombreC6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 130, -1));
+        txtNomProdInv.setHint("NAME");
+        jPanel24.add(txtNomProdInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 130, -1));
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -1449,7 +1449,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1552,7 +1552,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel26.setLayout(jPanel26Layout);
         jPanel26Layout.setHorizontalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1370, Short.MAX_VALUE)
+            .addGap(0, 1367, Short.MAX_VALUE)
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1719,10 +1719,10 @@ public class MenuAdmin extends javax.swing.JFrame {
          */
     }//GEN-LAST:event_btnAgregarCActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void btnAggProInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggProInvActionPerformed
         // TODO add your handling code here:be
 
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_btnAggProInvActionPerformed
 
     private void txtUserConsuEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserConsuEmplActionPerformed
         // TODO add your handling code here:
@@ -1859,6 +1859,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnActuaProdPedi;
     public javax.swing.JButton btnActuaTabPenPet;
     public javax.swing.JButton btnAggPedidos;
+    public javax.swing.JButton btnAggProInv;
+    public javax.swing.JButton btnAggSalida;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     public javax.swing.JButton btnConsultaCL;
@@ -1879,10 +1881,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton13;
     public javax.swing.JButton jButton14;
-    public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
@@ -1981,10 +1981,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtApellidoConsuCli;
     public componentes.TextField txtApellidoConuEmpl;
     public componentes.TextField txtApellidoE;
+    public componentes.TextField txtCanProdInv;
     public componentes.TextField txtCantidadP;
     public componentes.TextField txtCantidadProPed;
     public componentes.TextField txtCedulaC;
-    public componentes.TextField txtCedulaC3;
     public componentes.TextField txtCedulaConseEmpl;
     public componentes.TextField txtCedulaConsuCli1;
     public componentes.TextField txtCelE;
@@ -2000,10 +2000,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtIdConsuEmpl;
     public componentes.TextField txtIdPedidoConse;
     public componentes.TextField txtMesaId;
+    public componentes.TextField txtNomProdInv;
     public componentes.TextField txtNomProducPed;
     public componentes.TextField txtNombreC;
     public componentes.TextField txtNombreC5;
-    public componentes.TextField txtNombreC6;
     public componentes.TextField txtNombreConsCli;
     public componentes.TextField txtNombreConsuEmpl;
     public componentes.TextField txtNombreE;

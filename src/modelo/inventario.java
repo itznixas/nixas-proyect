@@ -1,49 +1,55 @@
-
 package modelo;
 
 
-public class inventario extends producto{
-    protected int fecha, idEntrada, idSalida, canEntrada, cantSalida;
+public  class inventario {
+    protected int idIvTmp, idProSalida, idProEntrada, cantEntrada, cantSalida;
+    protected String fechaInvEntrada, nomEntrada, nomSalida, fechaInvSalida;
 
-    public inventario(int fecha, int idEntrada, int idSalida, int canEntrada, int cantSalida, String nombreProd, int cantidad, float precio, int idCategoria, String nombreCategoria) {
-        super(nombreProd, cantidad, precio, idCategoria, nombreCategoria);
-        this.fecha = fecha;
-        this.idEntrada = idEntrada;
-        this.idSalida = idSalida;
-        this.canEntrada = canEntrada;
+    public inventario(int idIvTmp, int idProSalida, int idProEntrada, int cantEntrada, int cantSalida, String fechaInvEntrada, String nomEntrada, String nomSalida, String fechaInvSalida) {
+        this.idIvTmp = idIvTmp;
+        this.idProSalida = idProSalida;
+        this.idProEntrada = idProEntrada;
+        this.cantEntrada = cantEntrada;
         this.cantSalida = cantSalida;
+        this.fechaInvEntrada = fechaInvEntrada;
+        this.nomEntrada = nomEntrada;
+        this.nomSalida = nomSalida;
+        this.fechaInvSalida = fechaInvSalida;
     }
 
-    public int getFecha() {
-        return fecha;
+    public inventario() {
     }
 
-    public void setFecha(int fecha) {
-        this.fecha = fecha;
+    public int getIdIvTmp() {
+        return idIvTmp;
     }
 
-    public int getIdEntrada() {
-        return idEntrada;
+    public void setIdIvTmp(int idIvTmp) {
+        this.idIvTmp = idIvTmp;
     }
 
-    public void setIdEntrada(int idEntrada) {
-        this.idEntrada = idEntrada;
+    public int getIdProSalida() {
+        return idProSalida;
     }
 
-    public int getIdSalida() {
-        return idSalida;
+    public void setIdProSalida(int idProSalida) {
+        this.idProSalida = idProSalida;
     }
 
-    public void setIdSalida(int idSalida) {
-        this.idSalida = idSalida;
+    public int getIdProEntrada() {
+        return idProEntrada;
     }
 
-    public int getCanEntrada() {
-        return canEntrada;
+    public void setIdProEntrada(int idProEntrada) {
+        this.idProEntrada = idProEntrada;
     }
 
-    public void setCanEntrada(int canEntrada) {
-        this.canEntrada = canEntrada;
+    public int getCantEntrada() {
+        return cantEntrada;
+    }
+
+    public void setCantEntrada(int cantEntrada) {
+        this.cantEntrada = cantEntrada;
     }
 
     public int getCantSalida() {
@@ -54,35 +60,40 @@ public class inventario extends producto{
         this.cantSalida = cantSalida;
     }
 
-    @Override
-    public String getNombreProd() {
-        return nombreProd;
+    public String getFechaInvEntrada() {
+        return fechaInvEntrada;
     }
 
-    @Override
-    public void setNombreProd(String nombreProd) {
-        this.nombreProd = nombreProd;
+    public void setFechaInvEntrada(String fechaInvEntrada) {
+        this.fechaInvEntrada = fechaInvEntrada;
     }
 
-    @Override
-    public int getIdCategoria() {
-        return idCategoria;
+    public String getNomEntrada() {
+        return nomEntrada;
     }
 
-    @Override
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setNomEntrada(String nomEntrada) {
+        this.nomEntrada = nomEntrada;
     }
 
-   
+    public String getNomSalida() {
+        return nomSalida;
+    }
 
-    public inventario() {
+    public void setNomSalida(String nomSalida) {
+        this.nomSalida = nomSalida;
+    }
+
+    public String getFechaInvSalida() {
+        return fechaInvSalida;
+    }
+
+    public void setFechaInvSalida(String fechaInvSalida) {
+        this.fechaInvSalida = fechaInvSalida;
     }
 
     
     
-    
-    
-    
-    
+
+
 }

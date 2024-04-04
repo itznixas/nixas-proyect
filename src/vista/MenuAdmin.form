@@ -1563,7 +1563,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="431" max="32767" attributes="0"/>
+                      <EmptySpace pref="428" max="32767" attributes="0"/>
                       <Component id="jPanelTransparente4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="495" max="-2" attributes="0"/>
                   </Group>
@@ -1981,7 +1981,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel23" alignment="0" pref="1370" max="32767" attributes="0"/>
+                  <Component id="jPanel23" alignment="0" pref="1367" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -2358,7 +2358,7 @@
                 <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="jButton15">
+                <Component class="javax.swing.JButton" name="btnAggProInv">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="ff" id="green" palette="1" red="0" type="palette"/>
@@ -2372,14 +2372,14 @@
                     <Property name="text" type="java.lang.String" value="ADD"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton15ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAggProInvActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="1010" y="50" width="100" height="40"/>
+                      <AbsoluteConstraints x="80" y="480" width="100" height="30"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -2534,11 +2534,11 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="250" y="200" width="140" height="-1"/>
+                      <AbsoluteConstraints x="250" y="290" width="140" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="componentes.TextField" name="txtCedulaC3">
+                <Component class="componentes.TextField" name="txtCanProdInv">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="QUANTITY"/>
                   </Properties>
@@ -2547,7 +2547,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="250" y="290" width="140" height="-1"/>
+                      <AbsoluteConstraints x="250" y="200" width="140" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -2564,13 +2564,16 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton18">
+                <Component class="javax.swing.JButton" name="btnAggSalida">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="MODIFY"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="90" y="480" width="120" height="-1"/>
+                      <AbsoluteConstraints x="260" y="430" width="120" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -2584,7 +2587,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="componentes.TextField" name="txtNombreC6">
+                <Component class="componentes.TextField" name="txtNomProdInv">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="NAME"/>
                   </Properties>
@@ -2623,7 +2626,7 @@
                       <Component id="jPanelTransparente3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                       <Component id="jScrollPane6" min="-2" pref="642" max="-2" attributes="0"/>
-                      <EmptySpace pref="72" max="32767" attributes="0"/>
+                      <EmptySpace pref="69" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3092,7 +3095,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1370" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1367" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

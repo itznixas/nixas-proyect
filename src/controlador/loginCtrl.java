@@ -35,10 +35,9 @@ public class loginCtrl implements ActionListener {
     mesasDAO mDAO = new mesasDAO();
     pedidosDAO peD = new pedidosDAO() {
     };
-    platoProducto pl = new platoProducto() {
-    };
+    platoProducto pl = new platoProducto() {};
     prodPlatosDAO plDAO = new prodPlatosDAO();
-
+    inventarioDAO inDAO = new inventarioDAO();
     public loginCtrl() {
     }
 
@@ -77,6 +76,8 @@ public class loginCtrl implements ActionListener {
         this.admin.btnActuaProdPedi.addActionListener(this);
         this.admin.btnActuaTabPenPet.addActionListener(this);
         this.admin.btnPedidosListo.addActionListener(this);
+        this.admin.btnAggProInv.addActionListener(this);
+        this.admin.btnAggSalida.addActionListener(this);
     }
 
     public void listarMesas(JTable tblEleccionMesa) throws SQLException {
@@ -731,6 +732,63 @@ public class loginCtrl implements ActionListener {
             e.printStackTrace();
         }
     }
+     
+       inventario in = new inventario();
+    public void ingresarInvenEntrada(KeyEvent evt) throws SQLException {
+    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtNomProdInv.getText())) {
+            
+            in.setNomEntrada(admin.txtNomProdInv.getText());
+            in.setCantEntrada(Integer.parseInt(admin.txtCanProdInv.getText()));
+
+            LocalDate fechaActual = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            String fechaFormateada = fechaActual.format(formatter);
+            in.setFechaInvEntrada(fechaFormateada);
+               
+            int r = inDAO.agregarPedidoEntrada(in);
+            if (r == 1) {
+                JOptionPane.showMessageDialog(admin, "Error exitoso");
+            } else {
+                JOptionPane.showMessageDialog(admin, "Exito en el Registro");
+            }
+        } else {
+            JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
+        }
+    }
+}
+    
+     public void ingresarInvenSalida(KeyEvent evt) throws SQLException {
+    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtNomProdInv.getText())) {
+            
+            in.setNomSalida(admin.txtNomProdInv.getText());
+            in.setCantSalida(Integer.parseInt(admin.txtCanProdInv.getText()));
+            
+            LocalDate fechaActual = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            String fechaFormateada = fechaActual.format(formatter);
+            in.setFechaInvSalida(fechaFormateada);
+               
+            
+           
+             int r = inDAO.agregarPedidoSalida(in);
+            if (r == 1) {
+                JOptionPane.showMessageDialog(admin, "Error exitoso");
+            } else {
+                JOptionPane.showMessageDialog(admin, "Exito en el Registro");
+            } 
+            }else{
+               JOptionPane.showMessageDialog(admin, "No se encuentra producto"); 
+            }
+          
+        } else {
+            JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
+        }
+}
+        public void AgregarInventario(){
+            
+        }
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -916,6 +974,24 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent = new KeyEvent(admin.txtCantidadProPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 pedidosListo(fakeEvent);
+                //listaPedidosListo(admin.tblPedidoListo);
+            } catch (SQLException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+         if (e.getSource() == admin.btnAggProInv) {
+            KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            try {
+                ingresarInvenEntrada(fakeEvent);
+                //listaPedidosListo(admin.tblPedidoListo);
+            } catch (SQLException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                 if (e.getSource() == admin.btnAggSalida) {
+            KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            try {
+                ingresarInvenSalida(fakeEvent);
                 //listaPedidosListo(admin.tblPedidoListo);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
