@@ -2798,7 +2798,7 @@
                 </Component>
                 <Component class="componentes.TextField" name="txtIdClienteFac">
                   <Properties>
-                    <Property name="hint" type="java.lang.String" value="DNI"/>
+                    <Property name="hint" type="java.lang.String" value="CLIENTE DNI"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdClienteFacActionPerformed"/>
@@ -2809,7 +2809,7 @@
                 </Component>
                 <Component class="componentes.TextField" name="txtIdCajeroFac">
                   <Properties>
-                    <Property name="hint" type="java.lang.String" value="PHONE NUMBER"/>
+                    <Property name="hint" type="java.lang.String" value="CAJERO DNI"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

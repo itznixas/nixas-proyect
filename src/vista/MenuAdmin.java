@@ -1431,14 +1431,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("BILLING");
 
-        txtIdClienteFac.setHint("DNI");
+        txtIdClienteFac.setHint("CLIENTE DNI");
         txtIdClienteFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdClienteFacActionPerformed(evt);
             }
         });
 
-        txtIdCajeroFac.setHint("PHONE NUMBER");
+        txtIdCajeroFac.setHint("CAJERO DNI");
 
         txtIdMesero.setHint("LAST NAME");
 
