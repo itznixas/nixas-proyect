@@ -24,8 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class loginCtrl implements ActionListener {
 
-    regEmpleado reG = new regEmpleado() {
-    };
+    regEmpleado reG = new regEmpleado() {};
     regEmpleadoDAO emD = new regEmpleadoDAO();
     ventanaLogin ventana;
     MenuAdmin admin = new MenuAdmin();
@@ -33,14 +32,12 @@ public class loginCtrl implements ActionListener {
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
     mesasDAO mDAO = new mesasDAO();
-    pedidosDAO peD = new pedidosDAO() {
-    };
-    platoProducto pl = new platoProducto() {
-    };
+    pedidosDAO peD = new pedidosDAO() {};
+    platoProducto pl = new platoProducto() {};
     prodPlatosDAO plDAO = new prodPlatosDAO();
     inventarioDAO inDAO = new inventarioDAO();
     Excel ex = new Excel();
-
+    facturaDetDAO faDAO = new facturaDetDAO();
     public loginCtrl() {
     }
 
@@ -85,6 +82,8 @@ public class loginCtrl implements ActionListener {
         this.admin.btnExcel.addActionListener(this);
         this.admin.btnCkeckIn.addActionListener(this);
         this.admin.btnActualizarFactura.addActionListener(this);
+        this.admin.txtIdProductoDet.addActionListener(this);
+        
     }
 
     public void btnExcell() {
@@ -918,6 +917,32 @@ public class loginCtrl implements ActionListener {
         admin.txtCanProdInv.setText(null);
     }
 
+    //Factura
+    public void BuscarProducto(KeyEvent evt){
+        System.out.println("s");
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtIdProductoDet.getText())){
+            String Nom = admin.txtIdProductoDet.getText();
+            platoProducto pla = new platoProducto() {};
+            pla = faDAO.BuscarPlato(Nom);
+            if(pla.getNombreProd() != null){
+                admin.txtProductoDet.setText(""+pla.getNombreProd());
+                admin.txtPrecioUniDet.setText(""+pla.getPrecio());
+                admin.txtProdStock.setText(""+pla.getCantidad());
+                admin.txtIdProductoDet.requestFocus();
+            }else{
+                admin.txtProductoDet.setText("");
+                admin.txtPrecioUniDet.setText("");
+                admin.txtProdStock.setText("");
+                admin.txtIdProductoDet.requestFocus();
+            }
+        }else{
+            JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
+            admin.txtProductoDet.requestFocus();
+        }
+        }
+    }
+    
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1139,6 +1164,11 @@ public class loginCtrl implements ActionListener {
         if (e.getSource() == admin.btnActualizarInv) {
             System.out.println("wws");
             listarInventario(admin.tblInventario);
+        }
+        if(e.getSource()== admin.txtIdProductoDet){
+            System.out.println("ddddd");
+             KeyEvent fakeEvent = new KeyEvent(admin.txtIdProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+             BuscarProducto(fakeEvent);
         }
     }
 }

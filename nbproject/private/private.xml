@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/TPS%20-%2037%20RJ/rj/NIXAS-/src/modelo/porcionesDAO.java</file>
-            <file>file:/D:/TPS%20-%2037%20RJ/rj/NIXAS-/src/modelo/inventarioDAO.java</file>
-            <file>file:/D:/TPS%20-%2037%20RJ/rj/NIXAS-/src/appnixas/AppNixas.java</file>
-            <file>file:/D:/TPS%20-%2037%20RJ/rj/NIXAS-/src/controlador/loginCtrl.java</file>
+            <file>file:/C:/final/v3/NIXAS-/src/modelo/bebidasDAO.java</file>
+            <file>file:/C:/final/v3/NIXAS-/src/modelo/facturaDetalle.java</file>
+            <file>file:/C:/final/v3/NIXAS-/src/appnixas/AppNixas.java</file>
+            <file>file:/C:/final/v3/NIXAS-/src/vista/MenuAdmin.java</file>
+            <file>file:/C:/final/v3/NIXAS-/src/modelo/factauraCabe.java</file>
+            <file>file:/C:/final/v3/NIXAS-/src/controlador/loginCtrl.java</file>
+            <file>file:/C:/final/v3/NIXAS-/src/modelo/facturaDetDAO.java</file>
         </group>
     </open-files>
 </project-private>

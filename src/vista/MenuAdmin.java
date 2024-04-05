@@ -122,7 +122,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPedidoListo = new javax.swing.JTable();
-        txtNombreE4 = new componentes.TextField();
+        txtPedidoListo = new componentes.TextField();
         btnCkeckIn = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jButton21 = new javax.swing.JButton();
@@ -211,19 +211,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel18 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         btnAggProInv = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        btnEliminarConsu = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tblInventario = new javax.swing.JTable();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        txtNombreC5 = new componentes.TextField();
-        txtApellidoC3 = new componentes.TextField();
+        txtConsultarInventario = new componentes.TextField();
         txtCanProdInv = new componentes.TextField();
-        txtDireccionC3 = new componentes.TextField();
         btnActualizarInv = new javax.swing.JButton();
         btnExcel = new javax.swing.JButton();
         txtNomProdInv = new componentes.TextField();
-        jButton20 = new javax.swing.JButton();
+        btnConsuInventario = new javax.swing.JButton();
         jPanel20 = new javax.swing.JPanel();
         jPanelTransparente3 = new LIB.JPanelTransparente();
         jLabel23 = new javax.swing.JLabel();
@@ -233,9 +230,18 @@ public class MenuAdmin extends javax.swing.JFrame {
         textField15 = new componentes.TextField();
         jButton17 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
-        btnActualizarFactura = new javax.swing.JButton();
+        jPanelTransparente5 = new LIB.JPanelTransparente();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblFactura = new javax.swing.JTable();
+        btnActualizarFactura = new javax.swing.JButton();
+        txtNumFacturaDet = new componentes.TextField();
+        txtProductoDet = new componentes.TextField();
+        txtCantProdDet = new componentes.TextField();
+        txtPrecioUniDet = new componentes.TextField();
+        txtProdStock = new componentes.TextField();
+        txtPrecioFDet = new componentes.TextField();
+        btnFacturarDet = new javax.swing.JButton();
+        txtIdProductoDet = new componentes.TextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -503,9 +509,14 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblPedidoListo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPedidoListoMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblPedidoListo);
 
-        txtNombreE4.setHint("Cantidad");
+        txtPedidoListo.setHint("Cantidad");
 
         btnCkeckIn.setBackground(new java.awt.Color(41, 53, 87));
         btnCkeckIn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -518,7 +529,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                 .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(txtNombreE4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPedidoListo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCkeckIn)
                 .addGap(305, 305, 305))
@@ -534,7 +545,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNombreE4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPedidoListo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCkeckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -1286,13 +1297,13 @@ public class MenuAdmin extends javax.swing.JFrame {
                 btnAggProInvActionPerformed(evt);
             }
         });
-        jPanel24.add(btnAggProInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 100, 30));
+        jPanel24.add(btnAggProInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 100, 30));
 
-        jButton16.setBackground(java.awt.Color.red);
-        jButton16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton16.setForeground(new java.awt.Color(255, 255, 255));
-        jButton16.setText("DELETE");
-        jPanel24.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 50, 90, 40));
+        btnEliminarConsu.setBackground(java.awt.Color.red);
+        btnEliminarConsu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminarConsu.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarConsu.setText("DELETE");
+        jPanel24.add(btnEliminarConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 90, 30));
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
@@ -1329,34 +1340,23 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 830, 490));
 
-        jComboBox3.setBackground(new java.awt.Color(24, 42, 75));
-        jComboBox3.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CATEGORY" }));
-        jPanel24.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 170, 40));
-
-        txtNombreC5.setHint("NAME");
-        jPanel24.add(txtNombreC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
-
-        txtApellidoC3.setHint("CATEGORY");
-        jPanel24.add(txtApellidoC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 140, -1));
+        txtConsultarInventario.setHint("NAME");
+        jPanel24.add(txtConsultarInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
 
         txtCanProdInv.setHint("QUANTITY");
         jPanel24.add(txtCanProdInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 140, -1));
-
-        txtDireccionC3.setHint("PRICE");
-        jPanel24.add(txtDireccionC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 130, -1));
 
         btnActualizarInv.setText("Actualizar");
         jPanel24.add(btnActualizarInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 630, 120, -1));
 
         btnExcel.setText("EXCEL");
-        jPanel24.add(btnExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 120, 40));
+        jPanel24.add(btnExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 120, 40));
 
         txtNomProdInv.setHint("NAME");
         jPanel24.add(txtNomProdInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 130, -1));
 
-        jButton20.setText("DELETE");
-        jPanel24.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 120, -1));
+        btnConsuInventario.setText("SEARCH");
+        jPanel24.add(btnConsuInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 60, 120, -1));
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -1444,13 +1444,6 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(60, 60, 60))
         );
 
-        btnActualizarFactura.setText("ACTUALIZAR");
-        btnActualizarFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarFacturaActionPerformed(evt);
-            }
-        });
-
         tblFactura.setBackground(new java.awt.Color(11, 22, 47));
         tblFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1473,31 +1466,114 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(tblFactura);
 
+        btnActualizarFactura.setText("ACTUALIZAR");
+        btnActualizarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarFacturaActionPerformed(evt);
+            }
+        });
+
+        txtNumFacturaDet.setHint("DNI");
+
+        txtProductoDet.setHint("NAME");
+        txtProductoDet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProductoDetActionPerformed(evt);
+            }
+        });
+        txtProductoDet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtProductoDetKeyPressed(evt);
+            }
+        });
+
+        txtCantProdDet.setHint("PHONE NUMBER");
+
+        txtPrecioUniDet.setHint("PHONE NUMBER");
+
+        txtProdStock.setHint("PHONE NUMBER");
+
+        txtPrecioFDet.setHint("LAST NAME");
+
+        btnFacturarDet.setBackground(java.awt.Color.green);
+        btnFacturarDet.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnFacturarDet.setForeground(new java.awt.Color(255, 255, 255));
+        btnFacturarDet.setText("ADD");
+
+        txtIdProductoDet.setHint("DNI");
+
+        javax.swing.GroupLayout jPanelTransparente5Layout = new javax.swing.GroupLayout(jPanelTransparente5);
+        jPanelTransparente5.setLayout(jPanelTransparente5Layout);
+        jPanelTransparente5Layout.setHorizontalGroup(
+            jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTransparente5Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTransparente5Layout.createSequentialGroup()
+                        .addComponent(txtIdProductoDet, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtProductoDet, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCantProdDet, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPrecioUniDet, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtProdStock, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addGroup(jPanelTransparente5Layout.createSequentialGroup()
+                        .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnActualizarFactura, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelTransparente5Layout.createSequentialGroup()
+                                .addComponent(txtNumFacturaDet, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(68, 68, 68)
+                                .addComponent(txtPrecioFDet, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(btnFacturarDet, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(24, Short.MAX_VALUE))))
+        );
+        jPanelTransparente5Layout.setVerticalGroup(
+            jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTransparente5Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnActualizarFactura)
+                .addGap(43, 43, 43)
+                .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtProductoDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCantProdDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioUniDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProdStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdProductoDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrecioFDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFacturarDet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumFacturaDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(228, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(76, 76, 76)
                 .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnActualizarFactura)
-                .addGap(342, 342, 342))
+                .addGap(59, 59, 59)
+                .addComponent(jPanelTransparente5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
-                .addComponent(btnActualizarFactura)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addGap(83, 83, 83)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelTransparente5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Factura", jPanel20);
@@ -1836,6 +1912,21 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarFacturaActionPerformed
 
+    private void tblPedidoListoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPedidoListoMouseClicked
+        // TODO add your handling code here:
+        int fila = tblPedidoListo.rowAtPoint(evt.getPoint()); 
+        txtPedidoListo.setText(tblPedidoListo.getValueAt(fila, 0).toString());
+    }//GEN-LAST:event_tblPedidoListoMouseClicked
+
+    private void txtProductoDetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoDetKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtProductoDetKeyPressed
+
+    private void txtProductoDetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductoDetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductoDetActionPerformed
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1869,11 +1960,14 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     public javax.swing.JButton btnCkeckIn;
+    public javax.swing.JButton btnConsuInventario;
     public javax.swing.JButton btnConsultaCL;
     public javax.swing.JButton btnConsultarEm;
     public javax.swing.JButton btnEliminarClie;
+    public javax.swing.JButton btnEliminarConsu;
     public javax.swing.JButton btnEliminarEmp;
     public javax.swing.JButton btnExcel;
+    public javax.swing.JButton btnFacturarDet;
     private javax.swing.JButton btnMesa1;
     private javax.swing.JButton btnMesa2;
     private javax.swing.JButton btnMesa3;
@@ -1887,13 +1981,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbEmpleado;
     public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton13;
-    public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -1949,6 +2040,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private LIB.JPanelTransparente jPanelTransparente2;
     private LIB.JPanelTransparente jPanelTransparente3;
     private LIB.JPanelTransparente jPanelTransparente4;
+    private LIB.JPanelTransparente jPanelTransparente5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1983,11 +2075,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     private componentes.TextField textField14;
     private componentes.TextField textField15;
     public componentes.TextField txtApellidoC;
-    public componentes.TextField txtApellidoC3;
     public componentes.TextField txtApellidoConsuCli;
     public componentes.TextField txtApellidoConuEmpl;
     public componentes.TextField txtApellidoE;
     public componentes.TextField txtCanProdInv;
+    public componentes.TextField txtCantProdDet;
     public componentes.TextField txtCantidadP;
     public componentes.TextField txtCantidadProPed;
     public componentes.TextField txtCedulaC;
@@ -1998,24 +2090,29 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtClaveE;
     public componentes.TextField txtConsulatCL;
     public componentes.TextField txtConsultarEm;
+    public componentes.TextField txtConsultarInventario;
     public componentes.TextField txtDireccionC;
-    public componentes.TextField txtDireccionC3;
     public componentes.TextField txtDireccionConsuCli;
     public componentes.TextField txtDocE;
     public componentes.TextField txtIdConsuCli;
     public componentes.TextField txtIdConsuEmpl;
     public componentes.TextField txtIdPedidoConse;
+    public componentes.TextField txtIdProductoDet;
     public componentes.TextField txtMesaId;
     public componentes.TextField txtNomProdInv;
     public componentes.TextField txtNomProducPed;
     public componentes.TextField txtNombreC;
-    public componentes.TextField txtNombreC5;
     public componentes.TextField txtNombreConsCli;
     public componentes.TextField txtNombreConsuEmpl;
     public componentes.TextField txtNombreE;
-    public componentes.TextField txtNombreE4;
     public componentes.TextField txtNombreP;
+    public componentes.TextField txtNumFacturaDet;
+    public componentes.TextField txtPedidoListo;
+    public componentes.TextField txtPrecioFDet;
     public componentes.TextField txtPrecioP;
+    public componentes.TextField txtPrecioUniDet;
+    public componentes.TextField txtProdStock;
+    public componentes.TextField txtProductoDet;
     public componentes.TextField txtTelefonoC;
     public componentes.TextField txtTelefonoConsuCli;
     public componentes.TextField txtTelefonoConsuEmpl;
@@ -2023,24 +2120,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtUserE;
     // End of variables declaration//GEN-END:variables
 
-    public TextField getTxtApellidoC() {
-        return txtApellidoC;
-    }
-
-    public TextField getTxtCedulaC() {
-        return txtCedulaC;
-    }
-
-    public TextField getTxtDireccionC() {
-        return txtDireccionC;
-    }
-
-    public TextField getTxtNombreC() {
-        return txtNombreC;
-    }
-
-    public TextField getTxtTelefonoC() {
-        return txtTelefonoC;
-    }
+  
 
 }
