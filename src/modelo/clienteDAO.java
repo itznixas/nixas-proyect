@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.dataBase;
 import modelo.regEmpleado;
-import vista.ventanaLogin;
-
 
 public class clienteDAO extends dataBase {
 
@@ -25,7 +23,8 @@ public class clienteDAO extends dataBase {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                regEmpleado clin = new regEmpleado(){};
+                regEmpleado clin = new regEmpleado() {
+                };
                 clin.setIdEmpl(rs.getInt("id_cliente")); // Obtener el ID directamente desde la base de datos
                 clin.setNombreEmpl(rs.getString("nom_cli"));
                 clin.setApellidoEmpl(rs.getString("ape_cli"));
@@ -51,79 +50,124 @@ public class clienteDAO extends dataBase {
         }
         return lista_cliente;
     }
-    
-     public List<regEmpleado> buscarCedCliente (regEmpleado empe) throws SQLException{
-            List<regEmpleado> cliente = new ArrayList<>();
-            String sql = "SELECT * FROM reg_clientes WHERE ced_cli = ?";
-            try{
-               cn = con.getConnection();
-               ps = cn.prepareStatement(sql);
-               ps.setInt(1, empe.getCedulaEmpl());
-               rs = ps.executeQuery();
-               
-               while (rs.next()){
-                   regEmpleado cli = new regEmpleado(){};
-                     cli.setIdEmpl(rs.getInt("id_cliente"));
-                     cli.setNombreEmpl(rs.getString("nom_cli"));
-                     cli.setApellidoEmpl(rs.getString("ape_cli"));
-                     cli.setCedulaEmpl(rs.getInt("ced_cli"));
-                     cli.setDireccion(rs.getString("direccion"));
-                     cli.setCelEmpl(rs.getInt("telef"));
-                     cliente.add(cli);
-               }
-            }catch (SQLException e){
-                System.out.println(e);
-            }finally {
-           // Cerrar recursos en orden inverso de apertura para evitar problemas
-           if (rs != null) {
-               rs.close();
-           }
-           if (ps != null) {
-               ps.close();
-           }
-           if (cn != null) {
-               cn.close();
-           }
+
+    public List<tmpPedidos> listarTablaFactura() throws SQLException {
+        String sql = "SELECT id_pedidos, mesa, mesero, producto, cantidad, estado "
+                + "FROM tmp_pedidos "
+                + "WHERE estado = 'LISTO'";
+
+        List<tmpPedidos> lista_factura = new ArrayList<>();
+
+        try {
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                // Crear un nuevo objeto tmpPedidos y configurarlo con los datos de la base de datos
+                tmpPedidos pedido = new tmpPedidos() {
+                };
+                pedido.setIdPedidos(rs.getInt("id_pedidos"));
+                pedido.setIdMesas(rs.getInt("mesa"));
+                pedido.setMesero(rs.getInt("mesero"));
+                pedido.setProducto(rs.getString("producto"));
+                pedido.setCantidad(rs.getInt("cantidad"));
+                pedido.setEstado(rs.getString("estado"));
+
+                // Agregar el objeto pedido a la lista
+                lista_factura.add(pedido);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al listar clientes: " + e.getMessage());
+        } finally {
+            // Cerrar recursos en orden inverso de apertura para evitar problemas
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
         }
-            return cliente;
+        return lista_factura;
+    }
+
+    public List<regEmpleado> buscarCedCliente(regEmpleado empe) throws SQLException {
+        List<regEmpleado> cliente = new ArrayList<>();
+        String sql = "SELECT * FROM reg_clientes WHERE ced_cli = ?";
+        try {
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, empe.getCedulaEmpl());
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                regEmpleado cli = new regEmpleado() {
+                };
+                cli.setIdEmpl(rs.getInt("id_cliente"));
+                cli.setNombreEmpl(rs.getString("nom_cli"));
+                cli.setApellidoEmpl(rs.getString("ape_cli"));
+                cli.setCedulaEmpl(rs.getInt("ced_cli"));
+                cli.setDireccion(rs.getString("direccion"));
+                cli.setCelEmpl(rs.getInt("telef"));
+                cliente.add(cli);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            // Cerrar recursos en orden inverso de apertura para evitar problemas
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
         }
-     
-      public List<regEmpleado> buscarNomCliente (regEmpleado empe) throws SQLException{
-             List<regEmpleado> cliente = new ArrayList<>();
-            String sql = "SELECT * FROM reg_clientes WHERE nom_cli = ?";
-            try{
-               cn = con.getConnection();
-               ps = cn.prepareStatement(sql);
-               ps.setString(1, empe.getNombreEmpl());
-               rs = ps.executeQuery();
-               
-               while (rs.next()){
-                   regEmpleado cli = new regEmpleado(){};
-                     cli.setIdEmpl(rs.getInt("id_cliente"));
-                     cli.setNombreEmpl(rs.getString("nom_cli"));
-                     cli.setApellidoEmpl(rs.getString("ape_cli"));
-                     cli.setCedulaEmpl(rs.getInt("ced_cli"));
-                     cli.setDireccion(rs.getString("direccion"));
-                     cli.setCelEmpl(rs.getInt("telef"));
-                     cliente.add(cli);
-               }
-            }catch (SQLException e){
-                System.out.println(e);
-            }finally {
-           // Cerrar recursos en orden inverso de apertura para evitar problemas
-           if (rs != null) {
-               rs.close();
-           }
-           if (ps != null) {
-               ps.close();
-           }
-           if (cn != null) {
-               cn.close();
-           }
+        return cliente;
+    }
+
+    public List<regEmpleado> buscarNomCliente(regEmpleado empe) throws SQLException {
+        List<regEmpleado> cliente = new ArrayList<>();
+        String sql = "SELECT * FROM reg_clientes WHERE nom_cli = ?";
+        try {
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, empe.getNombreEmpl());
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                regEmpleado cli = new regEmpleado() {
+                };
+                cli.setIdEmpl(rs.getInt("id_cliente"));
+                cli.setNombreEmpl(rs.getString("nom_cli"));
+                cli.setApellidoEmpl(rs.getString("ape_cli"));
+                cli.setCedulaEmpl(rs.getInt("ced_cli"));
+                cli.setDireccion(rs.getString("direccion"));
+                cli.setCelEmpl(rs.getInt("telef"));
+                cliente.add(cli);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            // Cerrar recursos en orden inverso de apertura para evitar problemas
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
         }
-            return cliente;
-        }
-    
+        return cliente;
+    }
+
     public int agregarCliente(regEmpleado cli) {
         String sql = "INSERT INTO reg_clientes (nom_cli, ape_cli, ced_cli,direccion, telef) VALUES (?,?,?,?,?)";
 
@@ -133,9 +177,8 @@ public class clienteDAO extends dataBase {
             ps.setString(1, cli.getNombreEmpl());
             ps.setString(2, cli.getApellidoEmpl());
             ps.setInt(3, cli.getCedulaEmpl()); // Utilizar setInt para el número de cédula
-             ps.setString(4, cli.getDireccion());
+            ps.setString(4, cli.getDireccion());
             ps.setInt(5, cli.getCelEmpl()); // Utilizar setInt para el teléfono
-           
 
             int r = ps.executeUpdate(); // Ejecutar la actualización
 
@@ -163,62 +206,62 @@ public class clienteDAO extends dataBase {
         }
     }
 
-     public int actualizarCliente(regEmpleado emp) throws SQLException{
-             int r = 1;
-             String sql = "UPDATE reg_clientes SET  nom_cli=?,"
-                    + " ape_cli=? ,ced_cli=?, direccion=?, telef=?,  WHERE ced_cli=?";
-                try{
-                    cn = con.getConnection();
-                    ps = cn.prepareStatement(sql);               
-                    ps.setString(2, emp.getNombreEmpl());
-                    ps.setString(3, emp.getApellidoEmpl());
-                    ps.setInt(4, emp.getCedulaEmpl());
-                    ps.setString(6, emp.getDireccion());
-                    ps.setInt(5, emp.getCelEmpl());
-                    ps.executeUpdate();
-                   if (r == 1){
-                 return 1;
-             }else{
-                     return 0;
-                 }
-                }catch (SQLException e){
-                    System.out.println(e);
-                }finally {
-                    if (rs != null) {
-                        rs.close();
-                    }
-                    if (ps != null) {
-                        ps.close();
-                    }
-                    if (cn != null) {
-                        cn.close();
-                    }
-                 }
-                return r;
-                }
+    public int actualizarCliente(regEmpleado emp) throws SQLException {
+        int r = 1;
+        String sql = "UPDATE reg_clientes SET  nom_cli=?,"
+                + " ape_cli=? ,ced_cli=?, direccion=?, telef=?,  WHERE ced_cli=?";
+        try {
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            ps.setString(2, emp.getNombreEmpl());
+            ps.setString(3, emp.getApellidoEmpl());
+            ps.setInt(4, emp.getCedulaEmpl());
+            ps.setString(6, emp.getDireccion());
+            ps.setInt(5, emp.getCelEmpl());
+            ps.executeUpdate();
+            if (r == 1) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        }
+        return r;
+    }
 
     //Metodo para eliminar por documento del cliente
-    public void eliminarCliente(regEmpleado cli) throws SQLException{
-                    String sql = "DELETE FROM reg_clientes WHERE ced_cli =?";
-                    try{
-                        cn = con.getConnection();
-                        ps = cn.prepareStatement(sql);
-                        ps.setInt(1, cli.getCedulaEmpl());
-                        ps.executeUpdate();
-                    } catch (SQLException e){
-                        System.out.println(e);
-                    }finally {
-           // Cerrar recursos en orden inverso de apertura para evitar problemas
-           if (rs != null) {
-               rs.close();
-           }
-           if (ps != null) {
-               ps.close();
-           }
-           if (cn != null) {
-               cn.close();
-           }
+    public void eliminarCliente(regEmpleado cli) throws SQLException {
+        String sql = "DELETE FROM reg_clientes WHERE ced_cli =?";
+        try {
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, cli.getCedulaEmpl());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            // Cerrar recursos en orden inverso de apertura para evitar problemas
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
         }
-                }
+    }
 
 }

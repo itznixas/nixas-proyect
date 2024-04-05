@@ -52,14 +52,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblInventario.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
         tblInventario.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
         tblInventario.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
-        
+
         tblEleccionMesa.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
         tblEleccionMesa.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
-        
+
         tblStockProductos.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
         tblStockProductos.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
         tblStockProductos.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
-        
+
         tblPedidoPendiente.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
         tblPedidoPendiente.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
         tblPedidoPendiente.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
@@ -67,14 +67,22 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblPedidoPendiente.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
         tblPedidoPendiente.getColumnModel().getColumn(5).setCellRenderer(TablaRenderer);
         tblPedidoPendiente.getColumnModel().getColumn(6).setCellRenderer(TablaRenderer);
-        
+
         tblPedidoListo.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
         tblPedidoListo.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
         tblPedidoListo.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
         tblPedidoListo.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
         tblPedidoListo.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
-        tblPedidoListo.getColumnModel().getColumn(5).setCellRenderer(TablaRenderer);       
-        tblPedidoListo.getColumnModel().getColumn(6).setCellRenderer(TablaRenderer); 
+        tblPedidoListo.getColumnModel().getColumn(5).setCellRenderer(TablaRenderer);
+        tblPedidoListo.getColumnModel().getColumn(6).setCellRenderer(TablaRenderer);
+
+        tblFactura.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
+        tblFactura.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
+        tblFactura.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
+        tblFactura.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
+        tblFactura.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
+        tblFactura.getColumnModel().getColumn(5).setCellRenderer(TablaRenderer);
+        
         this.connection = connection; // Asigna la conexión
         mesasDAO mesasDao = new mesasDAO(connection);
         mesaControlador controller = new mesaControlador(btnMesa1, btnMesa2, btnMesa3, btnMesa4, btnMesa5, btnMesa6, mesasDao);
@@ -115,7 +123,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPedidoListo = new javax.swing.JTable();
         txtNombreE4 = new componentes.TextField();
-        jButton14 = new javax.swing.JButton();
+        btnCkeckIn = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
@@ -225,8 +233,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         textField15 = new componentes.TextField();
         jButton17 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
+        btnActualizarFactura = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblFactura = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -498,10 +507,10 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtNombreE4.setHint("Cantidad");
 
-        jButton14.setBackground(new java.awt.Color(41, 53, 87));
-        jButton14.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton14.setForeground(new java.awt.Color(255, 255, 255));
-        jButton14.setText("CHECK IN");
+        btnCkeckIn.setBackground(new java.awt.Color(41, 53, 87));
+        btnCkeckIn.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnCkeckIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnCkeckIn.setText("CHECK IN");
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -511,7 +520,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addContainerGap(54, Short.MAX_VALUE)
                 .addComponent(txtNombreE4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton14)
+                .addComponent(btnCkeckIn)
                 .addGap(305, 305, 305))
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
@@ -526,7 +535,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtNombreE4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCkeckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -1435,19 +1444,34 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(60, 60, 60))
         );
 
-        jTable1.setBackground(new java.awt.Color(11, 22, 47));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        btnActualizarFactura.setText("ACTUALIZAR");
+        btnActualizarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarFacturaActionPerformed(evt);
+            }
+        });
+
+        tblFactura.setBackground(new java.awt.Color(11, 22, 47));
+        tblFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "DNI", "PHONE NUMBER", "NAME", "LAST NAME"
+                "ID", "TABLE", "WAITER", "PRODUCT", "AMOUNT", "STATE"
             }
-        ));
-        jScrollPane6.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(tblFactura);
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1456,21 +1480,24 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addGap(133, 133, 133)
                 .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnActualizarFactura)
+                .addGap(342, 342, 342))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
+                .addComponent(btnActualizarFactura)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Factura", jPanel20);
@@ -1730,7 +1757,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "La verdadera contraseña es: " + new String(valorCelda.toString()));
             }
         }
-        
+
     }//GEN-LAST:event_tblEmpleadosMouseClicked
 
     private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
@@ -1772,10 +1799,10 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void txtCantidadProPedKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadProPedKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(!"".equals(txtCantidadProPed.getText)){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(txtCantidadProPed.getText)) {
                 loginCtrl l = new loginCtrl();
-                
+
             }
         }
     }//GEN-LAST:event_txtCantidadProPedKeyPressed
@@ -1802,8 +1829,12 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void tblInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInventarioMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_tblInventarioMouseClicked
+
+    private void btnActualizarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarFacturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarFacturaActionPerformed
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
@@ -1831,11 +1862,13 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnActuaMesa;
     public javax.swing.JButton btnActuaProdPedi;
     public javax.swing.JButton btnActuaTabPenPet;
+    public javax.swing.JButton btnActualizarFactura;
     public javax.swing.JButton btnActualizarInv;
     public javax.swing.JButton btnAggPedidos;
     public javax.swing.JButton btnAggProInv;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
+    public javax.swing.JButton btnCkeckIn;
     public javax.swing.JButton btnConsultaCL;
     public javax.swing.JButton btnConsultarEm;
     public javax.swing.JButton btnEliminarClie;
@@ -1854,7 +1887,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbEmpleado;
     public javax.swing.JComboBox<String> cmbPorcion;
     private javax.swing.JButton jButton13;
-    public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton20;
@@ -1926,7 +1958,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     public javax.swing.JTabbedPane jTabbedPane;
-    private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     public javax.swing.JComboBox<String> jcbMesero;
@@ -1942,6 +1973,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEleccionMesa;
     public javax.swing.JTable tblEmpleados;
+    public javax.swing.JTable tblFactura;
     public javax.swing.JTable tblInventario;
     public javax.swing.JTable tblPedidoListo;
     public javax.swing.JTable tblPedidoPendiente;

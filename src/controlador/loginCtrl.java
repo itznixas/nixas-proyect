@@ -35,10 +35,12 @@ public class loginCtrl implements ActionListener {
     mesasDAO mDAO = new mesasDAO();
     pedidosDAO peD = new pedidosDAO() {
     };
-    platoProducto pl = new platoProducto() {};
+    platoProducto pl = new platoProducto() {
+    };
     prodPlatosDAO plDAO = new prodPlatosDAO();
     inventarioDAO inDAO = new inventarioDAO();
     Excel ex = new Excel();
+
     public loginCtrl() {
     }
 
@@ -81,11 +83,14 @@ public class loginCtrl implements ActionListener {
         this.admin.btnActualizarInv.addActionListener(this);
         this.admin.btnActualizarInv.addActionListener(this);
         this.admin.btnExcel.addActionListener(this);
+        this.admin.btnCkeckIn.addActionListener(this);
+        this.admin.btnActualizarFactura.addActionListener(this);
     }
 
-    public void btnExcell(){
+    public void btnExcell() {
         ex.reporte();
     }
+
     public void listarMesas(JTable tblEleccionMesa) throws SQLException {
         System.out.println("aa");
         modelo = (DefaultTableModel) tblEleccionMesa.getModel();
@@ -110,6 +115,26 @@ public class loginCtrl implements ActionListener {
     public void listarPlatosPedidos(JTable tblStockProductos) throws SQLException {
         System.out.println("aa");
         modelo = (DefaultTableModel) tblStockProductos.getModel();
+        modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
+
+        try {
+            List<platoProducto> plato = plDAO.platos();
+            Object[] object = new Object[3];
+
+            for (int i = 0; i < plato.size(); i++) {
+                object[0] = plato.get(i).getId_plato();
+                object[1] = plato.get(i).getNombreProd();
+                object[2] = plato.get(i).getCantidad();
+                modelo.addRow(object);
+            }
+            modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+        } catch (SQLException ex) {
+            Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void listarFactura(JTable tblFactura) throws SQLException {
+        modelo = (DefaultTableModel) tblFactura.getModel();
         modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
 
         try {
@@ -576,7 +601,7 @@ public class loginCtrl implements ActionListener {
         int r = 0;
         System.out.println("g");
         try {
-          
+
             if (admin.cmbPorcion.getSelectedItem().equals("Bebidas")) {
                 id = 1;
                 nombreB = admin.txtNombreP.getText();
@@ -587,14 +612,14 @@ public class loginCtrl implements ActionListener {
                 if (!admin.txtPrecioP.getText().isEmpty()) {
                     precioB = Float.parseFloat(admin.txtPrecioP.getText());
                 }
-                
+
                 prod.setNombreProd(nombreB);
                 prod.setCantidad(cantidadB);
                 prod.setPrecio(precioB);
                 r = be.agregarBebidas(prod);
                 if (r == 1) {
                     AggInventario();
-                   // JOptionPane.showMessageDialog(admin, "Registro exitoso");
+                    // JOptionPane.showMessageDialog(admin, "Registro exitoso");
                 } else {
                     JOptionPane.showMessageDialog(admin, "Error ");
                 }
@@ -659,6 +684,31 @@ public class loginCtrl implements ActionListener {
         }
     }
 
+    public void ActualizarTablaFactura() {
+        modelo = (DefaultTableModel) admin.tblFactura.getModel();
+        modelo.setRowCount(0); // Limpiar modelo de la tabla antes de agregar nuevos datos
+
+        try {
+            List<tmpPedidos> listarTablaFactura = cli.listarTablaFactura();
+            Object[] object = new Object[6];
+
+            for (int i = 0; i < listarTablaFactura.size(); i++) {
+                object[0] = listarTablaFactura.get(i).getIdPedidos();
+                object[1] = listarTablaFactura.get(i).getIdMesas();
+                object[2] = listarTablaFactura.get(i).getMesero();
+                object[3] = listarTablaFactura.get(i).getProducto();
+                object[4] = listarTablaFactura.get(i).getCantidad();
+                object[5] = listarTablaFactura.get(i).getEstado();
+
+                modelo.addRow(object);
+            }
+
+            modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+        } catch (SQLException ex) {
+            Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public void listaPedidos(JTable tblPedidoPendiente) throws SQLException {
         DefaultTableModel modelo = (DefaultTableModel) tblPedidoPendiente.getModel();
         modelo.setRowCount(0);
@@ -712,8 +762,8 @@ public class loginCtrl implements ActionListener {
         }
     }
 
-     public void listaPedidosListo(JTable tblPedidoListo) throws SQLException {
-         System.out.println("aaaaasd");
+    public void listaPedidosListo(JTable tblPedidoListo) throws SQLException {
+        System.out.println("aaaaasd");
         DefaultTableModel modelo = (DefaultTableModel) tblPedidoListo.getModel();
         modelo.setRowCount(0);
         String est = "";
@@ -741,117 +791,133 @@ public class loginCtrl implements ActionListener {
             e.printStackTrace();
         }
     }
-     
-       inventario in = new inventario();
-    public void ingresarInvenEntrada(KeyEvent evt) throws SQLException {
-    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtNomProdInv.getText())) {
-            
-            in.setNomEntrada(admin.txtNomProdInv.getText());
-            in.setCantEntrada(Integer.parseInt(admin.txtCanProdInv.getText()));
 
-            LocalDate fechaActual = LocalDate.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-            String fechaFormateada = fechaActual.format(formatter);
-            in.setFechaInvEntrada(fechaFormateada);
-              
-              
-                    int r = inDAO.agregarPedidoEntrada(in);
-                    if (r == 1) {
-                        JOptionPane.showMessageDialog(admin, "Producto ingresado");
-                    } else {
-                        JOptionPane.showMessageDialog(admin, "Error");
-                    }        
-        } else {
-            JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
+    inventario in = new inventario();
+
+    public void ingresarInvenEntrada(KeyEvent evt) throws SQLException {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtNomProdInv.getText())) {
+
+                in.setNomEntrada(admin.txtNomProdInv.getText());
+                in.setCantEntrada(Integer.parseInt(admin.txtCanProdInv.getText()));
+
+                LocalDate fechaActual = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String fechaFormateada = fechaActual.format(formatter);
+                in.setFechaInvEntrada(fechaFormateada);
+
+                int r = inDAO.agregarPedidoEntrada(in);
+                if (r == 1) {
+                    JOptionPane.showMessageDialog(admin, "Producto ingresado");
+                } else {
+                    JOptionPane.showMessageDialog(admin, "Error");
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
+            }
         }
     }
-    }
-    
-     public void ingresarInvenSalida() throws SQLException {    
-            in.setNomSalida(admin.txtNombreP.getText());
-            in.setCantSalida(Integer.parseInt(admin.txtCantidadP.getText()));
-            
-            LocalDate fechaActual = LocalDate.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-            String fechaFormateada = fechaActual.format(formatter);
-            in.setFechaInvSalida(fechaFormateada);
-               
-            
-            inventarioDAO dao = new inventarioDAO();
-            if(dao.productoExiste(in)){                   
-                    int r = inDAO.agregarPedidoSalida(in);
-                    if (r == 1) {
-                        AggInventario();
-                    } else {
-                        JOptionPane.showMessageDialog(admin, "Error");
-                    }
-               }else{
-                    JOptionPane.showMessageDialog(admin, "Producto NO EXISTE");  
-               }
-          
-       
 
-     }
+    public void ingresarInvenSalida() throws SQLException {
+        in.setNomSalida(admin.txtNombreP.getText());
+        in.setCantSalida(Integer.parseInt(admin.txtCantidadP.getText()));
 
- public void AggInventario() throws SQLException {
-    try {
-        inventarioDAO da = new inventarioDAO();
-        
-        // Obtener valores del objeto in y asignarlos a variables
-         in.getNomSalida();
-         in.getFechaInvSalida();
-         in.getCantEntrada();
-         in.getCantSalida();
-        
-        // Agregar inventario a la base de datos
-        int r = da.agregarInvetario(in);
-        
-        // Verificar si el producto ya existe en la base de datos
-        if (da.existeNombreEnInventario(in)) {
+        LocalDate fechaActual = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String fechaFormateada = fechaActual.format(formatter);
+        in.setFechaInvSalida(fechaFormateada);
+
+        inventarioDAO dao = new inventarioDAO();
+        if (dao.productoExiste(in)) {
+            int r = inDAO.agregarPedidoSalida(in);
             if (r == 1) {
-                // La inserción fue exitosa
-            } else if (da.productoExiste(in)) {
-                // El nombre del inventario ya existe en la base de datos
+                AggInventario();
             } else {
-                JOptionPane.showMessageDialog(admin, "Error, no se pudo ingresar al inventario");
+                JOptionPane.showMessageDialog(admin, "Error");
             }
         } else {
-            JOptionPane.showMessageDialog(admin, "Error, no se encuentra el producto");
+            JOptionPane.showMessageDialog(admin, "Producto NO EXISTE");
         }
-    } catch (SQLException e) {
-        // Manejar la excepción SQL aquí (mostrar mensaje, registrar en log, etc.)
-        JOptionPane.showMessageDialog(admin, "Error SQL: " + e.getMessage());
+
     }
-}
 
- public void listarInventario (JTable tblInventario){
-     System.out.println("ss");
-     modelo = (DefaultTableModel) tblInventario.getModel();
-     modelo.setRowCount(0);
-     try{
-         List<inventario> listaInv = inDAO.listaInventario();
-         Object[] object = new Object[7];
-         for(int i = 0; i< listaInv.size(); i++ ){
-             object[0] = listaInv.get(i).getIdIvTmp();
-             object[1] = listaInv.get(i).getNomSalida();
-             object[2] = listaInv.get(i).getCantEntrada();
-             object[3] = listaInv.get(i).getCantSalida();
-             object[4] = listaInv.get(i).getFechaInvSalida();
+    public void AggInventario() throws SQLException {
+        try {
+            inventarioDAO da = new inventarioDAO();
 
-             modelo.addRow(object);
-         }
-           modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+            // Obtener valores del objeto in y asignarlos a variables
+            in.getNomSalida();
+            in.getFechaInvSalida();
+            in.getCantEntrada();
+            in.getCantSalida();
+
+            // Agregar inventario a la base de datos
+            int r = da.agregarInvetario(in);
+
+            // Verificar si el producto ya existe en la base de datos
+            if (da.existeNombreEnInventario(in)) {
+                if (r == 1) {
+                    // La inserción fue exitosa
+                } else if (da.productoExiste(in)) {
+                    // El nombre del inventario ya existe en la base de datos
+                } else {
+                    JOptionPane.showMessageDialog(admin, "Error, no se pudo ingresar al inventario");
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "Error, no se encuentra el producto");
+            }
+        } catch (SQLException e) {
+            // Manejar la excepción SQL aquí (mostrar mensaje, registrar en log, etc.)
+            JOptionPane.showMessageDialog(admin, "Error SQL: " + e.getMessage());
+        }
+    }
+
+    public void listarInventario(JTable tblInventario) {
+        System.out.println("ss");
+        modelo = (DefaultTableModel) tblInventario.getModel();
+        modelo.setRowCount(0);
+        try {
+            List<inventario> listaInv = inDAO.listaInventario();
+            Object[] object = new Object[7];
+            for (int i = 0; i < listaInv.size(); i++) {
+                object[0] = listaInv.get(i).getIdIvTmp();
+                object[1] = listaInv.get(i).getNomSalida();
+                object[2] = listaInv.get(i).getCantEntrada();
+                object[3] = listaInv.get(i).getCantSalida();
+                object[4] = listaInv.get(i).getFechaInvSalida();
+
+                modelo.addRow(object);
+            }
+            modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
         } catch (SQLException ex) {
             Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
- }
+    }
 
-     
-     public void limpiarCajaInventario(){
-         admin.txtNomProdInv.setText(null);
-         admin.txtCanProdInv.setText(null);
-     }
+    public void checkIn() {
+        // Instancia de pedidosDAO
+        pedidosDAO peD = new pedidosDAO();
+
+        int selectedRow = admin.tblPedidoListo.getSelectedRow();
+
+        if (selectedRow != -1) {
+            Object[] fila = new Object[admin.tblPedidoListo.getColumnCount()];
+            for (int i = 0; i < admin.tblPedidoListo.getColumnCount(); i++) {
+                fila[i] = admin.tblPedidoListo.getValueAt(selectedRow, i);
+            }
+
+            DefaultTableModel modeloOrigen = (DefaultTableModel) admin.tblPedidoListo.getModel();
+            if (selectedRow != -1) {
+                modeloOrigen.removeRow(selectedRow);
+            }
+        }
+    }
+
+    public void limpiarCajaInventario() {
+        admin.txtNomProdInv.setText(null);
+        admin.txtCanProdInv.setText(null);
+    }
+
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -861,8 +927,11 @@ public class loginCtrl implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()== admin.btnExcel){
-           btnExcell();
+        if (e.getSource() == admin.btnActualizarFactura) {
+            ActualizarTablaFactura();
+        }
+        if (e.getSource() == admin.btnExcel) {
+            btnExcell();
         }
         //Cambios de paneles
         if (e.getSource() == admin.jmiOrdenes) {
@@ -880,12 +949,13 @@ public class loginCtrl implements ActionListener {
         if (e.getSource() == admin.jmiClienteConsu) {
             clienteConsuPaneles();
             listarClientes(admin.tblClientes);
-
         }
         if (e.getSource() == admin.jmiEmpleadoConsu) {
             empleadoConsuPaneles();
             listarEmpleado(admin.tblEmpleados);
-
+        }
+        if (e.getSource() == admin.btnCkeckIn) {
+            checkIn();
         }
         if (e.getSource() == admin.cerrar) {
             try {
@@ -969,14 +1039,17 @@ public class loginCtrl implements ActionListener {
 
             }
         }
+
+        if (e.getSource() == admin.btnActualizarFactura) {
+            ActualizarTablaFactura();
+        }
+
         if (e.getSource() == admin.btnPorcion) {
-            
-            try
-            {
+
+            try {
                 btnAgregarPorcion();
                 ingresarInvenSalida();
-            } catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1053,7 +1126,7 @@ public class loginCtrl implements ActionListener {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-         if (e.getSource() == admin.btnAggProInv) {
+        if (e.getSource() == admin.btnAggProInv) {
             KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 ingresarInvenEntrada(fakeEvent);
@@ -1063,10 +1136,9 @@ public class loginCtrl implements ActionListener {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-            if(e.getSource()== admin.btnActualizarInv){
-                System.out.println("wws");
-                listarInventario(admin.tblInventario);
-            }
+        if (e.getSource() == admin.btnActualizarInv) {
+            System.out.println("wws");
+            listarInventario(admin.tblInventario);
         }
     }
-
+}
