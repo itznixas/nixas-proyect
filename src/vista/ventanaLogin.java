@@ -35,13 +35,11 @@ public class ventanaLogin extends javax.swing.JFrame {
         jPanelTransparente1 = new LIB.JPanelTransparente();
         CampoUsuario = new componentes.TextField();
         CampoContraseña = new componentes.PasswordField();
-        OlvidasteContraseña = new javax.swing.JLabel();
         BtnLogin = new javax.swing.JButton();
         TituloInicioSesion = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -56,17 +54,6 @@ public class ventanaLogin extends javax.swing.JFrame {
 
         CampoContraseña.setHint("PASSWORD");
         jPanelTransparente1.add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 220, -1));
-
-        OlvidasteContraseña.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        OlvidasteContraseña.setForeground(new java.awt.Color(255, 255, 255));
-        OlvidasteContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OlvidasteContraseña.setText("¿ Forgot your password ?");
-        OlvidasteContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                OlvidasteContraseñaMouseClicked(evt);
-            }
-        });
-        jPanelTransparente1.add(OlvidasteContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 220, -1));
 
         BtnLogin.setBackground(new java.awt.Color(22, 18, 38));
         BtnLogin.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
@@ -94,14 +81,6 @@ public class ventanaLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanelTransparente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 370, 510));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoEquis.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, 30, -1));
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/MejorLogo (1).png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -112,17 +91,6 @@ public class ventanaLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void OlvidasteContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OlvidasteContraseñaMouseClicked
-        // TODO add your handling code here:
-        dispose();
-
-    }//GEN-LAST:event_OlvidasteContraseñaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -151,11 +119,9 @@ public class ventanaLogin extends javax.swing.JFrame {
     public javax.swing.JButton BtnLogin;
     public componentes.PasswordField CampoContraseña;
     public componentes.TextField CampoUsuario;
-    private javax.swing.JLabel OlvidasteContraseña;
     private javax.swing.JLabel TituloInicioSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

@@ -24,7 +24,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class loginCtrl implements ActionListener {
 
-    regEmpleado reG = new regEmpleado() {};
+    regEmpleado reG = new regEmpleado() {
+    };
     regEmpleadoDAO emD = new regEmpleadoDAO();
     ventanaLogin ventana;
     MenuAdmin admin = new MenuAdmin();
@@ -32,12 +33,15 @@ public class loginCtrl implements ActionListener {
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
     mesasDAO mDAO = new mesasDAO();
-    pedidosDAO peD = new pedidosDAO() {};
-    platoProducto pl = new platoProducto() {};
+    pedidosDAO peD = new pedidosDAO() {
+    };
+    platoProducto pl = new platoProducto() {
+    };
     prodPlatosDAO plDAO = new prodPlatosDAO();
     inventarioDAO inDAO = new inventarioDAO();
     Excel ex = new Excel();
     facturaDetDAO faDAO = new facturaDetDAO();
+
     public loginCtrl() {
     }
 
@@ -84,6 +88,7 @@ public class loginCtrl implements ActionListener {
         this.admin.btnActualizarFactura.addActionListener(this);
         this.admin.txtIdProductoDet.addActionListener(this);
         this.admin.btnFacturarDet.addActionListener(this);
+        this.admin.cerrar.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -918,64 +923,66 @@ public class loginCtrl implements ActionListener {
     }
 
     //Factura
-    public void BuscarProducto(KeyEvent evt){
+    public void BuscarProducto(KeyEvent evt) throws SQLException {
         System.out.println("s");
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtIdProductoDet.getText())){
-            String Nom = admin.txtIdProductoDet.getText();
-            platoProducto pla = new platoProducto() {};
-            pla = faDAO.BuscarPlato(Nom);
-            if(pla.getNombreProd() != null){
-                admin.txtProductoDet.setText(""+pla.getNombreProd());
-                admin.txtPrecioUniDet.setText(""+pla.getPrecio());
-                admin.txtProdStock.setText(""+pla.getCantidad());
-                admin.txtIdProductoDet.requestFocus();
-            }else{
-                admin.txtProductoDet.setText("");
-                admin.txtPrecioUniDet.setText("");
-                admin.txtProdStock.setText("");
-                admin.txtIdProductoDet.requestFocus();
+            if (!"".equals(admin.txtIdProductoDet.getText())) {
+                String Nom = admin.txtIdProductoDet.getText();
+                platoProducto pla = new platoProducto() {
+                };
+                pla = faDAO.BuscarPlato(Nom);
+                if (pla.getNombreProd() != null) {
+                    admin.txtProductoDet.setText("" + pla.getNombreProd());
+                    admin.txtPrecioUniDet.setText("" + pla.getPrecio());
+                    admin.txtProdStock.setText("" + pla.getCantidad());
+                    admin.txtIdProductoDet.requestFocus();
+                } else {
+                    admin.txtProductoDet.setText("");
+                    admin.txtPrecioUniDet.setText("");
+                    admin.txtProdStock.setText("");
+                    admin.txtIdProductoDet.requestFocus();
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
+                admin.txtProductoDet.requestFocus();
             }
-        }else{
-            JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
-            admin.txtProductoDet.requestFocus();
-        }
         }
     }
-      
-    public void registrarDetalle(KeyEvent evt){
+
+    public void registrarDetalle(KeyEvent evt) throws SQLException {
         System.out.println("ws");
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtCantProdDet.getText())){
-           
-            int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
-            String product = admin.txtProductoDet.getText();
-            int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
-            float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
-            float total = cantidad * precioU;
-            admin.lblTotal.setText(String.valueOf(total));
-            int stock = Integer.parseInt(admin.txtProdStock.getText());
-            if(stock>=cantidad){
-                facturaDetallee da = new facturaDetallee();
-                da.setIdDetFact(cod);
-                da.setProducto(product);
-                da.setCantProd(cantidad);
-                da.setPredUnitario(precioU);
-                da.setTotal(total);
-              int r =  faDAO.registrarVenta(da);
-                if(r ==1){
-                    System.out.println("Generado");
-                }else{
-                    JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
+            if (!"".equals(admin.txtCantProdDet.getText())) {
+
+                int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
+                String product = admin.txtProductoDet.getText();
+                int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
+                float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
+                float total = cantidad * precioU;
+                admin.lblTotal.setText(String.valueOf(total));
+                int stock = Integer.parseInt(admin.txtProdStock.getText());
+                if (stock >= cantidad) {
+                    facturaDetallee da = new facturaDetallee();
+                    da.setIdDetFact(cod);
+                    da.setProducto(product);
+                    da.setCantProd(cantidad);
+                    da.setPredUnitario(precioU);
+                    da.setTotal(total);
+                    int r = faDAO.registrarVenta(da);
+                    if (r == 1) {
+                        System.out.println("Generado");
+                    } else {
+                        JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(admin, "Error, Sobrepasa el stock");
                 }
-            }else{
-                JOptionPane.showMessageDialog(admin, "Error, Sobrepasa el stock");
+            } else {
+                JOptionPane.showMessageDialog(admin, "Ingrese la cantidad para facturar");
             }
-        }else{
-            JOptionPane.showMessageDialog(admin, "Ingrese la cantidad para facturar");
         }
     }
-      }
+
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1198,14 +1205,22 @@ public class loginCtrl implements ActionListener {
             System.out.println("wws");
             listarInventario(admin.tblInventario);
         }
-        if(e.getSource()== admin.txtIdProductoDet){
+        if (e.getSource() == admin.txtIdProductoDet) {
             System.out.println("ddddd");
-             KeyEvent fakeEvent = new KeyEvent(admin.txtIdProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-             BuscarProducto(fakeEvent);
+            KeyEvent fakeEvent = new KeyEvent(admin.txtIdProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            try {
+                BuscarProducto(fakeEvent);
+            } catch (SQLException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        if(e.getSource()== admin.btnFacturarDet){
+        if (e.getSource() == admin.btnFacturarDet) {
             KeyEvent fakeEvent = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-            registrarDetalle(fakeEvent);
+            try {
+                registrarDetalle(fakeEvent);
+            } catch (SQLException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }
