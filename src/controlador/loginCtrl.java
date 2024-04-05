@@ -41,7 +41,7 @@ public class loginCtrl implements ActionListener {
     inventarioDAO inDAO = new inventarioDAO();
     Excel ex = new Excel();
     facturaDetDAO faDAO = new facturaDetDAO();
-
+    facturaDAO fDAO = new facturaDAO();
     public loginCtrl() {
     }
 
@@ -89,6 +89,7 @@ public class loginCtrl implements ActionListener {
         this.admin.txtIdProductoDet.addActionListener(this);
         this.admin.btnFacturarDet.addActionListener(this);
         this.admin.cerrar.addActionListener(this);
+        this.admin.btnFacturarDet.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -962,7 +963,7 @@ public class loginCtrl implements ActionListener {
                 admin.lblTotal.setText(String.valueOf(total));
                 int stock = Integer.parseInt(admin.txtProdStock.getText());
                 if (stock >= cantidad) {
-                    facturaDetallee da = new facturaDetallee();
+                    facturaDetallee da = new facturaDetallee() {};
                     da.setIdDetFact(cod);
                     da.setProducto(product);
                     da.setCantProd(cantidad);
@@ -970,9 +971,9 @@ public class loginCtrl implements ActionListener {
                     da.setTotal(total);
                     int r = faDAO.registrarVenta(da);
                     if (r == 1) {
-                        System.out.println("Generado");
+                       JOptionPane.showMessageDialog(admin, " en la factura detalle");
                     } else {
-                        JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
+                       JOptionPane.showMessageDialog(admin, "Error, ");
                     }
                 } else {
                     JOptionPane.showMessageDialog(admin, "Error, Sobrepasa el stock");
@@ -983,6 +984,60 @@ public class loginCtrl implements ActionListener {
         }
     }
 
+    public void factura(KeyEvent evt) throws SQLException{
+         System.out.println("ws");
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtCantProdDet.getText())) {
+                int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
+                int idCli = Integer.parseInt(admin.txtIdClienteFac.getText());
+                String tipo = admin.txtMetodoPago.getText();
+                int mesero = Integer.parseInt(admin.txtIdMesero.getText());
+                int cajero = Integer.parseInt(admin.txtIdClienteFac.getText());
+                int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
+                float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
+                float uniV = cantidad * precioU;
+                float iva = uniV * 0.19f; 
+                float desc = Float.parseFloat(admin.txtDescuentoFac.getText());
+                float descuento = uniV * (desc / 100.0f);
+                float total = uniV + iva - descuento;
+                
+                LocalDate fechaActual = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String fechaFormateada = fechaActual.format(formatter);
+                
+                LocalDateTime ahora = LocalDateTime.now();
+                DateTimeFormatter formatte = DateTimeFormatter.ofPattern("HH:mm");
+                String horaActual = ahora.format(formatte);
+                
+                
+                admin.lblTotalFinal.setText(String.valueOf(total));
+                int stock = Integer.parseInt(admin.txtProdStock.getText());
+                if (stock >= cantidad) {
+                    factauraCabe da = new factauraCabe() {};
+                    da.setIdCabFac(cod);
+                    da.setIdTipoPago(tipo);
+                    da.setIdCli(idCli);
+                    da.setIdMesero(mesero);
+                    da.setIdCajero(cajero);
+                    da.setDescuento(descuento);
+                    da.setIva(iva);
+                    da.setTotal(total);
+                    da.setFechaFact(fechaFormateada);
+                    da.setHoraFact(horaActual);
+                    int r = fDAO.facturar(da);
+                    if (r == 1) {
+                       JOptionPane.showMessageDialog(admin, " factura detalle");
+                    } else {
+                       JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(admin, "Error, Sobrepasa el stock");
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "Ingrese la cantidad para facturar");
+            }
+        }
+    }
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1218,6 +1273,16 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 registrarDetalle(fakeEvent);
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (e.getSource() == admin.btnFacturarDet) {
+            KeyEvent fakeEvent = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            try {
+                factura(fakeEvent);
+                
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }

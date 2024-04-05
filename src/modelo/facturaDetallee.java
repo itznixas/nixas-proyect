@@ -2,12 +2,13 @@
 package modelo;
 
 
-public class facturaDetallee {
+public abstract class facturaDetallee extends regEmpleado{
     protected int idDetFact,cantProd ;
     protected float predUnitario,total;
     protected String numFact, producto;
 
-    public facturaDetallee(int idDetFact, int cantProd, float predUnitario, float total, String numFact, String producto) {
+    public facturaDetallee(int idDetFact, int cantProd, float predUnitario, float total, String numFact, String producto, int idEmpl, Integer cedulaEmpl, Integer celEmpl, int idRol, String nombreEmpl, String apellidoEmpl, String userEmpl, String claveEmpl, String nombreRol, String direccion) {
+        super(idEmpl, cedulaEmpl, celEmpl, idRol, nombreEmpl, apellidoEmpl, userEmpl, claveEmpl, nombreRol, direccion);
         this.idDetFact = idDetFact;
         this.cantProd = cantProd;
         this.predUnitario = predUnitario;
@@ -66,5 +67,15 @@ public class facturaDetallee {
     public void setProducto(String producto) {
         this.producto = producto;
     }
+
+    public Integer getCedulaEmpl(Integer celEmpl) {
+        return cedulaEmpl;
+    }
+
+    public void setCedulaEmpl(Integer cedulaEmpl) {
+        this.cedulaEmpl = cedulaEmpl;
+    }
+
+   
     
 }
