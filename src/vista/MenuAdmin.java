@@ -242,6 +242,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtPrecioFDet = new componentes.TextField();
         btnFacturarDet = new javax.swing.JButton();
         txtIdProductoDet = new componentes.TextField();
+        lblTotal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -1502,6 +1503,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtIdProductoDet.setHint("DNI");
 
+        lblTotal.setText("---");
+
         javax.swing.GroupLayout jPanelTransparente5Layout = new javax.swing.GroupLayout(jPanelTransparente5);
         jPanelTransparente5.setLayout(jPanelTransparente5Layout);
         jPanelTransparente5Layout.setHorizontalGroup(
@@ -1522,15 +1525,17 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addGap(26, 26, 26))
                     .addGroup(jPanelTransparente5Layout.createSequentialGroup()
                         .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnActualizarFactura, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelTransparente5Layout.createSequentialGroup()
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente5Layout.createSequentialGroup()
                                 .addComponent(txtNumFacturaDet, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68)
                                 .addComponent(txtPrecioFDet, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(btnFacturarDet, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnFacturarDet, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(162, 162, 162)
+                                .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTotal)
+                                    .addComponent(btnActualizarFactura))))
                         .addContainerGap(24, Short.MAX_VALUE))))
         );
         jPanelTransparente5Layout.setVerticalGroup(
@@ -1551,7 +1556,8 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPrecioFDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFacturarDet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumFacturaDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumFacturaDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotal))
                 .addContainerGap(228, Short.MAX_VALUE))
         );
 
@@ -2062,6 +2068,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JMenuItem jmiOrdenes;
     public javax.swing.JMenuItem jmiProductos;
     public javax.swing.JLabel lblRoles;
+    public javax.swing.JLabel lblTotal;
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEleccionMesa;
     public javax.swing.JTable tblEmpleados;

@@ -83,7 +83,7 @@ public class loginCtrl implements ActionListener {
         this.admin.btnCkeckIn.addActionListener(this);
         this.admin.btnActualizarFactura.addActionListener(this);
         this.admin.txtIdProductoDet.addActionListener(this);
-        
+        this.admin.btnFacturarDet.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -942,7 +942,40 @@ public class loginCtrl implements ActionListener {
         }
         }
     }
-    
+      
+    public void registrarDetalle(KeyEvent evt){
+        System.out.println("ws");
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtCantProdDet.getText())){
+           
+            int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
+            String product = admin.txtProductoDet.getText();
+            int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
+            float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
+            float total = cantidad * precioU;
+            admin.lblTotal.setText(String.valueOf(total));
+            int stock = Integer.parseInt(admin.txtProdStock.getText());
+            if(stock>=cantidad){
+                facturaDetallee da = new facturaDetallee();
+                da.setIdDetFact(cod);
+                da.setProducto(product);
+                da.setCantProd(cantidad);
+                da.setPredUnitario(precioU);
+                da.setTotal(total);
+              int r =  faDAO.registrarVenta(da);
+                if(r ==1){
+                    System.out.println("Generado");
+                }else{
+                    JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
+                }
+            }else{
+                JOptionPane.showMessageDialog(admin, "Error, Sobrepasa el stock");
+            }
+        }else{
+            JOptionPane.showMessageDialog(admin, "Ingrese la cantidad para facturar");
+        }
+    }
+      }
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1169,6 +1202,10 @@ public class loginCtrl implements ActionListener {
             System.out.println("ddddd");
              KeyEvent fakeEvent = new KeyEvent(admin.txtIdProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
              BuscarProducto(fakeEvent);
+        }
+        if(e.getSource()== admin.btnFacturarDet){
+            KeyEvent fakeEvent = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            registrarDetalle(fakeEvent);
         }
     }
 }

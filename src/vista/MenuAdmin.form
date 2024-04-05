@@ -2759,16 +2759,18 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Component id="btnActualizarFactura" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane6" min="-2" pref="642" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jScrollPane6" min="-2" pref="642" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
                                           <Component id="txtNumFacturaDet" min="-2" pref="78" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                                           <Component id="txtPrecioFDet" min="-2" pref="107" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                           <Component id="btnFacturarDet" min="-2" pref="99" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblTotal" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnActualizarFactura" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -2797,6 +2799,7 @@
                               <Component id="txtPrecioFDet" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnFacturarDet" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="txtNumFacturaDet" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="228" max="32767" attributes="0"/>
                       </Group>
@@ -2919,6 +2922,14 @@
                 <Component class="componentes.TextField" name="txtIdProductoDet">
                   <Properties>
                     <Property name="hint" type="java.lang.String" value="DNI"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTotal">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="---"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
