@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class IconoNixas{
 
     public static void establecerIcono(JFrame frame) {
-        ImageIcon icono = new ImageIcon(IconoNixas.class.getResource("/componentes/img/iconoNixas.png")); 
+        ImageIcon icono = new ImageIcon(IconoNixas.class.getResource("/componentes/img/logoNixas.png")); 
 
         frame.setIconImage(icono.getImage());
     }

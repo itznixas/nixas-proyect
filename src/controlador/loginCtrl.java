@@ -1,14 +1,11 @@
 package controlador;
 
-import java.awt.Color;
+import componentes.alert.Notification;
 import java.awt.FontFormatException;
 import vista.*;
 import modelo.*;
-
 import java.time.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -17,9 +14,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
 public class loginCtrl implements ActionListener {
@@ -29,6 +26,7 @@ public class loginCtrl implements ActionListener {
     regEmpleadoDAO emD = new regEmpleadoDAO();
     ventanaLogin ventana;
     MenuAdmin admin = new MenuAdmin();
+    MenuCajero cajero = new MenuCajero();
     DefaultTableModel modelo = new DefaultTableModel();
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
@@ -42,6 +40,7 @@ public class loginCtrl implements ActionListener {
     Excel ex = new Excel();
     facturaDetDAO faDAO = new facturaDetDAO();
     facturaDAO fDAO = new facturaDAO();
+
     public loginCtrl() {
     }
 
@@ -60,6 +59,9 @@ public class loginCtrl implements ActionListener {
         this.admin.jmiOrdenes.addActionListener(this);
         this.admin.jmiClientes.addActionListener(this);
         this.admin.jmiProductos.addActionListener(this);
+        this.cajero.jmiOrdenes.addActionListener(this);
+        this.cajero.jmiClientes.addActionListener(this);
+        this.cajero.jmiProductos.addActionListener(this);
         this.admin.jmiEmpleado.addActionListener(this);
         this.admin.jmiClienteConsu.addActionListener(this);
         this.admin.jmiEmpleadoConsu.addActionListener(this);
@@ -163,8 +165,17 @@ public class loginCtrl implements ActionListener {
         admin.jTabbedPane.setSelectedIndex(1);
     }
 
+    public void pedidosAggPaneles2() {
+        cajero.jTabbedPane.setSelectedIndex(1);
+    }
+
     public void clienteAggPaneles() {
         admin.jTabbedPane.setSelectedIndex(2);
+        cajero.jTabbedPane.setSelectedIndex(2);
+    }
+
+    public void clienteAggPaneles2() {
+        cajero.jTabbedPane.setSelectedIndex(2);
     }
 
     public void empleadosAggPaneles() {
@@ -173,10 +184,20 @@ public class loginCtrl implements ActionListener {
 
     public void productosAggPaneles() {
         admin.jTabbedPane.setSelectedIndex(4);
+        cajero.jTabbedPane.setSelectedIndex(4);
+    }
+
+    public void productosAggPaneles2() {
+        cajero.jTabbedPane.setSelectedIndex(4);
     }
 
     public void clienteConsuPaneles() {
         admin.jTabbedPane.setSelectedIndex(5);
+        cajero.jTabbedPane.setSelectedIndex(5);
+    }
+
+    public void clienteConsuPaneles2() {
+        cajero.jTabbedPane.setSelectedIndex(5);
     }
 
     public void empleadoConsuPaneles() {
@@ -192,6 +213,7 @@ public class loginCtrl implements ActionListener {
                 null,
                 new String[]{"Sí", "No"},
                 "Sí");
+
         if (option == JOptionPane.YES_OPTION) {
             admin.dispose();
             ventanaLogin login = new ventanaLogin();
@@ -213,21 +235,54 @@ public class loginCtrl implements ActionListener {
             case 111:
                 MenuAdmin m = new MenuAdmin();
                 loginCtrl lx = new loginCtrl(m);
-                m.iniciar();
+
+                Notification panel = new Notification(m, Notification.Type.SUCCESS, Notification.Location.TOP_CENTER, "Inicio de sesion exitoso.");
+                panel.showNotification();
                 System.out.println(rol);
                 m.lblRoles.setText(Integer.toString(rol));
                 admin.jmiProductos.setEnabled(true);
-                ventana.setVisible(false);
+
+                Thread thread = new Thread(() -> {
+                    Timer timer = new Timer(2000, new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            m.iniciar();
+                            Notification panel2 = new Notification(m, Notification.Type.SUCCESS, Notification.Location.TOP_LEFT, "Rol Administrador.");
+                            panel2.showNotification();
+                            ventana.setVisible(false);
+                        }
+                    });
+                    timer.setRepeats(false);
+                    timer.start();
+                });
+                thread.start();
                 break;
             case 222:
-                MenuAdmin cajero = new MenuAdmin();
-                loginCtrl lgx = new loginCtrl(cajero);
-                cajero.iniciar();
+                MenuCajero cajero = new MenuCajero();
+                loginCtrl lgx = new loginCtrl();
+                Notification panel2 = new Notification(cajero, Notification.Type.SUCCESS, Notification.Location.TOP_CENTER, "Inicio de sesion exitoso.");
+                panel2.showNotification();
                 admin.jmiClienteConsu.setVisible(false);
                 cajero.lblRoles.setText(Integer.toString(rol));
-                ventana.setVisible(false);
+                Thread thread2 = new Thread(() -> {
+                    Timer timer = new Timer(2000, new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            cajero.iniciar();
+                            Notification panel2 = new Notification(cajero, Notification.Type.SUCCESS, Notification.Location.TOP_LEFT, "Rol Cajero.");
+                            panel2.showNotification();
+                            ventana.setVisible(false);
+                        }
+                    });
+                    timer.setRepeats(false);
+                    timer.start();
+                });
+                thread2.start();
                 break;
             default:
+                MenuAdmin menu = new MenuAdmin();
+                Notification panel3 = new Notification(menu, Notification.Type.WARNING, Notification.Location.TOP_CENTER, "Rol no encontrado.");
+                panel3.showNotification();
                 System.out.println("Rol no encontrado");
                 break;
         }
@@ -963,7 +1018,8 @@ public class loginCtrl implements ActionListener {
                 admin.lblTotal.setText(String.valueOf(total));
                 int stock = Integer.parseInt(admin.txtProdStock.getText());
                 if (stock >= cantidad) {
-                    facturaDetallee da = new facturaDetallee() {};
+                    facturaDetallee da = new facturaDetallee() {
+                    };
                     da.setIdDetFact(cod);
                     da.setProducto(product);
                     da.setCantProd(cantidad);
@@ -971,9 +1027,9 @@ public class loginCtrl implements ActionListener {
                     da.setTotal(total);
                     int r = faDAO.registrarVenta(da);
                     if (r == 1) {
-                       JOptionPane.showMessageDialog(admin, " en la factura detalle");
+                        JOptionPane.showMessageDialog(admin, " en la factura detalle");
                     } else {
-                       JOptionPane.showMessageDialog(admin, "Error, ");
+                        JOptionPane.showMessageDialog(admin, "Error, ");
                     }
                 } else {
                     JOptionPane.showMessageDialog(admin, "Error, Sobrepasa el stock");
@@ -984,8 +1040,8 @@ public class loginCtrl implements ActionListener {
         }
     }
 
-    public void factura(KeyEvent evt) throws SQLException{
-         System.out.println("ws");
+    public void factura(KeyEvent evt) throws SQLException {
+        System.out.println("ws");
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (!"".equals(admin.txtCantProdDet.getText())) {
                 int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
@@ -996,24 +1052,24 @@ public class loginCtrl implements ActionListener {
                 int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
                 float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
                 float uniV = cantidad * precioU;
-                float iva = uniV * 0.19f; 
+                float iva = uniV * 0.19f;
                 float desc = Float.parseFloat(admin.txtDescuentoFac.getText());
                 float descuento = uniV * (desc / 100.0f);
                 float total = uniV + iva - descuento;
-                
+
                 LocalDate fechaActual = LocalDate.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String fechaFormateada = fechaActual.format(formatter);
-                
+
                 LocalDateTime ahora = LocalDateTime.now();
                 DateTimeFormatter formatte = DateTimeFormatter.ofPattern("HH:mm");
                 String horaActual = ahora.format(formatte);
-                
-                
+
                 admin.lblTotalFinal.setText(String.valueOf(total));
                 int stock = Integer.parseInt(admin.txtProdStock.getText());
                 if (stock >= cantidad) {
-                    factauraCabe da = new factauraCabe() {};
+                    factauraCabe da = new factauraCabe() {
+                    };
                     da.setIdCabFac(cod);
                     da.setIdTipoPago(tipo);
                     da.setIdCli(idCli);
@@ -1026,9 +1082,9 @@ public class loginCtrl implements ActionListener {
                     da.setHoraFact(horaActual);
                     int r = fDAO.facturar(da);
                     if (r == 1) {
-                       JOptionPane.showMessageDialog(admin, " factura detalle");
+                        JOptionPane.showMessageDialog(admin, " factura detalle");
                     } else {
-                       JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
+                        JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
                     }
                 } else {
                     JOptionPane.showMessageDialog(admin, "Error, Sobrepasa el stock");
@@ -1038,6 +1094,7 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
+
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1057,8 +1114,14 @@ public class loginCtrl implements ActionListener {
         if (e.getSource() == admin.jmiOrdenes) {
             pedidosAggPaneles();
         }
+        if (e.getSource() == cajero.jmiOrdenes) {
+            pedidosAggPaneles2();
+        }
         if (e.getSource() == admin.jmiClientes) {
             clienteAggPaneles();
+        }
+        if (e.getSource() == cajero.jmiClientes) {
+            clienteAggPaneles2();
         }
         if (e.getSource() == admin.jmiEmpleado) {
             empleadosAggPaneles();
@@ -1066,8 +1129,15 @@ public class loginCtrl implements ActionListener {
         if (e.getSource() == admin.jmiProductos) {
             productosAggPaneles();
         }
+        if (e.getSource() == cajero.jmiProductos) {
+            productosAggPaneles2();
+        }
         if (e.getSource() == admin.jmiClienteConsu) {
             clienteConsuPaneles();
+            listarClientes(admin.tblClientes);
+        }
+        if (e.getSource() == cajero.jmiClienteConsu) {
+            clienteConsuPaneles2();
             listarClientes(admin.tblClientes);
         }
         if (e.getSource() == admin.jmiEmpleadoConsu) {
@@ -1273,7 +1343,7 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 registrarDetalle(fakeEvent);
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1282,7 +1352,7 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 factura(fakeEvent);
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }

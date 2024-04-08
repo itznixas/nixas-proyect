@@ -1,7 +1,6 @@
 package vista;
 
 import com.formdev.flatlaf.*;
-import componentes.TextField;
 import modelo.*;
 import modelo.mesasDAO;
 import appnixas.IconoNixas;
@@ -11,7 +10,6 @@ import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import controlador.mesaControlador;
 import java.awt.FontFormatException;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,12 +20,12 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class MenuAdmin extends javax.swing.JFrame {
+public class MenuCajero extends javax.swing.JFrame {
 
     DefaultTableCellRenderer TablaRenderer = new DefaultTableCellRenderer();
     private Connection connection;
 
-    public MenuAdmin() {
+    public MenuCajero() {
         initComponents();
         IconoNixas.establecerIcono(this);
 
@@ -297,7 +295,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         kGradientPanel1.setkGradientFocus(1);
         kGradientPanel1.setkStartColor(new java.awt.Color(24, 42, 75));
 
-        lblRoles.setText("ROL");
+        lblRoles.setEnabled(false);
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
@@ -1663,6 +1661,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jmiEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarEmpleados.png"))); // NOI18N
         jmiEmpleado.setText("EMPLOYEES");
+        jmiEmpleado.setEnabled(false);
         jMenu1.add(jmiEmpleado);
 
         jmiProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoAgregarProductos.png"))); // NOI18N
@@ -1679,11 +1678,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jmiEmpleadoConsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoBuscarEmpleados.png"))); // NOI18N
         jmiEmpleadoConsu.setText("EMPLOYEES");
+        jmiEmpleadoConsu.setEnabled(false);
         jMenu2.add(jmiEmpleadoConsu);
 
         MenuBar.add(jMenu2);
 
         jMenu3.setText("INVENTORY");
+        jMenu3.setEnabled(false);
 
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoInventarioBuscar.png"))); // NOI18N
         jMenuItem7.setText("SEARCH");
@@ -1739,16 +1740,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         FlatMacLightLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                MenuAdmin m = new MenuAdmin();
-                try {
-                    loginCtrl lx = new loginCtrl(m);
-                } catch (FontFormatException ex) {
-                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex) {
-                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                MenuCajero m = new MenuCajero();
                 m.setVisible(true);
             }
         });
@@ -1942,9 +1934,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                     loginCtrl lox = new loginCtrl(login);
                     login.setVisible(true);
                 } catch (FontFormatException ex) {
-                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MenuCajero.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
-                    Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MenuCajero.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }

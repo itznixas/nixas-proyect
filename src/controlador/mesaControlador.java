@@ -6,11 +6,7 @@ import java.sql.Connection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 import modelo.dataBase;
-import modelo.mesas;
 import modelo.mesasDAO;
 import vista.MenuAdmin;
 
@@ -26,7 +22,6 @@ public class mesaControlador {
     private boolean ocupado = false;
     private mesasDAO mesasDAO;
     private Connection connection;
-    
 
     public mesaControlador(JButton btnMesa1, JButton btnMesa2, JButton btnMesa3, JButton btnMesa4, JButton btnMesa5, JButton btnMesa6, mesasDAO mesasDAO) {
         this.btnMesa1 = btnMesa1;
@@ -36,18 +31,12 @@ public class mesaControlador {
         this.btnMesa5 = btnMesa5;
         this.btnMesa6 = btnMesa6;
         this.mesasDAO = mesasDAO;
-       
+
         // Crear una instancia de DataBase
         dataBase db = new dataBase();
-        
-        
+
 // Obtener la conexión
         Connection connection = db.getConnection();
-        
-        
-                
-       
-    
 
         btnMesa1.addActionListener(new ActionListener() {
             @Override
@@ -122,7 +111,7 @@ public class mesaControlador {
                     btnMesa4.setText("Libre");
                     ocupado = false;
                     mesasDAO.actualizarEstadoMesa(connection, 4, "Libre"); // Actualizar estado en la base de datos
-                    
+
                 } else {
                     // Cambiar a estado Ocupado y actualizar en la base de datos
                     btnMesa4.setBackground(Color.RED);
@@ -214,7 +203,6 @@ public class mesaControlador {
 //            System.out.println("Error al establecer la conexión.");
 //        }
 //    }
-
     public void cargarEstadoMesas2() {
         dataBase db = new dataBase();
         Connection connection = db.getConnection();
@@ -228,16 +216,16 @@ public class mesaControlador {
 
             boolean estadoMesa2 = mesasDAO.obtenerEstadoMesa(2);
             actualizarBoton(btnMesa2, estadoMesa2);
-            
+
             boolean estadoMesa3 = mesasDAO.obtenerEstadoMesa(3);
             actualizarBoton(btnMesa3, estadoMesa3);
-            
+
             boolean estadoMesa4 = mesasDAO.obtenerEstadoMesa(4);
             actualizarBoton(btnMesa4, estadoMesa4);
-            
+
             boolean estadoMesa5 = mesasDAO.obtenerEstadoMesa(5);
             actualizarBoton(btnMesa5, estadoMesa5);
-            
+
             boolean estadoMesa6 = mesasDAO.obtenerEstadoMesa(6);
             actualizarBoton(btnMesa6, estadoMesa6);
         } else {
@@ -276,10 +264,8 @@ public class mesaControlador {
             listarMesas(admin.tblEleccionMesa);
         }
     }
-    
-    
-     public void listarMesas(JTable tblEleccionMesa) throws SQLException{
-       
-        
+
+    public void listarMesas(JTable tblEleccionMesa) throws SQLException {
+
     }
 }

@@ -1,11 +1,11 @@
 package vista;
 
-import com.formdev.flatlaf.FlatDarkLaf;
 import controlador.loginCtrl;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import appnixas.IconoNixas;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.IOException;
@@ -96,7 +96,7 @@ public class ventanaLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FlatDarkLaf.setup();
+        FlatMacDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 ventanaLogin login;
