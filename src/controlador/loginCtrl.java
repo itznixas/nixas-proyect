@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,6 +41,7 @@ public class loginCtrl implements ActionListener {
     Excel ex = new Excel();
     facturaDetDAO faDAO = new facturaDetDAO();
     facturaDAO fDAO = new facturaDAO();
+    int item;
 
     public loginCtrl() {
     }
@@ -92,6 +94,7 @@ public class loginCtrl implements ActionListener {
         this.admin.cerrar.addActionListener(this);
         this.admin.btnFacturar.addActionListener(this);
         this.admin.txtIdClienteFac.addActionListener(this);
+        this.admin.txtCantProdDet.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -1016,10 +1019,9 @@ public class loginCtrl implements ActionListener {
                 boolean a = da.buscarDNIClien(em);
 
                 if (a == true) {
-                    // Se encontró un empleado con la cédula especificada
-                    // Realiza acciones adicionales aquí, por ejemplo:
+
                     JOptionPane.showMessageDialog(admin, "Cliente encontrado ");
-                    // Realiza otras acciones según sea necesario
+
                 } else {
                     // No se encontró un empleado con la cédula especificada
                     JOptionPane.showMessageDialog(admin, "No se encontró ningún Cliente con esa cédula.");
@@ -1047,8 +1049,24 @@ public class loginCtrl implements ActionListener {
                 admin.lblTotal.setText(String.valueOf(total));
                 int stock = Integer.parseInt(admin.txtProdStock.getText());
                 if (stock >= cantidad) {
-                    facturaDetallee da = new facturaDetallee() {
-                    };
+                    item = item + 1;
+                   facturaDetallee da = new facturaDetallee() {};
+                    modelo = (DefaultTableModel) admin.tblFacturaEleccipn.getModel();
+                    ArrayList lista = new ArrayList();
+                    lista.add(item);
+                    lista.add(cod);
+                    lista.add(product);
+                    lista.add(cantidad);
+                    lista.add(precioU);
+                    lista.add(total);
+                    Object[] o = new Object[7];
+                    o[0] = lista.get(1);
+                    o[1] = lista.get(2);
+                    o[2] = lista.get(3);
+                    o[3] = lista.get(4);
+                    o[4] = lista.get(5);
+                    modelo.addRow(o);
+                    admin.tblFacturaEleccipn.setModel(modelo);       
                     da.setIdDetFact(cod);
                     da.setProducto(product);
                     da.setCantProd(cantidad);
@@ -1097,6 +1115,7 @@ public class loginCtrl implements ActionListener {
                 admin.lblTotalFinal.setText(String.valueOf(total));
                 int stock = Integer.parseInt(admin.txtProdStock.getText());
                 if (stock >= cantidad) {
+                    
                     factauraCabe da = new factauraCabe() {
                     };
                     da.setIdCabFac(cod);
@@ -1364,6 +1383,7 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent = new KeyEvent(admin.txtIdProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 BuscarProducto(fakeEvent);
+                
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1382,13 +1402,22 @@ public class loginCtrl implements ActionListener {
             KeyEvent fakeEvent1 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             KeyEvent fakeEvent2 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
-                registrarDetalle(fakeEvent1);
+               // registrarDetalle(fakeEvent1);
                 factura(fakeEvent2);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
+       if (e.getSource() == admin.txtCantProdDet) {
+            KeyEvent fakeEvent1 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+           
+            try {
+                registrarDetalle(fakeEvent1);
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
     }
 }
