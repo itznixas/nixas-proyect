@@ -89,9 +89,9 @@ public class loginCtrl implements ActionListener {
         this.admin.btnCkeckIn.addActionListener(this);
         this.admin.btnActualizarFactura.addActionListener(this);
         this.admin.txtIdProductoDet.addActionListener(this);
-        this.admin.btnFacturarDet.addActionListener(this);
         this.admin.cerrar.addActionListener(this);
-        this.admin.btnFacturarDet.addActionListener(this);
+        this.admin.btnFacturar.addActionListener(this);
+        this.admin.txtIdClienteFac.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -1004,9 +1004,38 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
+    
+   public void buscarDNICli(KeyEvent evt) throws SQLException {
+    if(evt.getKeyCode()== KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtIdClienteFac.getText())) {
+            try {
+                int cedula = Integer.parseInt(admin.txtIdClienteFac.getText());
+                regEmpleado em = new regEmpleado(){};
+                em.setCedulaEmpl(cedula);
+                facturaDAO da = new facturaDAO();
+                boolean a = da.buscarDNIClien(em);
+
+                if (a == true) {
+                    // Se encontró un empleado con la cédula especificada
+                    // Realiza acciones adicionales aquí, por ejemplo:
+                    JOptionPane.showMessageDialog(admin, "Cliente encontrado ");
+                    // Realiza otras acciones según sea necesario
+                } else {
+                    // No se encontró un empleado con la cédula especificada
+                    JOptionPane.showMessageDialog(admin, "No se encontró ningún Cliente con esa cédula.");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+        }
+    }
+}
+
 
     public void registrarDetalle(KeyEvent evt) throws SQLException {
-        System.out.println("ws");
+        System.out.println("was");
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (!"".equals(admin.txtCantProdDet.getText())) {
 
@@ -1339,23 +1368,27 @@ public class loginCtrl implements ActionListener {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (e.getSource() == admin.btnFacturarDet) {
-            KeyEvent fakeEvent = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+        
+        if(e.getSource() == admin.txtIdClienteFac){
+             KeyEvent fakeEvent = new KeyEvent(admin.txtIdClienteFac, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            try{
+                buscarDNICli(fakeEvent);
+            } catch (SQLException ex)
+            {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+      if (e.getSource() == admin.btnFacturar) {
+            KeyEvent fakeEvent1 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            KeyEvent fakeEvent2 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
-                registrarDetalle(fakeEvent);
-
+                registrarDetalle(fakeEvent1);
+                factura(fakeEvent2);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (e.getSource() == admin.btnFacturarDet) {
-            KeyEvent fakeEvent = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-            try {
-                factura(fakeEvent);
 
-            } catch (SQLException ex) {
-                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+
     }
 }

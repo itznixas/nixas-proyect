@@ -232,7 +232,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtIdCajeroFac = new componentes.TextField();
         txtIdMesero = new componentes.TextField();
         txtMetodoPago = new componentes.TextField();
-        jButton17 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         txtDescuentoFac = new componentes.TextField();
         Descuento = new javax.swing.JLabel();
@@ -250,9 +249,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtCantProdDet = new componentes.TextField();
         txtPrecioUniDet = new componentes.TextField();
         txtProdStock = new componentes.TextField();
-        btnFacturarDet = new javax.swing.JButton();
+        btnFacturar = new javax.swing.JButton();
         txtIdProductoDet = new componentes.TextField();
         lblTotal = new javax.swing.JLabel();
+        btnFact = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -1303,11 +1303,6 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtMetodoPago.setHint("NAME");
 
-        jButton17.setBackground(new java.awt.Color(41, 37, 87));
-        jButton17.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton17.setForeground(new java.awt.Color(255, 255, 255));
-        jButton17.setText("ADD");
-
         jToggleButton1.setBackground(java.awt.Color.red);
         jToggleButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1363,11 +1358,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(jLabel19)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtIdMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente3Layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
         );
@@ -1387,15 +1380,13 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(txtIdMesero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDescuentoFac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Descuento)
                     .addComponent(lblTotalFinal))
                 .addGap(39, 39, 39)
-                .addGroup(jPanelTransparente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
 
@@ -1450,14 +1441,19 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         txtProdStock.setHint("PHONE NUMBER");
 
-        btnFacturarDet.setBackground(new java.awt.Color(41, 37, 87));
-        btnFacturarDet.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnFacturarDet.setForeground(new java.awt.Color(255, 255, 255));
-        btnFacturarDet.setText("ADD");
+        btnFacturar.setBackground(new java.awt.Color(41, 37, 87));
+        btnFacturar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnFacturar.setForeground(new java.awt.Color(255, 255, 255));
+        btnFacturar.setText("ADD");
 
         txtIdProductoDet.setHint("DNI");
 
         lblTotal.setText("---");
+
+        btnFact.setBackground(new java.awt.Color(41, 37, 87));
+        btnFact.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnFact.setForeground(new java.awt.Color(255, 255, 255));
+        btnFact.setText("ADD");
 
         javax.swing.GroupLayout jPanelTransparente5Layout = new javax.swing.GroupLayout(jPanelTransparente5);
         jPanelTransparente5.setLayout(jPanelTransparente5Layout);
@@ -1483,12 +1479,16 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente5Layout.createSequentialGroup()
                                 .addComponent(txtNumFacturaDet, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(203, 203, 203)
-                                .addComponent(btnFacturarDet, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnFacturar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(162, 162, 162)
                                 .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblTotal)
                                     .addComponent(btnActualizarFactura))))
                         .addContainerGap(24, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnFact, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(263, 263, 263))
         );
         jPanelTransparente5Layout.setVerticalGroup(
             jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1506,10 +1506,12 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(txtIdProductoDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFacturarDet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFacturar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumFacturaDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTotal))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnFact, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
@@ -1521,7 +1523,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jPanelTransparente3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(jPanelTransparente5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1530,7 +1532,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelTransparente3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelTransparente5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Factura", jPanel20);
@@ -1973,7 +1975,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnEliminarConsu;
     public javax.swing.JButton btnEliminarEmp;
     public javax.swing.JButton btnExcel;
-    public javax.swing.JButton btnFacturarDet;
+    public javax.swing.JButton btnFact;
+    public javax.swing.JButton btnFacturar;
     public javax.swing.JButton btnMesa1;
     public javax.swing.JButton btnMesa2;
     public javax.swing.JButton btnMesa3;
@@ -1987,7 +1990,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cmbEmpleado;
     public javax.swing.JComboBox<String> cmbPorcion;
     public javax.swing.JButton jButton14;
-    public javax.swing.JButton jButton17;
     public javax.swing.JButton jButton8;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

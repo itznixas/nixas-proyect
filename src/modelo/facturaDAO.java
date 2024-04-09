@@ -52,5 +52,35 @@ public class facturaDAO {
     return r;
 }
 
+  public boolean buscarDNIClien(regEmpleado em) throws SQLException {
+    String sql = "SELECT ced_cli FROM reg_clientes WHERE ced_cli=?";
+    boolean encontrado = false; // Variable para almacenar si se encontró el cliente
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        ps.setInt(1, em.getCedulaEmpl());
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            // Si se encontró un cliente, establece la cédula en el objeto regEmpleado
+            em.setCedulaEmpl(rs.getInt("ced_cli"));
+            encontrado = true; // Marcar como encontrado
+        }
+    } catch (Exception e) {
+        System.out.println(e.toString());
+    } finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+        if (cn != null) {
+            cn.close();
+        }
+    }
+    return encontrado; // Devolver si el cliente fue encontrado o no
+}
+
 }
 
