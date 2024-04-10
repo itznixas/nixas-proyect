@@ -1072,7 +1072,7 @@ public void TotalPagar() throws SQLException {
             int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
             float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
             float total = cantidad * precioU;
-            admin.lblTotal.setText(String.valueOf(total));
+            //admin.lblTotal.setText(String.valueOf(total));
             int stock = Integer.parseInt(admin.txtProdStock.getText());
             if (stock >= cantidad) {
                 item = item + 1;

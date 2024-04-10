@@ -239,7 +239,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        lblTotalFinal = new javax.swing.JLabel();
         txtProductoDet1 = new componentes.TextField();
         txtNomCliFac = new componentes.TextField();
         jPanelTransparente5 = new LIB.JPanelTransparente();
@@ -263,6 +262,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblFacturaEleccipn = new javax.swing.JTable();
+        lblTotalFinal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -1330,9 +1330,6 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jLabel19.setText("mesero");
 
-        lblTotalFinal.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalFinal.setText("------");
-
         txtProductoDet1.setHint("NAME");
         txtProductoDet1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1396,9 +1393,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(txtNomCliFac, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelTransparente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtProductoDet1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTotalFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtProductoDet1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -1428,8 +1423,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTransparente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDescuentoFac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Descuento)
-                    .addComponent(lblTotalFinal))
+                    .addComponent(Descuento))
                 .addGap(39, 39, 39)
                 .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
@@ -1537,6 +1531,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(tblFacturaEleccipn);
 
+        lblTotalFinal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblTotalFinal.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalFinal.setText("------");
+
         javax.swing.GroupLayout jPanelTransparente5Layout = new javax.swing.GroupLayout(jPanelTransparente5);
         jPanelTransparente5.setLayout(jPanelTransparente5Layout);
         jPanelTransparente5Layout.setHorizontalGroup(
@@ -1581,17 +1579,22 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addGroup(jPanelTransparente5Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnFacturar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(lblTotal)
-                        .addGap(47, 47, 47))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                        .addGap(38, 38, 38)
+                        .addComponent(lblTotalFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120))))
             .addGroup(jPanelTransparente5Layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente5Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTransparente5Layout.createSequentialGroup()
+                        .addComponent(lblTotal)
+                        .addGap(63, 63, 63))))
         );
         jPanelTransparente5Layout.setVerticalGroup(
             jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1619,6 +1622,8 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(txtNumFacturaDet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTransparente5Layout.createSequentialGroup()
@@ -1626,7 +1631,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addComponent(jLabel27))
                     .addGroup(jPanelTransparente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnFacturar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTotalFinal)))
                 .addContainerGap())
         );
 
