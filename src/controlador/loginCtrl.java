@@ -1161,7 +1161,7 @@ public void TotalPagar() throws SQLException {
                 float descuento = cant * (desc / 100.0f);
                 float total = iva + (cant  - descuento);
                 
-                admin.lblTotal.setText(String.format(("%,2f"),totalPagar));
+                admin.lblTotal.setText(String.format(("%,2f"),total));
                 
                 int stock = Integer.parseInt(admin.txtProdStock.getText());
                 if (stock >= cantidad) {
