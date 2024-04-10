@@ -1222,7 +1222,7 @@ public void TotalPagar() throws SQLException {
         com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
         PdfWriter.getInstance(doc, archivo);
         doc.open();
-        Image img = Image.getInstance("C:/final/v3/NIXAS-/src/componentes/img/logoNixas.png");
+        Image img = Image.getInstance("src/componentes/img/logoNixas.png");
         
         //Fecha
         Paragraph fecha = new Paragraph();
