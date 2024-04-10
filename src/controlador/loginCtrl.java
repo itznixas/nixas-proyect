@@ -1,5 +1,10 @@
 package controlador;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
 import componentes.alert.Notification;
 import java.awt.FontFormatException;
 import vista.*;
@@ -19,6 +24,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
+import java.io.*;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.Element;
+import javax.swing.text.Position;
+import javax.swing.text.Segment;
+import com.itextpdf.text.pdf.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.filechooser.FileSystemView;
 
 public class loginCtrl implements ActionListener {
 
@@ -1192,6 +1210,50 @@ public void TotalPagar() throws SQLException {
         }
     }
 
+    
+    //REPORTE POR PDF
+  public void reportePdf() {
+    try {
+        Date date = new Date();
+        FileOutputStream archivo;
+        File file = new File("src/pdf/ventas.pdf");
+        archivo = new FileOutputStream(file);
+        com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
+        PdfWriter.getInstance(doc, archivo);
+        doc.open();
+        Image img = Image.getInstance("C:/final/v3/NIXAS-/src/componentes/img/logoNixas.png");
+        
+        //Fecha
+        Paragraph fecha = new Paragraph();
+        fecha.add(Chunk.NEWLINE);
+        fecha.add("Vendedor: " + reG.getNombreEmpl() + "\nFactura: " + da.getIdCabFac() + "\nFecha: "
+                + new SimpleDateFormat("dd/MM/yyyy").format(date) + "\n\n");
+        
+        PdfPTable Encabezado = new PdfPTable(4);           
+        Encabezado.setWidthPercentage(100);
+        Encabezado.getDefaultCell().setBorder(0);
+        float[] columnWidthsEncabezado = new float[]{20f, 30f, 70f, 40f};
+        Encabezado.setWidths(columnWidthsEncabezado);
+        Encabezado.setHorizontalAlignment(com.itextpdf.text.Element.ALIGN_LEFT);
+        Encabezado.addCell(img);           
+        
+        String rut = "100039823";
+        String nom = "Nixas";
+        String cel = "328393043";
+        String dir = "Barranquilla/Atlantico";
+        
+        Encabezado.addCell("");
+        Encabezado.addCell("NIT: "+ rut + "Nombre: "+nom + "Celular: " + cel + "Dirrecion: " + dir);
+        Encabezado.addCell(fecha);
+        doc.add(Encabezado);
+        doc.close();
+        archivo.close(); // Cerrar el flujo de salida después de cerrar el documento
+    } catch (Exception e) {
+        e.printStackTrace(); // Imprimir la traza de la excepción en caso de error
+    }
+}
+
+    
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1242,7 +1304,9 @@ public void TotalPagar() throws SQLException {
             listarEmpleado(admin.tblEmpleados);
         }
         if (e.getSource() == admin.btnCkeckIn) {
+            System.out.println("GA");
             checkIn();
+            reportePdf();
         }
         if (e.getSource() == admin.cerrar) {
             try {
@@ -1453,6 +1517,7 @@ public void TotalPagar() throws SQLException {
             try {
                // registrarDetalle(fakeEvent1);
                 factura(fakeEvent2);
+                reportePdf();
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
