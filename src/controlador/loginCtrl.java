@@ -1213,6 +1213,7 @@ public void TotalPagar() throws SQLException {
     
     //REPORTE POR PDF
   public void reportePdf() {
+      
     try {
         Date date = new Date();
         FileOutputStream archivo;
@@ -1462,6 +1463,7 @@ public void TotalPagar() throws SQLException {
 
         if (e.getSource() == admin.btnActuaTabPenPet) {
             try {
+                System.out.println("csddcsds");
                 listaPedidos(admin.tblPedidoPendiente);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -1480,6 +1482,7 @@ public void TotalPagar() throws SQLException {
         if (e.getSource() == admin.btnAggProInv) {
             KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
+                System.out.println("ddcsdssc");
                 ingresarInvenEntrada(fakeEvent);
                 limpiarCajaInventario();
                 //listaPedidosListo(admin.tblPedidoListo);
@@ -1492,6 +1495,7 @@ public void TotalPagar() throws SQLException {
             listarInventario(admin.tblInventario);
         }
         if (e.getSource() == admin.txtIdProductoDet) {
+            System.out.println("sddscsd");
             System.out.println("ddddd");
             KeyEvent fakeEvent = new KeyEvent(admin.txtIdProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
