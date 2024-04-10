@@ -42,6 +42,7 @@ public class loginCtrl implements ActionListener {
     facturaDetDAO faDAO = new facturaDetDAO();
     facturaDAO fDAO = new facturaDAO();
     int item;
+    float totalPagar = (float) 0.0;
 
     public loginCtrl() {
     }
@@ -1035,23 +1036,61 @@ public class loginCtrl implements ActionListener {
     }
 }
 
+public void TotalPagar() throws SQLException {
+  totalPagar = 0.0f;
 
-    public void registrarDetalle(KeyEvent evt) throws SQLException {
-        System.out.println("was");
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (!"".equals(admin.txtCantProdDet.getText())) {
+  // Get the number of rows in the table
+  int numFila = admin.tblFacturaEleccipn.getRowCount();
 
-                int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
-                String product = admin.txtProductoDet.getText();
-                int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
-                float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
-                float total = cantidad * precioU;
-                admin.lblTotal.setText(String.valueOf(total));
-                int stock = Integer.parseInt(admin.txtProdStock.getText());
-                if (stock >= cantidad) {
-                    item = item + 1;
-                   facturaDetallee da = new facturaDetallee() {};
+  // Iterate through each row
+  for (int i = 0; i < numFila; i++) {
+    // Check if a value exists at this row and column
+    if (admin.tblFacturaEleccipn.getModel().getValueAt(i, 4) != null) {
+      float can = (float) admin.tblFacturaEleccipn.getModel().getValueAt(i, 4);
+      totalPagar += can;
+    } else {
+    }
+  }
+
+  admin.lblTotalFinal.setText(String.format(("%,2f"),totalPagar));
+  da.setTotal(totalPagar);
+}
+
+
+    
+
+
+
+
+
+   public void registrarDetalle(KeyEvent evt) throws SQLException {
+    System.out.println("was");
+    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtCantProdDet.getText())) {
+            int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
+            String product = admin.txtProductoDet.getText();
+            int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
+            float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
+            float total = cantidad * precioU;
+            admin.lblTotal.setText(String.valueOf(total));
+            int stock = Integer.parseInt(admin.txtProdStock.getText());
+            if (stock >= cantidad) {
+                item = item + 1;
+                facturaDetallee da = new facturaDetallee() {};
+                
+                // Verifica si la tabla está inicializada y no es null
+                if (admin.tblFacturaEleccipn != null) {
                     modelo = (DefaultTableModel) admin.tblFacturaEleccipn.getModel();
+                    for (int i = 0; i < admin.tblFacturaEleccipn.getRowCount(); i++) {
+                        // Verifica si el producto ya está registrado en la tabla
+                        if (admin.tblFacturaEleccipn.getValueAt(i, 1) != null &&
+                            admin.tblFacturaEleccipn.getValueAt(i, 1).equals(product)) {
+                            JOptionPane.showMessageDialog(admin, "El producto ya está registrado");
+                            return;
+                        }
+                    }
+                    
+                    // Si el producto no está registrado, agrégalo a la tabla
                     ArrayList lista = new ArrayList();
                     lista.add(item);
                     lista.add(cod);
@@ -1065,8 +1104,10 @@ public class loginCtrl implements ActionListener {
                     o[2] = lista.get(3);
                     o[3] = lista.get(4);
                     o[4] = lista.get(5);
-                    modelo.addRow(o);
-                    admin.tblFacturaEleccipn.setModel(modelo);       
+                    modelo.addRow(o);                 
+                    admin.tblFacturaEleccipn.setModel(modelo);
+                     TotalPagar();
+                    // Realiza el registro de la venta en la base de datos
                     da.setIdDetFact(cod);
                     da.setProducto(product);
                     da.setCantProd(cantidad);
@@ -1074,19 +1115,25 @@ public class loginCtrl implements ActionListener {
                     da.setTotal(total);
                     int r = faDAO.registrarVenta(da);
                     if (r == 1) {
-                        JOptionPane.showMessageDialog(admin, " en la factura detalle");
+                        JOptionPane.showMessageDialog(admin, "Venta registrada en la factura detalle");
                     } else {
-                        JOptionPane.showMessageDialog(admin, "Error, ");
+                        JOptionPane.showMessageDialog(admin, "Error al registrar la venta");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(admin, "Error, Sobrepasa el stock");
+                    JOptionPane.showMessageDialog(admin, "La tabla de factura no está inicializada");
                 }
             } else {
-                JOptionPane.showMessageDialog(admin, "Ingrese la cantidad para facturar");
+                JOptionPane.showMessageDialog(admin, "Error, sobrepasa el stock");
             }
+        } else {
+            JOptionPane.showMessageDialog(admin, "Ingrese la cantidad para facturar");
         }
     }
+}
 
+
+    factauraCabe da = new factauraCabe() {
+                    };
     public void factura(KeyEvent evt) throws SQLException {
         System.out.println("ws");
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1098,11 +1145,8 @@ public class loginCtrl implements ActionListener {
                 int cajero = Integer.parseInt(admin.txtIdClienteFac.getText());
                 int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
                 float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
-                float uniV = cantidad * precioU;
-                float iva = uniV * 0.19f;
                 float desc = Float.parseFloat(admin.txtDescuentoFac.getText());
-                float descuento = uniV * (desc / 100.0f);
-                float total = uniV + iva - descuento;
+                
 
                 LocalDate fechaActual = LocalDate.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -1111,18 +1155,23 @@ public class loginCtrl implements ActionListener {
                 LocalDateTime ahora = LocalDateTime.now();
                 DateTimeFormatter formatte = DateTimeFormatter.ofPattern("HH:mm");
                 String horaActual = ahora.format(formatte);
-
-                admin.lblTotalFinal.setText(String.valueOf(total));
+                
+                float cant = da.getTotal();
+                float iva = cant * 0.19f;
+                float descuento = cant * (desc / 100.0f);
+                float total = iva + (cant  - descuento);
+                
+                admin.lblTotal.setText(String.format(("%,2f"),totalPagar));
+                
                 int stock = Integer.parseInt(admin.txtProdStock.getText());
                 if (stock >= cantidad) {
                     
-                    factauraCabe da = new factauraCabe() {
-                    };
+                    
                     da.setIdCabFac(cod);
                     da.setIdTipoPago(tipo);
                     da.setIdCli(idCli);
                     da.setIdMesero(mesero);
-                    da.setIdCajero(cajero);
+                    da.setIdCajero(cajero);  
                     da.setDescuento(descuento);
                     da.setIva(iva);
                     da.setTotal(total);
@@ -1410,13 +1459,13 @@ public class loginCtrl implements ActionListener {
         }
        if (e.getSource() == admin.txtCantProdDet) {
             KeyEvent fakeEvent1 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-           
-            try {
-                registrarDetalle(fakeEvent1);
-                
-            } catch (SQLException ex) {
+           try{
+               registrarDetalle(fakeEvent1);
+           } catch (SQLException ex)
+            {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
         }
 
     }
