@@ -1482,7 +1482,7 @@ public void TotalPagar() throws SQLException {
         if (e.getSource() == admin.btnAggProInv) {
             KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
-                System.out.println("ddcsdssc");
+                
                 ingresarInvenEntrada(fakeEvent);
                 limpiarCajaInventario();
                 //listaPedidosListo(admin.tblPedidoListo);
@@ -1491,12 +1491,11 @@ public void TotalPagar() throws SQLException {
             }
         }
         if (e.getSource() == admin.btnActualizarInv) {
-            System.out.println("wws");
+        
             listarInventario(admin.tblInventario);
         }
         if (e.getSource() == admin.txtIdProductoDet) {
-            System.out.println("sddscsd");
-            System.out.println("ddddd");
+            
             KeyEvent fakeEvent = new KeyEvent(admin.txtIdProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 BuscarProducto(fakeEvent);
