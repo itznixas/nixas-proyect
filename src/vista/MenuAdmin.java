@@ -235,9 +235,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtMetodoPago = new componentes.TextField();
         jToggleButton1 = new javax.swing.JToggleButton();
         txtDescuentoFac = new componentes.TextField();
-        txtProductoDet1 = new componentes.TextField();
+        txtApeMeseroFac = new componentes.TextField();
         txtNomCliFac = new componentes.TextField();
-        txtProductoDet2 = new componentes.TextField();
+        txtApeCajeroFac = new componentes.TextField();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblFactura = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -252,7 +252,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnFacturar = new javax.swing.JButton();
         lblTotal = new javax.swing.JLabel();
         lblTotalFinal = new javax.swing.JLabel();
-        txtNomCliFac1 = new componentes.TextField();
+        txtApeClintFac = new componentes.TextField();
+        txtNomClintFac = new componentes.TextField();
+        txtNomMeseroFac = new componentes.TextField();
+        txtNomCajeroFac = new componentes.TextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -1271,7 +1274,7 @@ public class MenuAdmin extends javax.swing.JFrame {
             .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel18Layout.createSequentialGroup()
                     .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 1367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 3, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1319,18 +1322,18 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtDescuentoFac.setHint("DESCUENTO");
         jPanelTransparente3.add(txtDescuentoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 110, -1));
 
-        txtProductoDet1.setHint("NAME");
-        txtProductoDet1.addActionListener(new java.awt.event.ActionListener() {
+        txtApeMeseroFac.setHint("NAME");
+        txtApeMeseroFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProductoDet1ActionPerformed(evt);
+                txtApeMeseroFacActionPerformed(evt);
             }
         });
-        txtProductoDet1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtApeMeseroFac.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtProductoDet1KeyPressed(evt);
+                txtApeMeseroFacKeyPressed(evt);
             }
         });
-        jPanelTransparente3.add(txtProductoDet1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 112, -1));
+        jPanelTransparente3.add(txtApeMeseroFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 112, -1));
 
         txtNomCliFac.setHint("ID PEDIDOS");
         txtNomCliFac.addActionListener(new java.awt.event.ActionListener() {
@@ -1345,18 +1348,18 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jPanelTransparente3.add(txtNomCliFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(932, 260, 120, -1));
 
-        txtProductoDet2.setHint("NAME");
-        txtProductoDet2.addActionListener(new java.awt.event.ActionListener() {
+        txtApeCajeroFac.setHint("NAME");
+        txtApeCajeroFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProductoDet2ActionPerformed(evt);
+                txtApeCajeroFacActionPerformed(evt);
             }
         });
-        txtProductoDet2.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtApeCajeroFac.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtProductoDet2KeyPressed(evt);
+                txtApeCajeroFacKeyPressed(evt);
             }
         });
-        jPanelTransparente3.add(txtProductoDet2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 112, -1));
+        jPanelTransparente3.add(txtApeCajeroFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 112, -1));
 
         tblFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1475,18 +1478,57 @@ public class MenuAdmin extends javax.swing.JFrame {
         lblTotalFinal.setText("Monto");
         jPanelTransparente3.add(lblTotalFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 650, 130, -1));
 
-        txtNomCliFac1.setHint("NAME");
-        txtNomCliFac1.addActionListener(new java.awt.event.ActionListener() {
+        txtApeClintFac.setHint("NAME");
+        txtApeClintFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomCliFac1ActionPerformed(evt);
+                txtApeClintFacActionPerformed(evt);
             }
         });
-        txtNomCliFac1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtApeClintFac.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNomCliFac1KeyPressed(evt);
+                txtApeClintFacKeyPressed(evt);
             }
         });
-        jPanelTransparente3.add(txtNomCliFac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 112, -1));
+        jPanelTransparente3.add(txtApeClintFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 112, -1));
+
+        txtNomClintFac.setHint("NAME");
+        txtNomClintFac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomClintFacActionPerformed(evt);
+            }
+        });
+        txtNomClintFac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomClintFacKeyPressed(evt);
+            }
+        });
+        jPanelTransparente3.add(txtNomClintFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 112, -1));
+
+        txtNomMeseroFac.setHint("NAME");
+        txtNomMeseroFac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomMeseroFacActionPerformed(evt);
+            }
+        });
+        txtNomMeseroFac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomMeseroFacKeyPressed(evt);
+            }
+        });
+        jPanelTransparente3.add(txtNomMeseroFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 112, -1));
+
+        txtNomCajeroFac.setHint("NAME");
+        txtNomCajeroFac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomCajeroFacActionPerformed(evt);
+            }
+        });
+        txtNomCajeroFac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomCajeroFacKeyPressed(evt);
+            }
+        });
+        jPanelTransparente3.add(txtNomCajeroFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 112, -1));
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1904,13 +1946,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantidadProPedActionPerformed
 
-    private void txtProductoDet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductoDet1ActionPerformed
+    private void txtApeMeseroFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApeMeseroFacActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtProductoDet1ActionPerformed
+    }//GEN-LAST:event_txtApeMeseroFacActionPerformed
 
-    private void txtProductoDet1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoDet1KeyPressed
+    private void txtApeMeseroFacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApeMeseroFacKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtProductoDet1KeyPressed
+    }//GEN-LAST:event_txtApeMeseroFacKeyPressed
 
     private void txtNomCliFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomCliFacActionPerformed
         // TODO add your handling code here:
@@ -1924,13 +1966,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioUniDetActionPerformed
 
-    private void txtProductoDet2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductoDet2ActionPerformed
+    private void txtApeCajeroFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApeCajeroFacActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtProductoDet2ActionPerformed
+    }//GEN-LAST:event_txtApeCajeroFacActionPerformed
 
-    private void txtProductoDet2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProductoDet2KeyPressed
+    private void txtApeCajeroFacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApeCajeroFacKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtProductoDet2KeyPressed
+    }//GEN-LAST:event_txtApeCajeroFacKeyPressed
 
     private void txtCantProdDetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCantProdDetMouseEntered
         // TODO add your handling code here:
@@ -1938,19 +1980,43 @@ public class MenuAdmin extends javax.swing.JFrame {
         panel.showNotification();
     }//GEN-LAST:event_txtCantProdDetMouseEntered
 
-    private void txtNomCliFac1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomCliFac1ActionPerformed
+    private void txtApeClintFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApeClintFacActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomCliFac1ActionPerformed
+    }//GEN-LAST:event_txtApeClintFacActionPerformed
 
-    private void txtNomCliFac1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomCliFac1KeyPressed
+    private void txtApeClintFacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApeClintFacKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomCliFac1KeyPressed
+    }//GEN-LAST:event_txtApeClintFacKeyPressed
 
     private void txtIdProductoDetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdProductoDetMouseEntered
         // TODO add your handling code here:
         Notification panel = new Notification(this, Notification.Type.INFO, Notification.Location.TOP_RIGHT, "Debes presionar ENTER para visualizar los datos.");
         panel.showNotification();
     }//GEN-LAST:event_txtIdProductoDetMouseEntered
+
+    private void txtNomClintFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomClintFacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomClintFacActionPerformed
+
+    private void txtNomClintFacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomClintFacKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomClintFacKeyPressed
+
+    private void txtNomMeseroFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomMeseroFacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomMeseroFacActionPerformed
+
+    private void txtNomMeseroFacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomMeseroFacKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomMeseroFacKeyPressed
+
+    private void txtNomCajeroFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomCajeroFacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomCajeroFacActionPerformed
+
+    private void txtNomCajeroFacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomCajeroFacKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomCajeroFacKeyPressed
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
@@ -2097,6 +2163,9 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JTable tblPedidoListo;
     public javax.swing.JTable tblPedidoPendiente;
     public javax.swing.JTable tblStockProductos;
+    public componentes.TextField txtApeCajeroFac;
+    public componentes.TextField txtApeClintFac;
+    public componentes.TextField txtApeMeseroFac;
     public componentes.TextField txtApellidoC;
     public componentes.TextField txtApellidoConsuCli;
     public componentes.TextField txtApellidoConuEmpl;
@@ -2127,8 +2196,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtIdProductoDet;
     public componentes.TextField txtMesaId;
     public componentes.TextField txtMetodoPago;
+    public componentes.TextField txtNomCajeroFac;
     public componentes.TextField txtNomCliFac;
-    public componentes.TextField txtNomCliFac1;
+    public componentes.TextField txtNomClintFac;
+    public componentes.TextField txtNomMeseroFac;
     public componentes.TextField txtNomProdInv;
     public componentes.TextField txtNomProducPed;
     public componentes.TextField txtNombreC;
@@ -2142,8 +2213,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtPrecioUniDet;
     public componentes.TextField txtProdStock;
     public componentes.TextField txtProductoDet;
-    public componentes.TextField txtProductoDet1;
-    public componentes.TextField txtProductoDet2;
     public componentes.TextField txtTelefonoC;
     public componentes.TextField txtTelefonoConsuCli;
     public componentes.TextField txtTelefonoConsuEmpl;

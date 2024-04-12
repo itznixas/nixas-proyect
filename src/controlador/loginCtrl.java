@@ -114,6 +114,7 @@ public class loginCtrl implements ActionListener {
         this.admin.btnFacturar.addActionListener(this);
         this.admin.txtIdClienteFac.addActionListener(this);
         this.admin.txtCantProdDet.addActionListener(this);
+        this.admin.txtIdMesero.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -716,7 +717,7 @@ public class loginCtrl implements ActionListener {
         System.out.println(pr.getCantidad()); // This confirms you have the value
 
        
-        r = be.agregarComida(pr);
+        r = porDAO.agregarPorciones(pr);
 
         if (r == 1) {
             AggInventario();
@@ -1033,15 +1034,44 @@ public class loginCtrl implements ActionListener {
                 regEmpleado em = new regEmpleado(){};
                 em.setCedulaEmpl(cedula);
                 facturaDAO da = new facturaDAO();
-                boolean a = da.buscarDNIClien(em);
-
-                if (a == true) {
-
-                    JOptionPane.showMessageDialog(admin, "Cliente encontrado ");
+                regEmpleado ten = new regEmpleado() {};
+                ten = da.buscarDNIClien(cedula);
+                if (ten.getCedulaEmpl() !=null) {
+                    admin.txtNomClintFac.setText(""+ten.getNombreEmpl());
+                    admin.txtApeClintFac.setText(""+ten.getApellidoEmpl());
 
                 } else {
-                    // No se encontró un empleado con la cédula especificada
-                    JOptionPane.showMessageDialog(admin, "No se encontró ningún Cliente con esa cédula.");
+                   admin.txtNomClintFac.setText("");
+                   admin.txtApeClintFac.setText("");
+                   JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+        }
+    }
+}
+
+    public void buscarDNIMese(KeyEvent evt) throws SQLException {
+    if(evt.getKeyCode()== KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtIdMesero.getText())) {
+            try {
+                int cedula = Integer.parseInt(admin.txtIdMesero.getText());
+                regEmpleado em = new regEmpleado(){};
+                em.setCedulaEmpl(cedula);
+                facturaDAO da = new facturaDAO();
+                regEmpleado ten = new regEmpleado() {};
+                ten = da.buscarDNIMese(cedula);
+                if (ten.getCedulaEmpl() !=null) {
+                    admin.txtNomMeseroFac.setText(""+ten.getNombreEmpl());
+                    admin.txtApeMeseroFac.setText(""+ten.getApellidoEmpl());
+
+                } else {
+                   admin.txtNomMeseroFac.setText("");
+                   admin.txtApeMeseroFac.setText("");
+                   JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
@@ -1054,11 +1084,7 @@ public class loginCtrl implements ActionListener {
 
 public void TotalPagar() throws SQLException {
   totalPagar = 0.0f;
-
-  // Get the number of rows in the table
   int numFila = admin.tblFacturaEleccipn.getRowCount();
-
-  // Iterate through each row
   for (int i = 0; i < numFila; i++) {
     // Check if a value exists at this row and column
     if (admin.tblFacturaEleccipn.getModel().getValueAt(i, 4) != null) {
@@ -1067,18 +1093,9 @@ public void TotalPagar() throws SQLException {
     } else {
     }
   }
-
   admin.lblTotalFinal.setText(String.format(("%,2f"),totalPagar));
   da.setTotal(totalPagar);
 }
-
-
-    
-
-
-
-
-
    public void registrarDetalle(KeyEvent evt) throws SQLException {
     System.out.println("was");
     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1533,6 +1550,15 @@ public void TotalPagar() throws SQLException {
             }
             
         }
-
+ if (e.getSource() == admin.txtIdMesero) {
+            KeyEvent fakeEvent1 = new KeyEvent(admin.txtIdMesero, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+           try{
+               buscarDNIMese(fakeEvent1);
+           } catch (SQLException ex)
+            {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
     }
 }

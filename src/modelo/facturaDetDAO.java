@@ -14,8 +14,7 @@ public class facturaDetDAO {
     ResultSet rs;
 
     public platoProducto BuscarPlato(String Nom) throws SQLException {
-        platoProducto pla = new platoProducto() {
-        };
+        platoProducto pla = new platoProducto() {};
         String sql = "SELECT nombre, cantidad, precio FROM prod_platos WHERE id_platos=?";
         try {
             cn = con.getConnection();

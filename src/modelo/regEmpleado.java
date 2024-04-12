@@ -31,13 +31,14 @@ public abstract class regEmpleado {
         this.idEmpl = idEmpl;
     }
 
-    public int getCedulaEmpl() {
+     public Integer getCedulaEmpl() {
         return cedulaEmpl;
     }
 
     public void setCedulaEmpl(Integer cedulaEmpl) {
         this.cedulaEmpl = cedulaEmpl;
     }
+
 
     public int getCelEmpl() {
         return celEmpl;

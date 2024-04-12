@@ -52,18 +52,19 @@ public class facturaDAO {
     return r;
 }
 
-  public boolean buscarDNIClien(regEmpleado em) throws SQLException {
-    String sql = "SELECT ced_cli FROM reg_clientes WHERE ced_cli=?";
-    boolean encontrado = false; // Variable para almacenar si se encontró el cliente
+  public regEmpleado buscarDNIClien(Integer em) throws SQLException {
+      regEmpleado emp = new accionEmple() {};
+      String sql = "SELECT ced_cli,nom_cli,ape_cli FROM reg_clientes WHERE ced_cli=?";
     try {
         cn = con.getConnection();
         ps = cn.prepareStatement(sql);
-        ps.setInt(1, em.getCedulaEmpl());
+        ps.setInt(1, em);
         rs = ps.executeQuery();
         while (rs.next()) {
             // Si se encontró un cliente, establece la cédula en el objeto regEmpleado
-            em.setCedulaEmpl(rs.getInt("ced_cli"));
-            encontrado = true; // Marcar como encontrado
+            emp.setCedulaEmpl(rs.getInt("ced_cli"));
+            emp.setNombreEmpl(rs.getString("nom_cli"));
+            emp.setApellidoEmpl(rs.getString("ape_cli"));
         }
     } catch (Exception e) {
         System.out.println(e.toString());
@@ -79,10 +80,79 @@ public class facturaDAO {
             cn.close();
         }
     }
-    return encontrado; // Devolver si el cliente fue encontrado o no
+    return emp; // Devolver si el cliente fue encontrado o no
 }
 
   
+ public regEmpleado buscarDNIMese(Integer em) throws SQLException {
+    regEmpleado emp = new regEmpleado(){}; // Crear una instancia de regEmpleado
+    Connection cn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
+    String sql = "SELECT nom_emple, ape_emple FROM reg_empleado WHERE ced_emple = ? AND rol = 333";
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        ps.setInt(1, em);
+        rs = ps.executeQuery();
+        if (rs.next()) {
+            // Si se encontró un empleado, establecer nombre y apellido
+            emp.setNombreEmpl(rs.getString("nom_emple"));
+            emp.setApellidoEmpl(rs.getString("ape_emple"));
+            emp.setCedulaEmpl(em); // Establecer la cédula del empleado
+        } else {
+            // Si no se encontró ningún empleado, establecer valores nulos
+            emp = null;
+        }
+    } catch (SQLException e) {
+        System.out.println(e.toString());
+    } finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+        if (cn != null) {
+            cn.close();
+        }
+    }
+    return emp; // Devolver el empleado encontrado o null si no se encontró ninguno
+}
+
+  
+public regEmpleado buscarDNIEmple(Integer em) throws SQLException {
+      regEmpleado emp = new accionEmple() {};
+      String sql = "SELECT ced_emple,nom_emple,ape_emple FROM reg_empleado WHERE ced_emple=?";
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        ps.setInt(1, em);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            // Si se encontró un cliente, establece la cédula en el objeto regEmpleado
+            emp.setCedulaEmpl(rs.getInt("ced_emple"));
+            emp.setNombreEmpl(rs.getString("nom_emple"));
+            emp.setApellidoEmpl(rs.getString("ape_emple"));
+        }
+    } catch (Exception e) {
+        System.out.println(e.toString());
+    } finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+        if (cn != null) {
+            cn.close();
+        }
+    }
+    return emp; // Devolver si el cliente fue encontrado o no
+}
   
 }
 
