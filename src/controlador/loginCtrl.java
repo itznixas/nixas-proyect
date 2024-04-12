@@ -706,27 +706,25 @@ public class loginCtrl implements ActionListener {
                     JOptionPane.showMessageDialog(admin, "Error ");
                 }
             } //METODO DE AGG COMIDA
-            else if (admin.cmbPorcion.getSelectedItem().equals("Comida")) {
-                id = 1;
-                nombreC = admin.txtNombreP.getText();
+    else if (admin.cmbPorcion.getSelectedItem().equals("Comida")) {
+        id = 2;
+        producto pr = new producto(){};
+        pr.setNombreProd(admin.txtNombreP.getText());
+        pr.setCantidad(Integer.parseInt(admin.txtCantidadP.getText()));
+        pr.setPrecio(Float.parseFloat(admin.txtPrecioP.getText()));
 
-                if (!admin.txtCantidadP.getText().isEmpty()) {
-                    cantidadB = Integer.parseInt(admin.txtCantidadP.getText());
-                }
-                if (!admin.txtPrecioP.getText().isEmpty()) {
-                    precioB = Float.parseFloat(admin.txtPrecioP.getText());
-                }
-                prod.setNombreProd(nombreC);
-                prod.setCantidad(cantidadC);
-                prod.setPrecio(precioC);
-                r = porDAO.agregarPorciones(prod);
-                if (r == 1) {
-                    AggInventario();
-                    //JOptionPane.showMessageDialog(admin, "Registro exitoso");
-                } else {
-                    JOptionPane.showMessageDialog(admin, "Error");
-                }
-            }
+        System.out.println(pr.getCantidad()); // This confirms you have the value
+
+       
+        r = be.agregarComida(pr);
+
+        if (r == 1) {
+            AggInventario();
+            // JOptionPane.showMessageDialog(admin, "Registro exitoso");
+        } else {
+            JOptionPane.showMessageDialog(admin, "Error");
+        }
+    }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
         }

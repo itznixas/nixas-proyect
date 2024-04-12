@@ -113,4 +113,37 @@ public class bebidasDAO {
             System.out.println("Error al eliminar " + e);
         }
     }
+    
+     public int agregarComida(producto pro){
+        int r = 1;
+        String sql = "INSERT INTO prod_porciones (id_porciones, nombre, cantidad, precio)"
+                + "VALUES (?,?,?,?)";
+    try{
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        ps.setString(2, pro.getNombreProd());
+        ps.setString(3, Integer.toString(pro.getCantidad()));
+        ps.setString(4, Float.toString(pro.getPrecio()));
+        ps.executeUpdate();
+    if(r == 1){
+        return 1;
+    }else{
+        return 0;
+    }
+    }catch (SQLException e){
+        System.out.println("Error al agregar la porcion " + e.getMessage());
+        return 0;
+    }finally{
+         try {
+            if (ps != null) {
+                ps.close();
+                }
+                    if (cn != null) {
+                        cn.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace(); // Manejar cualquier excepción al cerrar recursos
+                }
+    }
+    }
 }
