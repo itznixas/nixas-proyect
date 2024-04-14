@@ -855,6 +855,7 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
+    
     public void buscarPrecio(KeyEvent evt) throws SQLException{
         System.out.println("cd");
         if(evt.getKeyCode()== KeyEvent.VK_ENTER){
@@ -1186,7 +1187,7 @@ public void TotalPagar() throws SQLException {
                     if (r == 1) {
                         JOptionPane.showMessageDialog(admin, "Venta registrada en la factura detalle");
                     } else {
-                        JOptionPane.showMessageDialog(admin, "Error al registrar la venta");
+                        
                     }
                 } else {
                     JOptionPane.showMessageDialog(admin, "La tabla de factura no está inicializada");
@@ -1615,8 +1616,7 @@ tablapro.addCell(p5);
         
             listarInventario(admin.tblInventario);
         }
-        if (e.getSource() == admin.txtNomProducPed) {
-            
+        if (e.getSource() == admin.txtNomProducPed) {  
             KeyEvent fakeEvent = new KeyEvent(admin.txtNomProducPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 buscarPrecio(fakeEvent);
