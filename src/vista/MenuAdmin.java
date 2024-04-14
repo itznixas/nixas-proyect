@@ -61,9 +61,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblEleccionMesa.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
         tblEleccionMesa.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
 
-        tblStockProductos.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
-        tblStockProductos.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
-        tblStockProductos.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
+        tblEleccionMesa.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
+        tblEleccionMesa.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
+        tblEleccionMesa.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
 
         tblPedidoPendiente.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
         tblPedidoPendiente.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
@@ -136,12 +136,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtNomProducPed = new componentes.TextField();
         txtMesaId = new componentes.TextField();
         jcbMesero = new javax.swing.JComboBox<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tblEleccionMesa = new javax.swing.JTable();
         btnActuaMesa = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
-        tblStockProductos = new javax.swing.JTable();
-        btnActuaProdPedi = new javax.swing.JButton();
+        tblEleccionMesa = new javax.swing.JTable();
         jScrollPane11 = new javax.swing.JScrollPane();
         tblPedidoPendiente = new javax.swing.JTable();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -151,6 +148,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtIdPedidoConse = new componentes.TextField();
         btnPedidosListo = new javax.swing.JButton();
         btnActuaTabPenPet = new javax.swing.JButton();
+        cmbComidas = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jPanelTransparente1 = new LIB.JPanelTransparente();
         jLabel3 = new javax.swing.JLabel();
@@ -244,9 +242,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         tblFacturaEleccipn = new javax.swing.JTable();
         btnActualizarFactura = new javax.swing.JButton();
         txtNumFacturaDet = new componentes.TextField();
-        txtIdProductoDet = new componentes.TextField();
         txtProductoDet = new componentes.TextField();
-        txtProdStock = new componentes.TextField();
         txtCantProdDet = new componentes.TextField();
         txtPrecioUniDet = new componentes.TextField();
         btnFacturar = new javax.swing.JButton();
@@ -256,6 +252,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtNomClintFac = new componentes.TextField();
         txtNomMeseroFac = new componentes.TextField();
         txtNomCajeroFac = new componentes.TextField();
+        txtProdStock = new componentes.TextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -551,19 +548,29 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jPanel26.add(jcbMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 260, 40));
 
+        btnActuaMesa.setBackground(new java.awt.Color(41, 37, 87));
+        btnActuaMesa.setForeground(new java.awt.Color(255, 255, 255));
+        btnActuaMesa.setText("UPDATE");
+        btnActuaMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActuaMesaActionPerformed(evt);
+            }
+        });
+        jPanel26.add(btnActuaMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, -1, 30));
+
         tblEleccionMesa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Id", "Tables"
+                "ID", "NAME", "SM"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -575,53 +582,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                 tblEleccionMesaMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(tblEleccionMesa);
+        jScrollPane10.setViewportView(tblEleccionMesa);
 
-        jPanel26.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 220, 400));
-
-        btnActuaMesa.setBackground(new java.awt.Color(41, 37, 87));
-        btnActuaMesa.setForeground(new java.awt.Color(255, 255, 255));
-        btnActuaMesa.setText("UPDATE");
-        btnActuaMesa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActuaMesaActionPerformed(evt);
-            }
-        });
-        jPanel26.add(btnActuaMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, -1, 30));
-
-        tblStockProductos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "ID", "NAME", "AMOUNT"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tblStockProductos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblStockProductosMouseClicked(evt);
-            }
-        });
-        jScrollPane10.setViewportView(tblStockProductos);
-
-        jPanel26.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 260, 400));
-
-        btnActuaProdPedi.setBackground(new java.awt.Color(41, 37, 87));
-        btnActuaProdPedi.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnActuaProdPedi.setForeground(new java.awt.Color(255, 255, 255));
-        btnActuaProdPedi.setText("SEARCH");
-        jPanel26.add(btnActuaProdPedi, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, -1, 30));
+        jPanel26.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 170, 180));
 
         tblPedidoPendiente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tblPedidoPendiente.setModel(new javax.swing.table.DefaultTableModel(
@@ -728,6 +691,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnActuaTabPenPet.setForeground(new java.awt.Color(255, 255, 255));
         btnActuaTabPenPet.setText("UPDATE");
         jPanel26.add(btnActuaTabPenPet, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 600, -1, 30));
+
+        cmbComidas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
+        cmbComidas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbComidasMouseClicked(evt);
+            }
+        });
+        jPanel26.add(cmbComidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 140, 30));
 
         jTabbedPane.addTab("Pedidos", jPanel26);
 
@@ -1380,6 +1351,11 @@ public class MenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tblFactura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblFacturaMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(tblFactura);
 
         jPanelTransparente3.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 70, 600, 180));
@@ -1405,7 +1381,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(tblFacturaEleccipn);
 
-        jPanelTransparente3.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, 600, 180));
+        jPanelTransparente3.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 600, 180));
 
         btnActualizarFactura.setBackground(new java.awt.Color(41, 37, 87));
         btnActualizarFactura.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1421,14 +1397,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtNumFacturaDet.setHint("ID FACTURA");
         jPanelTransparente3.add(txtNumFacturaDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 70, -1));
 
-        txtIdProductoDet.setHint("ID PLATO");
-        txtIdProductoDet.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txtIdProductoDetMouseEntered(evt);
-            }
-        });
-        jPanelTransparente3.add(txtIdProductoDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 80, -1));
-
         txtProductoDet.setHint("NOMBRE");
         txtProductoDet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1440,11 +1408,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 txtProductoDetKeyPressed(evt);
             }
         });
-        jPanelTransparente3.add(txtProductoDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 320, 128, -1));
-
-        txtProdStock.setEditable(false);
-        txtProdStock.setHint("STOCK");
-        jPanelTransparente3.add(txtProdStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 120, -1));
+        jPanelTransparente3.add(txtProductoDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 128, -1));
 
         txtCantProdDet.setHint("CANTIDAD");
         txtCantProdDet.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1452,7 +1416,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 txtCantProdDetMouseEntered(evt);
             }
         });
-        jPanelTransparente3.add(txtCantProdDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 320, 120, -1));
+        jPanelTransparente3.add(txtCantProdDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 320, 120, -1));
 
         txtPrecioUniDet.setHint("PRECIO");
         txtPrecioUniDet.addActionListener(new java.awt.event.ActionListener() {
@@ -1460,7 +1424,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 txtPrecioUniDetActionPerformed(evt);
             }
         });
-        jPanelTransparente3.add(txtPrecioUniDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 320, 110, -1));
+        jPanelTransparente3.add(txtPrecioUniDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 320, 110, -1));
 
         btnFacturar.setBackground(new java.awt.Color(41, 37, 87));
         btnFacturar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -1529,6 +1493,14 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
         jPanelTransparente3.add(txtNomCajeroFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 112, -1));
+
+        txtProdStock.setHint("CANTIDAD");
+        txtProdStock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtProdStockMouseEntered(evt);
+            }
+        });
+        jPanelTransparente3.add(txtProdStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, 120, -1));
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1912,21 +1884,15 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtIdPedidoConse.setText(tblPedidoPendiente.getValueAt(fila, 0).toString());
     }//GEN-LAST:event_tblPedidoPendienteMouseClicked
 
-    private void tblStockProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStockProductosMouseClicked
+    private void tblEleccionMesaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEleccionMesaMouseClicked
         // TODO add your handling code here:
-        int fila = tblStockProductos.rowAtPoint(evt.getPoint());
-        txtNomProducPed.setText((String) tblStockProductos.getValueAt(fila, 1));
-    }//GEN-LAST:event_tblStockProductosMouseClicked
+        int fila = tblEleccionMesa.rowAtPoint(evt.getPoint());
+        txtMesaId.setText((String) tblEleccionMesa.getValueAt(fila, 1));
+    }//GEN-LAST:event_tblEleccionMesaMouseClicked
 
     private void btnActuaMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActuaMesaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActuaMesaActionPerformed
-
-    private void tblEleccionMesaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEleccionMesaMouseClicked
-        // TODO add your handling code here:
-        int fila = tblEleccionMesa.rowAtPoint(evt.getPoint());
-        txtMesaId.setText(tblEleccionMesa.getValueAt(fila, 0).toString());
-    }//GEN-LAST:event_tblEleccionMesaMouseClicked
 
     private void jcbMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbMeseroActionPerformed
         // TODO add your handling code here:
@@ -1988,12 +1954,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApeClintFacKeyPressed
 
-    private void txtIdProductoDetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdProductoDetMouseEntered
-        // TODO add your handling code here:
-        Notification panel = new Notification(this, Notification.Type.INFO, Notification.Location.TOP_RIGHT, "Debes presionar ENTER para visualizar los datos.");
-        panel.showNotification();
-    }//GEN-LAST:event_txtIdProductoDetMouseEntered
-
     private void txtNomClintFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomClintFacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomClintFacActionPerformed
@@ -2017,6 +1977,25 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void txtNomCajeroFacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomCajeroFacKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomCajeroFacKeyPressed
+
+    private void cmbComidasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbComidasMouseClicked
+        // TODO add your handling code here:
+         String nom = (String) cmbComidas.getSelectedItem();
+        txtNomProducPed.setText(nom);
+
+    }//GEN-LAST:event_cmbComidasMouseClicked
+
+    private void tblFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFacturaMouseClicked
+        // TODO add your handling code here:
+          int fila = tblFactura.rowAtPoint(evt.getPoint());
+         txtNomCliFac.setText(tblFactura.getValueAt(fila, 0).toString());
+        txtProductoDet.setText(tblFactura.getValueAt(fila, 3).toString());
+
+    }//GEN-LAST:event_tblFacturaMouseClicked
+
+    private void txtProdStockMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProdStockMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProdStockMouseEntered
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
@@ -2042,7 +2021,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnActbCli;
     public javax.swing.JButton btnActblE;
     public javax.swing.JButton btnActuaMesa;
-    public javax.swing.JButton btnActuaProdPedi;
     public javax.swing.JButton btnActuaTabPenPet;
     public javax.swing.JButton btnActualizarFactura;
     public javax.swing.JButton btnActualizarInv;
@@ -2069,6 +2047,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnPedidosListo;
     public javax.swing.JButton btnPorcion;
     public javax.swing.JMenuItem cerrar;
+    public javax.swing.JComboBox<String> cmbComidas;
     public javax.swing.JComboBox<String> cmbEmpleado;
     public javax.swing.JComboBox<String> cmbPorcion;
     public javax.swing.JButton jButton14;
@@ -2131,7 +2110,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -2162,7 +2140,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JTable tblInventario;
     public javax.swing.JTable tblPedidoListo;
     public javax.swing.JTable tblPedidoPendiente;
-    public javax.swing.JTable tblStockProductos;
     public componentes.TextField txtApeCajeroFac;
     public componentes.TextField txtApeClintFac;
     public componentes.TextField txtApeMeseroFac;
@@ -2193,7 +2170,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     public componentes.TextField txtIdConsuEmpl;
     public componentes.TextField txtIdMesero;
     public componentes.TextField txtIdPedidoConse;
-    public componentes.TextField txtIdProductoDet;
     public componentes.TextField txtMesaId;
     public componentes.TextField txtMetodoPago;
     public componentes.TextField txtNomCajeroFac;

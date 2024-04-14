@@ -5,6 +5,7 @@
 package modelo;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 
 public class facturaDAO {
@@ -94,7 +95,8 @@ public class facturaDAO {
     try {
         cn = con.getConnection();
         ps = cn.prepareStatement(sql);
-        ps.setInt(1, em);
+        ps.setInt(1, em);cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
         rs = ps.executeQuery();
         if (rs.next()) {
             // Si se encontró un empleado, establecer nombre y apellido
@@ -123,21 +125,29 @@ public class facturaDAO {
 }
 
   
-public regEmpleado buscarDNIEmple(Integer em) throws SQLException {
-      regEmpleado emp = new accionEmple() {};
-      String sql = "SELECT ced_emple,nom_emple,ape_emple FROM reg_empleado WHERE ced_emple=?";
+ public regEmpleado buscarDNIEmple(Integer em) throws SQLException {
+    regEmpleado emp = new regEmpleado(){}; // Crear una instancia de regEmpleado
+    Connection cn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
+    String sql = "SELECT nom_emple, ape_emple FROM reg_empleado WHERE ced_emple = ? AND rol IN (111, 222)";
     try {
         cn = con.getConnection();
         ps = cn.prepareStatement(sql);
         ps.setInt(1, em);
         rs = ps.executeQuery();
-        while (rs.next()) {
-            // Si se encontró un cliente, establece la cédula en el objeto regEmpleado
-            emp.setCedulaEmpl(rs.getInt("ced_emple"));
+        if (rs.next()) {
+            // Si se encontró un empleado, establecer nombre y apellido
             emp.setNombreEmpl(rs.getString("nom_emple"));
             emp.setApellidoEmpl(rs.getString("ape_emple"));
+            emp.setCedulaEmpl(em); // Establecer la cédula del empleado
+        } else {
+            // Si no se encontró ningún empleado, establecer valores nulos
+            emp = null;
         }
-    } catch (Exception e) {
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Id incorrecto de empleado", "Error", JOptionPane.ERROR_MESSAGE);
         System.out.println(e.toString());
     } finally {
         // Cerrar recursos en orden inverso de apertura para evitar problemas
@@ -151,8 +161,10 @@ public regEmpleado buscarDNIEmple(Integer em) throws SQLException {
             cn.close();
         }
     }
-    return emp; // Devolver si el cliente fue encontrado o no
+    return emp; // Devolver el empleado encontrado o null si no se encontró ninguno
 }
   
+ 
+ 
 }
 

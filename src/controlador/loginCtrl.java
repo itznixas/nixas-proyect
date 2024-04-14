@@ -5,6 +5,7 @@ import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 import componentes.alert.Notification;
 import java.awt.FontFormatException;
 import vista.*;
@@ -34,12 +35,18 @@ import javax.swing.text.Element;
 import javax.swing.text.Position;
 import javax.swing.text.Segment;
 import com.itextpdf.text.pdf.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.filechooser.FileSystemView;
 
 public class loginCtrl implements ActionListener {
-
+    dataBase con = new dataBase();
+         Connection cn;
+         PreparedStatement ps;
+         ResultSet rs;
     regEmpleado reG = new regEmpleado() {
     };
     regEmpleadoDAO emD = new regEmpleadoDAO();
@@ -77,6 +84,7 @@ public class loginCtrl implements ActionListener {
         this.admin.btnAgregarC.addActionListener(this);
         this.admin.btnAgregarEm.addActionListener(this);
         this.admin.cmbEmpleado.addActionListener(this);
+        this.admin.cmbComidas.addActionListener(this);
         this.admin.jmiOrdenes.addActionListener(this);
         this.admin.jmiClientes.addActionListener(this);
         this.admin.jmiProductos.addActionListener(this);
@@ -96,11 +104,11 @@ public class loginCtrl implements ActionListener {
         this.admin.btnActbCli.addActionListener(this);
         this.admin.btnModificarEmpl.addActionListener(this);
         this.proDAO.categoria(admin.cmbPorcion);
+        this.peD.llenarPlatoss(admin.cmbComidas);
         this.admin.btnActuaMesa.addActionListener(this);
         this.emD.rol(admin.cmbEmpleado);
         this.admin.btnAggPedidos.addActionListener(this);
         this.peD.mesero(admin.jcbMesero);
-        this.admin.btnActuaProdPedi.addActionListener(this);
         this.admin.btnActuaTabPenPet.addActionListener(this);
         this.admin.btnPedidosListo.addActionListener(this);
         this.admin.btnAggProInv.addActionListener(this);
@@ -109,12 +117,13 @@ public class loginCtrl implements ActionListener {
         this.admin.btnExcel.addActionListener(this);
         this.admin.btnCkeckIn.addActionListener(this);
         this.admin.btnActualizarFactura.addActionListener(this);
-        this.admin.txtIdProductoDet.addActionListener(this);
+        this.admin.txtNomProducPed.addActionListener(this);
         this.admin.cerrar.addActionListener(this);
         this.admin.btnFacturar.addActionListener(this);
         this.admin.txtIdClienteFac.addActionListener(this);
         this.admin.txtCantProdDet.addActionListener(this);
         this.admin.txtIdMesero.addActionListener(this);
+        this.admin.txtIdCajeroFac.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -149,12 +158,10 @@ public class loginCtrl implements ActionListener {
 
         try {
             List<platoProducto> plato = plDAO.platos();
-            Object[] object = new Object[3];
+            Object[] object = new Object[1];
 
-            for (int i = 0; i < plato.size(); i++) {
-                object[0] = plato.get(i).getId_plato();
-                object[1] = plato.get(i).getNombreProd();
-                object[2] = plato.get(i).getCantidad();
+            for (int i = 0; i < plato.size(); i++) {               
+                object[0] = plato.get(i).getNombreProd();
                 modelo.addRow(object);
             }
             modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
@@ -764,6 +771,12 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
+   
+    public void listaComida(JTable tblStockProductos){
+         modelo = (DefaultTableModel) tblStockProductos.getModel();
+         modelo.setRowCount(0);
+        
+    }
 
     public void ActualizarTablaFactura() {
         modelo = (DefaultTableModel) admin.tblFactura.getModel();
@@ -842,7 +855,27 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
-
+    public void buscarPrecio(KeyEvent evt) throws SQLException{
+        System.out.println("cd");
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            if(!"".equals(admin.txtNomProducPed.getText())){
+                String nom = admin.txtNomProducPed.getText();
+                platoProducto pl = new platoProducto() {
+                };
+                pl = peD.buscarPrecio(nom);
+                if(pl.getNombreProd() != null){
+                   admin.txtPrecioUniDet.setText(""+pl.getPrecio());
+                   admin.txtNomProducPed.requestFocus();
+                }else{
+                    admin.txtPrecioUniDet.setText("");
+                    admin.txtNomProducPed.requestFocus();
+                }
+            }else{
+                JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+            }
+        }
+    } 
+    
     public void listaPedidosListo(JTable tblPedidoListo) throws SQLException {
         System.out.println("aaaaasd");
         DefaultTableModel modelo = (DefaultTableModel) tblPedidoListo.getModel();
@@ -1000,31 +1033,7 @@ public class loginCtrl implements ActionListener {
     }
 
     //Factura
-    public void BuscarProducto(KeyEvent evt) throws SQLException {
-        System.out.println("s");
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (!"".equals(admin.txtIdProductoDet.getText())) {
-                String Nom = admin.txtIdProductoDet.getText();
-                platoProducto pla = new platoProducto() {
-                };
-                pla = faDAO.BuscarPlato(Nom);
-                if (pla.getNombreProd() != null) {
-                    admin.txtProductoDet.setText("" + pla.getNombreProd());
-                    admin.txtPrecioUniDet.setText("" + pla.getPrecio());
-                    admin.txtProdStock.setText("" + pla.getCantidad());
-                    admin.txtIdProductoDet.requestFocus();
-                } else {
-                    admin.txtProductoDet.setText("");
-                    admin.txtPrecioUniDet.setText("");
-                    admin.txtProdStock.setText("");
-                    admin.txtIdProductoDet.requestFocus();
-                }
-            } else {
-                JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
-                admin.txtProductoDet.requestFocus();
-            }
-        }
-    }
+  
     
    public void buscarDNICli(KeyEvent evt) throws SQLException {
     if(evt.getKeyCode()== KeyEvent.VK_ENTER) {
@@ -1081,6 +1090,34 @@ public class loginCtrl implements ActionListener {
         }
     }
 }
+    
+    public void buscarDNIEmple(KeyEvent evt) throws SQLException {
+    if(evt.getKeyCode()== KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtIdCajeroFac.getText())) {
+            try {
+                int cedula = Integer.parseInt(admin.txtIdCajeroFac.getText());
+                regEmpleado em = new regEmpleado(){};
+                em.setCedulaEmpl(cedula);
+                facturaDAO da = new facturaDAO();
+                regEmpleado ten = new regEmpleado() {};
+                ten = da.buscarDNIEmple(cedula);
+                if (ten.getCedulaEmpl() !=null) {
+                    admin.txtNomCajeroFac.setText(""+ten.getNombreEmpl());
+                    admin.txtApeCajeroFac.setText(""+ten.getApellidoEmpl());
+
+                } else {
+                   admin.txtNomCajeroFac.setText("");
+                   admin.txtApeCajeroFac.setText("");
+                   JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+        }
+    }
+}
 
 public void TotalPagar() throws SQLException {
   totalPagar = 0.0f;
@@ -1106,8 +1143,7 @@ public void TotalPagar() throws SQLException {
             float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
             float total = cantidad * precioU;
             //admin.lblTotal.setText(String.valueOf(total));
-            int stock = Integer.parseInt(admin.txtProdStock.getText());
-            if (stock >= cantidad) {
+            if (20 >= cantidad) {
                 item = item + 1;
                 facturaDetallee da = new facturaDetallee() {};
                 
@@ -1131,7 +1167,7 @@ public void TotalPagar() throws SQLException {
                     lista.add(cantidad);
                     lista.add(precioU);
                     lista.add(total);
-                    Object[] o = new Object[7];
+                    Object[] o = new Object[5];
                     o[0] = lista.get(1);
                     o[1] = lista.get(2);
                     o[2] = lista.get(3);
@@ -1242,8 +1278,8 @@ public void TotalPagar() throws SQLException {
         //Fecha
         Paragraph fecha = new Paragraph();
         fecha.add(Chunk.NEWLINE);
-        fecha.add("Vendedor: " + reG.getNombreEmpl() + "\nFactura: " + da.getIdCabFac() + "\nFecha: "
-                + new SimpleDateFormat("dd/MM/yyyy").format(date) + "\n\n");
+        fecha.add("Vendedor: " + admin.txtNomCajeroFac.getText() + "\nMesero: " + admin.txtNomMeseroFac.getText() + "\nFactura: " + da.getIdCabFac() + "\nFecha: "
+                + new SimpleDateFormat("dd/MM/yyyy").format(date) + "\n\n") ;
         
         PdfPTable Encabezado = new PdfPTable(4);           
         Encabezado.setWidthPercentage(100);
@@ -1259,12 +1295,87 @@ public void TotalPagar() throws SQLException {
         String dir = "Barranquilla/Atlantico";
         
         Encabezado.addCell("");
-        Encabezado.addCell("NIT: "+ rut + "Nombre: "+nom + "Celular: " + cel + "Dirrecion: " + dir);
+        Encabezado.addCell("\nNIT: "+ rut + "\nNombre: "+nom + "\nCelular: " + cel + "\nDirrecion: " + dir);
         Encabezado.addCell(fecha);
         doc.add(Encabezado);
+        
+        Paragraph cli = new Paragraph();
+        cli.add(Chunk.NEWLINE);
+        cli.add("Datos del cliente"+"\n\n");
+        doc.add(cli);
+        
+        PdfPTable tablacli = new PdfPTable(3) {};
+        tablacli.setWidthPercentage(100);
+        tablacli.getDefaultCell().setBorder(0);
+        float[] columnCliente = new float[]{50f, 25f, 25f};
+        tablacli.setWidths(columnCliente);
+        tablacli.setHorizontalAlignment(com.itextpdf.text.Element.ALIGN_LEFT);
+        PdfPCell cli1 = new PdfPCell(new Phrase("DN1"));
+        PdfPCell cli2 = new PdfPCell(new Phrase("Nombre"));
+        PdfPCell cli3 = new PdfPCell(new Phrase("Apellido"));
+        cli1.setBorder(0);
+        cli2.setBorder(0);
+        cli3.setBorder(0);
+        tablacli.addCell(cli1);
+        tablacli.addCell(cli2);
+        tablacli.addCell(cli3);
+        tablacli.addCell(admin.txtIdClienteFac.getText());
+        tablacli.addCell(admin.txtNomClintFac.getText());
+        tablacli.addCell(admin.txtApeClintFac.getText());
+       
+        
+ 
+    
+        
+  // Obtener datos de la tabla y agregarlos a la tabla de productos
+PdfPTable tablapro = new PdfPTable(5); // 5 columnas para los datos de producto
+tablapro.setWidthPercentage(100);
+float[] columnpro = new float[]{25f, 25f, 25f, 25f, 25f}; // Ancho de las columnas
+tablapro.setWidths(columnpro);
+
+PdfPCell p1 = new PdfPCell(new Phrase("fac"));
+PdfPCell p2 = new PdfPCell(new Phrase("Nombre"));
+PdfPCell p3 = new PdfPCell(new Phrase("Cant"));
+PdfPCell p4 = new PdfPCell(new Phrase("Precio U"));
+PdfPCell p5 = new PdfPCell(new Phrase("Precio T"));
+
+p1.setBorder(0);
+p2.setBorder(0);
+p3.setBorder(0);
+p4.setBorder(0);
+p5.setBorder(0);
+
+tablapro.addCell(p1);
+tablapro.addCell(p2);
+tablapro.addCell(p3);
+tablapro.addCell(p4);
+tablapro.addCell(p5);
+
+  for (int i = 0; i < 1; i++) {
+    Integer fac = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 1);
+    String nombre = (String) admin.tblFacturaEleccipn.getValueAt(i, 2);
+    Integer cantidad = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 3);   
+    Integer precioU = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 4);
+    Integer precioT = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 5);
+     
+    // Convertir los valores Integer a String
+    String cantidadStr = cantidad.toString();
+    String precioUStr = precioU.toString();
+    String precioTStr = precioT.toString();
+    String facTStr = fac.toString();
+    // Agregar los datos a la tabla
+    tablapro.addCell(facTStr);
+    tablapro.addCell(nombre);
+    tablapro.addCell(cantidadStr);
+    tablapro.addCell(precioUStr);
+    tablapro.addCell(precioTStr);  
+  }
+        doc.add(tablacli);
+        doc.add(tablapro);      
         doc.close();
         archivo.close(); // Cerrar el flujo de salida después de cerrar el documento
     } catch (Exception e) {
+        System.out.println("Número de columnas: " + admin.tblFacturaEleccipn.getColumnCount());
         e.printStackTrace(); // Imprimir la traza de la excepción en caso de error
     }
 }
@@ -1468,14 +1579,9 @@ public void TotalPagar() throws SQLException {
             }
 
         }
-        if (e.getSource() == admin.btnActuaProdPedi) {
-            try {
-                listarPlatosPedidos(admin.tblStockProductos);
-            } catch (SQLException ex) {
-                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
+    
+            
+ 
         if (e.getSource() == admin.btnActuaTabPenPet) {
             try {
                 System.out.println("csddcsds");
@@ -1509,11 +1615,11 @@ public void TotalPagar() throws SQLException {
         
             listarInventario(admin.tblInventario);
         }
-        if (e.getSource() == admin.txtIdProductoDet) {
+        if (e.getSource() == admin.txtNomProducPed) {
             
-            KeyEvent fakeEvent = new KeyEvent(admin.txtIdProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            KeyEvent fakeEvent = new KeyEvent(admin.txtNomProducPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
-                BuscarProducto(fakeEvent);
+                buscarPrecio(fakeEvent);
                 
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -1557,8 +1663,16 @@ public void TotalPagar() throws SQLException {
            } catch (SQLException ex)
             {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+            }          
+        }
+  if (e.getSource() == admin.txtIdCajeroFac) {
+            KeyEvent fakeEvent1 = new KeyEvent(admin.txtIdCajeroFac, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+           try{
+               buscarDNIEmple(fakeEvent1);
+           } catch (SQLException ex)
+            {
+                Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }          
         }
     }
 }

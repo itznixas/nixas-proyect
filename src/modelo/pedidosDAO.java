@@ -239,4 +239,98 @@ public class pedidosDAO {
         return lista_ped;
     }
 
+        //cmbComidas
+
+         
+      public void llenarPlatoss(JComboBox<String> cmbComidas) throws SQLException {
+        String sql = "SELECT DISTINCT nombre FROM prod_platos";
+
+        try {
+            // Establecer conexión y preparar la consulta SQL
+            Connection cn = con.getConnection();
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            // Limpiar el JComboBox antes de agregar elementos
+            cmbComidas.removeAllItems();
+
+            // Recorrer el resultado y agregar elementos al JComboBox
+            while (rs.next()) {
+                cmbComidas.addItem(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        } finally {
+            // Cerrar recursos en el bloque finally
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        }
+    }
+     public List<platoProducto> listaPlatos()throws SQLException{
+        String sql = "SELECT DISTINCT nombre FROM prod_platos";
+        List<platoProducto> lista_Plato = new ArrayList<>();
+    try{
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        rs = ps.executeQuery();
+    
+        while (rs.next()){
+            platoProducto prod = new platoProducto() {};            
+            prod.setNombreProd(rs.getString("nombre"));
+            lista_Plato.add(prod);
+        }
+    } catch (SQLException e){
+        System.out.println("Error al listar platos" + e.getMessage());
+    } finally{
+           if (rs != null) {
+               rs.close();
+           }
+           if (ps != null) {
+               ps.close();
+           }
+           if (cn != null) {
+               cn.close();
+           }
+    }
+     return lista_Plato;
+    } 
+     
+     public platoProducto buscarPrecio(String em) throws SQLException{
+         platoProducto pl = new platoProducto(){};
+         String sql = "SELECT DISTINCT precio FROM prod_platos WHERE nombre=?";
+         Connection cn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            cn = con.getConnection();
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, em);
+            rs = ps.executeQuery();
+             while (rs.next()) {
+            // Si se encontró un cliente, establece la cédula en el objeto regEmpleado
+            pl.setPrecio(rs.getInt("precio"));    
+        }
+        }catch (Exception e) {
+        System.out.println(e.toString());
+    }finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        if (rs != null) {
+            rs.close();
+        }
+        if (ps != null) {
+            ps.close();
+        }
+        if (cn != null) {
+            cn.close();
+        }
+    }
+        return pl;
+     }
 }
