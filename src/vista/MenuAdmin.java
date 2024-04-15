@@ -1343,10 +1343,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         tblFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "TABLE", "WAITER", "PRODUCT", "AMOUNT", "STATE"
@@ -1371,10 +1368,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         tblFacturaEleccipn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "FACTURA", "PRODUCTO", "CANTIDAD", "PRECIO U", "TOTAL"
@@ -2096,6 +2090,7 @@ public class MenuAdmin extends javax.swing.JFrame {
           int fila = tblFactura.rowAtPoint(evt.getPoint());
          txtNomCliFac.setText(tblFactura.getValueAt(fila, 0).toString());
         txtProductoDet.setText(tblFactura.getValueAt(fila, 3).toString());
+        txtCantProdDet.setText(tblFactura.getValueAt(fila, 4).toString());
 
     }//GEN-LAST:event_tblFacturaMouseClicked
 

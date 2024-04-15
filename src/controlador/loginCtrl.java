@@ -117,13 +117,13 @@ public class loginCtrl implements ActionListener {
         this.admin.btnExcel.addActionListener(this);
         this.admin.btnCkeckIn.addActionListener(this);
         this.admin.btnActualizarFactura.addActionListener(this);
-        this.admin.txtNomProducPed.addActionListener(this);
         this.admin.cerrar.addActionListener(this);
         this.admin.btnFacturar.addActionListener(this);
         this.admin.txtIdClienteFac.addActionListener(this);
         this.admin.txtCantProdDet.addActionListener(this);
         this.admin.txtIdMesero.addActionListener(this);
         this.admin.txtIdCajeroFac.addActionListener(this);
+        this.admin.txtProductoDet.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -856,26 +856,25 @@ public class loginCtrl implements ActionListener {
         }
     }
     
-    public void buscarPrecio(KeyEvent evt) throws SQLException{
-        System.out.println("cd");
-        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
-            if(!"".equals(admin.txtNomProducPed.getText())){
-                String nom = admin.txtNomProducPed.getText();
-                platoProducto pl = new platoProducto() {
-                };
-                pl = peD.buscarPrecio(nom);
-                if(pl.getNombreProd() != null){
-                   admin.txtPrecioUniDet.setText(""+pl.getPrecio());
-                   admin.txtNomProducPed.requestFocus();
-                }else{
-                    admin.txtPrecioUniDet.setText("");
-                    admin.txtNomProducPed.requestFocus();
-                }
-            }else{
-                JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+public void buscarPrecio(KeyEvent evt) throws SQLException {
+    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (!"".equals(admin.txtProductoDet.getText())) {
+            String nom = admin.txtProductoDet.getText();
+            platoProducto pl = peD.buscarPrecio(nom);
+            if (pl != null) {
+                admin.txtPrecioUniDet.setText(String.valueOf(pl.getPrecio()));
+                admin.txtProductoDet.requestFocus();
+            } else {
+                admin.txtPrecioUniDet.setText("");
+                admin.txtProductoDet.requestFocus();
+                JOptionPane.showMessageDialog(admin, "No se encontró el precio del producto.");
             }
+
+        } else {
+            JOptionPane.showMessageDialog(admin, "Selecciona la ID correcta");
         }
-    } 
+    }
+}
     
     public void listaPedidosListo(JTable tblPedidoListo) throws SQLException {
         System.out.println("aaaaasd");
@@ -1070,18 +1069,18 @@ public class loginCtrl implements ActionListener {
             try {
                 int cedula = Integer.parseInt(admin.txtIdMesero.getText());
                 regEmpleado em = new regEmpleado(){};
+                regEmpleado ten = new regEmpleado() {};
                 em.setCedulaEmpl(cedula);
                 facturaDAO da = new facturaDAO();
-                regEmpleado ten = new regEmpleado() {};
+                
                 ten = da.buscarDNIMese(cedula);
-                if (ten.getCedulaEmpl() !=null) {
+                if (ten.getCedulaEmpl() != null) {
                     admin.txtNomMeseroFac.setText(""+ten.getNombreEmpl());
                     admin.txtApeMeseroFac.setText(""+ten.getApellidoEmpl());
-
                 } else {
-                   admin.txtNomMeseroFac.setText("");
-                   admin.txtApeMeseroFac.setText("");
-                   JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+                    admin.txtNomMeseroFac.setText("");
+                    admin.txtApeMeseroFac.setText("");
+                    JOptionPane.showMessageDialog(admin, "No se encontró ningún empleado con la cédula especificada.");
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
@@ -1233,8 +1232,8 @@ public void TotalPagar() throws SQLException {
                 
                 admin.lblTotal.setText(String.format(("%,2f"),total));
                 
-                int stock = Integer.parseInt(admin.txtProdStock.getText());
-                if (stock >= cantidad) {
+                
+                if (50 >= cantidad) {
                     
                     
                     da.setIdCabFac(cod);
@@ -1616,8 +1615,8 @@ tablapro.addCell(p5);
         
             listarInventario(admin.tblInventario);
         }
-        if (e.getSource() == admin.txtNomProducPed) {  
-            KeyEvent fakeEvent = new KeyEvent(admin.txtNomProducPed, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+        if (e.getSource() == admin.txtProductoDet) {  
+            KeyEvent fakeEvent = new KeyEvent(admin.txtProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 buscarPrecio(fakeEvent);
                 
@@ -1641,6 +1640,7 @@ tablapro.addCell(p5);
             try {
                // registrarDetalle(fakeEvent1);
                 factura(fakeEvent2);
+                limpiartabla();
                 reportePdf();
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);

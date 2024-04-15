@@ -302,24 +302,25 @@ public class pedidosDAO {
      return lista_Plato;
     } 
      
-     public platoProducto buscarPrecio(String em) throws SQLException{
-         platoProducto pl = new platoProducto(){};
-         String sql = "SELECT DISTINCT precio FROM prod_platos WHERE nombre=?";
-         Connection cn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try{
-            cn = con.getConnection();
-            ps = cn.prepareStatement(sql);
-            ps.setString(1, em);
-            rs = ps.executeQuery();
-             while (rs.next()) {
-            // Si se encontró un cliente, establece la cédula en el objeto regEmpleado
+    public platoProducto buscarPrecio(String em) throws SQLException {
+    platoProducto pl = null; // Inicializa como null para manejar el caso en que no se encuentre ningún precio
+    String sql = "SELECT DISTINCT precio FROM prod_platos WHERE nombre = ?";
+    Connection cn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    try {
+        cn = con.getConnection();
+        ps = cn.prepareStatement(sql);
+        ps.setString(1, em);
+        rs = ps.executeQuery();
+        if (rs.next()) {
+            // Si se encontró un precio, inicializa el objeto platoProducto y establece el precio
+            pl = new platoProducto(){};
             pl.setPrecio(rs.getInt("precio"));    
         }
-        }catch (Exception e) {
+    } catch (SQLException e) {
         System.out.println(e.toString());
-    }finally {
+    } finally {
         // Cerrar recursos en orden inverso de apertura para evitar problemas
         if (rs != null) {
             rs.close();
@@ -331,6 +332,7 @@ public class pedidosDAO {
             cn.close();
         }
     }
-        return pl;
-     }
+    return pl;
+}
+
 }
