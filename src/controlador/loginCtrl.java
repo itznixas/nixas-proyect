@@ -43,10 +43,11 @@ import java.util.Date;
 import javax.swing.filechooser.FileSystemView;
 
 public class loginCtrl implements ActionListener {
+
     dataBase con = new dataBase();
-         Connection cn;
-         PreparedStatement ps;
-         ResultSet rs;
+    Connection cn;
+    PreparedStatement ps;
+    ResultSet rs;
     regEmpleado reG = new regEmpleado() {
     };
     regEmpleadoDAO emD = new regEmpleadoDAO();
@@ -124,6 +125,7 @@ public class loginCtrl implements ActionListener {
         this.admin.txtIdMesero.addActionListener(this);
         this.admin.txtIdCajeroFac.addActionListener(this);
         this.admin.txtProductoDet.addActionListener(this);
+        this.admin.btnEliminarFactura.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -160,7 +162,7 @@ public class loginCtrl implements ActionListener {
             List<platoProducto> plato = plDAO.platos();
             Object[] object = new Object[1];
 
-            for (int i = 0; i < plato.size(); i++) {               
+            for (int i = 0; i < plato.size(); i++) {
                 object[0] = plato.get(i).getNombreProd();
                 modelo.addRow(object);
             }
@@ -714,25 +716,25 @@ public class loginCtrl implements ActionListener {
                     JOptionPane.showMessageDialog(admin, "Error ");
                 }
             } //METODO DE AGG COMIDA
-    else if (admin.cmbPorcion.getSelectedItem().equals("Comida")) {
-        id = 2;
-        producto pr = new producto(){};
-        pr.setNombreProd(admin.txtNombreP.getText());
-        pr.setCantidad(Integer.parseInt(admin.txtCantidadP.getText()));
-        pr.setPrecio(Float.parseFloat(admin.txtPrecioP.getText()));
+            else if (admin.cmbPorcion.getSelectedItem().equals("Comida")) {
+                id = 2;
+                producto pr = new producto() {
+                };
+                pr.setNombreProd(admin.txtNombreP.getText());
+                pr.setCantidad(Integer.parseInt(admin.txtCantidadP.getText()));
+                pr.setPrecio(Float.parseFloat(admin.txtPrecioP.getText()));
 
-        System.out.println(pr.getCantidad()); // This confirms you have the value
+                System.out.println(pr.getCantidad()); // This confirms you have the value
 
-       
-        r = porDAO.agregarPorciones(pr);
+                r = porDAO.agregarPorciones(pr);
 
-        if (r == 1) {
-            AggInventario();
-            // JOptionPane.showMessageDialog(admin, "Registro exitoso");
-        } else {
-            JOptionPane.showMessageDialog(admin, "Error");
-        }
-    }
+                if (r == 1) {
+                    AggInventario();
+                    // JOptionPane.showMessageDialog(admin, "Registro exitoso");
+                } else {
+                    JOptionPane.showMessageDialog(admin, "Error");
+                }
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(admin, "Error en el formato de datos. Verifica los campos numéricos.");
         }
@@ -771,11 +773,11 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
-   
-    public void listaComida(JTable tblStockProductos){
-         modelo = (DefaultTableModel) tblStockProductos.getModel();
-         modelo.setRowCount(0);
-        
+
+    public void listaComida(JTable tblStockProductos) {
+        modelo = (DefaultTableModel) tblStockProductos.getModel();
+        modelo.setRowCount(0);
+
     }
 
     public void ActualizarTablaFactura() {
@@ -798,6 +800,23 @@ public class loginCtrl implements ActionListener {
             }
 
             modelo.fireTableDataChanged(); // Notificar a la vista que los datos han cambiado
+        } catch (SQLException ex) {
+            Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void eliminarFactura() {
+        facturaDAO dao = new facturaDAO();
+        try {
+            int filaSeleccionada = admin.tblFactura.getSelectedRow();
+            int idFactura = (int) admin.tblFactura.getValueAt(filaSeleccionada, 0); // Suponiendo que el ID de factura está en la primera columna
+            boolean eliminada = dao.eliminarFacturaPorID(idFactura);
+            if (eliminada) {
+                System.out.println("Factura eliminada correctamente.");
+                ActualizarTablaFactura(); // Actualizar la tabla después de la eliminación
+            } else {
+                System.out.println("No se pudo eliminar la factura.");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -855,27 +874,27 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
-    
-public void buscarPrecio(KeyEvent evt) throws SQLException {
-    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtProductoDet.getText())) {
-            String nom = admin.txtProductoDet.getText();
-            platoProducto pl = peD.buscarPrecio(nom);
-            if (pl != null) {
-                admin.txtPrecioUniDet.setText(String.valueOf(pl.getPrecio()));
-                admin.txtProductoDet.requestFocus();
-            } else {
-                admin.txtPrecioUniDet.setText("");
-                admin.txtProductoDet.requestFocus();
-                JOptionPane.showMessageDialog(admin, "No se encontró el precio del producto.");
-            }
 
-        } else {
-            JOptionPane.showMessageDialog(admin, "Selecciona la ID correcta");
+    public void buscarPrecio(KeyEvent evt) throws SQLException {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtProductoDet.getText())) {
+                String nom = admin.txtProductoDet.getText();
+                platoProducto pl = peD.buscarPrecio(nom);
+                if (pl != null) {
+                    admin.txtPrecioUniDet.setText(String.valueOf(pl.getPrecio()));
+                    admin.txtProductoDet.requestFocus();
+                } else {
+                    admin.txtPrecioUniDet.setText("");
+                    admin.txtProductoDet.requestFocus();
+                    JOptionPane.showMessageDialog(admin, "No se encontró el precio del producto.");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(admin, "Selecciona la ID correcta");
+            }
         }
     }
-}
-    
+
     public void listaPedidosListo(JTable tblPedidoListo) throws SQLException {
         System.out.println("aaaaasd");
         DefaultTableModel modelo = (DefaultTableModel) tblPedidoListo.getModel();
@@ -1033,176 +1052,182 @@ public void buscarPrecio(KeyEvent evt) throws SQLException {
     }
 
     //Factura
-  
-    
-   public void buscarDNICli(KeyEvent evt) throws SQLException {
-    if(evt.getKeyCode()== KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtIdClienteFac.getText())) {
-            try {
-                int cedula = Integer.parseInt(admin.txtIdClienteFac.getText());
-                regEmpleado em = new regEmpleado(){};
-                em.setCedulaEmpl(cedula);
-                facturaDAO da = new facturaDAO();
-                regEmpleado ten = new regEmpleado() {};
-                ten = da.buscarDNIClien(cedula);
-                if (ten.getCedulaEmpl() !=null) {
-                    admin.txtNomClintFac.setText(""+ten.getNombreEmpl());
-                    admin.txtApeClintFac.setText(""+ten.getApellidoEmpl());
+    public void buscarDNICli(KeyEvent evt) throws SQLException {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtIdClienteFac.getText())) {
+                try {
+                    int cedula = Integer.parseInt(admin.txtIdClienteFac.getText());
+                    regEmpleado em = new regEmpleado() {
+                    };
+                    em.setCedulaEmpl(cedula);
+                    facturaDAO da = new facturaDAO();
+                    regEmpleado ten = new regEmpleado() {
+                    };
+                    ten = da.buscarDNIClien(cedula);
+                    if (ten.getCedulaEmpl() != null) {
+                        admin.txtNomClintFac.setText("" + ten.getNombreEmpl());
+                        admin.txtApeClintFac.setText("" + ten.getApellidoEmpl());
 
-                } else {
-                   admin.txtNomClintFac.setText("");
-                   admin.txtApeClintFac.setText("");
-                   JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
-        }
-    }
-}
-
-    public void buscarDNIMese(KeyEvent evt) throws SQLException {
-    if(evt.getKeyCode()== KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtIdMesero.getText())) {
-            try {
-                int cedula = Integer.parseInt(admin.txtIdMesero.getText());
-                regEmpleado em = new regEmpleado(){};
-                regEmpleado ten = new regEmpleado() {};
-                em.setCedulaEmpl(cedula);
-                facturaDAO da = new facturaDAO();
-                
-                ten = da.buscarDNIMese(cedula);
-                if (ten.getCedulaEmpl() != null) {
-                    admin.txtNomMeseroFac.setText(""+ten.getNombreEmpl());
-                    admin.txtApeMeseroFac.setText(""+ten.getApellidoEmpl());
-                } else {
-                    admin.txtNomMeseroFac.setText("");
-                    admin.txtApeMeseroFac.setText("");
-                    JOptionPane.showMessageDialog(admin, "No se encontró ningún empleado con la cédula especificada.");
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
-        }
-    }
-}
-    
-    public void buscarDNIEmple(KeyEvent evt) throws SQLException {
-    if(evt.getKeyCode()== KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtIdCajeroFac.getText())) {
-            try {
-                int cedula = Integer.parseInt(admin.txtIdCajeroFac.getText());
-                regEmpleado em = new regEmpleado(){};
-                em.setCedulaEmpl(cedula);
-                facturaDAO da = new facturaDAO();
-                regEmpleado ten = new regEmpleado() {};
-                ten = da.buscarDNIEmple(cedula);
-                if (ten.getCedulaEmpl() !=null) {
-                    admin.txtNomCajeroFac.setText(""+ten.getNombreEmpl());
-                    admin.txtApeCajeroFac.setText(""+ten.getApellidoEmpl());
-
-                } else {
-                   admin.txtNomCajeroFac.setText("");
-                   admin.txtApeCajeroFac.setText("");
-                   JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
-        }
-    }
-}
-
-public void TotalPagar() throws SQLException {
-  totalPagar = 0.0f;
-  int numFila = admin.tblFacturaEleccipn.getRowCount();
-  for (int i = 0; i < numFila; i++) {
-    // Check if a value exists at this row and column
-    if (admin.tblFacturaEleccipn.getModel().getValueAt(i, 4) != null) {
-      float can = (float) admin.tblFacturaEleccipn.getModel().getValueAt(i, 4);
-      totalPagar += can;
-    } else {
-    }
-  }
-  admin.lblTotalFinal.setText(String.format(("%,2f"),totalPagar));
-  da.setTotal(totalPagar);
-}
-   public void registrarDetalle(KeyEvent evt) throws SQLException {
-    System.out.println("was");
-    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        if (!"".equals(admin.txtCantProdDet.getText())) {
-            int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
-            String product = admin.txtProductoDet.getText();
-            int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
-            float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
-            float total = cantidad * precioU;
-            //admin.lblTotal.setText(String.valueOf(total));
-            if (20 >= cantidad) {
-                item = item + 1;
-                facturaDetallee da = new facturaDetallee() {};
-                
-                // Verifica si la tabla está inicializada y no es null
-                if (admin.tblFacturaEleccipn != null) {
-                    modelo = (DefaultTableModel) admin.tblFacturaEleccipn.getModel();
-                    for (int i = 0; i < admin.tblFacturaEleccipn.getRowCount(); i++) {
-                        // Verifica si el producto ya está registrado en la tabla
-                        if (admin.tblFacturaEleccipn.getValueAt(i, 1) != null &&
-                            admin.tblFacturaEleccipn.getValueAt(i, 1).equals(product)) {
-                            JOptionPane.showMessageDialog(admin, "El producto ya está registrado");
-                            return;
-                        }
-                    }
-                    
-                    // Si el producto no está registrado, agrégalo a la tabla
-                    ArrayList lista = new ArrayList();
-                    lista.add(item);
-                    lista.add(cod);
-                    lista.add(product);
-                    lista.add(cantidad);
-                    lista.add(precioU);
-                    lista.add(total);
-                    Object[] o = new Object[5];
-                    o[0] = lista.get(1);
-                    o[1] = lista.get(2);
-                    o[2] = lista.get(3);
-                    o[3] = lista.get(4);
-                    o[4] = lista.get(5);
-                    modelo.addRow(o);                 
-                    admin.tblFacturaEleccipn.setModel(modelo);
-                     TotalPagar();
-                    // Realiza el registro de la venta en la base de datos
-                    da.setIdDetFact(cod);
-                    da.setProducto(product);
-                    da.setCantProd(cantidad);
-                    da.setPredUnitario(precioU);
-                    da.setTotal(total);
-                    int r = faDAO.registrarVenta(da);
-                    if (r == 1) {
-                        JOptionPane.showMessageDialog(admin, "Venta registrada en la factura detalle");
                     } else {
-                        
+                        admin.txtNomClintFac.setText("");
+                        admin.txtApeClintFac.setText("");
+                        JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
                     }
-                } else {
-                    JOptionPane.showMessageDialog(admin, "La tabla de factura no está inicializada");
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
                 }
             } else {
-                JOptionPane.showMessageDialog(admin, "Error, sobrepasa el stock");
+                JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
             }
-        } else {
-            JOptionPane.showMessageDialog(admin, "Ingrese la cantidad para facturar");
         }
     }
-}
 
+    public void buscarDNIMese(KeyEvent evt) throws SQLException {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtIdMesero.getText())) {
+                try {
+                    int cedula = Integer.parseInt(admin.txtIdMesero.getText());
+                    regEmpleado em = new regEmpleado() {
+                    };
+                    regEmpleado ten = new regEmpleado() {
+                    };
+                    em.setCedulaEmpl(cedula);
+                    facturaDAO da = new facturaDAO();
+
+                    ten = da.buscarDNIMese(cedula);
+                    if (ten.getCedulaEmpl() != null) {
+                        admin.txtNomMeseroFac.setText("" + ten.getNombreEmpl());
+                        admin.txtApeMeseroFac.setText("" + ten.getApellidoEmpl());
+                    } else {
+                        admin.txtNomMeseroFac.setText("");
+                        admin.txtApeMeseroFac.setText("");
+                        JOptionPane.showMessageDialog(admin, "No se encontró ningún empleado con la cédula especificada.");
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+            }
+        }
+    }
+
+    public void buscarDNIEmple(KeyEvent evt) throws SQLException {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtIdCajeroFac.getText())) {
+                try {
+                    int cedula = Integer.parseInt(admin.txtIdCajeroFac.getText());
+                    regEmpleado em = new regEmpleado() {
+                    };
+                    em.setCedulaEmpl(cedula);
+                    facturaDAO da = new facturaDAO();
+                    regEmpleado ten = new regEmpleado() {
+                    };
+                    ten = da.buscarDNIEmple(cedula);
+                    if (ten.getCedulaEmpl() != null) {
+                        admin.txtNomCajeroFac.setText("" + ten.getNombreEmpl());
+                        admin.txtApeCajeroFac.setText("" + ten.getApellidoEmpl());
+
+                    } else {
+                        admin.txtNomCajeroFac.setText("");
+                        admin.txtApeCajeroFac.setText("");
+                        JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(admin, "El valor ingresado no es un número válido.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "Selecciona la id correcta");
+            }
+        }
+    }
+
+    public void TotalPagar() throws SQLException {
+        totalPagar = 0.0f;
+        int numFila = admin.tblFacturaEleccipn.getRowCount();
+        for (int i = 0; i < numFila; i++) {
+            // Check if a value exists at this row and column
+            if (admin.tblFacturaEleccipn.getModel().getValueAt(i, 4) != null) {
+                float can = (float) admin.tblFacturaEleccipn.getModel().getValueAt(i, 4);
+                totalPagar += can;
+            } else {
+            }
+        }
+        admin.lblTotalFinal.setText(String.format(("%,2f"), totalPagar));
+        da.setTotal(totalPagar);
+    }
+
+    public void registrarDetalle(KeyEvent evt) throws SQLException {
+        System.out.println("was");
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(admin.txtCantProdDet.getText())) {
+                int cod = Integer.parseInt(admin.txtNumFacturaDet.getText());
+                String product = admin.txtProductoDet.getText();
+                int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
+                float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
+                float total = cantidad * precioU;
+                //admin.lblTotal.setText(String.valueOf(total));
+                if (20 >= cantidad) {
+                    item = item + 1;
+                    facturaDetallee da = new facturaDetallee() {
+                    };
+
+                    // Verifica si la tabla está inicializada y no es null
+                    if (admin.tblFacturaEleccipn != null) {
+                        modelo = (DefaultTableModel) admin.tblFacturaEleccipn.getModel();
+                        for (int i = 0; i < admin.tblFacturaEleccipn.getRowCount(); i++) {
+                            // Verifica si el producto ya está registrado en la tabla
+                            if (admin.tblFacturaEleccipn.getValueAt(i, 1) != null
+                                    && admin.tblFacturaEleccipn.getValueAt(i, 1).equals(product)) {
+                                JOptionPane.showMessageDialog(admin, "El producto ya está registrado");
+                                return;
+                            }
+                        }
+
+                        // Si el producto no está registrado, agrégalo a la tabla
+                        ArrayList lista = new ArrayList();
+                        lista.add(item);
+                        lista.add(cod);
+                        lista.add(product);
+                        lista.add(cantidad);
+                        lista.add(precioU);
+                        lista.add(total);
+                        Object[] o = new Object[5];
+                        o[0] = lista.get(1);
+                        o[1] = lista.get(2);
+                        o[2] = lista.get(3);
+                        o[3] = lista.get(4);
+                        o[4] = lista.get(5);
+                        modelo.addRow(o);
+                        admin.tblFacturaEleccipn.setModel(modelo);
+                        TotalPagar();
+                        // Realiza el registro de la venta en la base de datos
+                        da.setIdDetFact(cod);
+                        da.setProducto(product);
+                        da.setCantProd(cantidad);
+                        da.setPredUnitario(precioU);
+                        da.setTotal(total);
+                        int r = faDAO.registrarVenta(da);
+                        if (r == 1) {
+                            JOptionPane.showMessageDialog(admin, "Venta registrada en la factura detalle");
+                        } else {
+
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(admin, "La tabla de factura no está inicializada");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(admin, "Error, sobrepasa el stock");
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "Ingrese la cantidad para facturar");
+            }
+        }
+    }
 
     factauraCabe da = new factauraCabe() {
-                    };
+    };
+
     public void factura(KeyEvent evt) throws SQLException {
         System.out.println("ws");
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1215,7 +1240,6 @@ public void TotalPagar() throws SQLException {
                 int cantidad = Integer.parseInt(admin.txtCantProdDet.getText());
                 float precioU = Float.parseFloat(admin.txtPrecioUniDet.getText());
                 float desc = Float.parseFloat(admin.txtDescuentoFac.getText());
-                
 
                 LocalDate fechaActual = LocalDate.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -1224,23 +1248,21 @@ public void TotalPagar() throws SQLException {
                 LocalDateTime ahora = LocalDateTime.now();
                 DateTimeFormatter formatte = DateTimeFormatter.ofPattern("HH:mm");
                 String horaActual = ahora.format(formatte);
-                
+
                 float cant = da.getTotal();
                 float iva = cant * 0.19f;
                 float descuento = cant * (desc / 100.0f);
-                float total = iva + (cant  - descuento);
-                
-                admin.lblTotal.setText(String.format(("%,2f"),total));
-                
-                
+                float total = iva + (cant - descuento);
+
+                admin.lblTotal.setText(String.format(("%,2f"), total));
+
                 if (50 >= cantidad) {
-                    
-                    
+
                     da.setIdCabFac(cod);
                     da.setIdTipoPago(tipo);
                     da.setIdCli(idCli);
                     da.setIdMesero(mesero);
-                    da.setIdCajero(cajero);  
+                    da.setIdCajero(cajero);
                     da.setDescuento(descuento);
                     da.setIva(iva);
                     da.setTotal(total);
@@ -1261,126 +1283,121 @@ public void TotalPagar() throws SQLException {
         }
     }
 
-    
     //REPORTE POR PDF
-  public void reportePdf() {
-      
-    try {
-        Date date = new Date();
-        FileOutputStream archivo;
-        File file = new File("src/pdf/ventas.pdf");
-        archivo = new FileOutputStream(file);
-        com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
-        PdfWriter.getInstance(doc, archivo);
-        doc.open();
-        Image img = Image.getInstance("src/componentes/img/logoNixas.png");
-        
-        //Fecha
-        Paragraph fecha = new Paragraph();
-        fecha.add(Chunk.NEWLINE);
-        fecha.add("Vendedor: " + admin.txtNomCajeroFac.getText() + "\nMesero: " + admin.txtNomMeseroFac.getText() + "\nFactura: " + da.getIdCabFac() + "\nFecha: "
-                + new SimpleDateFormat("dd/MM/yyyy").format(date) + "\n\n") ;
-        
-        PdfPTable Encabezado = new PdfPTable(4);           
-        Encabezado.setWidthPercentage(100);
-        Encabezado.getDefaultCell().setBorder(0);
-        float[] columnWidthsEncabezado = new float[]{20f, 30f, 70f, 40f};
-        Encabezado.setWidths(columnWidthsEncabezado);
-        Encabezado.setHorizontalAlignment(com.itextpdf.text.Element.ALIGN_LEFT);
-        Encabezado.addCell(img);           
-        
-        String rut = "100039823";
-        String nom = "Nixas";
-        String cel = "328393043";
-        String dir = "Barranquilla/Atlantico";
-        
-        Encabezado.addCell("");
-        Encabezado.addCell("\nNIT: "+ rut + "\nNombre: "+nom + "\nCelular: " + cel + "\nDirrecion: " + dir);
-        Encabezado.addCell(fecha);
-        doc.add(Encabezado);
-        
-        Paragraph cli = new Paragraph();
-        cli.add(Chunk.NEWLINE);
-        cli.add("Datos del cliente"+"\n\n");
-        doc.add(cli);
-        
-        PdfPTable tablacli = new PdfPTable(3) {};
-        tablacli.setWidthPercentage(100);
-        tablacli.getDefaultCell().setBorder(0);
-        float[] columnCliente = new float[]{50f, 25f, 25f};
-        tablacli.setWidths(columnCliente);
-        tablacli.setHorizontalAlignment(com.itextpdf.text.Element.ALIGN_LEFT);
-        PdfPCell cli1 = new PdfPCell(new Phrase("DN1"));
-        PdfPCell cli2 = new PdfPCell(new Phrase("Nombre"));
-        PdfPCell cli3 = new PdfPCell(new Phrase("Apellido"));
-        cli1.setBorder(0);
-        cli2.setBorder(0);
-        cli3.setBorder(0);
-        tablacli.addCell(cli1);
-        tablacli.addCell(cli2);
-        tablacli.addCell(cli3);
-        tablacli.addCell(admin.txtIdClienteFac.getText());
-        tablacli.addCell(admin.txtNomClintFac.getText());
-        tablacli.addCell(admin.txtApeClintFac.getText());
-       
-        
- 
-    
-        
-  // Obtener datos de la tabla y agregarlos a la tabla de productos
-PdfPTable tablapro = new PdfPTable(5); // 5 columnas para los datos de producto
-tablapro.setWidthPercentage(100);
-float[] columnpro = new float[]{25f, 25f, 25f, 25f, 25f}; // Ancho de las columnas
-tablapro.setWidths(columnpro);
+    public void reportePdf() {
 
-PdfPCell p1 = new PdfPCell(new Phrase("fac"));
-PdfPCell p2 = new PdfPCell(new Phrase("Nombre"));
-PdfPCell p3 = new PdfPCell(new Phrase("Cant"));
-PdfPCell p4 = new PdfPCell(new Phrase("Precio U"));
-PdfPCell p5 = new PdfPCell(new Phrase("Precio T"));
+        try {
+            Date date = new Date();
+            FileOutputStream archivo;
+            File file = new File("src/pdf/ventas.pdf");
+            archivo = new FileOutputStream(file);
+            com.itextpdf.text.Document doc = new com.itextpdf.text.Document();
+            PdfWriter.getInstance(doc, archivo);
+            doc.open();
+            Image img = Image.getInstance("src/componentes/img/logoNixas.png");
 
-p1.setBorder(0);
-p2.setBorder(0);
-p3.setBorder(0);
-p4.setBorder(0);
-p5.setBorder(0);
+            //Fecha
+            Paragraph fecha = new Paragraph();
+            fecha.add(Chunk.NEWLINE);
+            fecha.add("Vendedor: " + admin.txtNomCajeroFac.getText() + "\nMesero: " + admin.txtNomMeseroFac.getText() + "\nFactura: " + da.getIdCabFac() + "\nFecha: "
+                    + new SimpleDateFormat("dd/MM/yyyy").format(date) + "\n\n");
 
-tablapro.addCell(p1);
-tablapro.addCell(p2);
-tablapro.addCell(p3);
-tablapro.addCell(p4);
-tablapro.addCell(p5);
+            PdfPTable Encabezado = new PdfPTable(4);
+            Encabezado.setWidthPercentage(100);
+            Encabezado.getDefaultCell().setBorder(0);
+            float[] columnWidthsEncabezado = new float[]{20f, 30f, 70f, 40f};
+            Encabezado.setWidths(columnWidthsEncabezado);
+            Encabezado.setHorizontalAlignment(com.itextpdf.text.Element.ALIGN_LEFT);
+            Encabezado.addCell(img);
 
-  for (int i = 0; i < 1; i++) {
-    Integer fac = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 1);
-    String nombre = (String) admin.tblFacturaEleccipn.getValueAt(i, 2);
-    Integer cantidad = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 3);   
-    Integer precioU = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 4);
-    Integer precioT = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 5);
-     
-    // Convertir los valores Integer a String
-    String cantidadStr = cantidad.toString();
-    String precioUStr = precioU.toString();
-    String precioTStr = precioT.toString();
-    String facTStr = fac.toString();
-    // Agregar los datos a la tabla
-    tablapro.addCell(facTStr);
-    tablapro.addCell(nombre);
-    tablapro.addCell(cantidadStr);
-    tablapro.addCell(precioUStr);
-    tablapro.addCell(precioTStr);  
-  }
-        doc.add(tablacli);
-        doc.add(tablapro);      
-        doc.close();
-        archivo.close(); // Cerrar el flujo de salida después de cerrar el documento
-    } catch (Exception e) {
-        System.out.println("Número de columnas: " + admin.tblFacturaEleccipn.getColumnCount());
-        e.printStackTrace(); // Imprimir la traza de la excepción en caso de error
+            String rut = "100039823";
+            String nom = "Nixas";
+            String cel = "328393043";
+            String dir = "Barranquilla/Atlantico";
+
+            Encabezado.addCell("");
+            Encabezado.addCell("\nNIT: " + rut + "\nNombre: " + nom + "\nCelular: " + cel + "\nDirrecion: " + dir);
+            Encabezado.addCell(fecha);
+            doc.add(Encabezado);
+
+            Paragraph cli = new Paragraph();
+            cli.add(Chunk.NEWLINE);
+            cli.add("Datos del cliente" + "\n\n");
+            doc.add(cli);
+
+            PdfPTable tablacli = new PdfPTable(3) {
+            };
+            tablacli.setWidthPercentage(100);
+            tablacli.getDefaultCell().setBorder(0);
+            float[] columnCliente = new float[]{50f, 25f, 25f};
+            tablacli.setWidths(columnCliente);
+            tablacli.setHorizontalAlignment(com.itextpdf.text.Element.ALIGN_LEFT);
+            PdfPCell cli1 = new PdfPCell(new Phrase("DN1"));
+            PdfPCell cli2 = new PdfPCell(new Phrase("Nombre"));
+            PdfPCell cli3 = new PdfPCell(new Phrase("Apellido"));
+            cli1.setBorder(0);
+            cli2.setBorder(0);
+            cli3.setBorder(0);
+            tablacli.addCell(cli1);
+            tablacli.addCell(cli2);
+            tablacli.addCell(cli3);
+            tablacli.addCell(admin.txtIdClienteFac.getText());
+            tablacli.addCell(admin.txtNomClintFac.getText());
+            tablacli.addCell(admin.txtApeClintFac.getText());
+
+            // Obtener datos de la tabla y agregarlos a la tabla de productos
+            PdfPTable tablapro = new PdfPTable(5); // 5 columnas para los datos de producto
+            tablapro.setWidthPercentage(100);
+            float[] columnpro = new float[]{25f, 25f, 25f, 25f, 25f}; // Ancho de las columnas
+            tablapro.setWidths(columnpro);
+
+            PdfPCell p1 = new PdfPCell(new Phrase("fac"));
+            PdfPCell p2 = new PdfPCell(new Phrase("Nombre"));
+            PdfPCell p3 = new PdfPCell(new Phrase("Cant"));
+            PdfPCell p4 = new PdfPCell(new Phrase("Precio U"));
+            PdfPCell p5 = new PdfPCell(new Phrase("Precio T"));
+
+            p1.setBorder(0);
+            p2.setBorder(0);
+            p3.setBorder(0);
+            p4.setBorder(0);
+            p5.setBorder(0);
+
+            tablapro.addCell(p1);
+            tablapro.addCell(p2);
+            tablapro.addCell(p3);
+            tablapro.addCell(p4);
+            tablapro.addCell(p5);
+
+            for (int i = 0; i < 1; i++) {
+                Integer fac = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 1);
+                String nombre = (String) admin.tblFacturaEleccipn.getValueAt(i, 2);
+                Integer cantidad = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 3);
+                Integer precioU = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 4);
+                Integer precioT = (Integer) admin.tblFacturaEleccipn.getValueAt(i, 5);
+
+                // Convertir los valores Integer a String
+                String cantidadStr = cantidad.toString();
+                String precioUStr = precioU.toString();
+                String precioTStr = precioT.toString();
+                String facTStr = fac.toString();
+                // Agregar los datos a la tabla
+                tablapro.addCell(facTStr);
+                tablapro.addCell(nombre);
+                tablapro.addCell(cantidadStr);
+                tablapro.addCell(precioUStr);
+                tablapro.addCell(precioTStr);
+            }
+            doc.add(tablacli);
+            doc.add(tablapro);
+            doc.close();
+            archivo.close(); // Cerrar el flujo de salida después de cerrar el documento
+        } catch (Exception e) {
+            System.out.println("Número de columnas: " + admin.tblFacturaEleccipn.getColumnCount());
+            e.printStackTrace(); // Imprimir la traza de la excepción en caso de error
+        }
     }
-}
 
-    
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1521,6 +1538,9 @@ tablapro.addCell(p5);
         if (e.getSource() == admin.btnActualizarFactura) {
             ActualizarTablaFactura();
         }
+        if (e.getSource() == admin.btnEliminarFactura) {
+            eliminarFactura();
+        }
 
         if (e.getSource() == admin.btnPorcion) {
 
@@ -1579,9 +1599,7 @@ tablapro.addCell(p5);
             }
 
         }
-    
-            
- 
+
         if (e.getSource() == admin.btnActuaTabPenPet) {
             try {
                 System.out.println("csddcsds");
@@ -1603,7 +1621,7 @@ tablapro.addCell(p5);
         if (e.getSource() == admin.btnAggProInv) {
             KeyEvent fakeEvent = new KeyEvent(admin.txtNomProdInv, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
-                
+
                 ingresarInvenEntrada(fakeEvent);
                 limpiarCajaInventario();
                 //listaPedidosListo(admin.tblPedidoListo);
@@ -1612,33 +1630,32 @@ tablapro.addCell(p5);
             }
         }
         if (e.getSource() == admin.btnActualizarInv) {
-        
+
             listarInventario(admin.tblInventario);
         }
-        if (e.getSource() == admin.txtProductoDet) {  
+        if (e.getSource() == admin.txtProductoDet) {
             KeyEvent fakeEvent = new KeyEvent(admin.txtProductoDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
                 buscarPrecio(fakeEvent);
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        if(e.getSource() == admin.txtIdClienteFac){
-             KeyEvent fakeEvent = new KeyEvent(admin.txtIdClienteFac, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-            try{
+
+        if (e.getSource() == admin.txtIdClienteFac) {
+            KeyEvent fakeEvent = new KeyEvent(admin.txtIdClienteFac, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+            try {
                 buscarDNICli(fakeEvent);
-            } catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-      if (e.getSource() == admin.btnFacturar) {
+        if (e.getSource() == admin.btnFacturar) {
             KeyEvent fakeEvent1 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             KeyEvent fakeEvent2 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
             try {
-               // registrarDetalle(fakeEvent1);
+                // registrarDetalle(fakeEvent1);
                 factura(fakeEvent2);
                 limpiartabla();
                 reportePdf();
@@ -1646,33 +1663,30 @@ tablapro.addCell(p5);
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-       if (e.getSource() == admin.txtCantProdDet) {
+        if (e.getSource() == admin.txtCantProdDet) {
             KeyEvent fakeEvent1 = new KeyEvent(admin.txtCantProdDet, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-           try{
-               registrarDetalle(fakeEvent1);
-           } catch (SQLException ex)
-            {
+            try {
+                registrarDetalle(fakeEvent1);
+            } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
- if (e.getSource() == admin.txtIdMesero) {
+        if (e.getSource() == admin.txtIdMesero) {
             KeyEvent fakeEvent1 = new KeyEvent(admin.txtIdMesero, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-           try{
-               buscarDNIMese(fakeEvent1);
-           } catch (SQLException ex)
-            {
+            try {
+                buscarDNIMese(fakeEvent1);
+            } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
-            }          
+            }
         }
-  if (e.getSource() == admin.txtIdCajeroFac) {
+        if (e.getSource() == admin.txtIdCajeroFac) {
             KeyEvent fakeEvent1 = new KeyEvent(admin.txtIdCajeroFac, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-           try{
-               buscarDNIEmple(fakeEvent1);
-           } catch (SQLException ex)
-            {
+            try {
+                buscarDNIEmple(fakeEvent1);
+            } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
-            }          
+            }
         }
     }
 }

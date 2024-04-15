@@ -231,7 +231,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtIdCajeroFac = new componentes.TextField();
         txtIdMesero = new componentes.TextField();
         txtMetodoPago = new componentes.TextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnEliminarFactura = new javax.swing.JToggleButton();
         txtDescuentoFac = new componentes.TextField();
         txtApeMeseroFac = new componentes.TextField();
         txtNomCliFac = new componentes.TextField();
@@ -1293,11 +1293,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtMetodoPago.setHint("METODO DE PAGO");
         jPanelTransparente3.add(txtMetodoPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 110, -1));
 
-        jToggleButton1.setBackground(java.awt.Color.red);
-        jToggleButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("DELETE");
-        jPanelTransparente3.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 260, 124, 32));
+        btnEliminarFactura.setBackground(java.awt.Color.red);
+        btnEliminarFactura.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnEliminarFactura.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarFactura.setText("DELETE");
+        jPanelTransparente3.add(btnEliminarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 260, 124, 32));
 
         txtDescuentoFac.setHint("DESCUENTO");
         jPanelTransparente3.add(txtDescuentoFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 110, -1));
@@ -2136,6 +2136,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnEliminarClie;
     public javax.swing.JButton btnEliminarConsu;
     public javax.swing.JButton btnEliminarEmp;
+    public javax.swing.JToggleButton btnEliminarFactura;
     public javax.swing.JButton btnExcel;
     public javax.swing.JButton btnFacturar;
     public javax.swing.JButton btnMesa1;
@@ -2224,7 +2225,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     public javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTable jTable1;
-    public javax.swing.JToggleButton jToggleButton1;
     public javax.swing.JToggleButton jToggleButton2;
     public javax.swing.JComboBox<String> jcbMesero;
     public javax.swing.JComboBox<String> jcmRConsuEmpl;
