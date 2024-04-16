@@ -55,6 +55,7 @@ public class loginCtrl implements ActionListener {
     MenuAdmin admin = new MenuAdmin();
     MenuCajero cajero = new MenuCajero();
     DefaultTableModel modelo = new DefaultTableModel();
+    DefaultTableModel modelos = new DefaultTableModel();
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
     mesasDAO mDAO = new mesasDAO();
@@ -68,6 +69,7 @@ public class loginCtrl implements ActionListener {
     facturaDetDAO faDAO = new facturaDetDAO();
     facturaDAO fDAO = new facturaDAO();
     int item;
+    int items;
     float totalPagar = (float) 0.0;
 
     public loginCtrl() {
@@ -1274,8 +1276,26 @@ public class loginCtrl implements ActionListener {
                     int r = fDAO.facturar(da);
                     if (r == 1) {
                         JOptionPane.showMessageDialog(admin, " factura detalle");
-                        fDAO.guardarCantidadEnTemp(ingre, cantidad);
+                       // fDAO.guardarCantidadEnTemp(ingre, cantidad);
                         fDAO.procesarPedido(ingre, cantidad);
+                        ingresos();
+                        limpiartabla();
+                        int fac = da.getIdCabFac();
+                        //suma =+ total;
+                        //System.out.println(suma);
+                        items = items + 1;
+                        ArrayList listas = new ArrayList();
+                        listas.add(items);
+                        listas.add(fac);
+                        listas.add(total);
+                        Object[] o = new Object[3];
+                        o[0] = listas.get(0);
+                        o[1] = listas.get(1);
+                        o[2] = listas.get(2);
+                        modelos.addRow(o);
+                        modelos.fireTableDataChanged(); // Notificar a la tabla que los datos han cambiado
+                        admin.tblIngreso.setModel(modelos); 
+                        admin.totals.setText(String.valueOf(total));
                     } else {
                         JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
                     }
@@ -1287,7 +1307,21 @@ public class loginCtrl implements ActionListener {
             }
         }
     }
+    //CAJA DE CIERRE
+    float suma = 0;
+public void ingresos(){
+    item = item + 1;
+         
+}
 
+    
+    
+    public void agregarCierreCaja(){
+        String user = reG.getUserEmpl();
+        
+    }
+    
+    /*
     //REPORTE POR PDF
     public void reportePdf() {
 
@@ -1402,7 +1436,7 @@ public class loginCtrl implements ActionListener {
             e.printStackTrace(); // Imprimir la traza de la excepción en caso de error
         }
     }
-
+*/
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1455,7 +1489,7 @@ public class loginCtrl implements ActionListener {
         if (e.getSource() == admin.btnCkeckIn) {
             System.out.println("GA");
             checkIn();
-            reportePdf();
+           
         }
         if (e.getSource() == admin.cerrar) {
             try {
@@ -1663,7 +1697,8 @@ public class loginCtrl implements ActionListener {
                 // registrarDetalle(fakeEvent1);
                 factura(fakeEvent2);
                 limpiartabla();
-                reportePdf();
+                
+                //reportePdf();
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
