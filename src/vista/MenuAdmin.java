@@ -92,7 +92,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         };
         regEmpleadoDAO emD = new regEmpleadoDAO();
         int rol = emD.autenticacionRol(reG);
-        lblRoles.setText(Integer.toString(rol));
+//        lblRoles.setText(Integer.toString(rol));
 
         this.connection = connection; // Asigna la conexión
         mesasDAO mesasDao = new mesasDAO(connection);
@@ -113,14 +113,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane = new javax.swing.JTabbedPane();
-        kGradientPanel1 = new keeptoo.KGradientPanel();
-        lblRoles = new javax.swing.JLabel();
-        jPanelRound1 = new LIB.JPanelRound();
-        jLabel22 = new javax.swing.JLabel();
-        jPanelRound2 = new LIB.JPanelRound();
-        jLabel25 = new javax.swing.JLabel();
-        jPanelRound3 = new LIB.JPanelRound();
-        jLabel26 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
         jPanel26 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
@@ -191,7 +185,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtTelefonoConsuCli = new componentes.TextField();
         btnActbCli = new javax.swing.JButton();
         txtNombreConsCli = new componentes.TextField();
-        jButton8 = new javax.swing.JButton();
+        modificarCliente = new javax.swing.JButton();
         txtCedulaConsuCli1 = new componentes.TextField();
         jPanel17 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
@@ -293,11 +287,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         jmiClienteConsu = new javax.swing.JMenuItem();
         jmiEmpleadoConsu = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        buscarInven = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        jmifactura = new javax.swing.JMenuItem();
+        MesasL = new javax.swing.JMenu();
+        Mesas = new javax.swing.JMenuItem();
+        CajaS = new javax.swing.JMenu();
+        Caja = new javax.swing.JMenuItem();
         jmiCerrarSesion = new javax.swing.JMenu();
         moods = new javax.swing.JCheckBoxMenuItem();
         cerrar = new javax.swing.JMenuItem();
@@ -306,103 +303,24 @@ public class MenuAdmin extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kGradientPanel1.setkGradientFocus(1);
-        kGradientPanel1.setkStartColor(new java.awt.Color(24, 42, 75));
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/FondoInicio.gif"))); // NOI18N
 
-        lblRoles.setText("ROL");
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("CLIENTES");
-
-        javax.swing.GroupLayout jPanelRound1Layout = new javax.swing.GroupLayout(jPanelRound1);
-        jPanelRound1.setLayout(jPanelRound1Layout);
-        jPanelRound1Layout.setHorizontalGroup(
-            jPanelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel22)
-                .addContainerGap(221, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 1379, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanelRound1Layout.setVerticalGroup(
-            jPanelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel22)
-                .addContainerGap(131, Short.MAX_VALUE))
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 744, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("PRODUCTOS");
-
-        javax.swing.GroupLayout jPanelRound2Layout = new javax.swing.GroupLayout(jPanelRound2);
-        jPanelRound2.setLayout(jPanelRound2Layout);
-        jPanelRound2Layout.setHorizontalGroup(
-            jPanelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel25)
-                .addContainerGap(194, Short.MAX_VALUE))
-        );
-        jPanelRound2Layout.setVerticalGroup(
-            jPanelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel25)
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("VENTAS");
-
-        javax.swing.GroupLayout jPanelRound3Layout = new javax.swing.GroupLayout(jPanelRound3);
-        jPanelRound3.setLayout(jPanelRound3Layout);
-        jPanelRound3Layout.setHorizontalGroup(
-            jPanelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel26)
-                .addContainerGap(235, Short.MAX_VALUE))
-        );
-        jPanelRound3Layout.setVerticalGroup(
-            jPanelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel26)
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(jPanelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(jPanelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 70, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addComponent(lblRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 465, Short.MAX_VALUE))
-        );
-
-        jTabbedPane.addTab("Inicio", kGradientPanel1);
+        jTabbedPane.addTab("Inicio", jPanel7);
 
         jPanel26.setBackground(new java.awt.Color(41, 53, 87));
         jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1037,16 +955,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         txtNombreConsCli.setHint("NAME");
         jPanel10.add(txtNombreConsCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, -1));
 
-        jButton8.setBackground(new java.awt.Color(41, 37, 87));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("MODIFY");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        modificarCliente.setBackground(new java.awt.Color(41, 37, 87));
+        modificarCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        modificarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        modificarCliente.setText("MODIFY");
+        modificarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                modificarClienteActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, 30));
+        jPanel10.add(modificarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 120, 30));
 
         txtCedulaConsuCli1.setHint("DNI");
         jPanel10.add(txtCedulaConsuCli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 140, -1));
@@ -1804,9 +1722,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jMenu3.setText("INVENTORY");
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoInventarioBuscar.png"))); // NOI18N
-        jMenuItem7.setText("SEARCH");
-        jMenu3.add(jMenuItem7);
+        buscarInven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoInventarioBuscar.png"))); // NOI18N
+        buscarInven.setText("SEARCH");
+        jMenu3.add(buscarInven);
 
         jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoInventarioReporte.png"))); // NOI18N
         jMenuItem8.setText("REPORT");
@@ -1816,14 +1734,25 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jMenu4.setText("BILLLING");
 
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoFacturaGenerar.png"))); // NOI18N
-        jMenuItem9.setText("GENERATE");
-        jMenu4.add(jMenuItem9);
+        jmifactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/IconoFacturaGenerar.png"))); // NOI18N
+        jmifactura.setText("GENERATE");
+        jMenu4.add(jmifactura);
 
         MenuBar.add(jMenu4);
 
-        jMenu5.setText("CAJA");
-        MenuBar.add(jMenu5);
+        MesasL.setText("TABLE");
+
+        Mesas.setText("Tables");
+        MesasL.add(Mesas);
+
+        MenuBar.add(MesasL);
+
+        CajaS.setText("BOX");
+
+        Caja.setText("Box");
+        CajaS.add(Caja);
+
+        MenuBar.add(CajaS);
 
         jmiCerrarSesion.setText("EXIT");
         jmiCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1969,9 +1898,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblEmpleadosMouseClicked
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void modificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_modificarClienteActionPerformed
 
     private void btnActbCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActbCliActionPerformed
         // TODO add your handling code here:
@@ -2150,7 +2079,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JMenuItem Caja;
+    public javax.swing.JMenu CajaS;
     private javax.swing.JMenuBar MenuBar;
+    public javax.swing.JMenuItem Mesas;
+    public javax.swing.JMenu MesasL;
     public javax.swing.JButton btnActbCli;
     public javax.swing.JButton btnActblE;
     public javax.swing.JButton btnActuaMesa;
@@ -2181,6 +2114,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JButton btnMonto;
     public javax.swing.JButton btnPedidosListo;
     public javax.swing.JButton btnPorcion;
+    public javax.swing.JMenuItem buscarInven;
     public javax.swing.JMenuItem cerrar;
     public javax.swing.JComboBox<String> cmbComidas;
     public javax.swing.JComboBox<String> cmbEmpleado;
@@ -2188,7 +2122,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton8;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2196,14 +2129,12 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     public javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel5;
@@ -2215,10 +2146,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel17;
@@ -2240,9 +2168,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private LIB.JPanelRound jPanelRound1;
-    private LIB.JPanelRound jPanelRound2;
-    private LIB.JPanelRound jPanelRound3;
+    private javax.swing.JPanel jPanel7;
     private LIB.JPanelTransparente jPanelTransparente1;
     public LIB.JPanelTransparente jPanelTransparente2;
     private LIB.JPanelTransparente jPanelTransparente3;
@@ -2269,10 +2195,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     public javax.swing.JMenuItem jmiEmpleadoConsu;
     public javax.swing.JMenuItem jmiOrdenes;
     public javax.swing.JMenuItem jmiProductos;
-    private keeptoo.KGradientPanel kGradientPanel1;
-    public javax.swing.JLabel lblRoles;
+    public javax.swing.JMenuItem jmifactura;
     public javax.swing.JLabel lblTotal;
     public javax.swing.JLabel lblTotalFinal;
+    public javax.swing.JButton modificarCliente;
     private javax.swing.JCheckBoxMenuItem moods;
     public javax.swing.JTable tblClientes;
     public javax.swing.JTable tblEleccionMesa;

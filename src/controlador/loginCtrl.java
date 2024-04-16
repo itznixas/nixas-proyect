@@ -55,7 +55,7 @@ public class loginCtrl implements ActionListener {
     MenuAdmin admin = new MenuAdmin();
     MenuCajero cajero = new MenuCajero();
     DefaultTableModel modelo = new DefaultTableModel();
-   
+
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
     mesasDAO mDAO = new mesasDAO();
@@ -129,6 +129,11 @@ public class loginCtrl implements ActionListener {
         this.admin.txtProductoDet.addActionListener(this);
         this.admin.btnEliminarFactura.addActionListener(this);
         this.admin.btnMonto.addActionListener(this);
+        this.admin.buscarInven.addActionListener(this);
+        this.admin.jmifactura.addActionListener(this);
+        this.admin.Mesas.addActionListener(this);
+        this.admin.Caja.addActionListener(this);
+        this.admin.modificarCliente.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -239,6 +244,22 @@ public class loginCtrl implements ActionListener {
         admin.jTabbedPane.setSelectedIndex(6);
     }
 
+    public void inventarioConsuPaneles() {
+        admin.jTabbedPane.setSelectedIndex(7);
+    }
+
+    public void facturaConsuPaneles() {
+        admin.jTabbedPane.setSelectedIndex(8);
+    }
+
+    public void mesasPaneles() {
+        admin.jTabbedPane.setSelectedIndex(9);
+    }
+
+    public void cierreCajaPaneles() {
+        admin.jTabbedPane.setSelectedIndex(10);
+    }
+
     public void cerrarSesion() throws FontFormatException, IOException {
         int option = JOptionPane.showOptionDialog(admin,
                 "¿Desea continuar?",
@@ -271,10 +292,10 @@ public class loginCtrl implements ActionListener {
                 MenuAdmin m = new MenuAdmin();
                 loginCtrl lx = new loginCtrl(m);
 
-                Notification panel = new Notification(m, Notification.Type.SUCCESS, Notification.Location.TOP_CENTER, "Inicio de sesion exitoso.");
+                Notification panel = new Notification(m, Notification.Type.SUCCESS, Notification.Location.TOP_CENTER, "LOG IN SUCCES");
                 panel.showNotification();
                 System.out.println(rol);
-                m.lblRoles.setText(Integer.toString(rol));
+//                m.lblRoles.setText(Integer.toString(rol));
                 admin.jmiProductos.setEnabled(true);
 
                 Thread thread = new Thread(() -> {
@@ -282,7 +303,7 @@ public class loginCtrl implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             m.iniciar();
-                            Notification panel2 = new Notification(m, Notification.Type.SUCCESS, Notification.Location.TOP_LEFT, "Rol Administrador.");
+                            Notification panel2 = new Notification(m, Notification.Type.SUCCESS, Notification.Location.TOP_LEFT, "ROLE ADMINISTRATION.");
                             panel2.showNotification();
                             ventana.setVisible(false);
                         }
@@ -295,16 +316,16 @@ public class loginCtrl implements ActionListener {
             case 222:
                 MenuCajero cajero = new MenuCajero();
                 loginCtrl lgx = new loginCtrl();
-                Notification panel2 = new Notification(cajero, Notification.Type.SUCCESS, Notification.Location.TOP_CENTER, "Inicio de sesion exitoso.");
+                Notification panel2 = new Notification(cajero, Notification.Type.SUCCESS, Notification.Location.TOP_CENTER, "LOG IN SUCCES.");
                 panel2.showNotification();
                 admin.jmiClienteConsu.setVisible(false);
-                cajero.lblRoles.setText(Integer.toString(rol));
+//                cajero.lblRoles.setText(Integer.toString(rol));
                 Thread thread2 = new Thread(() -> {
                     Timer timer = new Timer(2000, new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             cajero.iniciar();
-                            Notification panel2 = new Notification(cajero, Notification.Type.SUCCESS, Notification.Location.TOP_LEFT, "Rol Cajero.");
+                            Notification panel2 = new Notification(cajero, Notification.Type.SUCCESS, Notification.Location.TOP_LEFT, "ROLE CASHIER.");
                             panel2.showNotification();
                             ventana.setVisible(false);
                         }
@@ -316,7 +337,7 @@ public class loginCtrl implements ActionListener {
                 break;
             default:
                 MenuAdmin menu = new MenuAdmin();
-                Notification panel3 = new Notification(menu, Notification.Type.WARNING, Notification.Location.TOP_CENTER, "Rol no encontrado.");
+                Notification panel3 = new Notification(menu, Notification.Type.WARNING, Notification.Location.TOP_CENTER, "ROLE NOT FOUND.");
                 panel3.showNotification();
                 System.out.println("Rol no encontrado");
                 break;
@@ -553,6 +574,26 @@ public class loginCtrl implements ActionListener {
             } else if (admin.cmbEmpleado.getSelectedItem().equals("Mesero")) {
                 id_rol = 333;
             }
+            em.setIdRol(id_rol);
+        }
+        dao.actualizarEmpleado(em);
+        listarEmpleado(admin.tblEmpleados);
+        JOptionPane.showMessageDialog(admin, "Correcto");
+    }
+    public void btnModificarCliente() throws SQLException {
+        regEmpleado em = new regEmpleado() {
+        };
+        regEmpleadoDAO dao = new regEmpleadoDAO();
+        int id_rol = 0;
+        if ("".equals(admin.txtIdConsuCli.getText())) {
+        } else {
+            em.setIdEmpl(Integer.parseInt(admin.txtIdConsuCli.getText()));
+            em.setNombreEmpl(admin.txtNombreConsCli.getText());
+            em.setApellidoEmpl(admin.txtApellidoConsuCli.getText());
+            em.setCedulaEmpl(Integer.parseInt(admin.txtDireccionConsuCli.getText()));
+            em.setCelEmpl(Integer.parseInt(admin.txtCedulaConsuCli1.getText()));
+            em.setUserEmpl(admin.txtTelefonoConsuCli.getText());
+            em.setClaveEmpl(admin.txtIdConsuCli.getText());
             em.setIdRol(id_rol);
         }
         dao.actualizarEmpleado(em);
@@ -1157,8 +1198,9 @@ public class loginCtrl implements ActionListener {
         da.setTotal(totalPagar);
     }
 
-    facturaDetallee dae = new facturaDetallee() { };
-   
+    facturaDetallee dae = new facturaDetallee() {
+    };
+
     public void registrarDetalle(KeyEvent evt) throws SQLException {
         System.out.println("was");
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1206,11 +1248,11 @@ public class loginCtrl implements ActionListener {
                         dae.setCantProd(cantidad);
                         dae.setPredUnitario(precioU);
                         dae.setTotal(total);
-                        
+
                         int r = faDAO.registrarVenta(dae);
                         if (r == 1) {
                             JOptionPane.showMessageDialog(admin, "Venta registrada en la factura detalle");
-                            
+
                         } else {
 
                         }
@@ -1269,16 +1311,16 @@ public class loginCtrl implements ActionListener {
                     da.setTotal(total);
                     da.setFechaFact(fechaFormateada);
                     da.setHoraFact(horaActual);
-                    
+
                     String ingre = dae.getProducto();
                     ingresos();
                     int r = fDAO.facturar(da);
                     if (r == 1) {
                         JOptionPane.showMessageDialog(admin, " factura detalle");
-                       // fDAO.guardarCantidadEnTemp(ingre, cantidad);
-                        fDAO.procesarPedido(ingre, cantidad);                      
+                        // fDAO.guardarCantidadEnTemp(ingre, cantidad);
+                        fDAO.procesarPedido(ingre, cantidad);
                         limpiartabla();
-                        
+
                     } else {
                         JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
                     }
@@ -1292,32 +1334,30 @@ public class loginCtrl implements ActionListener {
     }
     //CAJA DE CIERRE
     float suma = 0;
-public void ingresos() {
-    DefaultTableModel modelos = (DefaultTableModel) admin.tblIngreso.getModel(); // Obtener el modelo existente de la tabla
-    items = items + 1;
-    int fac = da.getIdCabFac();
-    float total = da.getTotal();
-    ArrayList listas = new ArrayList();
-    listas.add(items);
-    listas.add(fac);
-    listas.add(total);
-    Object[] a = new Object[3];
-    a[0] = listas.get(0); // Corregir los índices de los elementos de la lista
-    a[1] = listas.get(1);
-    a[2] = listas.get(2);
-    modelos.addRow(a);
-    modelos.fireTableDataChanged(); // No es necesario llamar a esto si solo estás agregando filas
-    admin.totals.setText(String.valueOf(total));     
-}
 
-
-    
-    
-    public void agregarCierreCaja(){
-        String user = reG.getUserEmpl();
-        
+    public void ingresos() {
+        DefaultTableModel modelos = (DefaultTableModel) admin.tblIngreso.getModel(); // Obtener el modelo existente de la tabla
+        items = items + 1;
+        int fac = da.getIdCabFac();
+        float total = da.getTotal();
+        ArrayList listas = new ArrayList();
+        listas.add(items);
+        listas.add(fac);
+        listas.add(total);
+        Object[] a = new Object[3];
+        a[0] = listas.get(0); // Corregir los índices de los elementos de la lista
+        a[1] = listas.get(1);
+        a[2] = listas.get(2);
+        modelos.addRow(a);
+        modelos.fireTableDataChanged(); // No es necesario llamar a esto si solo estás agregando filas
+        admin.totals.setText(String.valueOf(total));
     }
-    
+
+    public void agregarCierreCaja() {
+        String user = reG.getUserEmpl();
+
+    }
+
     /*
     //REPORTE POR PDF
     public void reportePdf() {
@@ -1433,7 +1473,7 @@ public void ingresos() {
             e.printStackTrace(); // Imprimir la traza de la excepción en caso de error
         }
     }
-*/
+     */
     public void limpiartabla() {
         int rowCount = modelo.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -1452,7 +1492,7 @@ public void ingresos() {
         //Cambios de paneles
         if (e.getSource() == admin.jmiOrdenes) {
             pedidosAggPaneles();
-           
+
         }
         if (e.getSource() == cajero.jmiOrdenes) {
             pedidosAggPaneles2();
@@ -1484,10 +1524,21 @@ public void ingresos() {
             empleadoConsuPaneles();
             listarEmpleado(admin.tblEmpleados);
         }
+        if (e.getSource() == admin.buscarInven) {
+            inventarioConsuPaneles();
+        }
+        if (e.getSource() == admin.jmifactura) {
+            facturaConsuPaneles();
+        }
+        if (e.getSource() == admin.MesasL) {
+            mesasPaneles();
+        }
+        if (e.getSource() == admin.CajaS) {
+            cierreCajaPaneles();
+        }
         if (e.getSource() == admin.btnCkeckIn) {
             System.out.println("GA");
             checkIn();
-           
         }
         if (e.getSource() == admin.cerrar) {
             try {
@@ -1571,7 +1622,25 @@ public void ingresos() {
 
             }
         }
+        if (e.getSource() == admin.modificarCliente) {
+            
+            if (admin.txtNombreConsCli.getText().isEmpty() || admin.txtApellidoConsuCli.getText().isEmpty()
+                    || admin.txtDireccionConsuCli.getText().isEmpty() || admin.txtCedulaConsuCli1.getText().isEmpty()
+                    || admin.txtTelefonoConsuCli.getText().isEmpty() || admin.txtIdConsuCli.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Debes llenar los campos", "Error", JOptionPane.ERROR_MESSAGE);
+//                admin.txtDocE.requestFocus();
+            } else {
+                try {
+                    btnModificarCliente();
+                    limpiarcajasEmpleado();
+                    limpiartabla();
+                    listarEmpleado(admin.tblClientes);
+                } catch (SQLException ex) {
+                    Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
+            }
+        }
         if (e.getSource() == admin.btnActualizarFactura) {
             ActualizarTablaFactura();
         }
@@ -1639,7 +1708,7 @@ public void ingresos() {
 
         if (e.getSource() == admin.btnActuaTabPenPet) {
             try {
-                
+
                 listaPedidos(admin.tblPedidoPendiente);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -1696,7 +1765,7 @@ public void ingresos() {
                 factura(fakeEvent2);
                 eliminarFactura();
                 limpiartabla();
-                
+
                 //reportePdf();
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -1727,7 +1796,7 @@ public void ingresos() {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if(e.getSource()== admin.btnMonto){
+        if (e.getSource() == admin.btnMonto) {
             ingresos();
         }
     }

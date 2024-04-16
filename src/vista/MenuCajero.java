@@ -49,11 +49,6 @@ public class MenuCajero extends javax.swing.JFrame {
         tblEmpleados.getColumnModel().getColumn(5).setCellRenderer(TablaRenderer);
 
         //Tabla Inventario
-        tblInventario.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
-        tblInventario.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
-        tblInventario.getColumnModel().getColumn(2).setCellRenderer(TablaRenderer);
-        tblInventario.getColumnModel().getColumn(3).setCellRenderer(TablaRenderer);
-        tblInventario.getColumnModel().getColumn(4).setCellRenderer(TablaRenderer);
 
         tblEleccionMesa.getColumnModel().getColumn(0).setCellRenderer(TablaRenderer);
         tblEleccionMesa.getColumnModel().getColumn(1).setCellRenderer(TablaRenderer);
@@ -89,7 +84,7 @@ public class MenuCajero extends javax.swing.JFrame {
         };
         regEmpleadoDAO emD = new regEmpleadoDAO();
         int rol = emD.autenticacionRol(reG);
-        lblRoles.setText(Integer.toString(rol));
+        //lblRoles.setText(Integer.toString(rol));
 
         this.connection = connection; // Asigna la conexión
         mesasDAO mesasDao = new mesasDAO(connection);
@@ -111,13 +106,7 @@ public class MenuCajero extends javax.swing.JFrame {
 
         jTabbedPane = new javax.swing.JTabbedPane();
         kGradientPanel1 = new keeptoo.KGradientPanel();
-        lblRoles = new javax.swing.JLabel();
-        jPanelRound1 = new LIB.JPanelRound();
-        jLabel22 = new javax.swing.JLabel();
-        jPanelRound2 = new LIB.JPanelRound();
-        jLabel25 = new javax.swing.JLabel();
-        jPanelRound3 = new LIB.JPanelRound();
-        jLabel26 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         jPanel26 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
         jPanel30 = new javax.swing.JPanel();
@@ -210,19 +199,6 @@ public class MenuCajero extends javax.swing.JFrame {
         txtClaveConsuEmpl = new componentes.TextField();
         jcmRConsuEmpl = new javax.swing.JComboBox<>();
         txtApellidoConuEmpl = new componentes.TextField();
-        jPanel18 = new javax.swing.JPanel();
-        jPanel24 = new javax.swing.JPanel();
-        btnAggProInv = new javax.swing.JButton();
-        btnEliminarConsu = new javax.swing.JButton();
-        jLabel21 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tblInventario = new javax.swing.JTable();
-        txtConsultarInventario = new componentes.TextField();
-        txtCanProdInv = new componentes.TextField();
-        btnActualizarInv = new javax.swing.JButton();
-        btnExcel = new javax.swing.JButton();
-        txtNomProdInv = new componentes.TextField();
-        btnConsuInventario = new javax.swing.JButton();
         jPanel20 = new javax.swing.JPanel();
         jPanelTransparente3 = new LIB.JPanelTransparente();
         jLabel23 = new javax.swing.JLabel();
@@ -295,97 +271,17 @@ public class MenuCajero extends javax.swing.JFrame {
         kGradientPanel1.setkGradientFocus(1);
         kGradientPanel1.setkStartColor(new java.awt.Color(24, 42, 75));
 
-        lblRoles.setEnabled(false);
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("CLIENTES");
-
-        javax.swing.GroupLayout jPanelRound1Layout = new javax.swing.GroupLayout(jPanelRound1);
-        jPanelRound1.setLayout(jPanelRound1Layout);
-        jPanelRound1Layout.setHorizontalGroup(
-            jPanelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel22)
-                .addContainerGap(221, Short.MAX_VALUE))
-        );
-        jPanelRound1Layout.setVerticalGroup(
-            jPanelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel22)
-                .addContainerGap(131, Short.MAX_VALUE))
-        );
-
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("PRODUCTOS");
-
-        javax.swing.GroupLayout jPanelRound2Layout = new javax.swing.GroupLayout(jPanelRound2);
-        jPanelRound2.setLayout(jPanelRound2Layout);
-        jPanelRound2Layout.setHorizontalGroup(
-            jPanelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel25)
-                .addContainerGap(194, Short.MAX_VALUE))
-        );
-        jPanelRound2Layout.setVerticalGroup(
-            jPanelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel25)
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("VENTAS");
-
-        javax.swing.GroupLayout jPanelRound3Layout = new javax.swing.GroupLayout(jPanelRound3);
-        jPanelRound3.setLayout(jPanelRound3Layout);
-        jPanelRound3Layout.setHorizontalGroup(
-            jPanelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel26)
-                .addContainerGap(235, Short.MAX_VALUE))
-        );
-        jPanelRound3Layout.setVerticalGroup(
-            jPanelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRound3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel26)
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/componentes/img/FondoInicio.gif"))); // NOI18N
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(jPanelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(jPanelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 70, Short.MAX_VALUE))
+            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, Short.MAX_VALUE)
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addComponent(lblRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 465, Short.MAX_VALUE))
+            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 725, Short.MAX_VALUE)
         );
 
         jTabbedPane.addTab("Inicio", kGradientPanel1);
@@ -1179,107 +1075,6 @@ public class MenuCajero extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Cons. Empleados", jPanel17);
 
-        jPanel24.setBackground(new java.awt.Color(24, 42, 75));
-        jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnAggProInv.setBackground(new java.awt.Color(41, 37, 87));
-        btnAggProInv.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnAggProInv.setForeground(new java.awt.Color(255, 255, 255));
-        btnAggProInv.setText("MODIFY");
-        btnAggProInv.setBorderPainted(false);
-        btnAggProInv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAggProInvActionPerformed(evt);
-            }
-        });
-        jPanel24.add(btnAggProInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 100, 30));
-
-        btnEliminarConsu.setBackground(java.awt.Color.red);
-        btnEliminarConsu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnEliminarConsu.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminarConsu.setText("DELETE");
-        jPanel24.add(btnEliminarConsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 90, 30));
-
-        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("INVENTORY");
-        jPanel24.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 280, -1));
-
-        tblInventario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Entrada", "Salida", "Fecha", "id_Entrada", "id_Salida"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tblInventario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblInventarioMouseClicked(evt);
-            }
-        });
-        jScrollPane7.setViewportView(tblInventario);
-
-        jPanel24.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 830, 490));
-
-        txtConsultarInventario.setHint("NAME");
-        jPanel24.add(txtConsultarInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 330, 40));
-
-        txtCanProdInv.setHint("QUANTITY");
-        jPanel24.add(txtCanProdInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 140, -1));
-
-        btnActualizarInv.setBackground(new java.awt.Color(41, 37, 87));
-        btnActualizarInv.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnActualizarInv.setForeground(new java.awt.Color(255, 255, 255));
-        btnActualizarInv.setText("UPDATE");
-        jPanel24.add(btnActualizarInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 630, 120, 30));
-
-        btnExcel.setBackground(new java.awt.Color(41, 37, 87));
-        btnExcel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnExcel.setForeground(new java.awt.Color(255, 255, 255));
-        btnExcel.setText("EXCEL");
-        jPanel24.add(btnExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 120, 30));
-
-        txtNomProdInv.setHint("NAME");
-        jPanel24.add(txtNomProdInv, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 130, -1));
-
-        btnConsuInventario.setBackground(new java.awt.Color(41, 37, 87));
-        btnConsuInventario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnConsuInventario.setForeground(new java.awt.Color(255, 255, 255));
-        btnConsuInventario.setText("SEARCH");
-        jPanel24.add(btnConsuInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 60, 120, 30));
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1370, Short.MAX_VALUE)
-            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel18Layout.createSequentialGroup()
-                    .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 1367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 725, Short.MAX_VALUE)
-            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE))
-        );
-
-        jTabbedPane.addTab("Cons. Inventario", jPanel18);
-
         jPanel20.setBackground(new java.awt.Color(24, 42, 75));
 
         jLabel23.setBackground(new java.awt.Color(255, 255, 255));
@@ -1796,14 +1591,6 @@ public class MenuCajero extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdClienteFacActionPerformed
 
-    private void tblInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInventarioMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tblInventarioMouseClicked
-
-    private void btnAggProInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggProInvActionPerformed
-        // TODO add your handling code here:be
-    }//GEN-LAST:event_btnAggProInvActionPerformed
-
     private void txtUserConsuEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserConsuEmplActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserConsuEmplActionPerformed
@@ -1953,19 +1740,14 @@ public class MenuCajero extends javax.swing.JFrame {
     public javax.swing.JButton btnActuaProdPedi;
     public javax.swing.JButton btnActuaTabPenPet;
     public javax.swing.JButton btnActualizarFactura;
-    public javax.swing.JButton btnActualizarInv;
     public javax.swing.JButton btnAggPedidos;
-    public javax.swing.JButton btnAggProInv;
     public javax.swing.JButton btnAgregarC;
     public javax.swing.JButton btnAgregarEm;
     public javax.swing.JButton btnCkeckIn;
-    public javax.swing.JButton btnConsuInventario;
     public javax.swing.JButton btnConsultaCL;
     public javax.swing.JButton btnConsultarEm;
     public javax.swing.JButton btnEliminarClie;
-    public javax.swing.JButton btnEliminarConsu;
     public javax.swing.JButton btnEliminarEmp;
-    public javax.swing.JButton btnExcel;
     public javax.swing.JButton btnFacturarDet;
     public javax.swing.JButton btnMesa1;
     public javax.swing.JButton btnMesa2;
@@ -1996,11 +1778,8 @@ public class MenuCajero extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel5;
@@ -2018,10 +1797,8 @@ public class MenuCajero extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel30;
@@ -2034,9 +1811,6 @@ public class MenuCajero extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private LIB.JPanelRound jPanelRound1;
-    private LIB.JPanelRound jPanelRound2;
-    private LIB.JPanelRound jPanelRound3;
     private LIB.JPanelTransparente jPanelTransparente1;
     public LIB.JPanelTransparente jPanelTransparente2;
     private LIB.JPanelTransparente jPanelTransparente3;
@@ -2049,7 +1823,6 @@ public class MenuCajero extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     public javax.swing.JTabbedPane jTabbedPane;
     public javax.swing.JToggleButton jToggleButton1;
     public javax.swing.JToggleButton jToggleButton2;
@@ -2063,7 +1836,6 @@ public class MenuCajero extends javax.swing.JFrame {
     public javax.swing.JMenuItem jmiOrdenes;
     public javax.swing.JMenuItem jmiProductos;
     private keeptoo.KGradientPanel kGradientPanel1;
-    public javax.swing.JLabel lblRoles;
     public javax.swing.JLabel lblTotal;
     public javax.swing.JLabel lblTotalFinal;
     private javax.swing.JCheckBoxMenuItem moods;
@@ -2071,7 +1843,6 @@ public class MenuCajero extends javax.swing.JFrame {
     public javax.swing.JTable tblEleccionMesa;
     public javax.swing.JTable tblEmpleados;
     public javax.swing.JTable tblFactura;
-    public javax.swing.JTable tblInventario;
     public javax.swing.JTable tblPedidoListo;
     public javax.swing.JTable tblPedidoPendiente;
     public javax.swing.JTable tblStockProductos;
@@ -2079,7 +1850,6 @@ public class MenuCajero extends javax.swing.JFrame {
     public componentes.TextField txtApellidoConsuCli;
     public componentes.TextField txtApellidoConuEmpl;
     public componentes.TextField txtApellidoE;
-    public componentes.TextField txtCanProdInv;
     public componentes.TextField txtCantProdDet;
     public componentes.TextField txtCantidadP;
     public componentes.TextField txtCantidadProPed;
@@ -2091,7 +1861,6 @@ public class MenuCajero extends javax.swing.JFrame {
     public componentes.TextField txtClaveE;
     public componentes.TextField txtConsulatCL;
     public componentes.TextField txtConsultarEm;
-    public componentes.TextField txtConsultarInventario;
     public componentes.TextField txtDescuentoFac;
     public componentes.TextField txtDireccionC;
     public componentes.TextField txtDireccionConsuCli;
@@ -2105,7 +1874,6 @@ public class MenuCajero extends javax.swing.JFrame {
     public componentes.TextField txtIdProductoDet;
     public componentes.TextField txtMesaId;
     public componentes.TextField txtMetodoPago;
-    public componentes.TextField txtNomProdInv;
     public componentes.TextField txtNomProducPed;
     public componentes.TextField txtNombreC;
     public componentes.TextField txtNombreConsCli;
