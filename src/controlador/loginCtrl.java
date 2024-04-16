@@ -55,7 +55,7 @@ public class loginCtrl implements ActionListener {
     MenuAdmin admin = new MenuAdmin();
     MenuCajero cajero = new MenuCajero();
     DefaultTableModel modelo = new DefaultTableModel();
-    DefaultTableModel modelos = new DefaultTableModel();
+   
     clienteDAO cli = new clienteDAO();
     proCatDAO proDAO = new proCatDAO();
     mesasDAO mDAO = new mesasDAO();
@@ -128,6 +128,7 @@ public class loginCtrl implements ActionListener {
         this.admin.txtIdCajeroFac.addActionListener(this);
         this.admin.txtProductoDet.addActionListener(this);
         this.admin.btnEliminarFactura.addActionListener(this);
+        this.admin.btnMonto.addActionListener(this);
     }
 
     public void btnExcell() {
@@ -1170,8 +1171,6 @@ public class loginCtrl implements ActionListener {
                 //admin.lblTotal.setText(String.valueOf(total));
                 if (20 >= cantidad) {
                     item = item + 1;
-                    
-
                     // Verifica si la tabla está inicializada y no es null
                     if (admin.tblFacturaEleccipn != null) {
                         modelo = (DefaultTableModel) admin.tblFacturaEleccipn.getModel();
@@ -1272,30 +1271,14 @@ public class loginCtrl implements ActionListener {
                     da.setHoraFact(horaActual);
                     
                     String ingre = dae.getProducto();
-                    
+                    ingresos();
                     int r = fDAO.facturar(da);
                     if (r == 1) {
                         JOptionPane.showMessageDialog(admin, " factura detalle");
                        // fDAO.guardarCantidadEnTemp(ingre, cantidad);
-                        fDAO.procesarPedido(ingre, cantidad);
-                        ingresos();
+                        fDAO.procesarPedido(ingre, cantidad);                      
                         limpiartabla();
-                        int fac = da.getIdCabFac();
-                        //suma =+ total;
-                        //System.out.println(suma);
-                        items = items + 1;
-                        ArrayList listas = new ArrayList();
-                        listas.add(items);
-                        listas.add(fac);
-                        listas.add(total);
-                        Object[] o = new Object[3];
-                        o[0] = listas.get(0);
-                        o[1] = listas.get(1);
-                        o[2] = listas.get(2);
-                        modelos.addRow(o);
-                        modelos.fireTableDataChanged(); // Notificar a la tabla que los datos han cambiado
-                        admin.tblIngreso.setModel(modelos); 
-                        admin.totals.setText(String.valueOf(total));
+                        
                     } else {
                         JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
                     }
@@ -1309,10 +1292,24 @@ public class loginCtrl implements ActionListener {
     }
     //CAJA DE CIERRE
     float suma = 0;
-public void ingresos(){
-    item = item + 1;
-         
+public void ingresos() {
+    DefaultTableModel modelos = (DefaultTableModel) admin.tblIngreso.getModel(); // Obtener el modelo existente de la tabla
+    items = items + 1;
+    int fac = da.getIdCabFac();
+    float total = da.getTotal();
+    ArrayList listas = new ArrayList();
+    listas.add(items);
+    listas.add(fac);
+    listas.add(total);
+    Object[] a = new Object[3];
+    a[0] = listas.get(0); // Corregir los índices de los elementos de la lista
+    a[1] = listas.get(1);
+    a[2] = listas.get(2);
+    modelos.addRow(a);
+    modelos.fireTableDataChanged(); // No es necesario llamar a esto si solo estás agregando filas
+    admin.totals.setText(String.valueOf(total));     
 }
+
 
     
     
@@ -1455,6 +1452,7 @@ public void ingresos(){
         //Cambios de paneles
         if (e.getSource() == admin.jmiOrdenes) {
             pedidosAggPaneles();
+           
         }
         if (e.getSource() == cajero.jmiOrdenes) {
             pedidosAggPaneles2();
@@ -1641,7 +1639,7 @@ public void ingresos(){
 
         if (e.getSource() == admin.btnActuaTabPenPet) {
             try {
-                System.out.println("csddcsds");
+                
                 listaPedidos(admin.tblPedidoPendiente);
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -1696,6 +1694,7 @@ public void ingresos(){
             try {
                 // registrarDetalle(fakeEvent1);
                 factura(fakeEvent2);
+                eliminarFactura();
                 limpiartabla();
                 
                 //reportePdf();
@@ -1727,6 +1726,9 @@ public void ingresos(){
             } catch (SQLException ex) {
                 Logger.getLogger(loginCtrl.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        if(e.getSource()== admin.btnMonto){
+            ingresos();
         }
     }
 }
