@@ -1,8 +1,11 @@
 package modelo;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
+import vista.MenuAdmin;
 
 /**
  *
@@ -14,7 +17,7 @@ public class inventarioDAO {
          Connection cn;
          PreparedStatement ps;
          ResultSet rs;
-         
+         MenuAdmin admin = new MenuAdmin();
         public int agregarPedidoEntrada(inventario inv) throws SQLException {
     String sql = "INSERT INTO iv_prod_ent (nombre, cantidad, fecha) VALUES (?, ?, ?)";
     try {
@@ -218,4 +221,68 @@ public class inventarioDAO {
         }
         return lista_inventario;
     }
+    
+   public void agregarProductos(String nombre, int cantidad) {
+    Connection cn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
+    try {
+        cn = con.getConnection();
+        // Verificar si el producto ya existe en la tabla iv_prod_ent
+        PreparedStatement selectStatement = cn.prepareStatement("SELECT * FROM iv_prod_ent WHERE nombre = ?");
+        selectStatement.setString(1, nombre);
+        ResultSet resultSet = selectStatement.executeQuery();
+        
+        if (resultSet.next()) {
+            // Si el producto ya existe, actualizar la cantidad y la fecha
+            int cantidadExistente = resultSet.getInt("cantidad");
+            int nuevaCantidad = cantidadExistente + cantidad;
+            
+            Timestamp fechaActualizacion = new Timestamp(System.currentTimeMillis());
+            String fechaActualizacionStr = new SimpleDateFormat("dd/MM/yyyy").format(fechaActualizacion);
+            
+            PreparedStatement updateStatement = cn.prepareStatement(
+                    "UPDATE iv_prod_ent SET cantidad = ?, fecha = ? WHERE nombre = ?");
+            updateStatement.setInt(1, nuevaCantidad);
+            updateStatement.setString(2, fechaActualizacionStr);
+            updateStatement.setString(3, nombre);
+            updateStatement.executeUpdate();
+            
+            JOptionPane.showMessageDialog(admin, "Se ha actualizado la cantidad y la fecha del producto en el inventario.");
+        } else {
+            // Si el producto no existe, insertarlo en la tabla iv_prod_ent
+            Timestamp fechaInsercion = new Timestamp(System.currentTimeMillis());
+            String fechaInsercionStr = new SimpleDateFormat("dd/MM/yyyy").format(fechaInsercion);
+            
+            PreparedStatement insertStatement = cn.prepareStatement(
+                    "INSERT INTO iv_prod_ent (nombre, cantidad, fecha) VALUES (?, ?, ?)");
+            insertStatement.setString(1, nombre);
+            insertStatement.setInt(2, cantidad);
+            insertStatement.setString(3, fechaInsercionStr);
+            insertStatement.executeUpdate();
+            
+            JOptionPane.showMessageDialog(admin, "Producto agregado correctamente al inventario.");
+        }
+    } catch (SQLException e) {
+        System.err.println("Error al agregar o actualizar el producto en el inventario: " + e.getMessage());
+    } finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al cerrar la conexión: " + ex.getMessage());
+        }
+    }
+}
+
+
 }

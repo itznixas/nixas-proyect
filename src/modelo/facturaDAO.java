@@ -1,7 +1,9 @@
 package modelo;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import vista.MenuAdmin;
 
 public class facturaDAO {
 
@@ -9,6 +11,7 @@ public class facturaDAO {
     Connection cn;
     PreparedStatement ps;
     ResultSet rs;
+    MenuAdmin admin = new MenuAdmin();
 
     public int facturar(factauraCabe fac) throws SQLException {
         int r = 0;
@@ -184,4 +187,189 @@ public class facturaDAO {
             }
         }
     }
+    
+ public void guardarCantidadEnTemp(String ingrediente, int cantidadNecesaria) {
+    Connection cn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
+    try {
+        cn = con.getConnection();
+        
+        // Obtener el ID de iv_prod_ent para el ingrediente
+        PreparedStatement selectEntStatement = cn.prepareStatement("SELECT id_prod_sal FROM iv_prod_sal WHERE nombre = ?");
+        selectEntStatement.setString(1, ingrediente);
+        ResultSet entResultSet = selectEntStatement.executeQuery();
+        int idProdEnt = -1; // Valor predeterminado si no se encuentra el ingrediente en iv_prod_ent
+        if (entResultSet.next()) {
+            idProdEnt = entResultSet.getInt("id_prod_sal");
+        }
+
+        // Obtener el ID de iv_prod_sal para el ingrediente
+        PreparedStatement selectSalStatement = cn.prepareStatement("SELECT id_prod_ent, cantidad FROM iv_prod_ent WHERE nombre = ?");
+        selectSalStatement.setString(1, ingrediente);
+        ResultSet salResultSet = selectSalStatement.executeQuery();
+        int idProdSal = -1; // Valor predeterminado si no se encuentra el ingrediente en iv_prod_sal
+        int cantidadSal = 0; // Valor predeterminado para la cantidad de salida
+        if (salResultSet.next()) {
+            idProdSal = salResultSet.getInt("id_prod_ent");
+            cantidadSal = salResultSet.getInt("cantidad");
+        }
+
+        // Verificar si el ingrediente ya existe en la tabla iv_temp
+        PreparedStatement selectTempStatement = cn.prepareStatement("SELECT * FROM iv_temp WHERE nombre = ?");
+        selectTempStatement.setString(1, ingrediente);
+        ResultSet tempResultSet = selectTempStatement.executeQuery();
+        
+
+        if (tempResultSet.next()) {
+            // Si el ingrediente ya existe, actualizar la cantidad
+            int cantidadExistente = tempResultSet.getInt("cant_sal");
+            int nuevaCantidad = cantidadExistente + cantidadNecesaria;
+            
+            PreparedStatement updateStatement = cn.prepareStatement(
+                    "UPDATE iv_temp SET cant_sal = ?, cant_ent = ?, iv_prod_ent_id_prod_ent = ?, iv_prod_sal_id_prod_sal = ? WHERE nombre = ?");
+            updateStatement.setInt(1, nuevaCantidad);
+            updateStatement.setInt(2, cantidadSal); // Actualizar la cantidad de salida
+            updateStatement.setInt(3, idProdSal);
+            updateStatement.setInt(4, idProdEnt);
+            updateStatement.setString(5, ingrediente);
+            updateStatement.executeUpdate();
+        } else {
+           SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date date = new java.util.Date();
+            String a = dateFormat.format(date);
+            // Si el ingrediente no existe, insertarlo en la tabla iv_temp
+            PreparedStatement insertStatement = cn.prepareStatement(
+                    "INSERT INTO iv_temp (nombre, cant_sal, cant_ent, iv_prod_ent_id_prod_ent, iv_prod_sal_id_prod_sal, fecha) VALUES (?, ?, ?, ?, ?, ?)");
+            insertStatement.setString(1, ingrediente);
+            insertStatement.setInt(2, cantidadNecesaria); // Cantidad de entrada
+            insertStatement.setInt(3, cantidadSal); // Asignar la cantidad de salida inicial
+            insertStatement.setInt(4, idProdSal);
+            insertStatement.setInt(5, idProdEnt);
+            insertStatement.setString(6, a); // Usar la variable 'a' que contiene la fecha actual
+            insertStatement.executeUpdate();
+
+        }
+    } catch (SQLException e) {
+        System.err.println("Error al guardar la cantidad en la tabla iv_temp: " + e.getMessage());
+    } finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al cerrar la conexión: " + ex.getMessage());
+        }
+    }
+}
+
+
+   public String obtenerFechaActual() {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    java.util.Date date = new java.util.Date();
+    return dateFormat.format(date);
+}
+
+public void procesarPedido(String plato, int cantidad) {
+    Connection cn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+
+    try {
+        cn = con.getConnection();
+        Statement statement = cn.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM prod_platos WHERE nombre = '" + plato + "'");
+
+        while (resultSet.next()) {
+            String ingrediente = resultSet.getString("ingredientes");
+            int cantidadNecesaria = resultSet.getInt("cantidad");
+
+            // Verificar si hay suficientes ingredientes en el inventario
+            PreparedStatement checkStatement = cn.prepareStatement(
+                    "SELECT cantidad FROM iv_prod_ent WHERE nombre = ?");
+            checkStatement.setString(1, ingrediente);
+            ResultSet checkResult = checkStatement.executeQuery();
+            if (checkResult.next()) {
+                int cantidadDisponible = checkResult.getInt("cantidad");
+                if (cantidadDisponible < (cantidadNecesaria * cantidad)) {
+                    JOptionPane.showMessageDialog(admin, "No hay suficientes ingredientes en el inventario para realizar el pedido de " + plato);
+                    return; // Salir del método si no hay suficientes ingredientes
+                }
+            } else {
+                JOptionPane.showMessageDialog(admin, "El ingrediente " + ingrediente + " no está en el inventario.");
+                return; // Salir del método si el ingrediente no está en el inventario
+            }
+
+            // Actualizar la cantidad de ingredientes en el inventario
+            PreparedStatement updateStatement = cn.prepareStatement(
+                    "UPDATE iv_prod_ent SET cantidad = cantidad - ? WHERE nombre = ?");
+            updateStatement.setInt(1, cantidadNecesaria * cantidad);
+            updateStatement.setString(2, ingrediente);
+            updateStatement.executeUpdate();
+
+            // Guardar la cantidad de ingredientes en iv_temp
+            guardarCantidadEnTemp( ingrediente, cantidadNecesaria);
+
+            // Verificar si ya existe una entrada para el ingrediente en iv_prod_sal para el día actual
+            java.util.Date fechaActual = new java.util.Date();
+            java.sql.Date fechaActualSql = new java.sql.Date(fechaActual.getTime());
+            
+            PreparedStatement selectStatement = cn.prepareStatement(
+                    "SELECT * FROM iv_prod_sal WHERE nombre = ? AND fecha = ?");
+            selectStatement.setString(1, ingrediente);
+            selectStatement.setDate(2, fechaActualSql);
+            ResultSet selectResult = selectStatement.executeQuery();
+            
+            if (selectResult.next()) {
+                // Si ya existe una entrada para el ingrediente en el día actual, actualizar la cantidad
+                int cantidadExistente = selectResult.getInt("cantidad");
+                int nuevaCantidad = cantidadExistente + (cantidadNecesaria * cantidad);
+                
+                PreparedStatement updateQuantityStatement = cn.prepareStatement(
+                        "UPDATE iv_prod_sal SET cantidad = ? WHERE nombre = ? AND fecha = ?");
+                updateQuantityStatement.setInt(1, nuevaCantidad);
+                updateQuantityStatement.setString(2, ingrediente);
+                updateQuantityStatement.setDate(3, fechaActualSql);
+                updateQuantityStatement.executeUpdate();
+            } else {
+                // Si no existe una entrada para el ingrediente en el día actual, insertar una nueva fila
+                PreparedStatement insertStatement = cn.prepareStatement(
+                        "INSERT INTO iv_prod_sal (nombre, cantidad, fecha) VALUES (?, ?, ?)");
+                insertStatement.setString(1, ingrediente);
+                insertStatement.setInt(2, cantidadNecesaria * cantidad);
+                insertStatement.setDate(3, fechaActualSql);
+                insertStatement.executeUpdate();
+            }
+        }
+        System.out.println("Pedido procesado: " + cantidad + " plato(s) de " + plato);
+        JOptionPane.showMessageDialog(admin, "Pedido realizado correctamente\nPlato: " + plato + "\nCantidad: " + cantidad);
+    } catch (SQLException e) {
+        System.err.println("Error al procesar el pedido: " + e.getMessage());
+    } finally {
+        // Cerrar recursos en orden inverso de apertura para evitar problemas
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (cn != null) {
+                cn.close();
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al cerrar la conexión: " + ex.getMessage());
+        }
+    }
+}
+
+      
 }

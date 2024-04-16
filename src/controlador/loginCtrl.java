@@ -939,12 +939,9 @@ public class loginCtrl implements ActionListener {
                 String fechaFormateada = fechaActual.format(formatter);
                 in.setFechaInvEntrada(fechaFormateada);
 
-                int r = inDAO.agregarPedidoEntrada(in);
-                if (r == 1) {
-                    JOptionPane.showMessageDialog(admin, "Producto ingresado");
-                } else {
-                    JOptionPane.showMessageDialog(admin, "Error");
-                }
+                String nom = in.getNomEntrada();
+                int can = in.getCantEntrada();
+                inDAO.agregarProductos(nom, can);
             } else {
                 JOptionPane.showMessageDialog(admin, "Ingrese el nombre del producto");
             }
@@ -1157,6 +1154,8 @@ public class loginCtrl implements ActionListener {
         da.setTotal(totalPagar);
     }
 
+    facturaDetallee dae = new facturaDetallee() { };
+   
     public void registrarDetalle(KeyEvent evt) throws SQLException {
         System.out.println("was");
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1169,8 +1168,7 @@ public class loginCtrl implements ActionListener {
                 //admin.lblTotal.setText(String.valueOf(total));
                 if (20 >= cantidad) {
                     item = item + 1;
-                    facturaDetallee da = new facturaDetallee() {
-                    };
+                    
 
                     // Verifica si la tabla está inicializada y no es null
                     if (admin.tblFacturaEleccipn != null) {
@@ -1202,14 +1200,16 @@ public class loginCtrl implements ActionListener {
                         admin.tblFacturaEleccipn.setModel(modelo);
                         TotalPagar();
                         // Realiza el registro de la venta en la base de datos
-                        da.setIdDetFact(cod);
-                        da.setProducto(product);
-                        da.setCantProd(cantidad);
-                        da.setPredUnitario(precioU);
-                        da.setTotal(total);
-                        int r = faDAO.registrarVenta(da);
+                        dae.setIdDetFact(cod);
+                        dae.setProducto(product);
+                        dae.setCantProd(cantidad);
+                        dae.setPredUnitario(precioU);
+                        dae.setTotal(total);
+                        
+                        int r = faDAO.registrarVenta(dae);
                         if (r == 1) {
                             JOptionPane.showMessageDialog(admin, "Venta registrada en la factura detalle");
+                            
                         } else {
 
                         }
@@ -1268,9 +1268,14 @@ public class loginCtrl implements ActionListener {
                     da.setTotal(total);
                     da.setFechaFact(fechaFormateada);
                     da.setHoraFact(horaActual);
+                    
+                    String ingre = dae.getProducto();
+                    
                     int r = fDAO.facturar(da);
                     if (r == 1) {
                         JOptionPane.showMessageDialog(admin, " factura detalle");
+                        fDAO.guardarCantidadEnTemp(ingre, cantidad);
+                        fDAO.procesarPedido(ingre, cantidad);
                     } else {
                         JOptionPane.showMessageDialog(admin, "Error, en la factura detalle");
                     }
